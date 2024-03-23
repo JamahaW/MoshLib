@@ -24,23 +24,28 @@ LineSensor rightLineSensor(PIN_LINE_RIGHT, BLACK_RIGHT, WHITE_RIGHT, GRAY_RIGHT,
 Servo servo;
 
 static void _leftDrive() {
-  leftMotor.inc();}
+  leftMotor.inc();
+}
 static void _rightDrive() {
-  rightMotor.inc();}
+  rightMotor.inc();
+}
 void init_motors() {
   leftMotor.attach(_leftDrive);
-  rightMotor.attach(_rightDrive);}
+  rightMotor.attach(_rightDrive);
+}
 void resetTicks() {
   leftMotor.resetTicks();
-  rightMotor.resetTicks();}
+  rightMotor.resetTicks();
+}
 
 //функции
 void setMotors(int16_t left_speed, int16_t right_speed, uint32_t time = 0) {  //управление моторами
   leftMotor.set(left_speed);
   rightMotor.set(right_speed);
-  delay(time);}
-void betterSetMotors(int16_t left_speed, int16_t right_speed){
-  
+  delay(time);
+}
+void betterSetMotors(int16_t left_speed, int16_t right_speed) {
+
 }
 void stopMotors(uint16_t timer = 500) {  //торможение
   resetTicks();
@@ -50,7 +55,8 @@ void stopMotors(uint16_t timer = 500) {  //торможение
     int16_t r = rightMotor.ticks;
     setMotors(-l, -r);
   }
-  setMotors(0, 0);}
+  setMotors(0, 0);
+}
 
 //езда по линии
 static void _moveLineTickPD() {  //PD-регулятор
@@ -69,14 +75,16 @@ static void _moveLineTickPD() {  //PD-регулятор
 static void _moveLineTickZigZagLeft() {  //заг-заг по левому датчику
   if (leftLineSensor.onLine()) {
     setMotors(-40, 100);
-  } else {
+  }
+  else {
     setMotors(100, -40);
   }
 }
 static void _moveLineTickZigZagRight() {  //зиг-заг по правому датчику
   if (rightLineSensor.onLine()) {
     setMotors(100, -40);
-  } else {
+  }
+  else {
     setMotors(-40, 100);
   }
 }
@@ -85,9 +93,11 @@ static void _moveLineTickZigZagBoth() {  //зиг-заг по 2 датчикам
   bool l = leftLineSensor.onLine();
   if (l == r) {
     setMotors(100, 100);
-  } else if (r) {
+  }
+  else if (r) {
     setMotors(100, -70);
-  } else {
+  }
+  else {
     setMotors(-70, 100);
   }
 }
@@ -106,16 +116,20 @@ static void _moveWallTickPD(float target, DistSensorTypes sensor, bool reversed)
 static void _moveWallTickZigZag(float target, DistSensorTypes sensor, bool reversed) {
   if (abs(target - getDist(sensor)) < 4) {
     setMotors(100, 100);
-  } else if (reversed) {
+  }
+  else if (reversed) {
     if (target > sensor) {
       setMotors(100, -50);
-    } else {
+    }
+    else {
       setMotors(-50, 100);
     }
-  } else {
+  }
+  else {
     if (target > sensor) {
       setMotors(-50, 100);
-    } else {
+    }
+    else {
       setMotors(100, -50);
     }
   }
@@ -154,71 +168,71 @@ static bool _lineSensorStopCondition() {
 
 static void _moveLineTick(MoveAlgoritms movement_type) {  //корректировка моторов при езде по линии
   switch (movement_type) {
-    case PD_REG:
-      _moveLineTickPD();
-      break;
-    case ZIG_ZAG_LEFT:
-      _moveLineTickZigZagLeft();
-      break;
-    case ZIG_ZAG_RIGHT:
-      _moveLineTickZigZagRight();
-      break;
-    case ZIG_ZAG_BOTH:
-      _moveLineTickZigZagBoth();
-      break;
-    default:
-      break;
+  case PD_REG:
+    _moveLineTickPD();
+    break;
+  case ZIG_ZAG_LEFT:
+    _moveLineTickZigZagLeft();
+    break;
+  case ZIG_ZAG_RIGHT:
+    _moveLineTickZigZagRight();
+    break;
+  case ZIG_ZAG_BOTH:
+    _moveLineTickZigZagBoth();
+    break;
+  default:
+    break;
   }
 }
 static void _moveWallTick(float target, MoveAlgoritms movement_type, DistSensorTypes sensor, bool reversed) {
   switch (movement_type) {
-    case PD_REG:
-      _moveWallTickPD(target, sensor, reversed);
-      break;
-    case ZIG_ZAG:
-      _moveWallTickZigZag(target, sensor, reversed);
-      break;
-    default:
-      break;
+  case PD_REG:
+    _moveWallTickPD(target, sensor, reversed);
+    break;
+  case ZIG_ZAG:
+    _moveWallTickZigZag(target, sensor, reversed);
+    break;
+  default:
+    break;
   }
 }
 
 static bool _checkMoveConditions(MoveStopTypes stop_type, int32_t argument, DistSensorTypes dist = US) {  //проверка условий остановки
   switch (stop_type) {
-    case ON_TIME:
-      return _timeStopCondition(start_time + argument);
-      break;
-    case ON_CROSS:
-      return _crossesStopCondition(argument);
-      break;
-    case BY_RIDE_DISTANCE:
-      return _distanceStopCondition(argument);
-      break;
-    case ON_WALL_DISTANCE:
-      return _distanceSensorStopCondition(argument, dist);
-      break;
-    default:
-      return true;
-      break;
+  case ON_TIME:
+    return _timeStopCondition(start_time + argument);
+    break;
+  case ON_CROSS:
+    return _crossesStopCondition(argument);
+    break;
+  case BY_RIDE_DISTANCE:
+    return _distanceStopCondition(argument);
+    break;
+  case ON_WALL_DISTANCE:
+    return _distanceSensorStopCondition(argument, dist);
+    break;
+  default:
+    return true;
+    break;
   }
 }
 static bool _checkMoveConditions_Wall(MoveStopTypes stop_type, int32_t argument, DistSensorTypes dist) {
   switch (stop_type) {
-    case ON_TIME:
-      return _timeStopCondition(start_time + argument);
-      break;
-    case ON_LINE:
-      return _lineSensorStopCondition();
-      break;
-    case BY_RIDE_DISTANCE:
-      return _distanceStopCondition(argument);
-      break;
-    case BY_END_WALL:
-      return _endWallStopCondition(dist, argument);
-      break;
-    default:
-      return true;
-      break;
+  case ON_TIME:
+    return _timeStopCondition(start_time + argument);
+    break;
+  case ON_LINE:
+    return _lineSensorStopCondition();
+    break;
+  case BY_RIDE_DISTANCE:
+    return _distanceStopCondition(argument);
+    break;
+  case BY_END_WALL:
+    return _endWallStopCondition(dist, argument);
+    break;
+  default:
+    return true;
+    break;
   }
 }
 

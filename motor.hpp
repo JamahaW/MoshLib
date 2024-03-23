@@ -137,7 +137,7 @@ static void __left_tick() { leftMotor.enc(); }
 static void __right_tick() { rightMotor.enc(); }
 
 
-struct MotorController {
+struct __MotorController {
 
     /// @brief Отключить ШИМ моторов
     void off() {

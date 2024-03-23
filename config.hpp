@@ -35,5 +35,29 @@ namespace cfg
         R_SENSOR = A1,
         R_LINE = 108,
         R_FIELD = 981,
+
+        GRAY_PERCENT = 50,
+    };
+
+    // ИК-Датчик расстояния
+    enum IR
+    {
+        L_PIN = A2,
+        R_PIN = A3,
+
+        I_MIN_DIST = 90,
+        I_MAX_DIST = 500,
+        I_PERIOD = 15,
+    };
+    
+    // УЗ-Датчик расстояния
+    enum US
+    {
+        PIN_ECHO = 12,
+        PIN_TRIG = 13,
+
+        U_MIN_DIST = 25,
+        U_MAX_DIST = 1000,
+        U_PERIOD = 100,
     };
 }
