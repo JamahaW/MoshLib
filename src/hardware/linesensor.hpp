@@ -4,7 +4,7 @@
 #include "config.hpp"
 
 
-namespace sys {
+namespace hardware {
 
     /**
      * @brief Аналоговый датчик линии

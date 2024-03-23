@@ -3,7 +3,8 @@
 #include <Arduino.h>
 #include "config.hpp"
 
-namespace sys
+
+namespace hardware
 {
     /// @brief Обработчик левого мотора
     void __l_int();
@@ -47,14 +48,7 @@ namespace sys
          * @param pin_enc_a пин основного канала энкодера (Цифровой ПРЕРЫВАНИЕ)
          * @param pin_enc_b пин второго канала энкодера (Цифровой)
          */
-        Motor(
-            void (*encoder_handler) (void),
-            const bool inverted,
-            const uint8_t pin_speed,
-            const uint8_t pin_dir,
-            const uint8_t pin_enc_a,
-            const uint8_t pin_enc_b
-        );
+        Motor(void (*encoder_handler) (void), const bool inverted, const uint8_t pin_speed, const uint8_t pin_dir, const uint8_t pin_enc_a, const uint8_t pin_enc_b);
 
         /// @brief вызывается исключительно в прерывании
         void enc();

@@ -49,28 +49,28 @@ namespace pin
 }
 
 /// @brief Левый датчик линии
-sys::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
+hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
 
 /// @brief Правый датчик линии
-sys::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
+hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
 
 /// @brief Левый ИК-датчик расстояния
-sys::IrSensorSharp irL(pin::L_PIN);
+hardware::IrSensorSharp irL(pin::L_PIN);
 
 /// @brief Правый ИК-датчик расстояния
-sys::IrSensorSharp irR(pin::R_PIN);
+hardware::IrSensorSharp irR(pin::R_PIN);
 
 /// @brief Ультразвуковой датчик расстояния
-sys::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
+hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
 
 /// @brief Левый мотор
-sys::Motor motorL(sys::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
+hardware::Motor motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
 
 /// @brief Праавый мотор
-sys::Motor motorR(sys::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
+hardware::Motor motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
 
-void sys::__l_int() { motorL.enc(); }
-void sys::__r_int() { motorR.enc(); }
+void hardware::__l_int() { motorL.enc(); }
+void hardware::__r_int() { motorR.enc(); }
 
 
 /**

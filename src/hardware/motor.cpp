@@ -1,6 +1,6 @@
 #include "motor.hpp"
 
-using namespace sys;
+using namespace hardware;
 
 Motor::Motor(void (*encoder_handler) (void), const bool inverted, const uint8_t pin_speed, const uint8_t pin_dir, const uint8_t pin_enc_a, const uint8_t pin_enc_b)
     : PIN_SPEED(pin_speed), PIN_DIR(pin_dir), PIN_ENC_B(pin_enc_b), INVERTED(inverted) {
