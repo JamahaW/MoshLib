@@ -14,7 +14,7 @@ namespace hardware
 
 
     /// @brief класс DC-мотор-энкодера, управляемого H-мостом
-    class Motor {
+    class MotorEncoder {
 
     private:
         const uint8_t PIN_SPEED, PIN_DIR, PIN_ENC_B;
@@ -48,7 +48,7 @@ namespace hardware
          * @param pin_enc_a пин основного канала энкодера (Цифровой ПРЕРЫВАНИЕ)
          * @param pin_enc_b пин второго канала энкодера (Цифровой)
          */
-        Motor(void (*encoder_handler) (void), const bool inverted, const uint8_t pin_speed, const uint8_t pin_dir, const uint8_t pin_enc_a, const uint8_t pin_enc_b);
+        MotorEncoder(void (*encoder_handler) (void), const bool inverted, const uint8_t pin_speed, const uint8_t pin_dir, const uint8_t pin_enc_a, const uint8_t pin_enc_b);
 
         /// @brief вызывается исключительно в прерывании
         void enc();

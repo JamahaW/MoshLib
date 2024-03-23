@@ -9,17 +9,11 @@ namespace hardware {
     /**
      * @brief Интерфейс датчика растояния
      */
-    class I_DistanceSensor {
+    class DistanceSensor {
 
     private:
 
-        /// @brief Нижняя граница отсечения расстояния
-        const uint16_t MIN_DISTANCE;
-
-        /// @brief Верхняя граница отсеченя расстояния
-        const uint16_t MAX_DISTANCE;
-
-        /// @brief Период чтения
+        const uint16_t MIN_DISTANCE, MAX_DISTANCE;
         const uint8_t READ_PERIOD;
 
         /// @brief время следующего опроса датчика
@@ -38,7 +32,13 @@ namespace hardware {
 
     public:
 
-        I_DistanceSensor(const uint16_t min_dist, const uint16_t max_dist, const uint8_t period)
+        /**
+         * @brief Абстрактный Датчик расстояния
+         * @param min_dist Нижняя граница отсечения расстояния
+         * @param max_dist Верхняя граница отсеченя расстояния
+         * @param period Период чтения (мс)
+         */
+        DistanceSensor(const uint16_t min_dist, const uint16_t max_dist, const uint8_t period)
             : MIN_DISTANCE(min_dist), MAX_DISTANCE(max_dist), READ_PERIOD(period) {}
 
         /**
@@ -60,7 +60,7 @@ namespace hardware {
     /**
      * @brief Инфокрасный датчик Sharp
      */
-    class IrSensorSharp : public I_DistanceSensor {
+    class IrSensorSharp : public DistanceSensor {
 
     private:
 
@@ -76,7 +76,7 @@ namespace hardware {
          * @brief ИК-датчик расстояния
          * @param pin Аналоговый пин (A0 - A7)
          */
-        IrSensorSharp(const uint8_t pin) : I_DistanceSensor(PARAMS::IR_MIN_DIST, PARAMS::IR_MAX_DIST, PARAMS::IR_PERIOD), PIN(pin) {
+        IrSensorSharp(const uint8_t pin) : DistanceSensor(PARAMS::IR_MIN_DIST, PARAMS::IR_MAX_DIST, PARAMS::IR_PERIOD), PIN(pin) {
             pinMode(PIN, INPUT);
         }
     };
@@ -84,7 +84,7 @@ namespace hardware {
     /**
      * @brief УльтраЗвуковой датчик HC SR04
      */
-    class UltraSonic : public I_DistanceSensor {
+    class UltraSonic : public DistanceSensor {
 
     private:
 
@@ -110,7 +110,7 @@ namespace hardware {
          * @param pin_trig Пин Триггера
          */
         UltraSonic(const uint8_t pin_echo, const uint8_t pin_trig) :
-            I_DistanceSensor(PARAMS::US_MIN_DIST, PARAMS::US_MAX_DIST, PARAMS::US_PERIOD),
+            DistanceSensor(PARAMS::US_MIN_DIST, PARAMS::US_MAX_DIST, PARAMS::US_PERIOD),
             PIN_ECHO(pin_echo),
             PIN_TRIG(pin_trig)
         {

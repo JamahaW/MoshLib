@@ -64,10 +64,10 @@ hardware::IrSensorSharp irR(pin::R_PIN);
 hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
 
 /// @brief Левый мотор
-hardware::Motor motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
+hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
 
 /// @brief Праавый мотор
-hardware::Motor motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
+hardware::MotorEncoder motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
 
 void hardware::__l_int() { motorL.enc(); }
 void hardware::__r_int() { motorR.enc(); }
