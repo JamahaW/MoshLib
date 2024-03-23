@@ -43,7 +43,7 @@ namespace sys {
 
         /**
          * @brief Получить значение с датчика
-         * @return расстояние датчика (мм)
+         * @return расстояние датчика (см)
          */
         uint8_t read() const {
             if (millis() >= next_read) {
