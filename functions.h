@@ -85,7 +85,6 @@ sensor из rideLine movement_type - есть pd регулятор и зиг-з
 #include "display.h"
 #include "ride.h"
 
-#define Reverse_servo false
 
 void rinit() {
   init_motors();
