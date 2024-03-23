@@ -4,7 +4,7 @@
 
 #include <Arduino.h>
 
-#include "pins.hpp"
+#include "config.hpp"
 
 
 /// @brief Обработчик левого мотора
@@ -119,18 +119,18 @@ public:
     }
 } leftMotor(
     __left_tick,
-    pins::MOTOR::ML_INVERT,
-    pins::MOTOR::ML_SPEED,
-    pins::MOTOR::ML_DIR,
-    pins::MOTOR::ML_ENC_A,
-    pins::MOTOR::ML_ENC_B
+    cfg::MOTOR::ML_INVERT,
+    cfg::MOTOR::ML_SPEED,
+    cfg::MOTOR::ML_DIR,
+    cfg::MOTOR::ML_ENC_A,
+    cfg::MOTOR::ML_ENC_B
 ), rightMotor(
     __right_tick,
-    pins::MOTOR::MR_INVERT,
-    pins::MOTOR::MR_SPEED,
-    pins::MOTOR::MR_DIR,
-    pins::MOTOR::MR_ENC_A,
-    pins::MOTOR::MR_ENC_B);
+    cfg::MOTOR::MR_INVERT,
+    cfg::MOTOR::MR_SPEED,
+    cfg::MOTOR::MR_DIR,
+    cfg::MOTOR::MR_ENC_A,
+    cfg::MOTOR::MR_ENC_B);
 
 
 static void __left_tick() { leftMotor.enc(); }

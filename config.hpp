@@ -29,11 +29,11 @@ namespace cfg
     enum LINE
     {
         L_SENSOR = A0,
-        L_FIELD = 1000,
-        L_LINE = 0,
+        L_LINE = 57,
+        L_FIELD = 837,
 
         R_SENSOR = A1,
-        R_FIELD = 1000,
-        R_LINE = 0
+        R_LINE = 108,
+        R_FIELD = 981,
     };
 }

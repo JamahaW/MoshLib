@@ -1,4 +1,5 @@
 #pragma once
+#include <Arduino.h>
 #include <Servo.h>
 
 //pins
@@ -49,28 +50,12 @@
 #define TICK_TO_MM (TICKS_1000 / 1000)
 #define MM_TO_TICK (1000 / TICKS_1000)
 
-enum MoveStopTypes { ON_TIME,
-                     ON_CROSS,
-                     BY_RIDE_DISTANCE,
-                     ON_WALL_DISTANCE,
-                     BY_END_WALL,
-                     ON_LINE,
-                     NONE };
-enum MoveAlgoritms { ZIG_ZAG_LEFT,
-                     ZIG_ZAG_RIGHT,
-                     ZIG_ZAG_BOTH,
-                     ZIG_ZAG,
-                     PD_REG };
-enum DirectionTypes { LEFT,
-                      RIGHT,
-                      FORWARD,
-                      BACK };
-enum DistSensorTypes { IR,
-                       US };
-enum TestModes { LINE,
-                 DIST,
-                 ENCODERS,
-                 MOTORS };
+enum MoveStopTypes { ON_TIME, ON_CROSS, BY_RIDE_DISTANCE, ON_WALL_DISTANCE, BY_END_WALL, ON_LINE, NONE };
+enum MoveAlgoritms { ZIG_ZAG_LEFT, ZIG_ZAG_RIGHT, ZIG_ZAG_BOTH, ZIG_ZAG, PD_REG };
+enum DirectionTypes { LEFT, RIGHT, FORWARD, BACK };
+enum DistSensorTypes { IR, US };
+enum TestModes { LINE, DIST, ENCODERS, MOTORS };
+
 typedef void (*function)(void);
 
 struct Motor {
@@ -104,13 +89,16 @@ struct Motor {
   void inc() {
     if (digitalRead(PIN_ENC_B)) {
       ticks++;
-    } else {
+    }
+    else {
       ticks--;
     }
   }
   void resetTicks() {
     ticks = 0;
-  }};
+  }
+};
+
 struct LineSensor {
   const uint8_t PIN;
   const int black;
@@ -121,34 +109,29 @@ struct LineSensor {
     : PIN(_p), black(_v_line), white(v_field), gray(_g), reversed(rev) {
     pinMode(PIN, INPUT);
   }
-  int readRaw() {
-    return analogRead(PIN);
-  }
-  int read() {
-    return constrain(map(readRaw(), white, black, 0, 100), 0, 100);
-  }
-  bool onLine() {
-    return (read() < 50) != reversed;
-  }};
+  int readRaw() { return analogRead(PIN); }
+  int read() { return constrain(map(readRaw(), white, black, 0, 100), 0, 100); }
+  bool onLine() { return (read() < 50) != reversed; }
+};
+
 static float _getDist_US() {
   delayMicroseconds(10);
   digitalWrite(PIN_DIST_US_TRIG, 1);
   delayMicroseconds(10);
   digitalWrite(PIN_DIST_US_TRIG, 0);
-  return pulseIn(PIN_DIST_US_ECHO, 1) / 58.2;}
+  return pulseIn(PIN_DIST_US_ECHO, 1) / 58.2;
+}
+
 static float _getDist_IR() {
   float d = 0;
   for (int i = 0; i < 5; i++) {
     d += 32.0 * pow(analogRead(PIN_DIST_IR) * 5.0 / 1024, -1.10);
     delay(1);
   }
-  return d / 5;}
+  return d / 5;
+}
+
 float getDist(DistSensorTypes type = US) {
-  float dist;
-  if (type == IR) {
-    dist = _getDist_IR();
-  }
-  if (type == US) {
-    dist = _getDist_US();
-  }
-  return dist;}
+  if (type == IR) return _getDist_IR();
+  if (type == US) return _getDist_US();
+}

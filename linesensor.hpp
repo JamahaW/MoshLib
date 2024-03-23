@@ -48,9 +48,10 @@ public:
      * @return уровень нахождения датчика на линии (0 .. 100)
      */
     int8_t read() {
-        int16_t ret = map(readRaw(), ON_LINE, ON_LINE, 100, 0);
-        return (int8_t)constrain(ret, 0, 100);;
+        int16_t ret = map(readRaw(), ON_LINE, ON_FIELD, 100, 0);
+        // return (int8_t)constrain(ret, 0, 100);
+        return ret;
     }
 }
-lineLeft(cfg::LINE::L_SENSOR, cfg::LINE::L_LINE, cfg::LINE::L_FIELD),
-lineRight(cfg::LINE::R_FIELD, cfg::LINE::R_LINE, cfg::LINE::R_FIELD);
+leftLine(cfg::LINE::L_SENSOR, cfg::LINE::L_LINE, cfg::LINE::L_FIELD),
+rightLine(cfg::LINE::R_SENSOR, cfg::LINE::R_LINE, cfg::LINE::R_FIELD);
