@@ -4,9 +4,9 @@
 #pragma once
 
 #include "config.hpp"
-#include "motor.hpp"
-#include "linesensor.hpp"
-#include "distancesensor.hpp"
+#include "hardware/motor.hpp"
+#include "hardware/linesensor.hpp"
+#include "hardware/distancesensor.hpp"
 
 
 // ПИНЫ
@@ -157,7 +157,7 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-// ТЕСТЫ КОМПОНЕНТОВ
+// ТЕСТ КОМПОНЕНТОВ
 namespace test {
 
     /**
