@@ -116,7 +116,7 @@ static void test_motors_speed(hardware::MotorEncoder* motor, int8_t dir) {
     delay(500);
 }
 
-void test::motors_accel() {
+void test::motorsAccel() {
     hardware::MotorEncoder* _motors[]{ &motorL, &motorR };
 
     for (hardware::MotorEncoder* m : _motors) {
@@ -125,7 +125,7 @@ void test::motors_accel() {
     }
 }
 
-void test::motors_pwm() {
+void test::motorsPWM() {
     hardware::MotorEncoder* _motors[]{ &motorL, &motorR };
 
     for (hardware::MotorEncoder* motor : _motors) {
