@@ -296,20 +296,21 @@ void turnAngle(int16_t a, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-moshcore::move::RelayLineSingle getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
+moshcore::move::Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
     using namespace moshcore::move;
 
     if (type == LINE_REGULATORS::RELAY_L)
-        return RelayLineSingle(speed, RelayLineSingle::SENSOR::LEFT);
+        return new RelayLineSingle(speed, RelayLineSingle::SENSOR::LEFT);
 
-    return RelayLineSingle(speed, RelayLineSingle::SENSOR::RIGHT);
+    return new RelayLineSingle(speed, RelayLineSingle::SENSOR::RIGHT);
 }
 
 void goLineTime(LINE_REGULATORS regulator_type, uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
     using namespace moshcore::move;
-    RelayLineSingle rel = getLineRegulator(regulator_type, speed);
-    process(*(Mover*) &rel, quit::OnTimer(runtime));
+    Mover* mover = getLineRegulator(regulator_type, speed);
+    process(*mover, quit::OnTimer(runtime));
+    delete mover;
 }
 
 
