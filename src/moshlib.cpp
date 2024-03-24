@@ -25,6 +25,7 @@ static struct RobotConfig {
     hardware::DistanceSensor* dist_left = &no_sensor; // используется при движении вдоль стены слева
     hardware::DistanceSensor* dist_right = &no_sensor; // используештся при движении вдоль стены справа
     hardware::DistanceSensor* dist_front = &no_sensor; // используется при движении до объекта спереди
+    LINE_REGULATORS line_follow_regulator = LINE_REGULATORS::PROP; // Регулятор движения по линии по умолчанию
 } robot;
 
 
@@ -96,7 +97,7 @@ class Mover {
         motors::spin();
     }
 
-    virtual ~Mover() {}
+    virtual ~Mover() {} // для delete TODO искоренить new !!
 };
 
 class KeepSpeed : public Mover {
@@ -148,15 +149,15 @@ class RelayLineSingle : public Mover {
 
         switch (sensor_dir) {
 
-        case SENSOR::LEFT:
-            sensor = &lineL;
-            SPEED_A = second;
-            break;
+            case SENSOR::LEFT:
+                sensor = &lineL;
+                SPEED_A = second;
+                break;
 
-        case SENSOR::RIGHT:
-            sensor = &lineR;
-            SPEED_B = second;
-            break;
+            case SENSOR::RIGHT:
+                sensor = &lineR;
+                SPEED_B = second;
+                break;
 
         }
     }
@@ -187,23 +188,12 @@ class RelayLineBoth : public Mover {
 };
 
 Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
-
     switch (type) {
-
-    case LINE_REGULATORS::RELAY_L:
-        return new RelayLineSingle(speed, RelayLineSingle::LEFT);
-
-    case LINE_REGULATORS::RELAY_R:
-        return new RelayLineSingle(speed, RelayLineSingle::RIGHT);
-
-    case LINE_REGULATORS::RELAY_LR:
-        return new RelayLineBoth(speed);
-
-    case LINE_REGULATORS::PROP:
-        return new ProportionalLineRegulator(speed);
-
-    default:
-        return new Mover;
+        case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LEFT);
+        case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::RIGHT);
+        case LINE_REGULATORS::RELAY_LR: return new RelayLineBoth(speed);
+        case LINE_REGULATORS::PROP: return new ProportionalLineRegulator(speed);
+        default: return new Mover;
     }
 }
 
@@ -317,12 +307,16 @@ void turnAngle(int16_t a, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-void goLineTime(LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
+void lineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
+
+void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
     move::Mover* mover = move::getLineRegulator(type, speed);
     process(*mover, quit::OnTimer(runtime));
     delete mover;
 }
+
+void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
 
 
 // ТЕСТИРОВАНИЕ
