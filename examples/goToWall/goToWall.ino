@@ -6,12 +6,12 @@ void setup() {
   delay(1000);
 
   distSensorF(us);
-  goToWall(30);
+  goWallFront(30);
 
-  goDirect(-500);
-  goToWall(ir1, 30, 20);
+  goDist(-500);
+  goWallFront(ir1, 30, 20);
 
-  goDirect(-500);
+  goDist(-500);
 }
 
 void loop() {}

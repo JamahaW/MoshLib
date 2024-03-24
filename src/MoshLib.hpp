@@ -87,10 +87,10 @@ void goTime(uint32_t runtime, int8_t speed = PARAMS::DEFAULT_SPEED);
 void goHold(uint32_t timeout = PARAMS::HOLD_STOP_TIMEOUT);
 
 /**
- * @brief Проехать 1000 тиков вперёд прямо
+ * @brief на число тиков
  * @param speed скорость движения
  */
-void go_1000_ticks(uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение
@@ -98,37 +98,37 @@ void go_1000_ticks(uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param speed скорость движения
  * @bug МК перезапускается при автономном движении со скоростью 50
  */
-void goDirect(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goDist(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение до стены (любой датчик)
  * @param sensor ссылка на датчик
- * @param wall_dist_cm расстояние до стены
+ * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goWallFront(hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение до стены (передний датчик)
- * @param wall_dist_cm расстояние до стены
+ * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goToWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goWallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение назад от стены (любой датчик)
  * @param sensor ссылка на датчик
- * @param wall_dist_cm расстояние до стены
+ * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goWallBack(hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение назад от стены (передний датчик)
- * @param wall_dist_cm расстояния, на котором будет стены
+ * @param distance расстояния, на котором будет стены
  * @param speed скорость движения
  */
-void goBackWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goWallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Поворот на заданый угол вокруг центра

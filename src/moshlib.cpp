@@ -256,14 +256,6 @@ class IfDistance : public Quiter {
 
 } // namespace quit
 
-
-static void ____go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
-    if (invert) speed *= -1;
-    motors::setSpeeds(speed, speed);
-    while ((sensor.read() > distance) ^ invert) motors::spin();
-    goHold();
-}
-
 static void process(const move::Mover&& mover, const quit::Quiter&& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
     if (hold_at_end) goHold();
@@ -274,19 +266,22 @@ static void process(const move::Mover&& mover, const quit::Quiter&& quiter, bool
 } // namespace moshcore
 
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
-    moshcore::process(moshcore::move::KeepSpeed(speed_left, speed_right), moshcore::quit::OnTimer(runtime), __hold_at_end);
+    using namespace moshcore;
+    process(move::KeepSpeed(speed_left, speed_right), quit::OnTimer(runtime), __hold_at_end);
 }
 
 void goTime(uint32_t runtime, int8_t speed) { goTime(runtime, speed, speed); }
 
 void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 
-void go_1000_ticks(uint8_t speed) { motors::setForTicks(speed, 1000, speed, 1000); }
+void goTick(int32_t ticks, uint8_t speed) {
+    motors::setForTicks(speed, ticks, speed, ticks);
+}
 
 // Переводной макрос из ММ пути в тики энкодера
 #define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(PARAMS::MM_IN_1000_TICKS) ) // .. где мой constexpr, Ардуино!!? где С++11???
 
-void goDirect(int32_t distance_mm, uint8_t speed) {
+void goDist(int32_t distance_mm, uint8_t speed) {
     int32_t ticks = MM2TICKS(distance_mm);
     motors::setForTicks(speed, ticks, speed, ticks);
 }
@@ -296,18 +291,17 @@ static void __go_proc_wall(hardware::DistanceSensor& sensor, uint8_t distance, i
     process(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, distance, mode));
 }
 
-void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    using namespace moshcore::quit;
-    __go_proc_wall(sensor, wall_dist_cm, speed, IfDistance::MODE::GREATER);
+void goWallFront(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+    __go_proc_wall(sensor, wall_dist_cm, speed, moshcore::quit::IfDistance::MODE::GREATER);
 }
 
-void goToWall(uint8_t wall_dist_cm, uint8_t speed) { goToWall(*robot.dist_front, wall_dist_cm, speed); }
+void goWallFront(uint8_t distance, uint8_t speed) { goWallFront(*robot.dist_front, distance, speed); }
 
-void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    moshcore::____go_with_distance(sensor, wall_dist_cm, speed, true);
+void goWallBack(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+    __go_proc_wall(sensor, wall_dist_cm, -speed, moshcore::quit::IfDistance::MODE::LESS);
 }
 
-void goBackWall(uint8_t wall_dist_cm, uint8_t speed) { goBackWall(*robot.dist_front, wall_dist_cm, speed); }
+void goWallBack(uint8_t distance, uint8_t speed) { goWallBack(*robot.dist_front, distance, speed); }
 
 void turnAngle(int16_t a, uint8_t speed) {
     int32_t ticks = MM2TICKS((int32_t) a * PARAMS::TRACK * M_PI / 360.0);
