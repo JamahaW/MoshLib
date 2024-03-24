@@ -32,27 +32,13 @@ namespace pin {
     enum US { PIN_ECHO = 12, PIN_TRIG = 13, }; // УЗ-ДАТЧИК РАССТОЯНИЯ
 }
 
-/// @brief Левый датчик линии
-extern hardware::LineSensor lineL;
-
-/// @brief Правый датчик линии
-extern hardware::LineSensor lineR;
-
-/// @brief Левый ИК-датчик расстояния
-extern hardware::IrSensorSharp irL;
-
-/// @brief Правый ИК-датчик расстояния
-extern hardware::IrSensorSharp irR;
-
-/// @brief Ультразвуковой датчик расстояния
-extern hardware::UltraSonic us;
-
-/// @brief Левый мотор
-extern hardware::MotorEncoder motorL;
-
-/// @brief Правый мотор
-extern hardware::MotorEncoder motorR;
-
+extern hardware::LineSensor lineL;  // Левый датчик линии
+extern hardware::LineSensor lineR;  //Правый датчик линии
+extern hardware::IrSensorSharp irL;  //Левый ИК-датчик расстояния
+extern hardware::IrSensorSharp irR;  // Правый ИК-датчик расстояния
+extern hardware::UltraSonic us;  // Ультразвуковой датчик расстояния
+extern hardware::MotorEncoder motorL;  // Левый мотор
+extern hardware::MotorEncoder motorR;  // Правый мотор
 
 // ФУНКЦИИ ДВИЖЕНИЯ
 
@@ -103,11 +89,9 @@ namespace test {
      */
     void lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout = 1000);
 
-    /// @brief функциональности моторов
-    void motors_accel();
+    /// @brief тест функциональности моторов
+    void motorsAccel();
 
-    /// @brief функциональности моторов (ШИМ ВЕРСИЯ)
-    void motors_pwm();
-
-
+    /// @brief тест функциональности моторов (ШИМ ВЕРСИЯ)
+    void motorsPWM();
 }

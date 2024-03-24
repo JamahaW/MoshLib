@@ -152,11 +152,13 @@ static bool _crossesStopCondition(int end_crosses) {  //остановка по 
   }
   return cur_crosses <= end_crosses;
 }
-static bool _distanceStopCondition(int end_distance) {  //остановка по проеханной дистанции
+//остановка по проеханной дистанции
+static bool _distanceStopCondition(int end_distance) {  
   int lenght = min(leftMotor.ticks, rightMotor.ticks) * TICK_TO_MM;
   return lenght < end_distance;
 }
-static bool _distanceSensorStopCondition(int distance, DistSensorTypes sensor = US) {  //остановка по датчику расстояния
+//остановка по датчику расстояния
+static bool _distanceSensorStopCondition(int distance, DistSensorTypes sensor = US) {  
   return getDist(sensor) < distance;
 }
 static bool _endWallStopCondition(DistSensorTypes sensor, int32_t dist) {
@@ -165,8 +167,8 @@ static bool _endWallStopCondition(DistSensorTypes sensor, int32_t dist) {
 static bool _lineSensorStopCondition() {
   return !(leftLineSensor.onLine() || rightLineSensor.onLine());
 }
-
-static void _moveLineTick(MoveAlgoritms movement_type) {  //корректировка моторов при езде по линии
+ //корректировка моторов при езде по линии
+static void _moveLineTick(MoveAlgoritms movement_type) { 
   switch (movement_type) {
   case PD_REG:
     _moveLineTickPD();
