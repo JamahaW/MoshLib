@@ -73,13 +73,13 @@ namespace motors
 // Реализация алгоритмов и общих принципов работы
 namespace movingcore
 {
-    void goToWall(hardware::DistanceSensor* sensor, uint8_t distance_cm, uint8_t speed) {
+    static void go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
+        if (invert) speed *= -1;
         motors::setSpeeds(speed, speed);
-        while (sensor->read() > distance_cm) motors::spin();
+        while ((sensor.read() > distance) ^ invert) motors::spin();
         goHold();
     }
-
-} // namespace movingcore
+}
 
 
 void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_at_exit) {
@@ -103,9 +103,17 @@ void goDirect(int32_t distance_mm, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
-void goToWall(uint8_t wall_dist_cm, uint8_t speed) { movingcore::goToWall(robot.dist_front, wall_dist_cm, speed); }
+void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+    movingcore::go_with_distance(sensor, wall_dist_cm, speed, false);
+}
 
-void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) { movingcore::goToWall(&sensor, wall_dist_cm, speed); }
+void goToWall(uint8_t wall_dist_cm, uint8_t speed) { goToWall(*robot.dist_front, wall_dist_cm, speed); }
+
+void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+    movingcore::go_with_distance(sensor, wall_dist_cm, speed, true);
+}
+
+void goBackWall(uint8_t wall_dist_cm, uint8_t speed) { goBackWall(*robot.dist_front, wall_dist_cm, speed); }
 
 void turnAngle(int16_t a, uint8_t speed) {
     int32_t ticks = MM2TICKS((int32_t)a * PARAMS::TRACK * M_PI / 360.0);

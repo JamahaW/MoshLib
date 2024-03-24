@@ -94,19 +94,34 @@ void go_1000_ticks(uint8_t speed = PARAMS::DEFAULT_SPEED);
 void goDirect(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Прямолинейное движение до стены (Передний датчик)
- * @param wall_dist_cm расстояние до стены
- * @param speed скорость движения
- */
-void goToWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
-
-/**
  * @brief Прямолинейное движение до стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param wall_dist_cm расстояние до стены
  * @param speed скорость движения
  */
 void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
+ * @brief Прямолинейное движение до стены (передний датчик)
+ * @param wall_dist_cm расстояние до стены
+ * @param speed скорость движения
+ */
+void goToWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
+ * @brief Прямолинейное движение назад от стены (любой датчик)
+ * @param sensor ссылка на датчик
+ * @param wall_dist_cm расстояние до стены
+ * @param speed скорость движения
+ */
+void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
+ * @brief Прямолинейное движение назад от стены (передний датчик)
+ * @param wall_dist_cm расстояния, на котором будет стены
+ * @param speed скорость движения
+ */
+void goBackWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Поворот на заданый угол вокруг центра
