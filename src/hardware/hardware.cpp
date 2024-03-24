@@ -88,7 +88,7 @@ uint8_t DistanceSensor::operator () () const { return read(); }
 // ИК ДАТЧИК РАССТОЯНИЯ
 
 IrSensorSharp::IrSensorSharp(const uint8_t pin) :
-    DistanceSensor(PARAMS::IR_MIN_DIST, PARAMS::IR_MAX_DIST, PARAMS::IR_PERIOD), PIN(pin) {
+    DistanceSensor(PARAMS::IR_DIST_MIN, PARAMS::IR_DIST_MAX, PARAMS::IR_PERIOD), PIN(pin) {
     pinMode(PIN, INPUT);
 }
 
@@ -98,7 +98,7 @@ const uint8_t IrSensorSharp::update() const { return 32 * pow(analogRead(PIN) * 
 // УЗ ДАТЧИК РАССТОЯНИЯ
 
 UltraSonic::UltraSonic(const uint8_t pin_echo, const uint8_t pin_trig) :
-    DistanceSensor(PARAMS::US_MIN_DIST, PARAMS::US_MAX_DIST, PARAMS::US_PERIOD), PIN_ECHO(pin_echo), PIN_TRIG(pin_trig) {
+    DistanceSensor(PARAMS::US_DIST_MIN, PARAMS::US_DIST_MAX, PARAMS::US_PERIOD), PIN_ECHO(pin_echo), PIN_TRIG(pin_trig) {
     pinMode(PIN_ECHO, INPUT);
     pinMode(PIN_TRIG, OUTPUT);
 }
