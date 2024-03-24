@@ -74,6 +74,21 @@ void distSensorF(hardware::DistanceSensor& sensor);
 void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_at_exit = true);
 
 /**
+ * @brief Движение с заданой скоростью на время
+ * @param runtime время работы
+ * @param speed_left скорость левого мотора
+ * @param speed_right скорость правого мотора
+ */
+void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right);
+
+/**
+ * @brief Движение с заданой скоростью на время
+ * @param runtime время работы
+ * @param speed скорость
+ */
+void goTime(uint32_t runtime, int8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
  * @brief Удерживать моторы в текущем положении на время
  * @param timeout время удержания
  */

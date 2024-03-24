@@ -70,7 +70,43 @@ void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_
 } // namespace motors
 
 // Реализация алгоритмов и общих принципов работы
-namespace movingcore {
+namespace moshcore {
+
+// Регуляторы движения
+namespace move {
+
+/**
+ * @brief Абстрактный исполнитель движения робота
+ */
+class Mover {
+
+    protected:
+    /**
+     * @brief При необходимости может быть переопределён в наследниках
+     */
+    virtual void tick() const {};
+
+    public:
+
+    /**
+     * @brief
+     */
+    void update() const {
+        tick();
+        motors::spin();
+    }
+};
+
+class KeepSpeed : public Mover {
+    /**
+     * @brief Движение с поддержинием скорости TODO управление ускорением
+     * @param speed целевая скорость
+     */
+    public: KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
+};
+
+} // namespace move
+
 // движение по линии
 namespace line {
 
@@ -96,15 +132,18 @@ class Regulator {
 
 /// @brief Абстрактный релейный регулятор
 class Relay : public Regulator {
-    protected: uint8_t SPEED_SET;
-    public: void init(uint8_t speed) override { SPEED_SET = speed; }
+    protected: uint8_t SPEED_SET = 0, SECOND_SPEED = 0;
+    public: void init(uint8_t speed) override {
+        SPEED_SET = speed;
+        SECOND_SPEED = -0.2 * speed;
+    }
 };
 
 /// @brief Релейный регулятор по левому датчику
 static class RelayL : public Relay {
     protected: void calc() const override {
         bool L = lineL.on();
-        motors::setSpeeds(L ? 0 : SPEED_SET, L ? SPEED_SET : 0);
+        motors::setSpeeds(L ? SECOND_SPEED : SPEED_SET, L ? SPEED_SET : SECOND_SPEED);
     }
 } relay_l;
 
@@ -112,7 +151,7 @@ static class RelayL : public Relay {
 static class RelayR : public Relay {
     protected: void calc() const override {
         bool R = lineR.on();
-        motors::setSpeeds(R ? SPEED_SET : 0, R ? 0 : SPEED_SET);
+        motors::setSpeeds(R ? SPEED_SET : SECOND_SPEED, R ? SECOND_SPEED : SPEED_SET);
     }
 } relay_r;
 
@@ -120,14 +159,14 @@ static class RelayR : public Relay {
 static class RelayLR : public Relay {
     protected: void calc() const override {
         bool L = lineL.on(), R = lineR.on();
-        motors::setSpeeds((L > R) ? 0 : SPEED_SET, (L < R) ? 0 : SPEED_SET);
+        motors::setSpeeds((L > R) ? SECOND_SPEED : SPEED_SET, (L < R) ? SECOND_SPEED : SPEED_SET);
     }
 } relay_lr;
 
 /// @brief Пропорциональный регулятор линии
 static class Proportional : public Regulator {
 
-    private: 
+    private:
     uint8_t BASE_SPEED = 0;
     float KP = 0;
 
@@ -137,32 +176,44 @@ static class Proportional : public Regulator {
     }
 
     public: void init(uint8_t speed) override {
-        BASE_SPEED = speed * 0.6;
-        KP = 0.2;
+        BASE_SPEED = speed * 0.7;
+        KP = 0.3;
     }
 } proportional;
 
-enum REGULATORS {
-    RELAY_LR = 0,
-    RELAY_L = 1,
-    RELAY_R = 2,
-    PROPORTIONAL = 3,
+}
+
+namespace quit {
+/// @brief Интерфейс обработки завершения движения
+class Quiter {
+    /**
+     * @brief Обработка события
+     * @return true если ещё НЕ вышел, false когда следует прервать работу
+     */
+    public: virtual bool tick() const = 0;
 };
 
-Regulator* factory(enum REGULATORS type, uint8_t speed) {
-    static Regulator* regulators[]{
-        &relay_lr,  // RELAY_LR
-        &relay_l,  // RELAY_L        
-        &relay_r,  // RELAY_R
-        &proportional,  // PROPORTIONAL
-    };
+/**
+ * @brief Обработка выхода по таймеру
+ */
+class OnTimer : public Quiter {
+    private:
 
-    Regulator* ret = regulators[type];
-    ret->init(speed);
-    return ret;
+    const uint32_t END_TIME;
+
+    public:
+
+    /**
+     * @brief Выход по таймеру
+     * @param duration время
+     */
+    OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
+
+    bool tick() const override { return millis() < END_TIME; }
+};
+
 }
 
-}
 
 
 static void go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
@@ -171,8 +222,19 @@ static void go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance,
     while ((sensor.read() > distance) ^ invert) motors::spin();
     goHold();
 }
+
+static void process_legacy(uint8_t speed, line::Regulator& regulator, const quit::Quiter&& quiter) {
+    regulator.init(speed);
+    while (quiter.tick())  regulator.update();
+    goHold();
 }
 
+static void process(const move::Mover&& mover, const quit::Quiter&& quiter) {
+    while (quiter.tick()) mover.update();
+    goHold();
+}
+
+} // namespace moshcore
 
 void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_at_exit) {
     runtime += millis();
@@ -182,6 +244,12 @@ void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_a
     motorL.setPWM(0);
     motorR.setPWM(0);
 }
+
+void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right) {
+    moshcore::process(moshcore::move::KeepSpeed(speed_left, speed_right), moshcore::quit::OnTimer(runtime));
+}
+
+void goTime(uint32_t runtime, int8_t speed) { goTime(runtime, speed, speed); }
 
 void goHold(uint32_t timeout) { setMotorsTime(0, 0, timeout); }
 
@@ -196,13 +264,13 @@ void goDirect(int32_t distance_mm, uint8_t speed) {
 }
 
 void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    movingcore::go_with_distance(sensor, wall_dist_cm, speed, false);
+    moshcore::go_with_distance(sensor, wall_dist_cm, speed, false);
 }
 
 void goToWall(uint8_t wall_dist_cm, uint8_t speed) { goToWall(*robot.dist_front, wall_dist_cm, speed); }
 
 void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    movingcore::go_with_distance(sensor, wall_dist_cm, speed, true);
+    moshcore::go_with_distance(sensor, wall_dist_cm, speed, true);
 }
 
 void goBackWall(uint8_t wall_dist_cm, uint8_t speed) { goBackWall(*robot.dist_front, wall_dist_cm, speed); }
@@ -213,17 +281,8 @@ void turnAngle(int16_t a, uint8_t speed) {
 }
 
 void golineTime(uint32_t runtime, uint8_t speed) {
-    runtime += millis();
-
-    using namespace movingcore::line;
-
-    Regulator* reg = factory(PROPORTIONAL, speed);
-
-    while (millis() < runtime) {
-        reg->update();
-    }
-
-    goHold();
+    using namespace moshcore;
+    process_legacy(speed, line::relay_r, quit::OnTimer(runtime));
 }
 
 
