@@ -105,7 +105,7 @@ class KeepSpeed : public Mover {
     public: KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
 };
 
-class ProportionalRegulator : public Mover {
+class ProportionalLineRegulator : public Mover {
     private:
 
     const float KP = 0.3;
@@ -116,86 +116,73 @@ class ProportionalRegulator : public Mover {
         motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
     }
 
-    public: ProportionalRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
+             /**
+              * @brief Пропорциональный регулятор движения по линии
+              * @param speed скорость движения
+              */
+    public: ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
 };
 
-} // namespace move
+class RelayLineSingle : public Mover {
+    private:
 
-// движение по линии
-namespace line {
+    int8_t SPEED_B, SPEED_A;
+    hardware::LineSensor* sensor;
 
-/// @brief Абстрактный регулятор движения по линии
-class Regulator {
-    /// @brief выполнить расчёт системы
-    protected: virtual void calc() const = 0;
+    public:
+
+    enum SENSOR { LEFT, RIGHT };
+
+    /**
+     * @brief Релейный регулятор движения по линии по одному датчику
+     * @param speed скорость перемещения
+     * @param sensor_dir положение датчика `SENSOR::LEFT` | `SENSOR::RIGHT`
+     */
+    RelayLineSingle(uint8_t speed, enum SENSOR sensor_dir) {
+        SPEED_A = SPEED_B = (int8_t) speed;
+        const int8_t second = -speed * 0.3;
+
+        switch (sensor_dir) {
+
+        case SENSOR::LEFT:
+            sensor = &lineL;
+            SPEED_A = second;
+            break;
+
+        case SENSOR::RIGHT:
+            sensor = &lineR;
+            SPEED_B = second;
+            break;
+
+        }
+    }
+
+    void tick() const override {
+        bool on = sensor->on();
+        motors::setSpeeds(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
+    }
+
+};
+
+class RelayLineBoth : public Mover {
+
+    private: int8_t SPEED, SECOND;
 
     public:
 
     /**
-     * @brief Инициализировать регулятор
-     * @param speed базовая скорость движения
+     * @brief Релейный регулятор движения по линии по двум датчикам
+     * @param speed 
      */
-    virtual void init(uint8_t speed) = 0;
+    RelayLineBoth(uint8_t speed) : SPEED(speed), SECOND((int8_t) -speed * 0.3) {}
 
-    /// @brief Обновление системы. Вызывать как можно чаще в цикле движения
-    void update() const {
-        calc();
-        motors::spin();
-    }
-};
-
-/// @brief Абстрактный релейный регулятор
-class Relay : public Regulator {
-    protected: uint8_t SPEED_SET = 0, SECOND_SPEED = 0;
-    public: void init(uint8_t speed) override {
-        SPEED_SET = speed;
-        SECOND_SPEED = -0.2 * speed;
-    }
-};
-
-/// @brief Релейный регулятор по левому датчику
-static class RelayL : public Relay {
-    protected: void calc() const override {
-        bool L = lineL.on();
-        motors::setSpeeds(L ? SECOND_SPEED : SPEED_SET, L ? SPEED_SET : SECOND_SPEED);
-    }
-} relay_l;
-
-/// @brief Релейный регулятор по правому датчику
-static class RelayR : public Relay {
-    protected: void calc() const override {
-        bool R = lineR.on();
-        motors::setSpeeds(R ? SPEED_SET : SECOND_SPEED, R ? SECOND_SPEED : SPEED_SET);
-    }
-} relay_r;
-
-/// @brief Релейный регулятор по двум датчикам
-static class RelayLR : public Relay {
-    protected: void calc() const override {
+    void tick() const override {
         bool L = lineL.on(), R = lineR.on();
-        motors::setSpeeds((L > R) ? SECOND_SPEED : SPEED_SET, (L < R) ? SECOND_SPEED : SPEED_SET);
+        motors::setSpeeds((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
     }
-} relay_lr;
+};
 
-/// @brief Пропорциональный регулятор линии
-static class Proportional : public Regulator {
-
-    private:
-    uint8_t BASE_SPEED = 0;
-    float KP = 0;
-
-    protected: void calc() const override {
-        int8_t u = (lineL() - lineR()) * KP;
-        motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
-    }
-
-    public: void init(uint8_t speed) override {
-        BASE_SPEED = speed * 0.7;
-        KP = 0.3;
-    }
-} proportional;
-
-}
+} // namespace move
 
 // обработчики выхода
 namespace quit {
@@ -237,10 +224,7 @@ class IfDistance : public Quiter {
 
     public:
 
-    enum MODE {
-        LESS = 0,
-        GREATER = 1,
-    };
+    enum MODE { LESS = 0, GREATER = 1 };
 
     /**
      * @brief Выход по расстоянию с датчика
@@ -310,7 +294,9 @@ void turnAngle(int16_t a, uint8_t speed) {
 
 void goLineTime(uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
-    process(move::ProportionalRegulator(speed), quit::OnTimer(runtime));
+    // process(move::ProportionalLineRegulator(speed), quit::OnTimer(runtime));
+    // process(move::RelayLineSingle(speed, move::RelayLineSingle::SENSOR::LEFT), quit::OnTimer(runtime));
+    process(move::RelayLineBoth(speed), quit::OnTimer(runtime));
 }
 
 
