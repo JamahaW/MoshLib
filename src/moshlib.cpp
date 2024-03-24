@@ -6,9 +6,9 @@
 hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
 hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
 
-hardware::IrSensorSharp irL(pin::L_PIN);
-hardware::IrSensorSharp irR(pin::R_PIN);
-
+hardware::NoDistanceSensor no_sensor;
+hardware::IrSensorSharp ir0(pin::L_PIN);
+hardware::IrSensorSharp ir1(pin::R_PIN);
 hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
 
 hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
@@ -17,6 +17,22 @@ hardware::MotorEncoder motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, 
 
 void hardware::__l_int() { motorL.enc(); }
 void hardware::__r_int() { motorR.enc(); }
+
+/**
+ * @brief Данные о роботе
+ */
+static struct RobotConfig {
+    hardware::DistanceSensor* dist_left = &no_sensor; // используется при движении вдоль стены слева
+    hardware::DistanceSensor* dist_right = &no_sensor; // используештся при движении вдоль стены справа
+    hardware::DistanceSensor* dist_front = &no_sensor; // используется при движении до объекта спереди
+} robot;
+
+
+void distSensorL(hardware::DistanceSensor& sensor) { robot.dist_left = &sensor; }
+
+void distSensorR(hardware::DistanceSensor& sensor) { robot.dist_right = &sensor; }
+
+void distSensorF(hardware::DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 // управление моторами
 namespace motors
@@ -75,10 +91,17 @@ void goDirect(int32_t distance_mm, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
+void goToWall(uint8_t wall_dist_cm, uint8_t speed) {
+    motors::setSpeeds(speed, speed);
+    while (robot.dist_front->read() < wall_dist_cm) motors::spin();
+    goHold();
+}
+
 void turnAngle(int16_t a, uint8_t speed) {
     int32_t ticks = MM2TICKS((int32_t)a * PARAMS::TRACK * M_PI / 360.0);
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
+
 
 // ТЕСТИРОВАНИЕ
 

@@ -43,6 +43,19 @@ namespace hardware {
     };
 
 
+    /// @brief Зашлушка
+    class NoDistanceSensor : public DistanceSensor {
+
+    protected:
+
+        const uint8_t update() const override {return 0;}
+
+    public:
+
+        NoDistanceSensor() : DistanceSensor(0, 0, 0) {}
+    };
+
+
     /// @brief Инфокрасный датчик Sharp
     class IrSensorSharp : public DistanceSensor {
 

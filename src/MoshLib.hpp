@@ -34,11 +34,33 @@ namespace pin {
 
 extern hardware::LineSensor lineL;  // Левый датчик линии
 extern hardware::LineSensor lineR;  //Правый датчик линии
-extern hardware::IrSensorSharp irL;  //Левый ИК-датчик расстояния
-extern hardware::IrSensorSharp irR;  // Правый ИК-датчик расстояния
+extern hardware::IrSensorSharp ir0;  //Левый ИК-датчик расстояния
+extern hardware::IrSensorSharp ir0;  // Правый ИК-датчик расстояния
 extern hardware::UltraSonic us;  // Ультразвуковой датчик расстояния
 extern hardware::MotorEncoder motorL;  // Левый мотор
 extern hardware::MotorEncoder motorR;  // Правый мотор
+
+
+// КОНФИГУРАЦИЯ
+
+/**
+ * @brief Указать ЛЕВЫЙ датчик расстояния
+ * @param sensor ссылка на датчик
+ */
+void distSensorL(hardware::DistanceSensor& sensor);
+
+/**
+ * @brief Указать ПРАВЫЙ датчик расстояния
+ * @param sensor ссылка на датчик
+ */
+void distSensorR(hardware::DistanceSensor& sensor);
+
+/**
+ * @brief Указать ПЕРЕДНИЙ датчик расстояния
+ * @param sensor ссылка на датчик
+ */
+void distSensorF(hardware::DistanceSensor& sensor);
+
 
 // ФУНКЦИИ ДВИЖЕНИЯ
 
@@ -69,6 +91,13 @@ void go_1000_ticks(uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param speed скорость движения
  */
 void goDirect(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
+ * @brief Прямолинейное движение до стены (Передний датчик)
+ * @param wall_dist_cm расстояние до стены
+ * @param speed скорость движения
+ */
+void goToWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Поворот на заданый угол вокруг центра
