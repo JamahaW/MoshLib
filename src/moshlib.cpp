@@ -136,7 +136,7 @@ class RelayLineSingle : public Mover {
 
     public:
 
-    enum SENSOR { LEFT, RIGHT };
+    enum SENSOR { LINE_LEFT, LINE_RIGHT };
 
     /**
      * @brief Релейный регулятор движения по линии по одному датчику
@@ -149,12 +149,12 @@ class RelayLineSingle : public Mover {
 
         switch (sensor_dir) {
 
-            case SENSOR::LEFT:
+            case SENSOR::LINE_LEFT:
                 sensor = &lineL;
                 SPEED_A = second;
                 break;
 
-            case SENSOR::RIGHT:
+            case SENSOR::LINE_RIGHT:
                 sensor = &lineR;
                 SPEED_B = second;
                 break;
@@ -187,10 +187,29 @@ class RelayLineBoth : public Mover {
     }
 };
 
+class MoveAlongWall : public Mover {
+
+    private:
+
+    const uint8_t TARGET;
+    const int8_t SPEED;
+    hardware::DistanceSensor* sensor;
+
+    public:
+
+    MoveAlongWall(int8_t speed, uint8_t target_distance_cm, hardware::DistanceSensor* sens) :
+        SPEED(speed), TARGET(target_distance_cm), sensor(sens) {}
+
+    void tick() const override {
+        int8_t u = (TARGET - sensor->read()) * 1.0;
+        motors::setSpeeds(SPEED - u, SPEED + u);
+    }
+};
+
 Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
     switch (type) {
-        case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LEFT);
-        case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::RIGHT);
+        case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
+        case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::LINE_RIGHT);
         case LINE_REGULATORS::RELAY_LR: return new RelayLineBoth(speed);
         case LINE_REGULATORS::PROP: return new ProportionalLineRegulator(speed);
         default: return new Mover;
