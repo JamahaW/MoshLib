@@ -25,6 +25,7 @@ static struct RobotConfig {
     hardware::DistanceSensor* dist_left = &no_sensor; // используется при движении вдоль стены слева
     hardware::DistanceSensor* dist_right = &no_sensor; // используештся при движении вдоль стены справа
     hardware::DistanceSensor* dist_front = &no_sensor; // используется при движении до объекта спереди
+    LINE_REGULATORS line_follow_regulator = LINE_REGULATORS::PROP; // Регулятор движения по линии по умолчанию
 } robot;
 
 
@@ -317,12 +318,16 @@ void turnAngle(int16_t a, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-void goLineTime(LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
+void lineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
+
+void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
     move::Mover* mover = move::getLineRegulator(type, speed);
     process(*mover, quit::OnTimer(runtime));
     delete mover;
 }
+
+void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
 
 
 // ТЕСТИРОВАНИЕ

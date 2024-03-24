@@ -96,7 +96,6 @@ void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @brief Прямолинейное движение
  * @param distance_mm расстояние (отрицательное - едет назад)
  * @param speed скорость движения
- * @bug МК перезапускается при автономном движении со скоростью 50
  */
 void goDist(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
@@ -145,19 +144,25 @@ enum LINE_REGULATORS {
 };
 
 /**
+ * @brief Установить регулятор движения по линии по умолчанию
+ * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
+ */
+void lineReg(enum LINE_REGULATORS default_regulator);
+
+/**
  * @brief Движение по линии по времени с произвольным регулятором
  * @param regulator_type тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
  * @param runtime время движения
- * @param speed скорость движения
+ * @param speed скорость
  */
-void goLineTime(LINE_REGULATORS regulator_type, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
-// /**
-//  * @brief Движение по линии по двум датчикам
-//  * @param runtime время движения
-//  * @param speed скорость движения
-//  */
-// void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+/**
+ * @brief Движение по линии с регулятором по умолчанию
+ * @param runtime время движения
+ * @param speed скорость
+ */
+void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 // ТЕСТЫ
 namespace test {
