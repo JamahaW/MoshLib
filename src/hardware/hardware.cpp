@@ -1,9 +1,12 @@
 #include "motor.hpp"
 #include "linesensor.hpp"
-// #include "distancesensor.hpp"
+#include "distancesensor.hpp"
 
 
 using namespace hardware;
+
+
+// МОТОР
 
 MotorEncoder::MotorEncoder(void (*encoder_handler) (void), const bool inverted, const uint8_t pin_speed, const uint8_t pin_dir, const uint8_t pin_enc_a, const uint8_t pin_enc_b)
     : PIN_SPEED(pin_speed), PIN_DIR(pin_dir), PIN_ENC_B(pin_enc_b), INVERTED(inverted) {
@@ -32,7 +35,7 @@ void MotorEncoder::setSpeed(int8_t dtick) { speed = speed_set = constrain(dtick,
 
 void MotorEncoder::spin() {
     setDirPWM(KP_SPEED * (next_pos - position));
-    if (millis() < next_pos_timer) return;
+    if (millis() <= next_pos_timer) return;
     next_pos_timer = millis() + PARAMS::SPIN_PERIOD_MS;
     next_pos += speed;
     return;
@@ -45,6 +48,8 @@ bool MotorEncoder::follow() {
     return abs(u) > 0;
 }
 
+
+// ДАТЧИК ЛИНИИ
 
 LineSensor::LineSensor(const uint8_t pin, const uint16_t on_line, const uint16_t on_field)
     : PIN(pin), ON_LINE(on_line), ON_FIELD(on_field) {
@@ -62,3 +67,48 @@ int8_t LineSensor::operator () () const { return read(); }
 
 bool LineSensor::on() { return read() > PARAMS::GRAY_PERCENT; }
 
+
+// ДАТЧИК РАССТОЯНИЯ
+
+DistanceSensor::DistanceSensor(const uint16_t min_dist, const uint16_t max_dist, const uint8_t period)
+    : MIN_DISTANCE(min_dist), MAX_DISTANCE(max_dist), READ_PERIOD(period) {}
+
+uint8_t DistanceSensor::read() const {
+    if (millis() >= next_read) {
+        next_read = millis() + READ_PERIOD;
+        value = update();
+        value = constrain(value, MIN_DISTANCE, MAX_DISTANCE);
+    }
+    return value;
+}
+
+uint8_t DistanceSensor::operator () () const { return read(); }
+
+
+// ИК ДАТЧИК РАССТОЯНИЯ
+
+IrSensorSharp::IrSensorSharp(const uint8_t pin) :
+    DistanceSensor(PARAMS::IR_MIN_DIST, PARAMS::IR_MAX_DIST, PARAMS::IR_PERIOD), PIN(pin) {
+    pinMode(PIN, INPUT);
+}
+
+const uint8_t IrSensorSharp::update() const { return 32 * pow(analogRead(PIN) * (5.0 / 1024.0), -1.1); }
+
+
+// УЗ ДАТЧИК РАССТОЯНИЯ
+
+UltraSonic::UltraSonic(const uint8_t pin_echo, const uint8_t pin_trig) :
+    DistanceSensor(PARAMS::US_MIN_DIST, PARAMS::US_MAX_DIST, PARAMS::US_PERIOD), PIN_ECHO(pin_echo), PIN_TRIG(pin_trig) {
+    pinMode(PIN_ECHO, INPUT);
+    pinMode(PIN_TRIG, OUTPUT);
+}
+
+const uint8_t UltraSonic::update() const {
+    digitalWrite(PIN_TRIG, LOW);
+    delayMicroseconds(5);
+    digitalWrite(PIN_TRIG, HIGH);
+    delayMicroseconds(15);
+    digitalWrite(PIN_TRIG, LOW);
+    uint32_t d = pulseIn(PIN_ECHO, HIGH);
+    return d / (2 * 29.1);
+}
