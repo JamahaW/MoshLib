@@ -130,6 +130,12 @@ void goBackWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
  */
 void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
+/**
+ * @brief Движение по линии по двум датчикам
+ * @param runtime время движения
+ * @param speed скорость движения
+ */
+void golineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 // ТЕСТЫ
 namespace test {

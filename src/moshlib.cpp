@@ -35,50 +35,142 @@ void distSensorR(hardware::DistanceSensor& sensor) { robot.dist_right = &sensor;
 void distSensorF(hardware::DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 // управление моторами
-namespace motors
-{
-    void reset() {
-        motorL.reset();
-        motorR.reset();
+namespace motors {
+void reset() {
+    motorL.reset();
+    motorR.reset();
+}
+
+void spin() {
+    motorL.spin();
+    motorR.spin();
+}
+
+void setSpeeds(int8_t left, int8_t right) {
+    motorL.setSpeed(left);
+    motorR.setSpeed(right);
+}
+
+void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R) {
+    reset();
+    setSpeeds(speed_L, speed_R);
+    motorL.target = ticks_L;
+    motorR.target = ticks_R;
+
+    bool runL = true;
+    bool runR = true;
+
+    while (runL || runR) {
+        runL = motorL.follow();
+        runR = motorR.follow();
     }
 
-    void spin() {
-        motorL.spin();
-        motorR.spin();
-    }
-
-    void setSpeeds(int8_t left, int8_t right) {
-        motorL.setSpeed(left);
-        motorR.setSpeed(right);
-    }
-
-    void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R) {
-        reset();
-        setSpeeds(speed_L, speed_R);
-        motorL.target = ticks_L;
-        motorR.target = ticks_R;
-
-        bool runL = true;
-        bool runR = true;
-
-        while (runL || runR) {
-            runL = motorL.follow();
-            runR = motorR.follow();
-        }
-
-        goHold();
-    }
+    goHold();
+}
 } // namespace motors
 
 // Реализация алгоритмов и общих принципов работы
-namespace movingcore
-{
-    static void go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
-        if (invert) speed *= -1;
-        motors::setSpeeds(speed, speed);
-        while ((sensor.read() > distance) ^ invert) motors::spin();
-        goHold();
+namespace movingcore {
+// движение по линии
+namespace line {
+
+/// @brief Абстрактный регулятор движения по линии
+class Regulator {
+    /// @brief выполнить расчёт системы
+    protected: virtual void calc() const = 0;
+
+    public:
+
+    /**
+     * @brief Инициализировать регулятор
+     * @param speed базовая скорость движения
+     */
+    virtual void init(uint8_t speed) = 0;
+
+    /// @brief Обновление системы. Вызывать как можно чаще в цикле движения
+    void update() const {
+        calc();
+        motors::spin();
     }
+};
+
+/// @brief Абстрактный релейный регулятор
+class Relay : public Regulator {
+    protected: uint8_t SPEED_SET;
+    public: void init(uint8_t speed) override { SPEED_SET = speed; }
+};
+
+/// @brief Релейный регулятор по левому датчику
+static class RelayL : public Relay {
+    protected: void calc() const override {
+        bool L = lineL.on();
+        motors::setSpeeds(L ? 0 : SPEED_SET, L ? SPEED_SET : 0);
+    }
+} relay_l;
+
+/// @brief Релейный регулятор по правому датчику
+static class RelayR : public Relay {
+    protected: void calc() const override {
+        bool R = lineR.on();
+        motors::setSpeeds(R ? SPEED_SET : 0, R ? 0 : SPEED_SET);
+    }
+} relay_r;
+
+/// @brief Релейный регулятор по двум датчикам
+static class RelayLR : public Relay {
+    protected: void calc() const override {
+        bool L = lineL.on(), R = lineR.on();
+        motors::setSpeeds((L > R) ? 0 : SPEED_SET, (L < R) ? 0 : SPEED_SET);
+    }
+} relay_lr;
+
+/// @brief Пропорциональный регулятор линии
+static class Proportional : public Regulator {
+
+    private: 
+    uint8_t BASE_SPEED = 0;
+    float KP = 0;
+
+    protected: void calc() const override {
+        int8_t u = (lineL() - lineR()) * KP;
+        motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
+    }
+
+    public: void init(uint8_t speed) override {
+        BASE_SPEED = speed * 0.6;
+        KP = 0.2;
+    }
+} proportional;
+
+enum REGULATORS {
+    RELAY_LR = 0,
+    RELAY_L = 1,
+    RELAY_R = 2,
+    PROPORTIONAL = 3,
+};
+
+Regulator* factory(enum REGULATORS type, uint8_t speed) {
+    static Regulator* regulators[]{
+        &relay_lr,  // RELAY_LR
+        &relay_l,  // RELAY_L        
+        &relay_r,  // RELAY_R
+        &proportional,  // PROPORTIONAL
+    };
+
+    Regulator* ret = regulators[type];
+    ret->init(speed);
+    return ret;
+}
+
+}
+
+
+static void go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
+    if (invert) speed *= -1;
+    motors::setSpeeds(speed, speed);
+    while ((sensor.read() > distance) ^ invert) motors::spin();
+    goHold();
+}
 }
 
 
@@ -116,8 +208,22 @@ void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t 
 void goBackWall(uint8_t wall_dist_cm, uint8_t speed) { goBackWall(*robot.dist_front, wall_dist_cm, speed); }
 
 void turnAngle(int16_t a, uint8_t speed) {
-    int32_t ticks = MM2TICKS((int32_t)a * PARAMS::TRACK * M_PI / 360.0);
+    int32_t ticks = MM2TICKS((int32_t) a * PARAMS::TRACK * M_PI / 360.0);
     motors::setForTicks(speed, ticks, speed, -ticks);
+}
+
+void golineTime(uint32_t runtime, uint8_t speed) {
+    runtime += millis();
+
+    using namespace movingcore::line;
+
+    Regulator* reg = factory(PROPORTIONAL, speed);
+
+    while (millis() < runtime) {
+        reg->update();
+    }
+
+    goHold();
 }
 
 
