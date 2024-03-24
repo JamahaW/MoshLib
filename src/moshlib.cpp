@@ -34,7 +34,7 @@ void distSensorR(hardware::DistanceSensor& sensor) { robot.dist_right = &sensor;
 
 void distSensorF(hardware::DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
-// управление моторами
+// управление моторами [[[  TODO ликвидировать!  ]]]
 namespace motors {
 void reset() {
     motorL.reset();
@@ -103,6 +103,20 @@ class KeepSpeed : public Mover {
      * @param speed целевая скорость
      */
     public: KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
+};
+
+class ProportionalRegulator : public Mover {
+    private:
+
+    const float KP = 0.3;
+    uint8_t BASE_SPEED = 0;
+
+    protected: void tick() const override {
+        int8_t u = (lineL() - lineR()) * KP;
+        motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
+    }
+
+    public: ProportionalRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
 };
 
 } // namespace move
@@ -183,6 +197,7 @@ static class Proportional : public Regulator {
 
 }
 
+// обработчики выхода
 namespace quit {
 /// @brief Интерфейс обработки завершения движения
 class Quiter {
@@ -197,9 +212,7 @@ class Quiter {
  * @brief Обработка выхода по таймеру
  */
 class OnTimer : public Quiter {
-    private:
-
-    const uint32_t END_TIME;
+    private: const uint32_t END_TIME;
 
     public:
 
@@ -212,20 +225,42 @@ class OnTimer : public Quiter {
     bool tick() const override { return millis() < END_TIME; }
 };
 
-}
+/**
+ * @brief Обработка расстояния
+ */
+class IfDistance : public Quiter {
+    private:
+
+    hardware::DistanceSensor& sensor;
+    const uint8_t DISTANCE;
+    bool mode;
+
+    public:
+
+    enum MODE {
+        LESS = 0,
+        GREATER = 1,
+    };
+
+    /**
+     * @brief Выход по расстоянию с датчика
+     * @param used_sensor используемый датчик
+     * @param target_distance целевое значение расстояния (см)
+     * @param condition условие поддержания работы
+     */
+    IfDistance(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition) :
+        sensor(used_sensor), DISTANCE(target_distance), mode((bool) condition) {}
+
+    bool tick() const override { return (sensor.read() <= DISTANCE) ^ mode; }
+};
+
+} // namespace quit
 
 
-
-static void go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
+static void ____go_with_distance(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, bool invert) {
     if (invert) speed *= -1;
     motors::setSpeeds(speed, speed);
     while ((sensor.read() > distance) ^ invert) motors::spin();
-    goHold();
-}
-
-static void process_legacy(uint8_t speed, line::Regulator& regulator, const quit::Quiter&& quiter) {
-    regulator.init(speed);
-    while (quiter.tick())  regulator.update();
     goHold();
 }
 
@@ -256,14 +291,20 @@ void goDirect(int32_t distance_mm, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
+static void __go_proc_wall(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, moshcore::quit::IfDistance::MODE mode) {
+    using namespace moshcore;
+    process(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, distance, mode));
+}
+
 void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    moshcore::go_with_distance(sensor, wall_dist_cm, speed, false);
+    using namespace moshcore::quit;
+    __go_proc_wall(sensor, wall_dist_cm, speed, IfDistance::MODE::GREATER);
 }
 
 void goToWall(uint8_t wall_dist_cm, uint8_t speed) { goToWall(*robot.dist_front, wall_dist_cm, speed); }
 
 void goBackWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    moshcore::go_with_distance(sensor, wall_dist_cm, speed, true);
+    moshcore::____go_with_distance(sensor, wall_dist_cm, speed, true);
 }
 
 void goBackWall(uint8_t wall_dist_cm, uint8_t speed) { goBackWall(*robot.dist_front, wall_dist_cm, speed); }
@@ -273,9 +314,9 @@ void turnAngle(int16_t a, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-void golineTime(uint32_t runtime, uint8_t speed) {
+void goLineTime(uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
-    process_legacy(speed, line::relay_r, quit::OnTimer(runtime));
+    process(move::ProportionalRegulator(speed), quit::OnTimer(runtime));
 }
 
 

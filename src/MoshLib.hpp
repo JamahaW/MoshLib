@@ -142,7 +142,7 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param runtime время движения
  * @param speed скорость движения
  */
-void golineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 // ТЕСТЫ
 namespace test {
