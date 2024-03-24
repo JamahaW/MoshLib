@@ -229,29 +229,22 @@ static void process_legacy(uint8_t speed, line::Regulator& regulator, const quit
     goHold();
 }
 
-static void process(const move::Mover&& mover, const quit::Quiter&& quiter) {
+static void process(const move::Mover&& mover, const quit::Quiter&& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
-    goHold();
-}
-
-} // namespace moshcore
-
-void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_at_exit) {
-    runtime += millis();
-    motors::setSpeeds(speed_L, speed_R);
-    while (millis() < runtime) motors::spin();
-    if (!stop_at_exit) return;
+    if (hold_at_end) goHold();
     motorL.setPWM(0);
     motorR.setPWM(0);
 }
 
-void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right) {
-    moshcore::process(moshcore::move::KeepSpeed(speed_left, speed_right), moshcore::quit::OnTimer(runtime));
+} // namespace moshcore
+
+void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
+    moshcore::process(moshcore::move::KeepSpeed(speed_left, speed_right), moshcore::quit::OnTimer(runtime), __hold_at_end);
 }
 
 void goTime(uint32_t runtime, int8_t speed) { goTime(runtime, speed, speed); }
 
-void goHold(uint32_t timeout) { setMotorsTime(0, 0, timeout); }
+void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 
 void go_1000_ticks(uint8_t speed) { motors::setForTicks(speed, 1000, speed, 1000); }
 

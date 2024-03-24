@@ -10,26 +10,26 @@
 
 // ПИНЫ
 namespace pin {
-    // MOTOРЫ
-    enum MOTOR {
-        // ЛЕВЫЙ
-        ML_INVERT = false,
-        ML_SPEED = 5,
-        ML_DIR = 4,
-        ML_ENC_A = 2, // ЖЕЛТЫЙ
-        ML_ENC_B = 8, // ЗЕЛЁНЫЙ
+// MOTOРЫ
+enum MOTOR {
+    // ЛЕВЫЙ
+    ML_INVERT = false,
+    ML_SPEED = 5,
+    ML_DIR = 4,
+    ML_ENC_A = 2, // ЖЕЛТЫЙ
+    ML_ENC_B = 8, // ЗЕЛЁНЫЙ
 
-        // ПРАВЫЙ
-        MR_INVERT = true,
-        MR_SPEED = 6,
-        MR_DIR = 7,
-        MR_ENC_A = 3, // ЖЕЛТЫЙ
-        MR_ENC_B = 9, // ЗЕЛЁНЫЙ
-    };
+    // ПРАВЫЙ
+    MR_INVERT = true,
+    MR_SPEED = 6,
+    MR_DIR = 7,
+    MR_ENC_A = 3, // ЖЕЛТЫЙ
+    MR_ENC_B = 9, // ЗЕЛЁНЫЙ
+};
 
-    enum LINES { L_SENSOR = A0, R_SENSOR = A1, }; // ДАТЧИКИ ЛИНИИ
-    enum IR { IR_0 = A2, IR_1 = A3, }; // ИК-ДАТЧИК РАССТОЯНИЯ
-    enum US { PIN_ECHO = 12, PIN_TRIG = 13, }; // УЗ-ДАТЧИК РАССТОЯНИЯ
+enum LINES { L_SENSOR = A0, R_SENSOR = A1, }; // ДАТЧИКИ ЛИНИИ
+enum IR { IR_0 = A2, IR_1 = A3, }; // ИК-ДАТЧИК РАССТОЯНИЯ
+enum US { PIN_ECHO = 12, PIN_TRIG = 13, }; // УЗ-ДАТЧИК РАССТОЯНИЯ
 }
 
 extern hardware::LineSensor lineL;  // Левый датчик линии
@@ -65,21 +65,13 @@ void distSensorF(hardware::DistanceSensor& sensor);
 // ФУНКЦИИ ДВИЖЕНИЯ
 
 /**
- * @brief Включить моторы с заданой скоростью на время
- * @param speed_L скорость левого мотора
- * @param speed_R скорость правого мотора
- * @param runtime время работы в мс
- * @param stop_at_exit Выключение ШИМ после завершения движения (= true)
- */
-void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_at_exit = true);
-
-/**
  * @brief Движение с заданой скоростью на время
  * @param runtime время работы
  * @param speed_left скорость левого мотора
  * @param speed_right скорость правого мотора
+ * @param __hold_at_end для реализации goHold
  */
-void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right);
+void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end = true);
 
 /**
  * @brief Движение с заданой скоростью на время
@@ -155,17 +147,17 @@ void golineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 // ТЕСТЫ
 namespace test {
 
-    /**
-     * @brief Измерить значения датчиков линий
-     * @param ret_L возврат для левого
-     * @param ret_R возврат для правого
-     * @param timeout время измерения
-     */
-    void lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout = 1000);
+/**
+ * @brief Измерить значения датчиков линий
+ * @param ret_L возврат для левого
+ * @param ret_R возврат для правого
+ * @param timeout время измерения
+ */
+void lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout = 1000);
 
-    /// @brief тест функциональности моторов
-    void motorsAccel();
+/// @brief тест функциональности моторов
+void motorsAccel();
 
-    /// @brief тест функциональности моторов (ШИМ ВЕРСИЯ)
-    void motorsPWM();
+/// @brief тест функциональности моторов (ШИМ ВЕРСИЯ)
+void motorsPWM();
 }
