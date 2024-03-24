@@ -95,6 +95,8 @@ class Mover {
         tick();
         motors::spin();
     }
+
+    virtual ~Mover() {}
 };
 
 class KeepSpeed : public Mover {
@@ -116,11 +118,13 @@ class ProportionalLineRegulator : public Mover {
         motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
     }
 
-             /**
-              * @brief Пропорциональный регулятор движения по линии
-              * @param speed скорость движения
-              */
-    public: ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
+    public:
+
+    /**
+     * @brief Пропорциональный регулятор движения по линии
+     * @param speed скорость движения
+     */
+    ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
 };
 
 class RelayLineSingle : public Mover {
@@ -172,7 +176,7 @@ class RelayLineBoth : public Mover {
 
     /**
      * @brief Релейный регулятор движения по линии по двум датчикам
-     * @param speed 
+     * @param speed
      */
     RelayLineBoth(uint8_t speed) : SPEED(speed), SECOND((int8_t) -speed * 0.3) {}
 
@@ -240,7 +244,7 @@ class IfDistance : public Quiter {
 
 } // namespace quit
 
-static void process(const move::Mover&& mover, const quit::Quiter&& quiter, bool hold_at_end = true) {
+static void process(const move::Mover& mover, const quit::Quiter&& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
     if (hold_at_end) goHold();
     motorL.setPWM(0);
@@ -292,11 +296,20 @@ void turnAngle(int16_t a, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-void goLineTime(uint32_t runtime, uint8_t speed) {
+moshcore::move::RelayLineSingle getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
+    using namespace moshcore::move;
+
+    if (type == LINE_REGULATORS::RELAY_L)
+        return RelayLineSingle(speed, RelayLineSingle::SENSOR::LEFT);
+
+    return RelayLineSingle(speed, RelayLineSingle::SENSOR::RIGHT);
+}
+
+void goLineTime(LINE_REGULATORS regulator_type, uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
-    // process(move::ProportionalLineRegulator(speed), quit::OnTimer(runtime));
-    // process(move::RelayLineSingle(speed, move::RelayLineSingle::SENSOR::LEFT), quit::OnTimer(runtime));
-    process(move::RelayLineBoth(speed), quit::OnTimer(runtime));
+    using namespace moshcore::move;
+    RelayLineSingle rel = getLineRegulator(regulator_type, speed);
+    process(*(Mover*) &rel, quit::OnTimer(runtime));
 }
 
 

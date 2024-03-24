@@ -137,12 +137,27 @@ void goWallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
  */
 void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
+enum LINE_REGULATORS {
+    RELAY_L,
+    RELAY_R,
+    RELAY_LR,
+    PROP,
+};
+
 /**
- * @brief Движение по линии по двум датчикам
+ * @brief Движение по линии по времени с произвольным регулятором
+ * @param regulator_type тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
  * @param runtime время движения
  * @param speed скорость движения
  */
-void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goLineTime(LINE_REGULATORS regulator_type, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+// /**
+//  * @brief Движение по линии по двум датчикам
+//  * @param runtime время движения
+//  * @param speed скорость движения
+//  */
+// void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 // ТЕСТЫ
 namespace test {
