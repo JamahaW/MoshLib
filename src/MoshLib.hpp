@@ -28,14 +28,14 @@ namespace pin {
     };
 
     enum LINES { L_SENSOR = A0, R_SENSOR = A1, }; // ДАТЧИКИ ЛИНИИ
-    enum IR { L_PIN = A2, R_PIN = A3, }; // ИК-ДАТЧИК РАССТОЯНИЯ
+    enum IR { IR_0 = A2, IR_1 = A3, }; // ИК-ДАТЧИК РАССТОЯНИЯ
     enum US { PIN_ECHO = 12, PIN_TRIG = 13, }; // УЗ-ДАТЧИК РАССТОЯНИЯ
 }
 
 extern hardware::LineSensor lineL;  // Левый датчик линии
 extern hardware::LineSensor lineR;  //Правый датчик линии
 extern hardware::IrSensorSharp ir0;  //Левый ИК-датчик расстояния
-extern hardware::IrSensorSharp ir0;  // Правый ИК-датчик расстояния
+extern hardware::IrSensorSharp ir1;  // Правый ИК-датчик расстояния
 extern hardware::UltraSonic us;  // Ультразвуковой датчик расстояния
 extern hardware::MotorEncoder motorL;  // Левый мотор
 extern hardware::MotorEncoder motorR;  // Правый мотор
@@ -89,6 +89,7 @@ void go_1000_ticks(uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @brief Прямолинейное движение
  * @param distance_mm расстояние (отрицательное - едет назад)
  * @param speed скорость движения
+ * @bug МК перезапускается при автономном движении со скоростью 50
  */
 void goDirect(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
@@ -98,6 +99,14 @@ void goDirect(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param speed скорость движения
  */
 void goToWall(uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
+ * @brief Прямолинейное движение до стены (любой датчик)
+ * @param sensor ссылка на датчик
+ * @param wall_dist_cm расстояние до стены
+ * @param speed скорость движения
+ */
+void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Поворот на заданый угол вокруг центра

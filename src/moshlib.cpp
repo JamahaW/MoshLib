@@ -7,8 +7,8 @@ hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
 hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
 
 hardware::NoDistanceSensor no_sensor;
-hardware::IrSensorSharp ir0(pin::L_PIN);
-hardware::IrSensorSharp ir1(pin::R_PIN);
+hardware::IrSensorSharp ir0(pin::IR_0);
+hardware::IrSensorSharp ir1(pin::IR_1);
 hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
 
 hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
@@ -70,6 +70,18 @@ namespace motors
     }
 } // namespace motors
 
+// Реализация алгоритмов и общих принципов работы
+namespace movingcore
+{
+    void goToWall(hardware::DistanceSensor* sensor, uint8_t distance_cm, uint8_t speed) {
+        motors::setSpeeds(speed, speed);
+        while (sensor->read() > distance_cm) motors::spin();
+        goHold();
+    }
+
+} // namespace movingcore
+
+
 void setMotorsTime(int8_t speed_L, int8_t speed_R, uint32_t runtime, bool stop_at_exit) {
     runtime += millis();
     motors::setSpeeds(speed_L, speed_R);
@@ -91,11 +103,9 @@ void goDirect(int32_t distance_mm, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
-void goToWall(uint8_t wall_dist_cm, uint8_t speed) {
-    motors::setSpeeds(speed, speed);
-    while (robot.dist_front->read() < wall_dist_cm) motors::spin();
-    goHold();
-}
+void goToWall(uint8_t wall_dist_cm, uint8_t speed) { movingcore::goToWall(robot.dist_front, wall_dist_cm, speed); }
+
+void goToWall(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) { movingcore::goToWall(&sensor, wall_dist_cm, speed); }
 
 void turnAngle(int16_t a, uint8_t speed) {
     int32_t ticks = MM2TICKS((int32_t)a * PARAMS::TRACK * M_PI / 360.0);

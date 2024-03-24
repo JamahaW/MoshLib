@@ -10,9 +10,9 @@ enum PARAMS
 
     KP_SPEED = 8, // KP смещение (скорость)
     KP_1_FOLLOW = 4, // 1/KP стремление в точку
-    MAX_DELTA_TICKS = 50, // максимальная d_tick при повороте
+    MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
-    DEFAULT_SPEED = ((int)MAX_DELTA_TICKS / 6), // скорость движения по умолчанию
+    DEFAULT_SPEED = ((int)MAX_DELTA_TICKS / 4), // скорость движения по умолчанию
 
     IR_DIST_MIN = 9,
     IR_DIST_MAX = 50,
