@@ -61,8 +61,8 @@ enum IR {
 };
 // УЗ-ДАТЧИК РАССТОЯНИЯ
 enum US {
-    PIN_ECHO = 12,
-    PIN_TRIG = 13,
+    ECHO = 12,
+    TRIG = 13,
 };
 }
 

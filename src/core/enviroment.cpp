@@ -6,7 +6,7 @@ hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
 hardware::NoDistanceSensor no_sensor;
 hardware::IrSensorSharp ir0(pin::IR_0);
 hardware::IrSensorSharp ir1(pin::IR_1);
-hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
+hardware::UltraSonic us(pin::ECHO, pin::TRIG);
 
 hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
 hardware::MotorEncoder motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);

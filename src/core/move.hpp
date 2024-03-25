@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include "core/enviroment.hpp"
 
+
 namespace mosh {
 
 // ядро функциональности
@@ -34,7 +35,6 @@ class KeepSpeed : public Mover {
 };
 
 class ProportionalLineRegulator : public Mover {
-    private:
     const float KP = 0.3;
     uint8_t BASE_SPEED = 0;
 
@@ -49,7 +49,6 @@ class ProportionalLineRegulator : public Mover {
 };
 
 class RelayLineSingle : public Mover {
-    private:
     int8_t SPEED_B, SPEED_A;
     hardware::LineSensor* sensor;
 
@@ -67,7 +66,7 @@ class RelayLineSingle : public Mover {
 };
 
 class RelayLineBoth : public Mover {
-    private: int8_t SPEED, SECOND;
+    int8_t SPEED, SECOND;
 
     public:
     /**
@@ -80,8 +79,6 @@ class RelayLineBoth : public Mover {
 };
 
 class MoveAlongWall : public Mover {
-    private:
-
     const int16_t SPEED;
     const uint8_t TARGET;
     const float k;
