@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
+#include "core/enviroment.hpp"
 
 namespace mosh {
 
@@ -99,75 +100,6 @@ class MoveAlongWall : public Mover {
     MoveAlongWall(int8_t speed, uint8_t target_distance_cm, POS direction);
     void tick() const override;
 };
-
-Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
-    switch (type) {
-        case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
-        case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::LINE_RIGHT);
-        case LINE_REGULATORS::RELAY_LR: return new RelayLineBoth(speed);
-        case LINE_REGULATORS::PROP: return new ProportionalLineRegulator(speed);
-        default: return new Mover;
-    }
-}
-
 } // namespace move
-
-// обработчики выхода
-namespace quit {
-/// @brief Интерфейс обработки завершения движения
-class Quiter {
-    /**
-     * @brief Обработка события
-     * @return true если ещё НЕ вышел, false когда следует прервать работу
-     */
-    public: virtual bool tick() const = 0;
-};
-
-/**
- * @brief Обработка выхода по таймеру
- */
-class OnTimer : public Quiter {
-    const uint32_t END_TIME;
-
-    public:
-    /**
-     * @brief Выход по таймеру
-     * @param duration время
-     */
-    OnTimer(uint16_t duration);
-    bool tick() const override;
-};
-
-/**
- * @brief Обработка расстояния
- */
-class IfDistanceSensorRead : public Quiter {
-    hardware::DistanceSensor& sensor;
-    const uint8_t DISTANCE;
-    bool mode;
-
-    public:
-    enum MODE { LESS = 0, GREATER = 1 };
-
-    /**
-     * @brief Выход по расстоянию с датчика
-     * @param used_sensor используемый датчик
-     * @param target_distance целевое значение расстояния (см)
-     * @param condition условие поддержания работы
-     */
-    IfDistanceSensorRead(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition);
-
-    bool tick() const override;
-};
-
-} // namespace quit
-
-static void run(const move::Mover& mover, const quit::Quiter& quiter, bool hold_at_end = true) {
-    while (quiter.tick()) mover.update();
-    if (hold_at_end) goHold();
-    motorL.setPWM(0);
-    motorR.setPWM(0);
-}
-
 } // namespace core
 } // namespace mosh

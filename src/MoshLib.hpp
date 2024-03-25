@@ -3,45 +3,8 @@
 #pragma once
 
 #include "config.hpp"
-#include "hardware\motor.hpp"
-#include "hardware\linesensor.hpp"
-#include "hardware\distancesensor.hpp"
+#include "core/enviroment.hpp"
 
-
-// ПИНЫ
-namespace pin {
-// MOTOРЫ
-enum MOTOR {
-    // ЛЕВЫЙ
-    ML_INVERT = false,
-    ML_SPEED = 5,
-    ML_DIR = 4,
-    ML_ENC_A = 2, // ЖЕЛТЫЙ
-    ML_ENC_B = 8, // ЗЕЛЁНЫЙ
-
-    // ПРАВЫЙ
-    MR_INVERT = true,
-    MR_SPEED = 6,
-    MR_DIR = 7,
-    MR_ENC_A = 3, // ЖЕЛТЫЙ
-    MR_ENC_B = 9, // ЗЕЛЁНЫЙ
-};
-
-enum LINES { L_SENSOR = A0, R_SENSOR = A1, }; // ДАТЧИКИ ЛИНИИ
-enum IR { IR_0 = A2, IR_1 = A3, }; // ИК-ДАТЧИК РАССТОЯНИЯ
-enum US { PIN_ECHO = 12, PIN_TRIG = 13, }; // УЗ-ДАТЧИК РАССТОЯНИЯ
-}
-
-extern hardware::LineSensor lineL;  // Левый датчик линии
-extern hardware::LineSensor lineR;  //Правый датчик линии
-extern hardware::IrSensorSharp ir0;  //Левый ИК-датчик расстояния
-extern hardware::IrSensorSharp ir1;  // Правый ИК-датчик расстояния
-extern hardware::UltraSonic us;  // Ультразвуковой датчик расстояния
-extern hardware::MotorEncoder motorL;  // Левый мотор
-extern hardware::MotorEncoder motorR;  // Правый мотор
-
-
-// КОНФИГУРАЦИЯ
 
 /**
  * @brief Указать ЛЕВЫЙ датчик расстояния
@@ -136,13 +99,6 @@ void goWallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
  */
 void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
-enum LINE_REGULATORS {
-    RELAY_L,
-    RELAY_R,
-    RELAY_LR,
-    PROP,
-};
-
 /**
  * @brief Установить регулятор движения по линии по умолчанию
  * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
@@ -180,6 +136,7 @@ void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEF
  */
 void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
+
 // ТЕСТЫ
 namespace test {
 
@@ -196,4 +153,5 @@ void motorsAccel();
 
 /// @brief тест функциональности моторов (ШИМ ВЕРСИЯ)
 void motorsPWM();
-}
+
+} // namespace test

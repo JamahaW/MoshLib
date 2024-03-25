@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Arduino.h>
+
 // КОНФИГУРАЦИЯ
 enum PARAMS
 {
@@ -12,7 +14,7 @@ enum PARAMS
     KP_1_FOLLOW = 4, // 1/KP стремление в точку
     MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
-    DEFAULT_SPEED = ((int)MAX_DELTA_TICKS / 4), // скорость движения по умолчанию
+    DEFAULT_SPEED = ((int) MAX_DELTA_TICKS / 4), // скорость движения по умолчанию
 
     IR_DIST_MIN = 9,
     IR_DIST_MAX = 50,
@@ -27,4 +29,47 @@ enum PARAMS
     R_FIELD = 981,
     L_LINE = 57,
     L_FIELD = 837,
+};
+
+// ПИНЫ
+namespace pin {
+// MOTOРЫ
+enum MOTOR {
+    // ЛЕВЫЙ
+    ML_INVERT = false,
+    ML_SPEED = 5,
+    ML_DIR = 4,
+    ML_ENC_A = 2, // ЖЕЛТЫЙ
+    ML_ENC_B = 8, // ЗЕЛЁНЫЙ
+
+    // ПРАВЫЙ
+    MR_INVERT = true,
+    MR_SPEED = 6,
+    MR_DIR = 7,
+    MR_ENC_A = 3, // ЖЕЛТЫЙ
+    MR_ENC_B = 9, // ЗЕЛЁНЫЙ
+};
+// ДАТЧИКИ ЛИНИИ
+enum LINES {
+    L_SENSOR = A0,
+    R_SENSOR = A1,
+};
+// ИК-ДАТЧИК РАССТОЯНИЯ
+enum IR {
+    IR_0 = A2,
+    IR_1 = A3,
+};
+// УЗ-ДАТЧИК РАССТОЯНИЯ
+enum US {
+    PIN_ECHO = 12,
+    PIN_TRIG = 13,
+};
+}
+
+// виды регуляторов движения по линии
+enum LINE_REGULATORS {
+    RELAY_L,
+    RELAY_R,
+    RELAY_LR,
+    PROP,
 };

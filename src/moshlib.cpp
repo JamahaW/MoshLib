@@ -1,147 +1,28 @@
 #include "MoshLib.hpp"
-#include "mosh\core.hpp"
 
+#include "core/move.hpp"
+#include "core/quit.hpp"
+#include "core/enviroment.hpp"
 
-// КОМПОНЕНТЫ
+using namespace mosh::core;
 
-hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
-hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
-
-hardware::NoDistanceSensor no_sensor;
-hardware::IrSensorSharp ir0(pin::IR_0);
-hardware::IrSensorSharp ir1(pin::IR_1);
-hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
-
-hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
-hardware::MotorEncoder motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
-
-void hardware::__l_int() { motorL.enc(); }
-void hardware::__r_int() { motorR.enc(); }
-
-/**
- * @brief Данные о роботе
- */
-static struct RobotConfig {
-    hardware::DistanceSensor* dist_left = &no_sensor; // используется при движении вдоль стены слева
-    hardware::DistanceSensor* dist_right = &no_sensor; // используештся при движении вдоль стены справа
-    hardware::DistanceSensor* dist_front = &no_sensor; // используется при движении до объекта спереди
-    LINE_REGULATORS line_follow_regulator = LINE_REGULATORS::PROP; // Регулятор движения по линии по умолчанию
-} robot;
-
-// управление моторами [[[  TODO ликвидировать!  ]]]
-namespace motors {
-void reset() {
-    motorL.reset();
-    motorR.reset();
+static void run(const move::Mover& mover, const quit::Quiter& quiter, bool hold_at_end = true) {
+    while (quiter.tick()) mover.update();
+    if (hold_at_end) goHold();
+    motorL.setPWM(0);
+    motorR.setPWM(0);
 }
 
-void spin() {
-    motorL.spin();
-    motorR.spin();
-}
-
-void setSpeeds(int16_t left, int16_t right) {
-    motorL.setSpeed(left);
-    motorR.setSpeed(right);
-}
-
-void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R) {
-    reset();
-    setSpeeds(speed_L, speed_R);
-    motorL.target = ticks_L;
-    motorR.target = ticks_R;
-
-    bool runL = true;
-    bool runR = true;
-
-    while (runL || runR) {
-        runL = motorL.follow();
-        runR = motorR.follow();
-    }
-
-    goHold();
-}
-} // namespace motors
-
-// ОБРАБОТКА ДВИЖЕНИЯ
-
-using namespace mosh::core::move;
-
-void Mover::tick() const {};
-
-void Mover::update() const {
-    tick();
-    motors::spin();
-}
-
-Mover::~Mover() {}
-
-KeepSpeed::KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
-
-ProportionalLineRegulator::ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
-
-void ProportionalLineRegulator::tick() const {
-    int8_t u = (lineL() - lineR()) * KP;
-    motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
-}
-
-RelayLineSingle::RelayLineSingle(uint8_t speed, enum SENSOR sensor_dir) {
-    SPEED_A = SPEED_B = (int8_t) speed;
-    const int8_t second = -speed * 0.3;
-
-    switch (sensor_dir) {
-
-        case SENSOR::LINE_LEFT:
-            sensor = &lineL;
-            SPEED_A = second;
-            break;
-
-        case SENSOR::LINE_RIGHT:
-            sensor = &lineR;
-            SPEED_B = second;
-            break;
+static move::Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
+    using namespace mosh::core::move;
+    switch (type) {
+        case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
+        case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::LINE_RIGHT);
+        case LINE_REGULATORS::RELAY_LR: return new RelayLineBoth(speed);
+        case LINE_REGULATORS::PROP: return new ProportionalLineRegulator(speed);
+        default: return new Mover;
     }
 }
-
-void RelayLineSingle::tick() const {
-    bool on = sensor->on();
-    motors::setSpeeds(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
-}
-
-RelayLineBoth::RelayLineBoth(uint8_t speed) : SPEED(speed), SECOND((int8_t) -speed * 0.3) {}
-
-void RelayLineBoth::tick() const {
-    bool L = lineL.on(), R = lineR.on();
-    motors::setSpeeds((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
-}
-
-MoveAlongWall::MoveAlongWall(int8_t speed, uint8_t target_distance_cm, POS direction) :
-    SPEED(speed), TARGET(target_distance_cm), k(1.2 * (int) direction) {
-    switch (direction) {
-        case POS::DIST_LEFT: sensor = robot.dist_left; break;
-        case POS::DIST_RIGHT: sensor = robot.dist_right; break;
-        default: sensor = &no_sensor; break;
-    }
-}
-
-void MoveAlongWall::tick() const {
-    int16_t u = k * float(TARGET - sensor->read()) * SPEED / (float) TARGET;
-    motors::setSpeeds(SPEED - u, SPEED + u);
-}
-
-// ОБРАБОТКА ВЫХОДА
-
-using namespace mosh::core::quit;
-
-OnTimer::OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
-bool OnTimer::tick() const { return millis() < END_TIME; }
-
-IfDistanceSensorRead::IfDistanceSensorRead(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition) :
-    sensor(used_sensor), DISTANCE(target_distance), mode((bool) condition) {}
-
-bool IfDistanceSensorRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
-
-// ФУНКЦИИ ДВИЖЕНИЯ
 
 void distSensorL(hardware::DistanceSensor& sensor) { robot.dist_left = &sensor; }
 
@@ -193,7 +74,7 @@ void lineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulat
 
 void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
     using namespace mosh::core;
-    move::Mover* mover = move::getLineRegulator(type, speed);
+    move::Mover* mover = getLineRegulator(type, speed);
     run(*mover, quit::OnTimer(runtime));
     delete mover;
 }
