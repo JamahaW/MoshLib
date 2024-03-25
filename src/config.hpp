@@ -20,7 +20,7 @@ enum PARAMS
 
     US_DIST_MIN = 2,
     US_DIST_MAX = 100,
-    US_PERIOD = 100,
+    US_PERIOD = 200,
 
     GRAY_PERCENT = 50,
     R_LINE = 108,

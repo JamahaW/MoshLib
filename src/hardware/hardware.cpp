@@ -31,7 +31,7 @@ void MotorEncoder::setDirPWM(int16_t power) {
     setPWM(constrain(power, 0, 255));
 }
 
-void MotorEncoder::setSpeed(int8_t dtick) { speed = speed_set = constrain(dtick, -PARAMS::MAX_DELTA_TICKS, PARAMS::MAX_DELTA_TICKS); }
+void MotorEncoder::setSpeed(int16_t dtick) { speed = speed_set = constrain(dtick, -PARAMS::MAX_DELTA_TICKS, PARAMS::MAX_DELTA_TICKS); }
 
 void MotorEncoder::spin() {
     setDirPWM(KP_SPEED * (next_pos - position));

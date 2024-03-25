@@ -70,7 +70,7 @@ namespace hardware
 
         /// @brief Установить целевую скорость вращения
         /// @param dtick
-        void setSpeed(int8_t dtick);
+        void setSpeed(int16_t dtick);
 
         /// @brief вращать мотор (вызывать постоянно)
         void spin();
