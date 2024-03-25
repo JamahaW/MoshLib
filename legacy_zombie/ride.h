@@ -153,12 +153,12 @@ static bool _crossesStopCondition(int end_crosses) {  //остановка по 
   return cur_crosses <= end_crosses;
 }
 //остановка по проеханной дистанции
-static bool _distanceStopCondition(int end_distance) {  
+static bool _distanceStopCondition(int end_distance) {
   int lenght = min(leftMotor.ticks, rightMotor.ticks) * TICK_TO_MM;
   return lenght < end_distance;
 }
 //остановка по датчику расстояния
-static bool _distanceSensorStopCondition(int distance, DistSensorTypes sensor = US) {  
+static bool _distanceSensorStopCondition(int distance, DistSensorTypes sensor = US) {
   return getDist(sensor) < distance;
 }
 static bool _endWallStopCondition(DistSensorTypes sensor, int32_t dist) {
@@ -167,74 +167,74 @@ static bool _endWallStopCondition(DistSensorTypes sensor, int32_t dist) {
 static bool _lineSensorStopCondition() {
   return !(leftLineSensor.onLine() || rightLineSensor.onLine());
 }
- //корректировка моторов при езде по линии
-static void _moveLineTick(MoveAlgoritms movement_type) { 
+//корректировка моторов при езде по линии
+static void _moveLineTick(MoveAlgoritms movement_type) {
   switch (movement_type) {
-  case PD_REG:
-    _moveLineTickPD();
-    break;
-  case ZIG_ZAG_LEFT:
-    _moveLineTickZigZagLeft();
-    break;
-  case ZIG_ZAG_RIGHT:
-    _moveLineTickZigZagRight();
-    break;
-  case ZIG_ZAG_BOTH:
-    _moveLineTickZigZagBoth();
-    break;
-  default:
-    break;
+    case PD_REG:
+      _moveLineTickPD();
+      break;
+    case ZIG_ZAG_LEFT:
+      _moveLineTickZigZagLeft();
+      break;
+    case ZIG_ZAG_RIGHT:
+      _moveLineTickZigZagRight();
+      break;
+    case ZIG_ZAG_BOTH:
+      _moveLineTickZigZagBoth();
+      break;
+    default:
+      break;
   }
 }
 static void _moveWallTick(float target, MoveAlgoritms movement_type, DistSensorTypes sensor, bool reversed) {
   switch (movement_type) {
-  case PD_REG:
-    _moveWallTickPD(target, sensor, reversed);
-    break;
-  case ZIG_ZAG:
-    _moveWallTickZigZag(target, sensor, reversed);
-    break;
-  default:
-    break;
+    case PD_REG:
+      _moveWallTickPD(target, sensor, reversed);
+      break;
+    case ZIG_ZAG:
+      _moveWallTickZigZag(target, sensor, reversed);
+      break;
+    default:
+      break;
   }
 }
 
 static bool _checkMoveConditions(MoveStopTypes stop_type, int32_t argument, DistSensorTypes dist = US) {  //проверка условий остановки
   switch (stop_type) {
-  case ON_TIME:
-    return _timeStopCondition(start_time + argument);
-    break;
-  case ON_CROSS:
-    return _crossesStopCondition(argument);
-    break;
-  case BY_RIDE_DISTANCE:
-    return _distanceStopCondition(argument);
-    break;
-  case ON_WALL_DISTANCE:
-    return _distanceSensorStopCondition(argument, dist);
-    break;
-  default:
-    return true;
-    break;
+    case ON_TIME:
+      return _timeStopCondition(start_time + argument);
+      break;
+    case ON_CROSS:
+      return _crossesStopCondition(argument);
+      break;
+    case BY_RIDE_DISTANCE:
+      return _distanceStopCondition(argument);
+      break;
+    case ON_WALL_DISTANCE:
+      return _distanceSensorStopCondition(argument, dist);
+      break;
+    default:
+      return true;
+      break;
   }
 }
 static bool _checkMoveConditions_Wall(MoveStopTypes stop_type, int32_t argument, DistSensorTypes dist) {
   switch (stop_type) {
-  case ON_TIME:
-    return _timeStopCondition(start_time + argument);
-    break;
-  case ON_LINE:
-    return _lineSensorStopCondition();
-    break;
-  case BY_RIDE_DISTANCE:
-    return _distanceStopCondition(argument);
-    break;
-  case BY_END_WALL:
-    return _endWallStopCondition(dist, argument);
-    break;
-  default:
-    return true;
-    break;
+    case ON_TIME:
+      return _timeStopCondition(start_time + argument);
+      break;
+    case ON_LINE:
+      return _lineSensorStopCondition();
+      break;
+    case BY_RIDE_DISTANCE:
+      return _distanceStopCondition(argument);
+      break;
+    case BY_END_WALL:
+      return _endWallStopCondition(dist, argument);
+      break;
+    default:
+      return true;
+      break;
   }
 }
 

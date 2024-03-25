@@ -82,7 +82,6 @@ sensor из rideLine movement_type - есть pd регулятор и зиг-з
 // библиотекой это учитываться не будет
 
 #pragma once
-#include "display.h"
 #include "ride.h"
 
 
