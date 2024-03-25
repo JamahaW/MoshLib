@@ -10,19 +10,19 @@
  * @brief Указать ЛЕВЫЙ датчик расстояния
  * @param sensor ссылка на датчик
  */
-void distSensorL(hardware::DistanceSensor& sensor);
+void distSensorL(mosh::hardware::DistanceSensor& sensor);
 
 /**
  * @brief Указать ПРАВЫЙ датчик расстояния
  * @param sensor ссылка на датчик
  */
-void distSensorR(hardware::DistanceSensor& sensor);
+void distSensorR(mosh::hardware::DistanceSensor& sensor);
 
 /**
  * @brief Указать ПЕРЕДНИЙ датчик расстояния
  * @param sensor ссылка на датчик
  */
-void distSensorF(hardware::DistanceSensor& sensor);
+void distSensorF(mosh::hardware::DistanceSensor& sensor);
 
 
 // ФУНКЦИИ ДВИЖЕНИЯ
@@ -68,7 +68,7 @@ void goDist(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goWallFront(hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goWallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение до стены (передний датчик)
@@ -83,7 +83,7 @@ void goWallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goWallBack(hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goWallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение назад от стены (передний датчик)

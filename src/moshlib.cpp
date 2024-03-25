@@ -5,6 +5,7 @@
 #include "core/enviroment.hpp"
 
 using namespace mosh::core;
+using namespace mosh::hardware;
 
 static void run(const move::Mover& mover, const quit::Quiter& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
@@ -24,11 +25,11 @@ static move::Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
     }
 }
 
-void distSensorL(hardware::DistanceSensor& sensor) { robot.dist_left = &sensor; }
+void distSensorL(DistanceSensor& sensor) { robot.dist_left = &sensor; }
 
-void distSensorR(hardware::DistanceSensor& sensor) { robot.dist_right = &sensor; }
+void distSensorR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
 
-void distSensorF(hardware::DistanceSensor& sensor) { robot.dist_front = &sensor; }
+void distSensorF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
     using namespace mosh::core;
@@ -51,14 +52,14 @@ void goDist(int32_t distance_mm, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
-void goWallFront(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+void goWallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     using namespace mosh::core;
     run(move::KeepSpeed(speed, speed), quit::IfDistanceSensorRead(sensor, wall_dist_cm, quit::IfDistanceSensorRead::GREATER));
 }
 
 void goWallFront(uint8_t distance, uint8_t speed) { goWallFront(*robot.dist_front, distance, speed); }
 
-void goWallBack(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+void goWallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     using namespace mosh::core;
     run(move::KeepSpeed(speed, speed), quit::IfDistanceSensorRead(sensor, wall_dist_cm, quit::IfDistanceSensorRead::LESS));
 }
@@ -115,7 +116,7 @@ void test::lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout) {
  * @param motor
  * @param dir
  */
-static void test_motors_speed(hardware::MotorEncoder* motor, int8_t dir) {
+static void test_motors_speed(MotorEncoder* motor, int8_t dir) {
     uint32_t timer = millis() + 120;
 
     motor->reset();
@@ -130,18 +131,18 @@ static void test_motors_speed(hardware::MotorEncoder* motor, int8_t dir) {
 }
 
 void test::motorsAccel() {
-    hardware::MotorEncoder* _motors[]{ &motorL, &motorR };
+    MotorEncoder* _motors[]{ &motorL, &motorR };
 
-    for (hardware::MotorEncoder* m : _motors) {
+    for (MotorEncoder* m : _motors) {
         test_motors_speed(m, 1);
         test_motors_speed(m, -1);
     }
 }
 
 void test::motorsPWM() {
-    hardware::MotorEncoder* _motors[]{ &motorL, &motorR };
+    MotorEncoder* _motors[]{ &motorL, &motorR };
 
-    for (hardware::MotorEncoder* motor : _motors) {
+    for (MotorEncoder* motor : _motors) {
         for (int16_t i = -255; i < 256; i++) {
             motor->setPWM(255 - abs(i));
             motor->setDir(i > 0);

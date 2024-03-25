@@ -1,18 +1,18 @@
 #include "enviroment.hpp"
 
-hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
-hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
+mosh::hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
+mosh::hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
 
-hardware::NoDistanceSensor no_sensor;
-hardware::IrSensorSharp ir0(pin::IR_0);
-hardware::IrSensorSharp ir1(pin::IR_1);
-hardware::UltraSonic us(pin::ECHO, pin::TRIG);
+mosh::hardware::NoDistanceSensor no_sensor;
+mosh::hardware::IrSensorSharp ir0(pin::IR_0);
+mosh::hardware::IrSensorSharp ir1(pin::IR_1);
+mosh::hardware::UltraSonic us(pin::ECHO, pin::TRIG);
 
-hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
-hardware::MotorEncoder motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
+mosh::hardware::MotorEncoder motorL(mosh::hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
+mosh::hardware::MotorEncoder motorR(mosh::hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
 
-void hardware::__l_int() { motorL.enc(); }
-void hardware::__r_int() { motorR.enc(); }
+void mosh::hardware::__l_int() { motorL.enc(); }
+void mosh::hardware::__r_int() { motorR.enc(); }
 
 RobotConfig robot;
 
@@ -47,5 +47,6 @@ void motors::setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_
     }
 
     // goHold();
-    setSpeeds(0, 0);
+    motorL.setPWM(0);
+    motorR.setPWM(0);
 }

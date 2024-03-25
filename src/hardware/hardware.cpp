@@ -3,7 +3,7 @@
 #include "distancesensor.hpp"
 
 
-using namespace hardware;
+using namespace mosh::hardware;
 
 
 // МОТОР
@@ -60,7 +60,7 @@ int16_t LineSensor::readRaw() const { return analogRead(PIN); }
 
 int8_t LineSensor::read() const {
     int16_t ret = map(readRaw(), ON_LINE, ON_FIELD, 100, 0);
-    return (int8_t)constrain(ret, 0, 100);
+    return (int8_t) constrain(ret, 0, 100);
 }
 
 int8_t LineSensor::operator () () const { return read(); }
@@ -92,7 +92,7 @@ IrSensorSharp::IrSensorSharp(const uint8_t pin) :
     pinMode(PIN, INPUT);
 }
 
-const uint8_t IrSensorSharp::update() const { return 32 * pow(analogRead(PIN) * (5.0 / 1024.0), -1.1); }
+uint8_t IrSensorSharp::update() const { return 32 * pow(analogRead(PIN) * (5.0 / 1024.0), -1.1); }
 
 
 // УЗ ДАТЧИК РАССТОЯНИЯ
@@ -103,7 +103,7 @@ UltraSonic::UltraSonic(const uint8_t pin_echo, const uint8_t pin_trig) :
     pinMode(PIN_TRIG, OUTPUT);
 }
 
-const uint8_t UltraSonic::update() const {
+uint8_t UltraSonic::update() const {
     digitalWrite(PIN_TRIG, LOW);
     delayMicroseconds(5);
     digitalWrite(PIN_TRIG, HIGH);
