@@ -4,17 +4,22 @@
 #include "core/quit.hpp"
 #include "core/enviroment.hpp"
 
-using namespace mosh::core;
-using namespace mosh::hardware;
 
-static void run(const move::Mover& mover, const quit::Quiter& quiter, bool hold_at_end = true) {
+using mosh::hardware::DistanceSensor;
+using mosh::hardware::MotorEncoder;
+
+using namespace mosh::core::move;
+using namespace mosh::core::quit;
+
+
+static void run(const Mover& mover, const Quiter& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
     if (hold_at_end) goHold();
     motorL.setPWM(0);
     motorR.setPWM(0);
 }
 
-static move::Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
+static Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
     using namespace mosh::core::move;
     switch (type) {
         case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
@@ -32,8 +37,7 @@ void distSensorR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
 void distSensorF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
-    using namespace mosh::core;
-    run(move::KeepSpeed(speed_left, speed_right), quit::OnTimer(runtime), __hold_at_end);
+    run(KeepSpeed(speed_left, speed_right), OnTimer(runtime), __hold_at_end);
 }
 
 void goTime(uint32_t runtime, int8_t speed) { goTime(runtime, speed, speed); }
@@ -44,8 +48,9 @@ void goTick(int32_t ticks, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
+// .. где мой constexpr, Ардуино!!? где С++11???
 // Переводной макрос из ММ пути в тики энкодера
-#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(PARAMS::MM_IN_1000_TICKS) ) // .. где мой constexpr, Ардуино!!? где С++11???
+#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(PARAMS::MM_IN_1000_TICKS) ) 
 
 void goDist(int32_t distance_mm, uint8_t speed) {
     int32_t ticks = MM2TICKS(distance_mm);
@@ -53,15 +58,13 @@ void goDist(int32_t distance_mm, uint8_t speed) {
 }
 
 void goWallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    using namespace mosh::core;
-    run(move::KeepSpeed(speed, speed), quit::IfDistanceSensorRead(sensor, wall_dist_cm, quit::IfDistanceSensorRead::GREATER));
+    run(KeepSpeed(speed, speed), IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::GREATER));
 }
 
 void goWallFront(uint8_t distance, uint8_t speed) { goWallFront(*robot.dist_front, distance, speed); }
 
 void goWallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    using namespace mosh::core;
-    run(move::KeepSpeed(speed, speed), quit::IfDistanceSensorRead(sensor, wall_dist_cm, quit::IfDistanceSensorRead::LESS));
+    run(KeepSpeed(speed, speed), IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::LESS));
 }
 
 void goWallBack(uint8_t distance, uint8_t speed) { goWallBack(*robot.dist_front, distance, speed); }
@@ -74,28 +77,22 @@ void turnAngle(int16_t a, uint8_t speed) {
 void lineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
 
 void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
-    using namespace mosh::core;
-    move::Mover* mover = getLineRegulator(type, speed);
-    run(*mover, quit::OnTimer(runtime));
+    Mover* mover = getLineRegulator(type, speed);
+    run(*mover, OnTimer(runtime));
     delete mover;
 }
 
 void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
 
 void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    using namespace mosh::core;
-    using namespace mosh::core::move;
-    run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_LEFT), quit::OnTimer(runtime));
+    run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_LEFT), OnTimer(runtime));
 }
 
 void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    using namespace mosh::core;
-    using namespace mosh::core::move;
-    run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_RIGHT), quit::OnTimer(runtime));
+    run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_RIGHT), OnTimer(runtime));
 }
 
 // ТЕСТИРОВАНИЕ
-
 void test::lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout) {
     uint16_t i;
     uint32_t sum_L = 0, sum_R = 0;
@@ -110,12 +107,6 @@ void test::lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout) {
     ret_R = sum_R / i;
 }
 
-
-/**
- * @brief Изменение скорости регулятором
- * @param motor
- * @param dir
- */
 static void test_motors_speed(MotorEncoder* motor, int8_t dir) {
     uint32_t timer = millis() + 120;
 
