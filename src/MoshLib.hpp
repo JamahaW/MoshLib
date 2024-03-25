@@ -3,9 +3,9 @@
 #pragma once
 
 #include "config.hpp"
-#include "hardware/motor.hpp"
-#include "hardware/linesensor.hpp"
-#include "hardware/distancesensor.hpp"
+#include "hardware\motor.hpp"
+#include "hardware\linesensor.hpp"
+#include "hardware\distancesensor.hpp"
 
 
 // ПИНЫ

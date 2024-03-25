@@ -1,4 +1,5 @@
 #include "MoshLib.hpp"
+#include "mosh\core.hpp"
 
 
 // КОМПОНЕНТЫ
@@ -14,7 +15,6 @@ hardware::UltraSonic us(pin::PIN_ECHO, pin::PIN_TRIG);
 hardware::MotorEncoder motorL(hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
 hardware::MotorEncoder motorR(hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
 
-
 void hardware::__l_int() { motorL.enc(); }
 void hardware::__r_int() { motorR.enc(); }
 
@@ -27,13 +27,6 @@ static struct RobotConfig {
     hardware::DistanceSensor* dist_front = &no_sensor; // используется при движении до объекта спереди
     LINE_REGULATORS line_follow_regulator = LINE_REGULATORS::PROP; // Регулятор движения по линии по умолчанию
 } robot;
-
-
-void distSensorL(hardware::DistanceSensor& sensor) { robot.dist_left = &sensor; }
-
-void distSensorR(hardware::DistanceSensor& sensor) { robot.dist_right = &sensor; }
-
-void distSensorF(hardware::DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 // управление моторами [[[  TODO ликвидировать!  ]]]
 namespace motors {
@@ -70,238 +63,94 @@ void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_
 }
 } // namespace motors
 
-// Реализация алгоритмов и общих принципов работы
-namespace moshcore {
+// ОБРАБОТКА ДВИЖЕНИЯ
 
-// Регуляторы движения
-namespace move {
+using namespace mosh::core::move;
 
-/**
- * @brief Абстрактный исполнитель движения робота
- */
-class Mover {
+void Mover::tick() const {};
 
-    protected:
-    /**
-     * @brief При необходимости может быть переопределён в наследниках
-     */
-    virtual void tick() const {};
+void Mover::update() const {
+    tick();
+    motors::spin();
+}
 
-    public:
+Mover::~Mover() {}
 
-    /**
-     * @brief
-     */
-    void update() const {
-        tick();
-        motors::spin();
-    }
+KeepSpeed::KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
 
-    virtual ~Mover() {} // для delete TODO искоренить new !!
-};
+ProportionalLineRegulator::ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
 
-class KeepSpeed : public Mover {
-    /**
-     * @brief Движение с поддержинием скорости TODO управление ускорением
-     * @param speed целевая скорость
-     */
-    public: KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
-};
+void ProportionalLineRegulator::tick() const {
+    int8_t u = (lineL() - lineR()) * KP;
+    motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
+}
 
-class ProportionalLineRegulator : public Mover {
-    private:
+RelayLineSingle::RelayLineSingle(uint8_t speed, enum SENSOR sensor_dir) {
+    SPEED_A = SPEED_B = (int8_t) speed;
+    const int8_t second = -speed * 0.3;
 
-    const float KP = 0.3;
-    uint8_t BASE_SPEED = 0;
+    switch (sensor_dir) {
 
-    protected: void tick() const override {
-        int8_t u = (lineL() - lineR()) * KP;
-        motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
-    }
+        case SENSOR::LINE_LEFT:
+            sensor = &lineL;
+            SPEED_A = second;
+            break;
 
-    public:
-
-    /**
-     * @brief Пропорциональный регулятор движения по линии
-     * @param speed скорость движения
-     */
-    ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
-};
-
-class RelayLineSingle : public Mover {
-    private:
-
-    int8_t SPEED_B, SPEED_A;
-    hardware::LineSensor* sensor;
-
-    public:
-
-    enum SENSOR { LINE_LEFT, LINE_RIGHT };
-
-    /**
-     * @brief Релейный регулятор движения по линии по одному датчику
-     * @param speed скорость перемещения
-     * @param sensor_dir положение датчика `SENSOR::LEFT` | `SENSOR::RIGHT`
-     */
-    RelayLineSingle(uint8_t speed, enum SENSOR sensor_dir) {
-        SPEED_A = SPEED_B = (int8_t) speed;
-        const int8_t second = -speed * 0.3;
-
-        switch (sensor_dir) {
-
-            case SENSOR::LINE_LEFT:
-                sensor = &lineL;
-                SPEED_A = second;
-                break;
-
-            case SENSOR::LINE_RIGHT:
-                sensor = &lineR;
-                SPEED_B = second;
-                break;
-
-        }
-    }
-
-    void tick() const override {
-        bool on = sensor->on();
-        motors::setSpeeds(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
-    }
-
-};
-
-class RelayLineBoth : public Mover {
-
-    private: int8_t SPEED, SECOND;
-
-    public:
-
-    /**
-     * @brief Релейный регулятор движения по линии по двум датчикам
-     * @param speed
-     */
-    RelayLineBoth(uint8_t speed) : SPEED(speed), SECOND((int8_t) -speed * 0.3) {}
-
-    void tick() const override {
-        bool L = lineL.on(), R = lineR.on();
-        motors::setSpeeds((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
-    }
-};
-
-class MoveAlongWall : public Mover {
-
-    public: enum POS { DIST_LEFT = -1, DIST_RIGHT = 1 };
-
-    private:
-
-    const int16_t SPEED;
-    const uint8_t TARGET;
-    const float k;
-    hardware::DistanceSensor* sensor;
-
-    hardware::DistanceSensor* select(POS direction) {
-        switch (direction) {
-            case POS::DIST_LEFT: return robot.dist_left;
-            case POS::DIST_RIGHT: return robot.dist_right;
-            default: return &no_sensor;
-        }
-    }
-
-    public:
-
-    /**
-     * @brief Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА
-     * @param speed скорость движения
-     * @param target_distance_cm целевое расстояние см
-     * @param direction положение датчика `DIST_LEFT` | `DIST_RIGHT`
-     */
-    MoveAlongWall(int8_t speed, uint8_t target_distance_cm, POS direction) :
-        SPEED(speed), TARGET(target_distance_cm), k(1.2 * (int) direction), sensor(select(direction)) {}
-
-    void tick() const override {
-        int16_t u = k * float(TARGET - sensor->read()) * SPEED / (float) TARGET;
-        motors::setSpeeds(SPEED - u, SPEED + u);
-    }
-};
-
-Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
-    switch (type) {
-        case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
-        case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::LINE_RIGHT);
-        case LINE_REGULATORS::RELAY_LR: return new RelayLineBoth(speed);
-        case LINE_REGULATORS::PROP: return new ProportionalLineRegulator(speed);
-        default: return new Mover;
+        case SENSOR::LINE_RIGHT:
+            sensor = &lineR;
+            SPEED_B = second;
+            break;
     }
 }
 
-} // namespace move
-
-// обработчики выхода
-namespace quit {
-/// @brief Интерфейс обработки завершения движения
-class Quiter {
-    /**
-     * @brief Обработка события
-     * @return true если ещё НЕ вышел, false когда следует прервать работу
-     */
-    public: virtual bool tick() const = 0;
-};
-
-/**
- * @brief Обработка выхода по таймеру
- */
-class OnTimer : public Quiter {
-    private: const uint32_t END_TIME;
-
-    public:
-
-    /**
-     * @brief Выход по таймеру
-     * @param duration время
-     */
-    OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
-
-    bool tick() const override { return millis() < END_TIME; }
-};
-
-/**
- * @brief Обработка расстояния
- */
-class IfDistance : public Quiter {
-    private:
-
-    hardware::DistanceSensor& sensor;
-    const uint8_t DISTANCE;
-    bool mode;
-
-    public:
-
-    enum MODE { LESS = 0, GREATER = 1 };
-
-    /**
-     * @brief Выход по расстоянию с датчика
-     * @param used_sensor используемый датчик
-     * @param target_distance целевое значение расстояния (см)
-     * @param condition условие поддержания работы
-     */
-    IfDistance(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition) :
-        sensor(used_sensor), DISTANCE(target_distance), mode((bool) condition) {}
-
-    bool tick() const override { return (sensor.read() <= DISTANCE) ^ mode; }
-};
-
-} // namespace quit
-
-static void run(const move::Mover& mover, const quit::Quiter& quiter, bool hold_at_end = true) {
-    while (quiter.tick()) mover.update();
-    if (hold_at_end) goHold();
-    motorL.setPWM(0);
-    motorR.setPWM(0);
+void RelayLineSingle::tick() const {
+    bool on = sensor->on();
+    motors::setSpeeds(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
 }
 
-} // namespace moshcore
+RelayLineBoth::RelayLineBoth(uint8_t speed) : SPEED(speed), SECOND((int8_t) -speed * 0.3) {}
+
+void RelayLineBoth::tick() const {
+    bool L = lineL.on(), R = lineR.on();
+    motors::setSpeeds((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
+}
+
+MoveAlongWall::MoveAlongWall(int8_t speed, uint8_t target_distance_cm, POS direction) :
+    SPEED(speed), TARGET(target_distance_cm), k(1.2 * (int) direction) {
+    switch (direction) {
+        case POS::DIST_LEFT: sensor = robot.dist_left; break;
+        case POS::DIST_RIGHT: sensor = robot.dist_right; break;
+        default: sensor = &no_sensor; break;
+    }
+}
+
+void MoveAlongWall::tick() const {
+    int16_t u = k * float(TARGET - sensor->read()) * SPEED / (float) TARGET;
+    motors::setSpeeds(SPEED - u, SPEED + u);
+}
+
+// ОБРАБОТКА ВЫХОДА
+
+using namespace mosh::core::quit;
+
+OnTimer::OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
+bool OnTimer::tick() const { return millis() < END_TIME; }
+
+IfDistanceSensorRead::IfDistanceSensorRead(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition) :
+    sensor(used_sensor), DISTANCE(target_distance), mode((bool) condition) {}
+
+bool IfDistanceSensorRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
+
+// ФУНКЦИИ ДВИЖЕНИЯ
+
+void distSensorL(hardware::DistanceSensor& sensor) { robot.dist_left = &sensor; }
+
+void distSensorR(hardware::DistanceSensor& sensor) { robot.dist_right = &sensor; }
+
+void distSensorF(hardware::DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
-    using namespace moshcore;
+    using namespace mosh::core;
     run(move::KeepSpeed(speed_left, speed_right), quit::OnTimer(runtime), __hold_at_end);
 }
 
@@ -322,15 +171,15 @@ void goDist(int32_t distance_mm, uint8_t speed) {
 }
 
 void goWallFront(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    using namespace moshcore;
-    run(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, wall_dist_cm, quit::IfDistance::GREATER));
+    using namespace mosh::core;
+    run(move::KeepSpeed(speed, speed), quit::IfDistanceSensorRead(sensor, wall_dist_cm, quit::IfDistanceSensorRead::GREATER));
 }
 
 void goWallFront(uint8_t distance, uint8_t speed) { goWallFront(*robot.dist_front, distance, speed); }
 
 void goWallBack(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    using namespace moshcore;
-    run(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, wall_dist_cm, quit::IfDistance::LESS));
+    using namespace mosh::core;
+    run(move::KeepSpeed(speed, speed), quit::IfDistanceSensorRead(sensor, wall_dist_cm, quit::IfDistanceSensorRead::LESS));
 }
 
 void goWallBack(uint8_t distance, uint8_t speed) { goWallBack(*robot.dist_front, distance, speed); }
@@ -343,7 +192,7 @@ void turnAngle(int16_t a, uint8_t speed) {
 void lineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
 
 void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
-    using namespace moshcore;
+    using namespace mosh::core;
     move::Mover* mover = move::getLineRegulator(type, speed);
     run(*mover, quit::OnTimer(runtime));
     delete mover;
@@ -352,14 +201,14 @@ void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
 void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
 
 void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    using namespace moshcore;
-    using namespace moshcore::move;
+    using namespace mosh::core;
+    using namespace mosh::core::move;
     run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_LEFT), quit::OnTimer(runtime));
 }
 
 void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    using namespace moshcore;
-    using namespace moshcore::move;
+    using namespace mosh::core;
+    using namespace mosh::core::move;
     run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_RIGHT), quit::OnTimer(runtime));
 }
 
