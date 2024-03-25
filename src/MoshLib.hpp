@@ -165,12 +165,14 @@ void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed = PAR
 void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Движение вдоль стены
+ * @brief Движение вдоль стены по ЛЕВОМУ датчику
  * @param distance целевое расстояние в см
  * @param runtime время движения
  * @param speed скорость
  */
-void goWallLTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 // ТЕСТЫ
 namespace test {

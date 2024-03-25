@@ -338,7 +338,7 @@ void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
 
 void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
 
-void goWallLTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
     using namespace moshcore;
     process(move::MoveAlongWall(speed, distance, robot.dist_left), quit::OnTimer(runtime));
 }
