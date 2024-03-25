@@ -201,7 +201,7 @@ class MoveAlongWall : public Mover {
         SPEED(speed), TARGET(target_distance_cm), sensor(sens) {}
 
     void tick() const override {
-        int16_t u = float(TARGET - sensor->read()) * -0.4;
+        int16_t u = float(TARGET - sensor->read()) * -0.8;
         u = constrain(u, -SPEED, SPEED);
         motors::setSpeeds(SPEED - u, SPEED + u);
     }
@@ -275,7 +275,7 @@ class IfDistance : public Quiter {
 
 } // namespace quit
 
-static void process(const move::Mover& mover, const quit::Quiter&& quiter, bool hold_at_end = true) {
+static void process(const move::Mover& mover, const quit::Quiter& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
     if (hold_at_end) goHold();
     motorL.setPWM(0);
@@ -338,11 +338,18 @@ void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
 
 void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
 
-void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+static void __go_proc_along_wall(uint8_t distance, uint8_t speed, hardware::DistanceSensor* sensor, const moshcore::quit::Quiter& quiter) {
     using namespace moshcore;
-    process(move::MoveAlongWall(speed, distance, robot.dist_left), quit::OnTimer(runtime));
+    process(move::MoveAlongWall(speed, distance, sensor), quiter);
 }
 
+void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+    __go_proc_along_wall(distance, speed, robot.dist_left, moshcore::quit::OnTimer(runtime));
+}
+
+void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+    __go_proc_along_wall(distance, speed, robot.dist_right, moshcore::quit::OnTimer(runtime));
+}
 
 // ТЕСТИРОВАНИЕ
 

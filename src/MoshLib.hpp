@@ -172,6 +172,12 @@ void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
  */
 void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
+/**
+ * @brief Движение вдоль стены по ПРАВОМУ датчику
+ * @param distance целевое расстояние в см
+ * @param runtime время движения
+ * @param speed скорость
+ */
 void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 // ТЕСТЫ
