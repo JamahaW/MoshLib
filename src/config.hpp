@@ -25,7 +25,7 @@
 
 #ifndef MOTOR_R_INVERT
 // Правый мотор инверсия направления
-#define MOTOR_R_INVERT false
+#define MOTOR_R_INVERT true
 #endif
 
 // Правый мотор скорость

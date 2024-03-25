@@ -1,10 +1,11 @@
 // подключения пинов могут быть переопределены
 
 #define MOTOR_L_INVERT false // Левый мотор инверсия направления
+#define MOTOR_R_INVERT true // Правый мотор инверсия направления
+
 #define MOTOR_L_ENC_A 2 // Левый мотор энкодер желтый
 #define MOTOR_L_ENC_B 8 // Левый мотор энкодер зелёный
 
-#define MOTOR_R_INVERT false // Правый мотор инверсия направления
 #define MOTOR_R_ENC_A 3 // Правый мотор энкодер желтый
 #define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
 
