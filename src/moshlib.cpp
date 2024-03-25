@@ -321,19 +321,16 @@ void goDist(int32_t distance_mm, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, ticks);
 }
 
-static void __go_proc_wall(hardware::DistanceSensor& sensor, uint8_t distance, int8_t speed, moshcore::quit::IfDistance::MODE mode) {
-    using namespace moshcore;
-    process(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, distance, mode));
-}
-
 void goWallFront(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    __go_proc_wall(sensor, wall_dist_cm, speed, moshcore::quit::IfDistance::MODE::GREATER);
+    using namespace moshcore;
+    process(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, wall_dist_cm, quit::IfDistance::GREATER));
 }
 
 void goWallFront(uint8_t distance, uint8_t speed) { goWallFront(*robot.dist_front, distance, speed); }
 
 void goWallBack(hardware::DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    __go_proc_wall(sensor, wall_dist_cm, -speed, moshcore::quit::IfDistance::MODE::LESS);
+    using namespace moshcore;
+    process(move::KeepSpeed(speed, speed), quit::IfDistance(sensor, wall_dist_cm, quit::IfDistance::LESS));
 }
 
 void goWallBack(uint8_t distance, uint8_t speed) { goWallBack(*robot.dist_front, distance, speed); }
