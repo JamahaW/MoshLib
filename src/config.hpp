@@ -2,40 +2,78 @@
 
 #include <Arduino.h>
 
-// ПИНЫ
-namespace pin {
-// MOTOРЫ
-enum MOTOR {
-    // ЛЕВЫЙ
-    ML_INVERT = false,
-    ML_SPEED = 5,
-    ML_DIR = 4,
-    ML_ENC_A = 2, // ЖЕЛТЫЙ
-    ML_ENC_B = 8, // ЗЕЛЁНЫЙ
+#ifndef MOTOR_L_INVERT
+// Левый мотор инверсия направления
+#define MOTOR_L_INVERT false
+#endif
 
-    // ПРАВЫЙ
-    MR_INVERT = true,
-    MR_SPEED = 6,
-    MR_DIR = 7,
-    MR_ENC_A = 3, // ЖЕЛТЫЙ
-    MR_ENC_B = 9, // ЗЕЛЁНЫЙ
-};
-// ДАТЧИКИ ЛИНИИ
-enum LINES {
-    L_SENSOR = A0,
-    R_SENSOR = A1,
-};
-// ИК-ДАТЧИК РАССТОЯНИЯ
-enum IR {
-    IR_0 = A2,
-    IR_1 = A3,
-};
-// УЗ-ДАТЧИК РАССТОЯНИЯ
-enum US {
-    ECHO = 12,
-    TRIG = 13,
-};
-}
+// Левый мотор направление
+#define MOTOR_L_SPEED 5
+
+// Левый мотор скорость
+#define MOTOR_L_DIR 4
+
+#ifndef MOTOR_L_ENC_A
+// Левый мотор энкодер желтый
+#define MOTOR_L_ENC_A 2
+#endif
+
+#ifndef MOTOR_L_ENC_B
+// Левый мотор энкодер зелёный
+#define MOTOR_L_ENC_B 8
+#endif
+
+#ifndef MOTOR_R_INVERT
+// Правый мотор инверсия направления
+#define MOTOR_R_INVERT false
+#endif
+
+// Правый мотор скорость
+#define MOTOR_R_SPEED 6
+
+// Правый мотор направление
+#define MOTOR_R_DIR 7
+
+#ifndef MOTOR_R_ENC_A
+// Правый мотор энкодер желтый
+#define MOTOR_R_ENC_A 3
+#endif
+
+#ifndef MOTOR_R_ENC_B
+// Правый мотор энкодер зелёный
+#define MOTOR_R_ENC_B 9
+#endif
+
+#ifndef LINE_L
+// Левый датчик линии
+#define LINE_L A0
+#endif
+
+#ifndef LINE_R
+// Правый датчик линии
+#define LINE_R A1
+#endif
+
+#ifndef IR_0
+// Инфракрасный датчик расстояния 0
+#define IR_0 A2
+#endif
+
+#ifndef IR_1
+// Инфракрасный датчик расстояния 1
+#define IR_1 A3
+#endif
+
+#ifndef US_ECHO
+// Ультразвуковой датчик расстояния приём
+#define US_ECHO 12
+#endif
+
+#ifndef US_TRIG
+// Ультразвуковой датчик расстояния излучатель
+#define US_TRIG 13
+#endif
+
 
 // КОНФИГУРАЦИЯ
 enum PARAMS

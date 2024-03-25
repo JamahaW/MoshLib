@@ -1,15 +1,15 @@
 #include "enviroment.hpp"
 
-mosh::hardware::LineSensor lineL(pin::L_SENSOR, PARAMS::L_LINE, PARAMS::L_FIELD);
-mosh::hardware::LineSensor lineR(pin::R_SENSOR, PARAMS::R_LINE, PARAMS::R_FIELD);
+mosh::hardware::LineSensor lineL(LINE_L, PARAMS::L_LINE, PARAMS::L_FIELD);
+mosh::hardware::LineSensor lineR(LINE_R, PARAMS::R_LINE, PARAMS::R_FIELD);
 
 mosh::hardware::NoDistanceSensor no_sensor;
-mosh::hardware::IrSensorSharp ir0(pin::IR_0);
-mosh::hardware::IrSensorSharp ir1(pin::IR_1);
-mosh::hardware::UltraSonic us(pin::ECHO, pin::TRIG);
+mosh::hardware::IrSensorSharp ir0(IR_0);
+mosh::hardware::IrSensorSharp ir1(IR_1);
+mosh::hardware::UltraSonic us(US_ECHO, US_TRIG);
 
-mosh::hardware::MotorEncoder motorL(mosh::hardware::__l_int, pin::ML_INVERT, pin::ML_SPEED, pin::ML_DIR, pin::ML_ENC_A, pin::ML_ENC_B);
-mosh::hardware::MotorEncoder motorR(mosh::hardware::__r_int, pin::MR_INVERT, pin::MR_SPEED, pin::MR_DIR, pin::MR_ENC_A, pin::MR_ENC_B);
+mosh::hardware::MotorEncoder motorL(mosh::hardware::__l_int, MOTOR_L_INVERT, MOTOR_L_SPEED, MOTOR_L_DIR, MOTOR_L_ENC_A, MOTOR_L_ENC_B);
+mosh::hardware::MotorEncoder motorR(mosh::hardware::__r_int, MOTOR_R_INVERT, MOTOR_R_SPEED, MOTOR_R_DIR, MOTOR_R_ENC_A, MOTOR_R_ENC_B);
 
 void mosh::hardware::__l_int() { motorL.enc(); }
 void mosh::hardware::__r_int() { motorR.enc(); }
