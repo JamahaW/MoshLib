@@ -191,8 +191,8 @@ class MoveAlongWall : public Mover {
 
     private:
 
+    const int16_t SPEED;
     const uint8_t TARGET;
-    const int8_t SPEED;
     hardware::DistanceSensor* sensor;
 
     public:
@@ -201,7 +201,8 @@ class MoveAlongWall : public Mover {
         SPEED(speed), TARGET(target_distance_cm), sensor(sens) {}
 
     void tick() const override {
-        int8_t u = (TARGET - sensor->read()) * 1.0;
+        int16_t u = float(TARGET - sensor->read()) * -0.4;
+        u = constrain(u, -SPEED, SPEED);
         motors::setSpeeds(SPEED - u, SPEED + u);
     }
 };
@@ -336,6 +337,11 @@ void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
 }
 
 void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
+
+void goWallLTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+    using namespace moshcore;
+    process(move::MoveAlongWall(speed, distance, robot.dist_left), quit::OnTimer(runtime));
+}
 
 
 // ТЕСТИРОВАНИЕ
