@@ -11,33 +11,30 @@ void Mover::update() const {
     motors::spin();
 }
 
-Mover::~Mover() {}
-
-KeepSpeed::KeepSpeed(int8_t speed_left, int8_t speed_right) { motors::setSpeeds(speed_left, speed_right); }
-
-ProportionalLineRegulator::ProportionalLineRegulator(uint8_t speed) : BASE_SPEED(speed * 0.7) {}
+const Mover& KeepSpeed::init(int8_t speed_left, int8_t speed_right) {
+    motors::setSpeeds(speed_left, speed_right);
+    return *this;
+}
 
 void ProportionalLineRegulator::tick() const {
     int8_t u = (lineL() - lineR()) * KP;
     motors::setSpeeds(BASE_SPEED - u, BASE_SPEED + u);
 }
 
-RelayLineSingle::RelayLineSingle(uint8_t speed, enum SENSOR sensor_dir) {
-    SPEED_A = SPEED_B = (int8_t) speed;
-    const int8_t second = -speed * 0.3;
+const Mover& ProportionalLineRegulator::init(int8_t speed) {
+    BASE_SPEED = speed * 0.7;
+    return *this;
+}
 
-    switch (sensor_dir) {
+RelayLineSingle::RelayLineSingle(SENSOR sensor_dir)
+    : __dir(sensor_dir), sensor((__dir == LINE_LEFT) ? &lineL : (__dir == LINE_RIGHT) ? &lineR : nullptr) {}
 
-        case SENSOR::LINE_LEFT:
-            sensor = &lineL;
-            SPEED_A = second;
-            break;
-
-        case SENSOR::LINE_RIGHT:
-            sensor = &lineR;
-            SPEED_B = second;
-            break;
-    }
+const Mover& RelayLineSingle::init(int8_t speed) {
+    int8_t second = speed * -0.3; // TODO вынести коэф
+    SPEED_A = SPEED_B = speed;
+    if (__dir == SENSOR::LINE_LEFT) SPEED_A = second;
+    if (__dir == SENSOR::LINE_RIGHT) SPEED_B = second;
+    return *this;
 }
 
 void RelayLineSingle::tick() const {
@@ -45,23 +42,27 @@ void RelayLineSingle::tick() const {
     motors::setSpeeds(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
 }
 
-RelayLineBoth::RelayLineBoth(uint8_t speed) : SPEED(speed), SECOND((int8_t) -speed * 0.3) {}
+const Mover& RelayLineBoth::init(int8_t speed) {
+    SPEED = speed;
+    SECOND = speed * -0.3; // TODO выгесьт коэф
+    return *this;
+}
 
 void RelayLineBoth::tick() const {
     bool L = lineL.on(), R = lineR.on();
     motors::setSpeeds((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
 }
 
-MoveAlongWall::MoveAlongWall(int8_t speed, uint8_t target_distance_cm, POS direction) :
-    SPEED(speed), TARGET(target_distance_cm), k(1.2 * (int) direction) {
-    switch (direction) {
-        case POS::DIST_LEFT: sensor = robot.dist_left; break;
-        case POS::DIST_RIGHT: sensor = robot.dist_right; break;
-        default: sensor = &no_sensor; break;
-    }
+MoveAlongWall::MoveAlongWall(uint8_t distance, POS pos) :
+    TARGET(distance), k(1.2 * (int) pos), sensor((pos == DIST_LEFT) ? robot.dist_left : (pos == DIST_RIGHT) ? robot.dist_right : &no_sensor) {}
+
+const Mover& MoveAlongWall::init(int8_t speed) {
+    SPEED = speed;
+    return *this;
 }
 
 void MoveAlongWall::tick() const {
     int16_t u = k * float(TARGET - sensor->read()) * SPEED / (float) TARGET;
     motors::setSpeeds(SPEED - u, SPEED + u);
 }
+
