@@ -11,6 +11,12 @@ using mosh::hardware::MotorEncoder;
 using namespace mosh::control;
 
 
+/**
+ * @brief Запустить выполнение задачи
+ * @param mover обработчик движения робота
+ * @param quiter обработчик выхода
+ * @param hold_at_end удержания моторов в конце
+ */
 static void run(const Mover& mover, const Quiter& quiter, bool hold_at_end = true) {
     while (quiter.tick()) mover.update();
     if (hold_at_end) goHold();
@@ -18,6 +24,7 @@ static void run(const Mover& mover, const Quiter& quiter, bool hold_at_end = tru
     motorR.setPWM(0);
 }
 
+// TODO вырезать!
 static Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
     switch (type) {
         case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
