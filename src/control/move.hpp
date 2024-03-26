@@ -7,10 +7,7 @@
 namespace mosh {
 
 // ядро функциональности
-namespace core {
-
-// Регуляторы движения
-namespace move {
+namespace control {
 
 /**
  * @brief Абстрактный исполнитель движения робота
@@ -97,6 +94,6 @@ class MoveAlongWall : public Mover {
     MoveAlongWall(int8_t speed, uint8_t target_distance_cm, POS direction);
     void tick() const override;
 };
-} // namespace move
+
 } // namespace core
 } // namespace mosh

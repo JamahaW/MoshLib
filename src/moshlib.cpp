@@ -1,15 +1,14 @@
 #include "MoshLib.hpp"
 
-#include "core/move.hpp"
-#include "core/quit.hpp"
+#include "control\move.hpp"
+#include "control\quit.hpp"
 #include "core/enviroment.hpp"
 
 
 using mosh::hardware::DistanceSensor;
 using mosh::hardware::MotorEncoder;
 
-using namespace mosh::core::move;
-using namespace mosh::core::quit;
+using namespace mosh::control;
 
 
 static void run(const Mover& mover, const Quiter& quiter, bool hold_at_end = true) {
@@ -20,7 +19,6 @@ static void run(const Mover& mover, const Quiter& quiter, bool hold_at_end = tru
 }
 
 static Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
-    using namespace mosh::core::move;
     switch (type) {
         case LINE_REGULATORS::RELAY_L: return new RelayLineSingle(speed, RelayLineSingle::LINE_LEFT);
         case LINE_REGULATORS::RELAY_R: return new RelayLineSingle(speed, RelayLineSingle::LINE_RIGHT);

@@ -1,6 +1,6 @@
-#include "core/quit.hpp"
+#include "quit.hpp"
 
-using namespace mosh::core::quit;
+using namespace mosh::control;
 
 OnTimer::OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
 bool OnTimer::tick() const { return millis() < END_TIME; }

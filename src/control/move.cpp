@@ -2,7 +2,7 @@
 #include "core/enviroment.hpp"
 
 
-using namespace mosh::core::move;
+using namespace mosh::control;
 
 void Mover::tick() const {};
 

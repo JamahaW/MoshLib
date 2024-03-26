@@ -3,9 +3,7 @@
 #include "core/enviroment.hpp"
 
 namespace mosh {
-namespace core {
-// обработчики выхода
-namespace quit {
+namespace control {
 /// @brief Интерфейс обработки завершения движения
 class Quiter {
     /**
@@ -52,6 +50,5 @@ class IfDistanceSensorRead : public Quiter {
     bool tick() const override;
 };
 
-} // namespace quit
 }
 }
