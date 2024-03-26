@@ -6,6 +6,8 @@
 #include "core/enviroment.hpp"
 
 
+// КОНФИГУРИРОВАНИЕ
+
 /**
  * @brief Указать ЛЕВЫЙ датчик расстояния
  * @param sensor ссылка на датчик
@@ -24,8 +26,14 @@ void setDistR(mosh::hardware::DistanceSensor& sensor);
  */
 void setDistF(mosh::hardware::DistanceSensor& sensor);
 
+/**
+ * @brief Установить регулятор движения по линии по умолчанию
+ * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
+ */
+void setLineReg(enum LINE_REGULATORS default_regulator);
 
-// ФУНКЦИИ ДВИЖЕНИЯ
+
+// ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
 
 /**
  * @brief Движение с заданой скоростью на время
@@ -63,6 +71,15 @@ void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED);
 void goDist(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
+ * @brief Поворот на заданый угол вокруг центра
+ * @param a угол поворота ( <0 - поворот против часовой)
+ * @param speed скорось поворота
+ */
+void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+// ДВИЖЕНИЕ ДО-ПО-ВДОЛЬ стены
+
+/**
  * @brief Прямолинейное движение до стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param distance расстояние до стены
@@ -93,34 +110,6 @@ void goWallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_
 void goWallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Поворот на заданый угол вокруг центра
- * @param a угол поворота ( <0 - поворот против часовой)
- * @param speed скорось поворота
- */
-void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
-
-/**
- * @brief Установить регулятор движения по линии по умолчанию
- * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
- */
-void setLineReg(enum LINE_REGULATORS default_regulator);
-
-/**
- * @brief Движение по линии по времени с произвольным регулятором
- * @param regulator_type тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
- * @param runtime время движения
- * @param speed скорость
- */
-void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
-
-/**
- * @brief Движение по линии с регулятором по умолчанию
- * @param runtime время движения
- * @param speed скорость
- */
-void goLineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
-
-/**
  * @brief Движение вдоль стены по ЛЕВОМУ датчику
  * @param distance целевое расстояние в см
  * @param runtime время движения
@@ -135,6 +124,24 @@ void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEF
  * @param speed скорость
  */
 void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+
+// ДВИЖЕНИЕ ПО ЛИНИИ
+
+/**
+ * @brief Движение по линии по времени с произвольным регулятором
+ * @param regulator_type тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
+ * @param runtime время движения
+ * @param speed скорость
+ */
+void lineTime(LINE_REGULATORS type, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/**
+ * @brief Движение по линии с регулятором по умолчанию
+ * @param runtime время движения
+ * @param speed скорость
+ */
+void lineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 
 // ТЕСТЫ

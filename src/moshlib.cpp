@@ -81,13 +81,13 @@ void turnAngle(int16_t a, uint8_t speed) {
 
 void setLineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
 
-void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
+void lineTime(LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
     Mover* mover = getLineRegulator(type, speed);
     run(*mover, OnTimer(runtime));
     delete mover;
 }
 
-void goLineTime(uint32_t runtime, uint8_t speed) { goLineTime(robot.line_follow_regulator, runtime, speed); }
+void lineTime(uint32_t runtime, uint8_t speed) { lineTime(robot.line_follow_regulator, runtime, speed); }
 
 void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run(MoveAlongWall(speed, distance, MoveAlongWall::DIST_LEFT), OnTimer(runtime));

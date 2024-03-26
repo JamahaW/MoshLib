@@ -104,10 +104,6 @@ enum PARAMS
     L_FIELD = 837,
 };
 
-// виды регуляторов движения по линии
-enum LINE_REGULATORS {
-    RELAY_L,
-    RELAY_R,
-    RELAY_LR,
-    PROP,
-};
+// TODO вырезать!!
+// виды регуляторов движения по линии 
+enum LINE_REGULATORS { RELAY_L, RELAY_R, RELAY_LR, PROP };
