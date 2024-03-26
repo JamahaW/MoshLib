@@ -35,11 +35,11 @@ static Mover* getLineRegulator(LINE_REGULATORS type, uint8_t speed) {
     }
 }
 
-void distSensorL(DistanceSensor& sensor) { robot.dist_left = &sensor; }
+void setDistL(DistanceSensor& sensor) { robot.dist_left = &sensor; }
 
-void distSensorR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
+void setDistR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
 
-void distSensorF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
+void setDistF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
 
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
     run(KeepSpeed(speed_left, speed_right), OnTimer(runtime), __hold_at_end);
@@ -79,7 +79,7 @@ void turnAngle(int16_t a, uint8_t speed) {
     motors::setForTicks(speed, ticks, speed, -ticks);
 }
 
-void lineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
+void setLineReg(enum LINE_REGULATORS default_regulator) { robot.line_follow_regulator = default_regulator; }
 
 void goLineTime(enum LINE_REGULATORS type, uint32_t runtime, uint8_t speed) {
     Mover* mover = getLineRegulator(type, speed);

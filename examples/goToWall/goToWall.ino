@@ -5,7 +5,7 @@
 void setup() {
   delay(1000);
 
-  distSensorF(us);
+  setDistF(us);
   goWallFront(30);
 
   goDist(-500);

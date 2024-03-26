@@ -10,19 +10,19 @@
  * @brief Указать ЛЕВЫЙ датчик расстояния
  * @param sensor ссылка на датчик
  */
-void distSensorL(mosh::hardware::DistanceSensor& sensor);
+void setDistL(mosh::hardware::DistanceSensor& sensor);
 
 /**
  * @brief Указать ПРАВЫЙ датчик расстояния
  * @param sensor ссылка на датчик
  */
-void distSensorR(mosh::hardware::DistanceSensor& sensor);
+void setDistR(mosh::hardware::DistanceSensor& sensor);
 
 /**
  * @brief Указать ПЕРЕДНИЙ датчик расстояния
  * @param sensor ссылка на датчик
  */
-void distSensorF(mosh::hardware::DistanceSensor& sensor);
+void setDistF(mosh::hardware::DistanceSensor& sensor);
 
 
 // ФУНКЦИИ ДВИЖЕНИЯ
@@ -103,7 +103,7 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @brief Установить регулятор движения по линии по умолчанию
  * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
  */
-void lineReg(enum LINE_REGULATORS default_regulator);
+void setLineReg(enum LINE_REGULATORS default_regulator);
 
 /**
  * @brief Движение по линии по времени с произвольным регулятором
