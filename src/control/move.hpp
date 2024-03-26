@@ -5,8 +5,6 @@
 
 
 namespace mosh {
-
-// ядро функциональности
 namespace control {
 
 /**
@@ -95,5 +93,5 @@ class MoveAlongWall : public Mover {
     void tick() const override;
 };
 
-} // namespace core
+}
 } // namespace mosh
