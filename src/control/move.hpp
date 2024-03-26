@@ -16,11 +16,6 @@ class Mover {
     virtual void tick() const;
 
     public:
-    /// @brief задать скорость движения
-    virtual const Mover& init(int8_t speed_left, int8_t speed_right) { return *this; }
-
-    /// @brief задать общую скорость двмжения
-    virtual const Mover& init(int8_t speed) { return *this; }
 
     /// @brief обновление системы
     void update() const;
@@ -28,46 +23,41 @@ class Mover {
 
 /// @brief режим постоянной скорости
 class KeepSpeed : public Mover {
-    public: const Mover& init(int8_t speed_left, int8_t speed_right) override;
+    public: KeepSpeed(int8_t speed_left, int8_t speed_right);
 };
 
 /// @brief Пропорциональный регулятор движения по линии
-class ProportionalLineRegulator : public Mover {
+class LineProportional : public Mover {
     const float KP = 0.3;
-    uint8_t BASE_SPEED = 0;
+    uint8_t BASE_SPEED;
     protected: void tick() const override;
-    public: const Mover& init(int8_t speed) override;
+    public: LineProportional(int8_t speed);
 };
 
-class RelayLineSingle : public Mover {
-    public: enum SENSOR { LINE_LEFT, LINE_RIGHT };
-
+class LineRelaySingle : public Mover {
     private:
-    SENSOR __dir; // TODO использовать сравнения указателей на сенсор
-
-    int8_t SPEED_B, SPEED_A;
+    const int8_t SPEED_A, SPEED_B;
     hardware::LineSensor* sensor;
 
     public:
+
+    enum SENSOR { LINE_LEFT, LINE_RIGHT };
 
     /**
      * @brief Релейный регулятор движения по линии по одному датчику
      * @param speed скорость перемещения
      * @param sensor_dir положение датчика `SENSOR::LEFT` | `SENSOR::RIGHT`
      */
-    RelayLineSingle(SENSOR sensor_dir);
-    const Mover& init(int8_t speed) override;
+    LineRelaySingle(SENSOR sensor_dir, int8_t speed);
     void tick() const override;
-
-
 };
 
 /// @brief Релейный регулятор движения по линии по двум датчикам
-class RelayLineBoth : public Mover {
+class LineRelayBoth : public Mover {
     int8_t SPEED, SECOND;
 
     public:
-    const Mover& init(int8_t speed) override;
+    LineRelayBoth(int8_t speed);
     void tick() const override;
 };
 
@@ -86,9 +76,8 @@ class MoveAlongWall : public Mover {
      * @param distance целевое расстояние см
      * @param pos положение датчика `DIST_LEFT` | `DIST_RIGHT`
      */
-    MoveAlongWall(uint8_t distance, POS pos);
+    MoveAlongWall(uint8_t distance, POS pos, int8_t speed);
     void tick() const override;
-    const Mover& init(int8_t speed) override;
 };
 
 }

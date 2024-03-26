@@ -4,6 +4,7 @@
 
 #include "core\config.hpp"
 #include "core/enviroment.hpp"
+#include "control/move.hpp"
 
 
 // КОНФИГУРИРОВАНИЕ
@@ -26,11 +27,11 @@ void setDistR(mosh::hardware::DistanceSensor& sensor);
  */
 void setDistF(mosh::hardware::DistanceSensor& sensor);
 
-/**
- * @brief Установить регулятор движения по линии по умолчанию
- * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
- */
-void setLineReg(enum LINE_REGULATORS default_regulator);
+// /**
+//  * @brief Установить регулятор движения по линии по умолчанию
+//  * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
+//  */
+// void setLineReg(enum LINE_REGULATORS default_regulator);
 
 
 // ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
@@ -128,20 +129,25 @@ void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEF
 
 // ДВИЖЕНИЕ ПО ЛИНИИ
 
-/**
- * @brief Движение по линии по времени с произвольным регулятором
- * @param regulator_type тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
- * @param runtime время движения
- * @param speed скорость
- */
-void lineTime(LINE_REGULATORS type, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+// /// @brief движение по линии с регулятором по умолчанию
+// /// @param speed скорость
+// void lineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
-/**
- * @brief Движение по линии с регулятором по умолчанию
- * @param runtime время движения
- * @param speed скорость
- */
-void lineTime(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+/// @brief движение по линии по левому датчику
+/// @param speed скорость
+void lineTimeL(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/// @brief движение по линии по правому датчику
+/// @param speed скорость
+void lineTimeR(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/// @brief движение по линии по двум датчикам
+/// @param speed скорость
+void lineTimeLR(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+
+/// @brief движение по линии по P-регулятору
+/// @param speed скорость
+void lineTimeP(uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 
 // ТЕСТЫ

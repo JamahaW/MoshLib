@@ -87,7 +87,7 @@ uint8_t DistanceSensor::operator () () const { return read(); }
 
 // ИК ДАТЧИК РАССТОЯНИЯ
 
-IrSensorSharp::IrSensorSharp(const uint8_t pin) :
+IrSensorSharp::IrSensorSharp(uint8_t pin) :
     DistanceSensor(PARAMS::IR_DIST_MIN, PARAMS::IR_DIST_MAX, PARAMS::IR_PERIOD), PIN(pin) {
     pinMode(PIN, INPUT);
 }

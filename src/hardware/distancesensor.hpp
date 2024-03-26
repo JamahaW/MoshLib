@@ -40,7 +40,7 @@ class DistanceSensor {
 };
 
 
-/// @brief Зашлушка
+/// @brief Заглушка
 class NoDistanceSensor : public DistanceSensor {
     protected: uint8_t update() const override { return 0; }
     public: NoDistanceSensor() : DistanceSensor(0, 0, 0) {}
@@ -57,7 +57,7 @@ class IrSensorSharp : public DistanceSensor {
     public:
     /// @brief ИК-датчик расстояния
     /// @param pin Аналоговый пин (A0 - A7)
-    IrSensorSharp(const uint8_t pin);
+    IrSensorSharp(uint8_t pin);
 };
 
 /// @brief УльтраЗвуковой датчик HC SR04

@@ -32,6 +32,7 @@ void motors::setSpeeds(int16_t left, int16_t right) {
     motorR.setSpeed(right);
 }
 
+// TODO устарело, заменить
 void motors::setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R) {
     reset();
     setSpeeds(speed_L, speed_R);
