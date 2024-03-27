@@ -75,6 +75,7 @@
 #endif
 
 
+// TODO вынести макроконстанты
 // КОНФИГУРАЦИЯ
 enum PARAMS
 {
@@ -98,6 +99,7 @@ enum PARAMS
     US_PERIOD = 200,
 
     GRAY_PERCENT = 50,
+    
     R_LINE = 108,
     R_FIELD = 981,
     L_LINE = 57,
