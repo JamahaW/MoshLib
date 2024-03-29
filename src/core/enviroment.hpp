@@ -2,7 +2,7 @@
 
 #include "hardware/distancesensor.hpp"
 #include "hardware/linesensor.hpp"
-#include "hardware/motor.hpp"
+#include "..\hardware\motorencoder.hpp"
 
 extern mosh::hardware::LineSensor lineL;  // Левый датчик линии
 extern mosh::hardware::LineSensor lineR;  //Правый датчик линии
