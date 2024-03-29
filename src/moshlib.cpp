@@ -1,6 +1,6 @@
 #include "MoshLib.hpp"
 
-#include "control/run.hpp"
+#include "core\run.hpp"
 
 using mosh::hardware::DistanceSensor;
 using mosh::hardware::MotorEncoder;

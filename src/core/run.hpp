@@ -3,11 +3,9 @@
 #include <Arduino.h>
 #include "control/move.hpp"
 #include "control/quit.hpp"
-#include "MoshLib.hpp"
 
 
 namespace mosh {
-// TODO вынести заголовок
 namespace run {
 
 /**
