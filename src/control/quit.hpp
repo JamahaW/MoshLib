@@ -56,14 +56,14 @@ class IfDistanceSensorRead : public Quiter {
  * @brief Было пройдено расстояние
  */
 class DistanceMoved : public Quiter {
-    const int32_t TARGET;
+    const int32_t TARGET_L, TARGET_R;
 
     public:
     /**
      * @brief Выход по пройденому расстоянию
      * @param target_mm необходимое расстояние в мм
      */
-    DistanceMoved(int32_t target_mm);
+    DistanceMoved(int32_t dist_l, int32_t dist_r);
     bool tick() const override;
 };
 

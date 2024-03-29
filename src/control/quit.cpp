@@ -11,6 +11,6 @@ IfDistanceSensorRead::IfDistanceSensorRead(hardware::DistanceSensor& used_sensor
 
 bool IfDistanceSensorRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
 
-DistanceMoved::DistanceMoved(int32_t target_mm) : TARGET(target_mm) { motors::reset(); }
+DistanceMoved::DistanceMoved(int32_t dist_l, int32_t dist_r) : TARGET_L(MM2TICKS(dist_l)), TARGET_R(MM2TICKS(dist_r)) { motors::reset(); }
 
-bool DistanceMoved::tick() const { return abs(motorL.position - TARGET) * abs(motorR.position - TARGET) < 0; }
+bool DistanceMoved::tick() const { return (abs(motorL.position - TARGET_L) < 0) && (abs(motorR.position - TARGET_R) < 0); }
