@@ -33,10 +33,6 @@ void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 // TODO устарело, заменить
 void goTick(int32_t ticks, uint8_t speed) { motors::setForTicks(speed, ticks, speed, ticks); }
 
-// .. где мой constexpr, Ардуино!!? где С++11???
-// Переводной макрос из ММ пути в тики энкодера
-#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(PARAMS::MM_IN_1000_TICKS) ) 
-
 // TODO устарело, заменить
 void goDist(int32_t distance_mm, uint8_t speed) {
     int32_t ticks = MM2TICKS(distance_mm);

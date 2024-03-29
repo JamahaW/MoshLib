@@ -106,6 +106,10 @@ enum PARAMS
     L_FIELD = 837,
 };
 
+// .. где мой constexpr, Ардуино!!? где С++11???
+// Переводной макрос из ММ пути в тики энкодера
+#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(PARAMS::MM_IN_1000_TICKS) ) 
+
 // // TODO вырезать!!
 // // виды регуляторов движения по линии 
 // enum LINE_REGULATORS { RELAY_L, RELAY_R, RELAY_LR, PROP };
