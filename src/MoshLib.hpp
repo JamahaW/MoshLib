@@ -41,7 +41,7 @@ void setDistF(mosh::hardware::DistanceSensor& sensor);
  * @param runtime время работы
  * @param speed_left скорость левого мотора
  * @param speed_right скорость правого мотора
- * @param __hold_at_end для реализации goHold
+ * @param __hold_at_end удержание моторов в конце движения (для реализации goHold)
  */
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end = true);
 

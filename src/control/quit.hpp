@@ -2,8 +2,10 @@
 
 #include "core/enviroment.hpp"
 
+
 namespace mosh {
 namespace control {
+
 /// @brief Интерфейс обработки завершения движения
 class Quiter {
     /**
@@ -47,6 +49,21 @@ class IfDistanceSensorRead : public Quiter {
      */
     IfDistanceSensorRead(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition);
 
+    bool tick() const override;
+};
+
+/**
+ * @brief Было пройдено расстояние
+ */
+class DistanceMoved : public Quiter {
+    const int32_t TARGET;
+
+    public:
+    /**
+     * @brief Выход по пройденому расстоянию
+     * @param target_mm необходимое расстояние в мм
+     */
+    DistanceMoved(int32_t target_mm);
     bool tick() const override;
 };
 

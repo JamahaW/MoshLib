@@ -31,10 +31,11 @@ class MotorEncoder {
     /// @brief следущая целевая позиция
     int32_t next_pos = 0;
 
+    public:
+
     /// @brief текущее положение
     volatile int32_t position = 0;
 
-    public:
     /// @brief цель движения
     int32_t target = 0;
 

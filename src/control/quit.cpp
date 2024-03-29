@@ -1,5 +1,6 @@
 #include "quit.hpp"
 
+
 using namespace mosh::control;
 
 OnTimer::OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
@@ -9,3 +10,7 @@ IfDistanceSensorRead::IfDistanceSensorRead(hardware::DistanceSensor& used_sensor
     sensor(used_sensor), DISTANCE(target_distance), mode((bool) condition) {}
 
 bool IfDistanceSensorRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
+
+DistanceMoved::DistanceMoved(int32_t target_mm) : TARGET(target_mm) { motors::reset(); }
+
+bool DistanceMoved::tick() const { return abs(motorL.position - TARGET) * abs(motorR.position - TARGET) < 0; }
