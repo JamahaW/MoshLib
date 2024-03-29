@@ -53,23 +53,23 @@ void turnAngle(int16_t a, uint8_t speed) {
 
 
 
-void goWallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+void wallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     run::speed(speed, IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::GREATER));
 }
 
-void goWallFront(uint8_t distance, uint8_t speed) { goWallFront(*robot.dist_front, distance, speed); }
+void wallFront(uint8_t distance, uint8_t speed) { wallFront(*robot.dist_front, distance, speed); }
 
-void goWallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
+void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     run::speed(speed, IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::LESS));
 }
 
-void goWallBack(uint8_t distance, uint8_t speed) { goWallBack(*robot.dist_front, distance, speed); }
+void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }
 
-void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+void wallLtime(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);
 }
 
-void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+void wallRtime(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_RIGHT, speed), runtime);
 }
 

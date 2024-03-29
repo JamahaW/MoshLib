@@ -86,14 +86,14 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goWallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение до стены (передний датчик)
  * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goWallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение назад от стены (любой датчик)
@@ -101,14 +101,14 @@ void goWallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param distance расстояние до стены
  * @param speed скорость движения
  */
-void goWallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Прямолинейное движение назад от стены (передний датчик)
  * @param distance расстояния, на котором будет стены
  * @param speed скорость движения
  */
-void goWallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Движение вдоль стены по ЛЕВОМУ датчику
@@ -116,7 +116,7 @@ void goWallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param runtime время движения
  * @param speed скорость
  */
-void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallLtime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Движение вдоль стены по ПРАВОМУ датчику
@@ -124,7 +124,7 @@ void goLwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEF
  * @param runtime время движения
  * @param speed скорость
  */
-void goRwallTime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallRtime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 
 // ДВИЖЕНИЕ ПО ЛИНИИ
