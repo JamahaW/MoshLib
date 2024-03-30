@@ -4,95 +4,110 @@
 
 
 #ifndef MOTOR_L_INVERT
-// Левый мотор инверсия направления
-#define MOTOR_L_INVERT false
+#define MOTOR_L_INVERT false // Левый мотор инверсия направления
 #endif
 
-// Левый мотор направление
-#define MOTOR_L_SPEED 5
+#define MOTOR_L_SPEED 5 // Левый мотор направление
 
-// Левый мотор скорость
-#define MOTOR_L_DIR 4
+#define MOTOR_L_DIR 4 // Левый мотор скорость
 
 #ifndef MOTOR_L_ENC_A
-// Левый мотор энкодер желтый
-#define MOTOR_L_ENC_A 2
+#define MOTOR_L_ENC_A 2 // Левый мотор энкодер желтый
 #endif
 
 #ifndef MOTOR_L_ENC_B
-// Левый мотор энкодер зелёный
-#define MOTOR_L_ENC_B 8
+#define MOTOR_L_ENC_B 8 // Левый мотор энкодер зелёный
 #endif
 
 #ifndef MOTOR_R_INVERT
-// Правый мотор инверсия направления
-#define MOTOR_R_INVERT true
+#define MOTOR_R_INVERT true // Правый мотор инверсия направления
 #endif
 
-// Правый мотор скорость
-#define MOTOR_R_SPEED 6
+#define MOTOR_R_SPEED 6 // Правый мотор скорость
 
-// Правый мотор направление
-#define MOTOR_R_DIR 7
+#define MOTOR_R_DIR 7 // Правый мотор направление
 
 #ifndef MOTOR_R_ENC_A
-// Правый мотор энкодер желтый
-#define MOTOR_R_ENC_A 3
+#define MOTOR_R_ENC_A 3 // Правый мотор энкодер желтый
 #endif
 
 #ifndef MOTOR_R_ENC_B
-// Правый мотор энкодер зелёный
-#define MOTOR_R_ENC_B 9
+#define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
 #endif
 
 #ifndef LINE_L
-// Левый датчик линии
-#define LINE_L A0
+#define LINE_L A0 // Левый датчик линии
 #endif
 
 #ifndef LINE_R
-// Правый датчик линии
-#define LINE_R A1
+#define LINE_R A1 // Правый датчик линии
 #endif
 
 #ifndef IR_0
-// Инфракрасный датчик расстояния 0
-#define IR_0 A2
+#define IR_0 A2 // Инфракрасный датчик расстояния 0
 #endif
 
 #ifndef IR_1
-// Инфракрасный датчик расстояния 1
-#define IR_1 A3
+#define IR_1 A3 // Инфракрасный датчик расстояния 1
 #endif
 
 #ifndef US_ECHO
-// Ультразвуковой датчик расстояния приём
-#define US_ECHO 12
+#define US_ECHO 12 // Ультразвуковой датчик расстояния приём
 #endif
 
 #ifndef US_TRIG
-// Ультразвуковой датчик расстояния излучатель
-#define US_TRIG 13
+#define US_TRIG 13 // Ультразвуковой датчик расстояния излучатель
+#endif
+
+#ifndef TRACK_SIZE_MM
+#define TRACK_SIZE_MM 177 // КОЛЕЯ
+#endif
+
+#ifndef MM_IN_1000_TICKS
+#define MM_IN_1000_TICKS 250 // В 1000 ТИКАХ
+#endif
+
+#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(MM_IN_1000_TICKS) )  // Переводной макрос из ММ пути в тики энкодера
+
+#ifndef DEFAULT_SPEED_TICK
+#define DEFAULT_SPEED_TICK 9 // Скорость в тиках по умолчанию
+#endif
+
+#ifndef DEFAULT_SPEED_PWM
+#define DEFAULT_SPEED_PWM 144 // Скорость в ШИМ по умолчанию
+#endif
+
+#ifndef GRAY_PERCENT
+#define GRAY_PERCENT 50 // Уровень чувствительности датчика линии
+#endif
+
+#ifndef R_LINE
+#define R_LINE 108 // значеие ПРАВОГО датчика на ЛИНИИ 
+#endif
+
+#ifndef R_FIELD
+#define R_FIELD 981// значеие ПРАВОГО датчика на ПОЛЕ 
+#endif
+
+#ifndef L_LINE
+#define L_LINE 57 // значеие ЛЕВОГО датчика на ЛИНИИ 
+#endif
+
+#ifndef L_FIELD
+#define L_FIELD 837 // значеие ЛЕВОГО датчика на ПОЛЕ 
 #endif
 
 
 // TODO вынести макроконстанты
 // КОНФИГУРАЦИЯ
-enum PARAMS
-{
-    TRACK = 177, // КОЛЕЯ
-    MM_IN_1000_TICKS = 250, // В 1000 ТИКАХ
-
-    HOLD_STOP_TIMEOUT = 300, // время остановки удержанием позиции
+enum PARAMS {
+    HOLD_STOP_TIMEOUT = 400, // время остановки удержанием позиции
 
     KP_SPEED = 8, // KP смещение (скорость)
     KP_1_FOLLOW = 4, // 1/KP стремление в точку
     SYNC_K = 3, // коэф. синх. движения 
     MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
-
-    DEFAULT_SPEED_TICK = ((int) MAX_DELTA_TICKS / 4), // скорость движения по умолчанию //TODO сделать макро
-    DEFAULT_SPEED_PWM = (int) (144),//TODO сделать макро
 
     IR_DIST_MIN = 9,
     IR_DIST_MAX = 50,
@@ -101,22 +116,6 @@ enum PARAMS
     US_DIST_MIN = 2,
     US_DIST_MAX = 100,
     US_PERIOD = 200,
-
-    GRAY_PERCENT = 50, //TODO сделать макро
-
-    R_LINE = 108, //TODO сделать макро
-    R_FIELD = 981, //TODO сделать макро
-    L_LINE = 57, //TODO сделать макро
-    L_FIELD = 837, //TODO сделать макро
 };
 
-// .. где мой constexpr, Ардуино!!? где С++11???
-// Переводной макрос из ММ пути в тики энкодера
-#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(PARAMS::MM_IN_1000_TICKS) ) 
-
-// ЗНАК переменной
-#define SIGN(x) (((x) > 0) ? 1 : -1)
-
-// // TODO вырезать!! РЕШИТЬ УЖЕ КАК-ТО!!!
-// // виды регуляторов движения по линии 
-// enum LINE_REGULATORS { RELAY_L, RELAY_R, RELAY_LR, PROP };
+#define SIGN(x) (((x) > 0) ? 1 : -1) // ЗНАК переменной

@@ -40,7 +40,7 @@ void goDist(int32_t distance_mm, int16_t speed) {
 
 
 void turnAngle(int16_t a, int16_t speed) {
-    int32_t dist = (int32_t) a * (PARAMS::TRACK * M_PI / 360.0);
+    int32_t dist = (int32_t) a * (TRACK_SIZE_MM * M_PI / 360.0);
     run::base(Sync(speed, -speed, 1, -1), DistanceMoved(dist, -dist));
 }
 
