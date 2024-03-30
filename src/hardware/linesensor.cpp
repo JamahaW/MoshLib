@@ -17,4 +17,4 @@ int8_t LineSensor::read() const {
 
 int8_t LineSensor::operator () () const { return read(); }
 
-bool LineSensor::on() { return read() > GRAY_PERCENT; }
+bool LineSensor::on() const { return read() > GRAY_PERCENT; }

@@ -7,9 +7,7 @@
 namespace mosh {
 namespace hardware {
 
-/**
- * @brief Аналоговый датчик линии
- */
+/// @brief Аналоговый датчик линии
 class LineSensor {
     const uint8_t PIN;
     const uint16_t ON_LINE, ON_FIELD;
@@ -46,7 +44,7 @@ class LineSensor {
      * @brief Проверить логическое наличие линии
      * @return (%) линии больше `GRAY_PERCENT`
      */
-    bool on();
+    bool on() const;
 };
 
 }

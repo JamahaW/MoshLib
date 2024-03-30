@@ -72,6 +72,12 @@ void goTick(int32_t ticks, uint8_t speed = DEFAULT_SPEED_PWM);
 void goDist(int32_t distance_mm, int16_t speed_PWM = DEFAULT_SPEED_PWM);
 
 /**
+ * @brief Прямолинейное синхронное движение до перекрёстка
+ * @param speed_PWMDIR скорость (отрицательная - движение назад)
+ */
+void goCross(bool found_line = true, int16_t speed_PWMDIR = DEFAULT_SPEED_PWM);
+
+/**
  * @brief синхронный Поворот на заданый угол вокруг центра
  * @param a угол поворота ( <0 - поворот против часовой)
  * @param speed ШИМ скорось поворота
@@ -116,7 +122,7 @@ void wallBack(uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
  * @param runtime время движения
  * @param speed скорость
  */
-void walltimeL(uint8_t distance, uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+void wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
 
 /**
  * @brief Движение вдоль стены по ПРАВОМУ датчику

@@ -19,3 +19,7 @@ DistanceMoved::DistanceMoved(int32_t dist_l, int32_t dist_r, bool mm_mode) :
 DistanceMoved::DistanceMoved(int32_t distance) : DistanceMoved(distance, distance) {}
 
 bool DistanceMoved::tick() const { return (abs(motorL.position - TARGET_L) > 0) && (abs(motorR.position - TARGET_R) > 0); }
+
+LineFound::LineFound(bool exit_at) : EXIT(exit_at) {}
+
+bool LineFound::tick() const { return (lineL.on() ^ EXIT) && (lineR.on() ^ EXIT); }

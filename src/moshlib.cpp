@@ -37,6 +37,8 @@ void goDist(int32_t distance_mm, int16_t speed) {
     run::base(Sync(speed), DistanceMoved(distance_mm));
 }
 
+void goCross(bool found_line, int16_t speed_PWMDIR) { run::base(Sync(speed_PWMDIR), LineFound(found_line)); }
+
 
 
 void turnAngle(int16_t a, int16_t speed) {
@@ -59,7 +61,7 @@ void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, int16_t speed) {
 
 void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }
 
-void walltimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
+void wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);
 }
 
