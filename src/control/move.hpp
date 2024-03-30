@@ -58,7 +58,6 @@ class LineProp : public Mover {
 };
 
 class LineRelay : public Mover {
-    private:
     const int8_t SPEED_A, SPEED_B;
     hardware::LineSensor* sensor;
 
