@@ -77,9 +77,11 @@ class DistanceMoved : public Quiter {
 /// @brief Найден перекрёсток
 class LineFound : public Quiter {
     const bool EXIT; // состояние при котором будет выход
+    bool (*trigger) (void);
 
     public:
-    LineFound(bool exit_at = true);
+    enum MODE { LINE_LEFT, LINE_RIGHT, LINE_BOTH };
+    LineFound(MODE mode, bool exit_at = true);
     bool tick() const override;
 };
 
