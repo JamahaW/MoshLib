@@ -33,7 +33,7 @@ class OnTimer : public Quiter {
 /**
  * @brief Обработка расстояния
  */
-class IfDistanceSensorRead : public Quiter {
+class DistanceRead : public Quiter {
     hardware::DistanceSensor& sensor;
     const uint8_t DISTANCE;
     bool mode;
@@ -47,24 +47,30 @@ class IfDistanceSensorRead : public Quiter {
      * @param target_distance целевое значение расстояния (см)
      * @param condition условие поддержания работы
      */
-    IfDistanceSensorRead(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition);
+    DistanceRead(hardware::DistanceSensor& used_sensor, const uint8_t target_distance, enum MODE condition);
 
     bool tick() const override;
 };
 
-/**
- * @brief Было пройдено расстояние
- */
+/// @brief Было пройдено расстояние
 class DistanceMoved : public Quiter {
     const int32_t TARGET_L, TARGET_R;
 
     public:
+
     /**
-     * @brief Выход по пройденому расстоянию
-     * @param target_mm необходимое расстояние в мм
+     * @brief Опоры пройдут данное расстояние
+     * @param target_left целевая позиция левого мотора
+     * @param target_right целевая позиция правого мотора
+     * @param mm_mode использовать миллиметры
      */
-    DistanceMoved(int32_t dist_l, int32_t dist_r);
-    DistanceMoved(int32_t distance);
+    DistanceMoved(int32_t target_left, int32_t target_right, bool mm_mode = true);
+
+    /**
+     * @brief Робот пройдёт расстояние в мм
+     * @param target данная дистанция
+     */
+    DistanceMoved(int32_t target);
     bool tick() const override;
 };
 

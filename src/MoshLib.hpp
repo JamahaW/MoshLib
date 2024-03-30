@@ -60,9 +60,9 @@ void goHold(uint32_t timeout = PARAMS::HOLD_STOP_TIMEOUT);
 
 /**
  * @brief на число тиков
- * @param speed скорость движения
+ * @param speed ШИМ скорость движения
  */
-void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
+void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief Прямолинейное синхронное движение

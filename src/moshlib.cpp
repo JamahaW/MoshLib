@@ -30,8 +30,7 @@ void goTime(uint32_t runtime, int8_t speed) { goTime(runtime, speed, speed); }
 
 void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 
-// TODO устарело, заменить
-void goTick(int32_t ticks, uint8_t speed) { motors::setForTicks(speed, ticks, speed, ticks); }
+void goTick(int32_t ticks, uint8_t speed) { run::base(Sync(speed), DistanceMoved(ticks, ticks, false)); }
 
 void goDist(int32_t distance_mm, int16_t speed) {
     if (distance_mm < 0) speed *= -1;
@@ -39,7 +38,7 @@ void goDist(int32_t distance_mm, int16_t speed) {
 }
 
 
-// TODO устарело, заменить
+
 void turnAngle(int16_t a, int16_t speed) {
     int32_t dist = (int32_t) a * (PARAMS::TRACK * M_PI / 360.0);
     run::base(Sync(speed, -speed, 1, -1), DistanceMoved(dist, -dist));
@@ -49,13 +48,13 @@ void turnAngle(int16_t a, int16_t speed) {
 
 
 void wallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    run::base(Sync(speed), IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::GREATER));
+    run::base(Sync(speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::GREATER));
 }
 
 void wallFront(uint8_t distance, uint8_t speed) { wallFront(*robot.dist_front, distance, speed); }
 
 void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, int16_t speed) {
-    run::base(Sync(-speed), IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::LESS));
+    run::base(Sync(-speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::LESS));
 }
 
 void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }
