@@ -1,10 +1,12 @@
 #pragma once
 
 #include <Arduino.h>
-#include "..\core\config.hpp"
+#include "core/config.hpp"
+
 
 namespace mosh {
 namespace hardware {
+
 /// @brief Обработчик левого мотора
 void __l_int();
 
@@ -19,25 +21,14 @@ class MotorEncoder {
     const uint8_t PIN_SPEED, PIN_DIR, PIN_ENC_B;
     const bool INVERTED;
 
-    /// @brief Модуль заданой скорости
-    uint8_t speed_set = 0;
-
-    /// @brief регулируемая скорость
-    int8_t speed = 0;
-
-    /// @brief таймер смены позиции
-    uint32_t next_pos_timer = 0;
-
-    /// @brief следущая целевая позиция
-    int32_t next_pos = 0;
+    uint8_t speed_set = 0;  // Модуль заданой скорости
+    int8_t speed = 0;  // регулируемая скорость
+    uint32_t next_pos_timer = 0;  // таймер смены позиции
+    int32_t next_pos = 0;  // следущая целевая позиция
 
     public:
 
-    /// @brief текущее положение
-    volatile int32_t position = 0;
-
-    /// @brief цель движения
-    int32_t target = 0;
+    volatile int32_t position = 0;  // текущее положение
 
     /**
      * @brief Мотор-Энкодер управляемый H-мостом
@@ -48,12 +39,12 @@ class MotorEncoder {
      * @param pin_enc_a пин основного канала энкодера (Цифровой ПРЕРЫВАНИЕ)
      * @param pin_enc_b пин второго канала энкодера (Цифровой)
      */
-    MotorEncoder(void (*encoder_handler) (void), const bool inverted, const uint8_t pin_speed, const uint8_t pin_dir, const uint8_t pin_enc_a, const uint8_t pin_enc_b);
+    MotorEncoder(void (*encoder_handler) (void), bool inverted, uint8_t pin_speed, uint8_t pin_dir, uint8_t pin_enc_a, uint8_t pin_enc_b);
 
     /// @brief вызывается исключительно в прерывании
     void enc();
 
-    /// @brief сброс данных мотора
+    /// @brief сброс
     void reset();
 
     /// @brief Установить направление (true - нормально, false - реверс)
@@ -74,9 +65,6 @@ class MotorEncoder {
 
     /// @brief вращать мотор (вызывать постоянно)
     void spin();
-
-    /// @brief Стремиться к целевой позиции
-    bool follow();
 };
 }
 } // namespace mosh

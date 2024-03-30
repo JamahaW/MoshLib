@@ -16,7 +16,7 @@ extern mosh::hardware::UltraSonic us;  // Ультразвуковой датч�
 extern mosh::hardware::MotorEncoder motorL;  // Левый мотор
 extern mosh::hardware::MotorEncoder motorR;  // Правый мотор
 
-/// @brief Данные о роботе
+/// @brief Данные робота
 struct RobotConfig {
     mosh::hardware::DistanceSensor* dist_left = &no_sensor; // используется при движении вдоль стены слева
     mosh::hardware::DistanceSensor* dist_right = &no_sensor; // используештся при движении вдоль стены справа

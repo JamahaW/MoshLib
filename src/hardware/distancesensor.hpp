@@ -1,7 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include "..\core\config.hpp"
+#include "core/config.hpp"
+
 
 namespace mosh {
 namespace hardware {
