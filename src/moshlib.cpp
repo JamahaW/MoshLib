@@ -1,6 +1,6 @@
 #include "MoshLib.hpp"
+#include "core/run.hpp"
 
-#include "core\run.hpp"
 
 using mosh::hardware::DistanceSensor;
 using mosh::hardware::MotorEncoder;
@@ -33,10 +33,9 @@ void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 // TODO устарело, заменить
 void goTick(int32_t ticks, uint8_t speed) { motors::setForTicks(speed, ticks, speed, ticks); }
 
-// TODO устарело, заменить
-void goDist(int32_t distance_mm, uint8_t speed) {
-    int32_t ticks = MM2TICKS(distance_mm);
-    motors::setForTicks(speed, ticks, speed, ticks);
+void goDist(int32_t distance_mm, int8_t speed) {
+    if (distance_mm < 0) speed *= -1;
+    run::base(KeepSpeed(speed), DistanceMoved(distance_mm));
 }
 
 
@@ -61,11 +60,11 @@ void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
 
 void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }
 
-void wallLtime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+void walltimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);
 }
 
-void wallRtime(uint8_t distance, uint32_t runtime, uint8_t speed) {
+void wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_RIGHT, speed), runtime);
 }
 

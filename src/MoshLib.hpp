@@ -69,7 +69,7 @@ void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param distance_mm расстояние (отрицательное - едет назад)
  * @param speed скорость движения
  */
-void goDist(int32_t distance_mm, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void goDist(int32_t distance_mm, int8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Поворот на заданый угол вокруг центра
@@ -116,7 +116,7 @@ void wallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
  * @param runtime время движения
  * @param speed скорость
  */
-void wallLtime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void walltimeL(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
  * @brief Движение вдоль стены по ПРАВОМУ датчику
@@ -124,7 +124,7 @@ void wallLtime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAU
  * @param runtime время движения
  * @param speed скорость
  */
-void wallRtime(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
+void wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 
 // ДВИЖЕНИЕ ПО ЛИНИИ

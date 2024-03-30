@@ -64,6 +64,7 @@ class DistanceMoved : public Quiter {
      * @param target_mm необходимое расстояние в мм
      */
     DistanceMoved(int32_t dist_l, int32_t dist_r);
+    DistanceMoved(int32_t distance);
     bool tick() const override;
 };
 
