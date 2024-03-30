@@ -65,14 +65,14 @@ void goHold(uint32_t timeout = PARAMS::HOLD_STOP_TIMEOUT);
 void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Прямолинейное движение
+ * @brief Прямолинейное синхронное движение
  * @param distance_mm расстояние (отрицательное - едет назад)
  * @param speed скорость движения
  */
 void goDist(int32_t distance_mm, int8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Поворот на заданый угол вокруг центра
+ * @brief синхронный Поворот на заданый угол вокруг центра
  * @param a угол поворота ( <0 - поворот против часовой)
  * @param speed скорось поворота
  */
@@ -81,7 +81,7 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
 // ДВИЖЕНИЕ ДО-ПО-ВДОЛЬ стены
 
 /**
- * @brief Прямолинейное движение до стены (любой датчик)
+ * @brief Прямолинейное синхронное движение до стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param distance расстояние до стены
  * @param speed скорость движения
@@ -89,14 +89,14 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED);
 void wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Прямолинейное движение до стены (передний датчик)
+ * @brief Прямолинейное синхронное движение до стены (передний датчик)
  * @param distance расстояние до стены
  * @param speed скорость движения
  */
 void wallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Прямолинейное движение назад от стены (любой датчик)
+ * @brief Прямолинейное синхронное движение назад от стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param distance расстояние до стены
  * @param speed скорость движения
@@ -104,7 +104,7 @@ void wallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 void wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED);
 
 /**
- * @brief Прямолинейное движение назад от стены (передний датчик)
+ * @brief Прямолинейное синхронное движение назад от стены (передний датчик)
  * @param distance расстояния, на котором будет стены
  * @param speed скорость движения
  */

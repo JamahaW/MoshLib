@@ -74,13 +74,13 @@ void wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed) {
 //     // lineTime(robot.line_follow_regulator, runtime, speed);
 // }
 
-void lineTimeL(uint32_t runtime, uint8_t speed) { run::time(LineRelaySingle(LineRelaySingle::LINE_LEFT, speed), runtime); }
+void lineTimeL(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay::LINE_LEFT, speed), runtime); }
 
-void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelaySingle(LineRelaySingle::LINE_RIGHT, speed), runtime); }
+void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay::LINE_RIGHT, speed), runtime); }
 
-void lineTimeLR(uint32_t runtime, uint8_t speed) { run::time(LineRelayBoth(speed), runtime); }
+void lineTimeLR(uint32_t runtime, uint8_t speed) { run::time(LineRelay2(speed), runtime); }
 
-void lineTimeP(uint32_t runtime, uint8_t speed) { run::time(LineProportional(speed), runtime); }
+void lineTimeP(uint32_t runtime, uint8_t speed) { run::time(LineProp(speed), runtime); }
 
 
 

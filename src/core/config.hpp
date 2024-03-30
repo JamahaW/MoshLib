@@ -86,6 +86,7 @@ enum PARAMS
 
     KP_SPEED = 8, // KP смещение (скорость)
     KP_1_FOLLOW = 4, // 1/KP стремление в точку
+    SYNC_K = 3, // коэф. синх. движения 
     MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
     DEFAULT_SPEED = ((int) MAX_DELTA_TICKS / 4), // скорость движения по умолчанию
@@ -99,7 +100,7 @@ enum PARAMS
     US_PERIOD = 200,
 
     GRAY_PERCENT = 50,
-    
+
     R_LINE = 108,
     R_FIELD = 981,
     L_LINE = 57,
