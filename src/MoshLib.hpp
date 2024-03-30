@@ -69,14 +69,14 @@ void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
  * @param distance_mm расстояние (отрицательное - едет назад)
  * @param speed_PWM скорость движения ШИМ
  */
-void goDist(int32_t distance_mm, uint8_t speed_PWM = PARAMS::DEFAULT_SPEED_PWM);
+void goDist(int32_t distance_mm, int16_t speed_PWM = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief синхронный Поворот на заданый угол вокруг центра
  * @param a угол поворота ( <0 - поворот против часовой)
- * @param speed скорось поворота
+ * @param speed ШИМ скорось поворота
  */
-void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
+void turnAngle(int16_t a, int16_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 // ДВИЖЕНИЕ ДО-ПО-ВДОЛЬ стены
 
@@ -101,7 +101,7 @@ void wallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
  * @param distance расстояние до стены
  * @param speed ШИМ скорость движения
  */
-void wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
+void wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, int16_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief Прямолинейное синхронное движение назад от стены (передний датчик)
