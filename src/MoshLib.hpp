@@ -67,9 +67,9 @@ void goTick(int32_t ticks, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
 /**
  * @brief Прямолинейное синхронное движение
  * @param distance_mm расстояние (отрицательное - едет назад)
- * @param speed скорость движения
+ * @param speed_PWM скорость движения ШИМ
  */
-void goDist(int32_t distance_mm, int16_t speed_PWM = PARAMS::DEFAULT_SPEED_PWM);
+void goDist(int32_t distance_mm, uint8_t speed_PWM = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief синхронный Поворот на заданый угол вокруг центра
@@ -84,31 +84,31 @@ void turnAngle(int16_t a, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
  * @brief Прямолинейное синхронное движение до стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param distance расстояние до стены
- * @param speed скорость движения
+ * @param speed ШИМ скорость движения 
  */
-void wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
+void wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief Прямолинейное синхронное движение до стены (передний датчик)
  * @param distance расстояние до стены
- * @param speed скорость движения
+ * @param speed ШИМ скорость движения
  */
-void wallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
+void wallFront(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief Прямолинейное синхронное движение назад от стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param distance расстояние до стены
- * @param speed скорость движения
+ * @param speed ШИМ скорость движения
  */
-void wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
+void wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief Прямолинейное синхронное движение назад от стены (передний датчик)
  * @param distance расстояния, на котором будет стены
- * @param speed скорость движения
+ * @param speed ШИМ скорость движения
  */
-void wallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_TICK);
+void wallBack(uint8_t distance, uint8_t speed = PARAMS::DEFAULT_SPEED_PWM);
 
 /**
  * @brief Движение вдоль стены по ЛЕВОМУ датчику

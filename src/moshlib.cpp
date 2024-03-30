@@ -33,7 +33,7 @@ void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 // TODO устарело, заменить
 void goTick(int32_t ticks, uint8_t speed) { motors::setForTicks(speed, ticks, speed, ticks); }
 
-void goDist(int32_t distance_mm, int16_t speed) {
+void goDist(int32_t distance_mm, uint8_t speed) {
     if (distance_mm < 0) speed *= -1;
     run::base(Sync(speed), DistanceMoved(distance_mm));
 }
@@ -49,13 +49,13 @@ void turnAngle(int16_t a, uint8_t speed) {
 
 
 void wallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    run::speed(speed, IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::GREATER));
+    run::base(Sync(speed), IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::GREATER));
 }
 
 void wallFront(uint8_t distance, uint8_t speed) { wallFront(*robot.dist_front, distance, speed); }
 
 void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
-    run::speed(speed, IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::LESS));
+    run::base(Sync(-(int16_t)speed), IfDistanceSensorRead(sensor, wall_dist_cm, IfDistanceSensorRead::LESS));
 }
 
 void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }

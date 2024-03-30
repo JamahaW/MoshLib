@@ -92,7 +92,7 @@ enum PARAMS
     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
 
     DEFAULT_SPEED_TICK = ((int) MAX_DELTA_TICKS / 4), // скорость движения по умолчанию //TODO сделать макро
-    DEFAULT_SPEED_PWM = (int) (160),//TODO сделать макро
+    DEFAULT_SPEED_PWM = (int) (144),//TODO сделать макро
 
     IR_DIST_MIN = 9,
     IR_DIST_MAX = 50,
