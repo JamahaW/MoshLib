@@ -54,7 +54,7 @@ void MoveAlongWall::tick() const {
 }
 
 Sync::Sync(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr) :
-    FACT_L(fact_l), FACT_R(fact_l), KL(kl), KR(kr), SIG_L(SIGN(KL)), SIG_R(KR) {
+    FACT_L(fact_l), FACT_R(fact_r), KL(kl), KR(kr), SIG_L(SIGN(KL)), SIG_R(KR) {
     motors::reset();
 }
 
