@@ -30,14 +30,5 @@ void time(const mosh::control::Mover& mover, uint32_t runtime);
  */
 void speed(int8_t speed, const mosh::control::Quiter& quiter);
 
-
-// /**
-//  * @brief Движение с обработчиком пока передний датчик не увидит стену на расстоянии
-//  * @param mover обработчик
-//  * @param stop_dist расстояния остановки
-//  */
- // static void wall(const Mover& mover, DistanceSensor& sensor, uint8_t stop_dist) { full(mover, IfDistanceSensorRead(sensor, stop_dist, IfDistanceSensorRead::GREATER)); }
-
- // static void speed(int8_t left, int8_t right, const Quiter& quiter) { full(KeepSpeed(left, right), quiter); }
 } // namespace run
 }

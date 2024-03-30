@@ -14,7 +14,7 @@ MotorEncoder::MotorEncoder(void (*encoder_handler) (void), const bool inverted, 
 
 void MotorEncoder::enc() { position += (digitalRead(PIN_ENC_B) ^ INVERTED) ? (1) : (-1); }
 
-void MotorEncoder::reset() { position = next_pos = speed_set = speed = next_pos_timer = 0; }
+void MotorEncoder::reset() { position = next_pos = speed_set = speed = timer = 0; }
 
 void MotorEncoder::setDir(bool backward) { digitalWrite(PIN_DIR, backward ^ INVERTED); }
 
@@ -30,8 +30,8 @@ void MotorEncoder::setSpeed(int16_t dtick) { speed = speed_set = constrain(dtick
 
 void MotorEncoder::spin() {
     setDirPWM(KP_SPEED * (next_pos - position));
-    if (millis() <= next_pos_timer) return;
-    next_pos_timer = millis() + PARAMS::SPIN_PERIOD_MS;
+    if (millis() <= timer) return;
+    timer = millis() + PARAMS::SPIN_PERIOD_MS;
     next_pos += speed;
     return;
 }

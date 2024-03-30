@@ -22,7 +22,7 @@ class LineSensor {
      * @param on_line Значение АЦП с пина датчика на линии
      * @param on_field Значение АЦП с пина датчика на поле
      */
-    LineSensor(const uint8_t pin, const uint16_t on_line, const uint16_t on_field);
+    LineSensor(uint8_t pin, uint16_t on_line, uint16_t on_field);
 
     /**
      * @brief Считать значение с АЦП

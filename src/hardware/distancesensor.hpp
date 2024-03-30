@@ -30,7 +30,7 @@ class DistanceSensor {
      * @param max_dist Верхняя граница отсеченя расстояния
      * @param period Период чтения (мс)
      */
-    DistanceSensor(const uint16_t min_dist, const uint16_t max_dist, const uint8_t period);
+    DistanceSensor(uint16_t min_dist, uint16_t max_dist, uint8_t period);
 
     /**
      * @brief Получить значение с датчика
@@ -76,7 +76,7 @@ class UltraSonic : public DistanceSensor {
      * @param pin_echo Пин приёма
      * @param pin_trig Пин Триггера
      */
-    UltraSonic(const uint8_t pin_echo, const uint8_t pin_trig);
+    UltraSonic(uint8_t pin_echo, uint8_t pin_trig);
 
 };
 

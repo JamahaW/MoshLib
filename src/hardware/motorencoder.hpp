@@ -16,14 +16,12 @@ void __r_int();
 
 /// @brief класс DC-мотор-энкодера, управляемого H-мостом
 class MotorEncoder {
-
-    private:
     const uint8_t PIN_SPEED, PIN_DIR, PIN_ENC_B;
     const bool INVERTED;
 
     uint8_t speed_set = 0;  // Модуль заданой скорости
     int8_t speed = 0;  // регулируемая скорость
-    uint32_t next_pos_timer = 0;  // таймер смены позиции
+    uint32_t timer = 0;  // таймер смены позиции
     int32_t next_pos = 0;  // следущая целевая позиция
 
     public:
@@ -47,8 +45,8 @@ class MotorEncoder {
     /// @brief сброс
     void reset();
 
-    /// @brief Установить направление (true - нормально, false - реверс)
-    /// @param backward 
+    /// @brief Установить направление
+    /// @param backward (true - нормально, false - реверс)
     void setDir(bool backward);
 
     /// @brief Установить шим
