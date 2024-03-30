@@ -60,7 +60,7 @@ Sync::Sync(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr) :
 
 Sync::Sync(int16_t fact) : Sync(fact, fact, 1, 1) {}
 
-void Sync::tick() const {
+void Sync::tick() const { // TODO разобоаться как сделать не ШИМ
     int16_t u = (KL * motorL.position - KR * motorR.position) * PARAMS::SYNC_K;
     motorL.setDirPWM(FACT_L - u * SIG_L);
     motorR.setDirPWM(FACT_R + u * SIG_R);

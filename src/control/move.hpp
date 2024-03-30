@@ -44,6 +44,10 @@ class Sync : public Mover {
      * @param kr Множитель смещения правого
      */
     Sync(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr);
+    /**
+     * @brief Паралельный сихронный регулятор
+     * @param fact скорость ШИМ
+     */
     Sync(int16_t fact);
 
     void tick() const override;
