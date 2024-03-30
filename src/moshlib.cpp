@@ -33,9 +33,9 @@ void goHold(uint32_t timeout) { goTime(timeout, 0, 0, false); }
 // TODO устарело, заменить
 void goTick(int32_t ticks, uint8_t speed) { motors::setForTicks(speed, ticks, speed, ticks); }
 
-void goDist(int32_t distance_mm, int8_t speed) {
+void goDist(int32_t distance_mm, int16_t speed) {
     if (distance_mm < 0) speed *= -1;
-    run::base(KeepSpeed(speed), DistanceMoved(distance_mm));
+    run::base(Sync(speed), DistanceMoved(distance_mm));
 }
 
 

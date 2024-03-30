@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 
+
 #ifndef MOTOR_L_INVERT
 // Левый мотор инверсия направления
 #define MOTOR_L_INVERT false
@@ -89,7 +90,9 @@ enum PARAMS
     SYNC_K = 3, // коэф. синх. движения 
     MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
-    DEFAULT_SPEED = ((int) MAX_DELTA_TICKS / 4), // скорость движения по умолчанию
+
+    DEFAULT_SPEED_TICK = ((int) MAX_DELTA_TICKS / 4), // скорость движения по умолчанию //TODO сделать макро
+    DEFAULT_SPEED_PWM = (int) (160),//TODO сделать макро
 
     IR_DIST_MIN = 9,
     IR_DIST_MAX = 50,
@@ -99,12 +102,12 @@ enum PARAMS
     US_DIST_MAX = 100,
     US_PERIOD = 200,
 
-    GRAY_PERCENT = 50,
+    GRAY_PERCENT = 50, //TODO сделать макро
 
-    R_LINE = 108,
-    R_FIELD = 981,
-    L_LINE = 57,
-    L_FIELD = 837,
+    R_LINE = 108, //TODO сделать макро
+    R_FIELD = 981, //TODO сделать макро
+    L_LINE = 57, //TODO сделать макро
+    L_FIELD = 837, //TODO сделать макро
 };
 
 // .. где мой constexpr, Ардуино!!? где С++11???
@@ -114,6 +117,6 @@ enum PARAMS
 // ЗНАК переменной
 #define SIGN(x) (((x) > 0) ? 1 : -1)
 
-// // TODO вырезать!!
+// // TODO вырезать!! РЕШИТЬ УЖЕ КАК-ТО!!!
 // // виды регуляторов движения по линии 
 // enum LINE_REGULATORS { RELAY_L, RELAY_R, RELAY_LR, PROP };
