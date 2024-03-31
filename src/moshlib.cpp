@@ -37,7 +37,7 @@ void goDist(int32_t distance_mm, int16_t speed) {
     run::base(Sync(speed), DistanceMoved(distance_mm));
 }
 
-void goCross(bool found_line, int16_t speed_PWMDIR) { run::base(Sync(speed_PWMDIR), LineFound(LineFound::LINE_BOTH, found_line)); }
+void goCross(uint8_t crossed, bool found_line, int16_t speed_PWMDIR) { run::base(Sync(speed_PWMDIR), LineFound(LineFound::LINE_BOTH, crossed, found_line)); }
 
 
 

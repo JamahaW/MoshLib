@@ -78,10 +78,14 @@ class DistanceMoved : public Quiter {
 class LineFound : public Quiter {
     const bool EXIT; // состояние при котором будет выход
     bool (*trigger) (void);
+    const uint8_t CROSSES;
+
+    mutable bool found = false;
+    mutable uint8_t passed = 0;
 
     public:
     enum MODE { LINE_LEFT, LINE_RIGHT, LINE_BOTH };
-    LineFound(MODE mode, bool exit_at = true);
+    LineFound(MODE mode, uint8_t crosses, bool exit_at);
     bool tick() const override;
 };
 

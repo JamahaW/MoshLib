@@ -73,9 +73,11 @@ void goDist(int32_t distance_mm, int16_t speed_PWM = DEFAULT_SPEED_PWM);
 
 /**
  * @brief Прямолинейное синхронное движение до перекрёстка
+ * @param crosses кол-во перекрёстков
+ * @param found_line искомое состояние
  * @param speed_PWMDIR скорость (отрицательная - движение назад)
  */
-void goCross(bool found_line = true, int16_t speed_PWMDIR = DEFAULT_SPEED_PWM);
+void goCross(uint8_t crosses = 1, bool found_line = false, int16_t speed_PWMDIR = DEFAULT_SPEED_PWM);
 
 /**
  * @brief синхронный Поворот на заданый угол вокруг центра
@@ -90,7 +92,7 @@ void turnAngle(int16_t a, int16_t speed = DEFAULT_SPEED_PWM);
  * @brief Прямолинейное синхронное движение до стены (любой датчик)
  * @param sensor ссылка на датчик
  * @param distance расстояние до стены
- * @param speed ШИМ скорость движения 
+ * @param speed ШИМ скорость движения
  */
 void wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
 

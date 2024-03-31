@@ -24,7 +24,20 @@ static bool __on_line_left() { return lineL.on(); }
 static bool __on_line_right() { return lineR.on(); }
 static bool __on_line_both() { return lineL.on() && lineR.on(); }
 
-LineFound::LineFound(MODE mode, bool exit_at) :
-    EXIT(exit_at), trigger((mode == LINE_LEFT) ? __on_line_left : (mode == LINE_RIGHT) ? __on_line_right : __on_line_both) {}
+LineFound::LineFound(MODE mode, uint8_t crosses, bool exit_at) :
+    EXIT(exit_at), trigger((mode == LINE_LEFT) ? __on_line_left : (mode == LINE_RIGHT) ? __on_line_right : __on_line_both), CROSSES(crosses) {}
 
-bool LineFound::tick() const { return trigger() ^ EXIT; }
+bool LineFound::tick() const {
+    bool state = trigger() ^ EXIT;
+
+    if (state) {
+        if (!found) {
+            found = true;
+            passed++;
+        }
+    } else {
+        found = false;
+    }
+
+    return passed < CROSSES;
+}
