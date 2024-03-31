@@ -86,6 +86,28 @@ void goCross(uint8_t crosses = 1, bool found_line = false, int16_t speed_PWMDIR 
  */
 void turnAngle(int16_t a, int16_t speed = DEFAULT_SPEED_PWM);
 
+
+/**
+ * @brief Выровнять робота по линии
+ * @param duration время выравнивания
+ */
+void alignLine(uint32_t duration = PARAMS::ALIGN_DURATION);
+
+
+/**
+ * @brief повернуться вокруг центра влево пересекая линии
+ * @param crosses кол-во линий
+ * @param speed ШИМ скорость
+ */
+void turnLineL(int8_t crosses, int16_t speed = DEFAULT_SPEED_PWM);
+
+/**
+ * @brief повернуться вокруг центра направо по перекрёсткам
+ * @param crosses кол-во линий
+ * @param speed ШИМ скорость
+ */
+void turnLineR(int8_t crosses, int16_t speed = DEFAULT_SPEED_PWM);
+
 // ДВИЖЕНИЕ ДО-ПО-ВДОЛЬ стены
 
 /**
@@ -156,6 +178,14 @@ void lineTimeLR(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
 /// @brief движение по линии по P-регулятору
 /// @param speed скорость
 void lineTimeP(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+
+
+/**
+ * @brief Движение по линии до перекрёстка P-регулятор
+ * @param crosses на каком перекрёстке остановиться
+ * @param speed скорость ТИК
+ */
+void lineCrossP(uint8_t crosses = 1, uint8_t speed = DEFAULT_SPEED_TICK);
 
 
 // ТЕСТЫ

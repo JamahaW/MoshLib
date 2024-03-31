@@ -37,7 +37,7 @@ void goDist(int32_t distance_mm, int16_t speed) {
     run::base(Sync(speed), DistanceMoved(distance_mm));
 }
 
-void goCross(uint8_t crossed, bool found_line, int16_t speed_PWMDIR) { run::base(Sync(speed_PWMDIR), LineFound(LineFound::LINE_BOTH, crossed, found_line)); }
+void goCross(uint8_t crosses, bool found_line, int16_t speed_PWMDIR) { run::base(Sync(speed_PWMDIR), LineFound(LineFound::LINE_BOTH, crosses, found_line)); }
 
 
 
@@ -46,6 +46,16 @@ void turnAngle(int16_t a, int16_t speed) {
     run::base(Sync(speed, -speed, 1, -1), DistanceMoved(dist, -dist));
 }
 
+void alignLine(uint32_t duration) { run::time(LineProp(0), duration); }
+
+static void __turn_line(int8_t crosses, int16_t speed, LineFound::MODE dir) {
+    run::base(Sync(-speed, speed, -1, 1), LineFound(dir, crosses, false));
+    alignLine();
+}
+
+void turnLineL(int8_t crosses, int16_t speed) { __turn_line(crosses, speed, LineFound::LINE_LEFT); }
+
+void turnLineR(int8_t crosses, int16_t speed) { __turn_line(crosses, -speed, LineFound::LINE_RIGHT); }
 
 
 
@@ -82,6 +92,9 @@ void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay:
 void lineTimeLR(uint32_t runtime, uint8_t speed) { run::time(LineRelay2(speed), runtime); }
 
 void lineTimeP(uint32_t runtime, uint8_t speed) { run::time(LineProp(speed), runtime); }
+
+
+void lineCrossP(uint8_t crosses, uint8_t speed) { run::base(LineProp(speed), LineFound(LineFound::LINE_BOTH, crosses, false)); }
 
 
 
