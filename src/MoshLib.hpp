@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "core\config.hpp"
+#include "core/config.hpp"
 #include "core/enviroment.hpp"
 #include "control/move.hpp"
 
