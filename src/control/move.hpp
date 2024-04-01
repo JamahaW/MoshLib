@@ -27,10 +27,10 @@ class KeepSpeed : public Mover {
 
 /// @brief Синхронизированое движение моторов
 class Sync : public Mover {
-    const int16_t FACT_L; /// Смещение левого
-    const int16_t FACT_R; /// Смещение правого
-    const int8_t KL; /// К левого
-    const int8_t KR; /// К правого
+    const int16_t FACT_L; // Смещение левого
+    const int16_t FACT_R; // Смещение правого
+    const int8_t KL; // К левого
+    const int8_t KR; // К правого
     const int8_t SIG_L;
     const int8_t SIG_R;
 
@@ -55,7 +55,7 @@ class Sync : public Mover {
 
 /// @brief Пропорциональный регулятор движения по линии
 class LineProp : public Mover {
-    const float KP = 0.3;
+    const float KP = 0.1; // TODO вынести коэф
     uint8_t BASE_SPEED;
     protected: void tick() const override;
     public: LineProp(int8_t speed);
