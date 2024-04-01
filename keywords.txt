@@ -1,0 +1,46 @@
+#######################################
+# Syntax Coloring Map MoshLib
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+MoshLib	KEYWORD1
+motorL	KEYWORD1
+motorR	KEYWORD1
+lineL	KEYWORD1
+lineR	KEYWORD1
+ir0	KEYWORD1
+ir1	KEYWORD1
+us	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setDistL	KEYWORD2
+setDistR	KEYWORD2
+setDistF	KEYWORD2
+goTime	KEYWORD2
+goHold	KEYWORD2
+goTick	KEYWORD2
+goDist	KEYWORD2
+goCross	KEYWORD2
+turnAngle	KEYWORD2
+alignLine	KEYWORD2
+turnLineL	KEYWORD2
+turnLineR	KEYWORD2
+wallFront	KEYWORD2
+wallBack	KEYWORD2
+wallTimeL	KEYWORD2
+wallTimeR	KEYWORD2
+lineTimeL	KEYWORD2
+lineTimeR	KEYWORD2
+lineTimeLR	KEYWORD2
+lineTimeP	KEYWORD2
+lineCrossP	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
