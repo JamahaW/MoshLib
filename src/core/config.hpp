@@ -71,6 +71,7 @@
 
 #ifndef DEFAULT_SPEED_TICK
 #define DEFAULT_SPEED_TICK 18 // Скорость в тиках по умолчанию
+#define DEFAULT_SPEED_TICK 18 // Скорость в тиках по умолчанию
 #endif
 
 #ifndef DEFAULT_SPEED_PWM
