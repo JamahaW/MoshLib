@@ -96,8 +96,7 @@ void lineTimeP(uint32_t runtime, uint8_t speed) { run::time(LineProp(speed), run
 
 void lineCrossP(uint8_t crosses, uint8_t speed) { run::base(LineProp(speed), LineFound(LineFound::LINE_BOTH, crosses, false)); }
 
-
-
+void lineDistP(int32_t distance, uint8_t speed) { run::base(LineProp(speed), DistanceMoved(distance)); }
 
 // ТЕСТИРОВАНИЕ
 void test::lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout) {

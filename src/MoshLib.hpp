@@ -99,14 +99,14 @@ void alignLine(uint32_t duration = PARAMS::ALIGN_DURATION);
  * @param crosses кол-во линий
  * @param speed ШИМ скорость
  */
-void turnLineL(int8_t crosses, int16_t speed = DEFAULT_SPEED_PWM);
+void turnLineL(int8_t crosses = 1, int16_t speed = DEFAULT_SPEED_PWM);
 
 /**
  * @brief повернуться вокруг центра направо по перекрёсткам
  * @param crosses кол-во линий
  * @param speed ШИМ скорость
  */
-void turnLineR(int8_t crosses, int16_t speed = DEFAULT_SPEED_PWM);
+void turnLineR(int8_t crosses = 1, int16_t speed = DEFAULT_SPEED_PWM);
 
 // ДВИЖЕНИЕ ДО-ПО-ВДОЛЬ стены
 
@@ -186,6 +186,11 @@ void lineTimeP(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
  * @param speed скорость ТИК
  */
 void lineCrossP(uint8_t crosses = 1, uint8_t speed = DEFAULT_SPEED_TICK);
+
+/// @brief Движение по линии на расстояние P-регулятор
+/// @param distance Расстояние движения
+/// @param speed скорость ТИК
+void lineDistP(int32_t distance, uint8_t speed = DEFAULT_SPEED_TICK);
 
 
 // ТЕСТЫ
