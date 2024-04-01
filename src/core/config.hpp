@@ -70,7 +70,7 @@
 #define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(MM_IN_1000_TICKS) )  // Переводной макрос из ММ пути в тики энкодера
 
 #ifndef DEFAULT_SPEED_TICK
-#define DEFAULT_SPEED_TICK 9 // Скорость в тиках по умолчанию
+#define DEFAULT_SPEED_TICK 18 // Скорость в тиках по умолчанию
 #endif
 
 #ifndef DEFAULT_SPEED_PWM
@@ -100,8 +100,8 @@
 
 // КОНФИГУРАЦИЯ
 enum PARAMS {
-    HOLD_STOP_TIMEOUT = 400, // время остановки удержанием позиции
-    ALIGN_DURATION = 800, // время для выравнивания по линии
+    HOLD_STOP_TIMEOUT = 120, // время остановки удержанием позиции
+    ALIGN_DURATION = 600, // время для выравнивания по линии
 
     KP_SPEED = 8, // KP смещение (скорость)
     SYNC_K = 5, // коэф. синх. движения 
