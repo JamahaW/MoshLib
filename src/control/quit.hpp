@@ -80,7 +80,7 @@ class LineFound : public Quiter {
     bool (*trigger) (void);
     const uint8_t CROSSES;
 
-    mutable bool found = false;
+    mutable bool found = true;
     mutable uint8_t passed = 0;
 
     public:
