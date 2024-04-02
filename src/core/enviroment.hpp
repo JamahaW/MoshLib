@@ -21,7 +21,6 @@ struct RobotConfig {
     mosh::hardware::DistanceSensor* dist_left = &no_sensor; // используется при движении вдоль стены слева
     mosh::hardware::DistanceSensor* dist_right = &no_sensor; // используештся при движении вдоль стены справа
     mosh::hardware::DistanceSensor* dist_front = &no_sensor; // используется при движении до объекта спереди
-    // LINE_REGULATORS line_follow_regulator = LINE_REGULATORS::PROP; // TODO Регулятор движения по линии по умолчанию 
 };
 
 extern RobotConfig robot;
@@ -30,5 +29,4 @@ namespace motors {
 void reset();
 void spin();
 void setSpeeds(int16_t left, int16_t right);
-void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R);
 } // namespace motors
