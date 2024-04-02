@@ -1,0 +1,88 @@
+.TH "mosh::run" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::run
+.SH SYNOPSIS
+.br
+.PP
+.SS "Функции"
+
+.in +1c
+.ti -1c
+.RI "void \fBbase\fP (const \fBmosh::control::Mover\fP &mover, const \fBmosh::control::Quiter\fP &quiter, bool hold_at_end=true)"
+.br
+.RI "Запустить выполнение задачи "
+.ti -1c
+.RI "void \fBtime\fP (const \fBmosh::control::Mover\fP &mover, uint32_t runtime)"
+.br
+.RI "Выполнение задачи в течении времени "
+.ti -1c
+.RI "void \fBspeed\fP (int8_t speed, const \fBmosh::control::Quiter\fP &quiter)"
+.br
+.RI "Запустить независимое вращение моторов с заданой скоростью с проверкой "
+.in -1c
+.SH "Функции"
+.PP 
+.SS "void mosh::run::base (const \fBmosh::control::Mover\fP & mover, const \fBmosh::control::Quiter\fP & quiter, bool hold_at_end = \fRtrue\fP)"
+
+.PP
+Запустить выполнение задачи 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImover\fP обработчик движения робота 
+.br
+\fIquiter\fP обработчик выхода 
+.br
+\fIhold_at_end\fP удержания моторов в конце 
+.RE
+.PP
+.PP
+.nf
+8                                                                                                    {
+9     while (quiter\&.tick()) mover\&.tick();
+10     motors::reset();
+11     if (hold_at_end) goHold();
+12     motorL\&.setPWM(0);
+13     motorR\&.setPWM(0);
+14 }
+.fi
+
+.SS "void mosh::run::speed (int8_t speed, const \fBmosh::control::Quiter\fP & quiter)"
+
+.PP
+Запустить независимое вращение моторов с заданой скоростью с проверкой 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIspeed\fP скорость моторов 
+.br
+\fIquiter\fP обработчик выхода 
+.RE
+.PP
+.PP
+.nf
+18 { base(KeepSpeed(speed, speed), quiter); }
+.fi
+
+.SS "void mosh::run::time (const \fBmosh::control::Mover\fP & mover, uint32_t runtime)"
+
+.PP
+Выполнение задачи в течении времени 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImover\fP обработчик движения 
+.br
+\fIruntime\fP время работы (мс) 
+.RE
+.PP
+.PP
+.nf
+16 { base(mover, OnTimer(runtime)); }
+.fi
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

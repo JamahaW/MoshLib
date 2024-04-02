@@ -1,0 +1,64 @@
+\doxysection{Пространство имен motors}
+\hypertarget{namespacemotors}{}\label{namespacemotors}\index{motors@{motors}}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemotors_a93992359acbce82869776ee24630c201}{reset}} ()
+\item 
+void \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{spin}} ()
+\item 
+void \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{set\+Speeds}} (int16\+\_\+t left, int16\+\_\+t right)
+\item 
+void \mbox{\hyperlink{namespacemotors_a32c8f2b96166bcf2eb4d97fc45b7d02f}{set\+For\+Ticks}} (int8\+\_\+t speed\+\_\+L, int32\+\_\+t ticks\+\_\+L, int8\+\_\+t speed\+\_\+R, int32\+\_\+t ticks\+\_\+R)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{namespacemotors_a93992359acbce82869776ee24630c201}\label{namespacemotors_a93992359acbce82869776ee24630c201} 
+\index{motors@{motors}!reset@{reset}}
+\index{reset@{reset}!motors@{motors}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void motors\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{reset}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{reset}}();}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemotors_a32c8f2b96166bcf2eb4d97fc45b7d02f}\label{namespacemotors_a32c8f2b96166bcf2eb4d97fc45b7d02f} 
+\index{motors@{motors}!setForTicks@{setForTicks}}
+\index{setForTicks@{setForTicks}!motors@{motors}}
+\doxysubsubsection{\texorpdfstring{setForTicks()}{setForTicks()}}
+{\footnotesize\ttfamily void motors\+::set\+For\+Ticks (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{speed\+\_\+L,  }\item[{int32\+\_\+t}]{ticks\+\_\+L,  }\item[{int8\+\_\+t}]{speed\+\_\+R,  }\item[{int32\+\_\+t}]{ticks\+\_\+R }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}\label{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee} 
+\index{motors@{motors}!setSpeeds@{setSpeeds}}
+\index{setSpeeds@{setSpeeds}!motors@{motors}}
+\doxysubsubsection{\texorpdfstring{setSpeeds()}{setSpeeds()}}
+{\footnotesize\ttfamily void motors\+::set\+Speeds (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{left,  }\item[{int16\+\_\+t}]{right }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{setSpeed}}(left);}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{setSpeed}}(right);}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemotors_af6d060049222e07466d0241dc418c2bf}\label{namespacemotors_af6d060049222e07466d0241dc418c2bf} 
+\index{motors@{motors}!spin@{spin}}
+\index{spin@{spin}!motors@{motors}}
+\doxysubsubsection{\texorpdfstring{spin()}{spin()}}
+{\footnotesize\ttfamily void motors\+::spin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{spin}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{spin}}();}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}

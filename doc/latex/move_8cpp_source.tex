@@ -1,0 +1,73 @@
+\doxysection{move.\+cpp}
+\hypertarget{move_8cpp_source}{}\label{move_8cpp_source}\index{src/control/move.cpp@{src/control/move.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}move.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}core/enviroment.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00005}00005\ \textcolor{keyword}{using\ namespace\ }mosh::control;}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00007}\mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{00007}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{Mover::tick}}()\textcolor{keyword}{\ const\ }\{\};}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00009}00009\ KeepSpeed::KeepSpeed(int8\_t\ speed\_left,\ int8\_t\ speed\_right)\ \{\ motors::setSpeeds(speed\_left,\ speed\_right);\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00011}00011\ KeepSpeed::KeepSpeed(int8\_t\ speed)\ :\ \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed}{KeepSpeed}}(speed,\ speed)\ \{\}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00013}\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f}{00013}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f}{mosh::control::KeepSpeed::tick}}()\textcolor{keyword}{\ const\ }\{\ motors::spin();\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00015}\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9}{LineProp::tick}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00016}00016\ \ \ \ \ int8\_t\ u\ =\ (lineL()\ -\/\ lineR())\ *\ KP;}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00017}00017\ \ \ \ \ motors::setSpeeds(BASE\_SPEED\ -\/\ u,\ BASE\_SPEED\ +\ u);}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00018}00018\ \ \ \ \ motors::spin();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00021}00021\ LineProp::LineProp(int8\_t\ speed)\ :\ BASE\_SPEED(speed\ *\ 0.7)\ \{\}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00023}\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_adc519d4f345152a17f23ad6f87c56c85}{00023}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_adc519d4f345152a17f23ad6f87c56c85}{LineRelay::LineRelay}}(SENSOR\ dir,\ int8\_t\ speed)\ :}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00024}00024\ \ \ \ \ SPEED\_A((dir\ ==\ LINE\_LEFT)\ ?\ speed\ :\ speed\ *\ -\/0.3),}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00025}00025\ \ \ \ \ SPEED\_B((dir\ ==\ LINE\_RIGHT)\ ?\ speed\ :\ speed\ *\ -\/0.3),}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00026}00026\ \ \ \ \ sensor((dir\ ==\ LINE\_LEFT)\ ?\ \&lineL\ :\ (dir\ ==\ LINE\_RIGHT)\ ?\ \&lineR\ :\ nullptr)\ \{\}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00028}\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53}{LineRelay::tick}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ on\ =\ sensor-\/>\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00030}00030\ \ \ \ \ motors::setSpeeds(on\ ?\ SPEED\_A\ :\ SPEED\_B,\ on\ ?\ SPEED\_B\ :\ SPEED\_A);}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00031}00031\ \ \ \ \ motors::spin();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00034}00034\ \textcolor{comment}{//\ TODO\ выгесьт\ коэф\ }}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00035}00035\ LineRelay2::LineRelay2(int8\_t\ speed)\ :}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00036}00036\ \ \ \ \ SPEED(speed),}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00037}00037\ \ \ \ \ SECOND(speed\ *\ -\/0.3)\ \{\}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00039}\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2_a5e49aafdd1efe76be5acc70e50b2a2a4}{00039}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2_a5e49aafdd1efe76be5acc70e50b2a2a4}{LineRelay2::tick}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ L\ =\ lineL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}(),\ R\ =\ lineR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00041}00041\ \ \ \ \ motors::setSpeeds((L\ >\ R)\ ?\ SECOND\ :\ SPEED,\ (L\ <\ R)\ ?\ SECOND\ :\ SPEED);}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00042}00042\ \ \ \ \ motors::spin();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00045}\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a3a6b2380128640eb53db11fe6f6283ee}{00045}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a3a6b2380128640eb53db11fe6f6283ee}{MoveAlongWall::MoveAlongWall}}(uint8\_t\ distance,\ POS\ pos,\ int8\_t\ speed)\ :}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00046}00046\ \ \ \ \ SPEED(speed),}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00047}00047\ \ \ \ \ TARGET(distance),\ k(1.2\ *\ (int)\ pos),\ \textcolor{comment}{//\ вынести\ коэф}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00048}00048\ \ \ \ \ sensor((pos\ ==\ DIST\_LEFT)\ ?\ robot.dist\_left\ :\ (pos\ ==\ DIST\_RIGHT)\ ?\ robot.dist\_right\ :\ \&no\_sensor)\ \{\}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00050}\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79}{00050}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79}{MoveAlongWall::tick}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00051}00051\ \ \ \ \ int16\_t\ u\ =\ k\ *\ float(TARGET\ -\/\ sensor-\/>\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}}())\ *\ SPEED\ /\ (float)\ TARGET;}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00052}00052\ \ \ \ \ motors::setSpeeds(SPEED\ -\/\ u,\ SPEED\ +\ u);}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00053}00053\ \ \ \ \ motors::spin();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00056}\mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{00056}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{Sync::Sync}}(int16\_t\ fact\_l,\ int16\_t\ fact\_r,\ int8\_t\ kl,\ int8\_t\ kr)\ :}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00057}00057\ \ \ \ \ FACT\_L(fact\_l),\ FACT\_R(fact\_r),\ KL(kl),\ KR(kr),\ SIG\_L(SIGN(KL)),\ SIG\_R(KR)\ \{}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00058}00058\ \ \ \ \ motors::reset();}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00061}\mbox{\hyperlink{classmosh_1_1control_1_1_sync_a8c6008902ff1ad8c13ce22c54973bdb0}{00061}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{Sync::Sync}}(int16\_t\ fact)\ :\ \mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(fact,\ fact,\ 1,\ 1)\ \{\}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00063}\mbox{\hyperlink{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a}{Sync::tick}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{comment}{//\ TODO\ разобоаться\ как\ сделать\ не\ ШИМ}}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00064}00064\ \ \ \ \ int16\_t\ u\ =\ (KL\ *\ motorL.position\ -\/\ KR\ *\ motorR.position)\ *\ PARAMS::SYNC\_K;}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00065}00065\ \ \ \ \ motorL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(FACT\_L\ -\/\ u\ *\ SIG\_L);}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00066}00066\ \ \ \ \ motorR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(FACT\_R\ +\ u\ *\ SIG\_R);}
+\DoxyCodeLine{\Hypertarget{move_8cpp_source_l00067}00067\ \}}
+
+\end{DoxyCode}

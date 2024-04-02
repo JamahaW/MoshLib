@@ -1,0 +1,26 @@
+\doxysection{linesensor.\+cpp}
+\hypertarget{linesensor_8cpp_source}{}\label{linesensor_8cpp_source}\index{src/hardware/linesensor.cpp@{src/hardware/linesensor.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}linesensor.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00004}00004\ \textcolor{keyword}{using\ namespace\ }mosh::hardware;}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00006}\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a328af9f4ba7948d38bee0d193aa3dba4}{00006}}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a328af9f4ba7948d38bee0d193aa3dba4}{LineSensor::LineSensor}}(\textcolor{keyword}{const}\ uint8\_t\ pin,\ \textcolor{keyword}{const}\ uint16\_t\ on\_line,\ \textcolor{keyword}{const}\ uint16\_t\ on\_field)}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00007}00007\ \ \ \ \ :\ PIN(pin),\ ON\_LINE(on\_line),\ ON\_FIELD(on\_field)\ \{}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00008}00008\ \ \ \ \ pinMode(PIN,\ INPUT);}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00011}\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{00011}}\ int16\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{LineSensor::readRaw}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ analogRead(PIN);\ \}}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00013}\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{00013}}\ int8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{LineSensor::read}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00014}00014\ \ \ \ \ int16\_t\ ret\ =\ map(\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{readRaw}}(),\ ON\_LINE,\ ON\_FIELD,\ 100,\ 0);}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{return}\ (int8\_t)\ constrain(ret,\ 0,\ 100);}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00018}\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a0ed684ef06eb2d545c8235c59a80a484}{00018}}\ int8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a0ed684ef06eb2d545c8235c59a80a484}{LineSensor::operator\ ()\ }}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{read}}();\ \}}
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{linesensor_8cpp_source_l00020}\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{00020}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{LineSensor::on}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{read}}()\ >\ GRAY\_PERCENT;\ \}}
+
+\end{DoxyCode}

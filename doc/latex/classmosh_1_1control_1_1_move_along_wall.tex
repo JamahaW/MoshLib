@@ -1,0 +1,110 @@
+\doxysection{Класс mosh\+::control\+::Move\+Along\+Wall}
+\hypertarget{classmosh_1_1control_1_1_move_along_wall}{}\label{classmosh_1_1control_1_1_move_along_wall}\index{mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}}
+
+
+{\ttfamily \#include $<$move.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Move\+Along\+Wall\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_move_along_wall}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}{POS}} \{ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914}{DIST\+\_\+\+LEFT}} = -\/1
+, \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c}{DIST\+\_\+\+RIGHT}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a3a6b2380128640eb53db11fe6f6283ee}{Move\+Along\+Wall}} (uint8\+\_\+t distance, \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}{POS}} pos, int8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обновление системы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}\label{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d} 
+\index{mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}!POS@{POS}}
+\index{POS@{POS}!mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}}
+\doxysubsubsection{\texorpdfstring{POS}{POS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}{mosh\+::control\+::\+Move\+Along\+Wall\+::\+POS}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIST\_LEFT@{DIST\_LEFT}!mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}}\index{mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}!DIST\_LEFT@{DIST\_LEFT}}}\Hypertarget{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914}\label{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914} 
+DIST\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIST\_RIGHT@{DIST\_RIGHT}!mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}}\index{mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}!DIST\_RIGHT@{DIST\_RIGHT}}}\Hypertarget{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c}\label{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c} 
+DIST\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914}{DIST\_LEFT}}\ =\ -\/1,\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c}{DIST\_RIGHT}}\ =\ 1\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_move_along_wall_a3a6b2380128640eb53db11fe6f6283ee}\label{classmosh_1_1control_1_1_move_along_wall_a3a6b2380128640eb53db11fe6f6283ee} 
+\index{mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}!MoveAlongWall@{MoveAlongWall}}
+\index{MoveAlongWall@{MoveAlongWall}!mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}}
+\doxysubsubsection{\texorpdfstring{MoveAlongWall()}{MoveAlongWall()}}
+{\footnotesize\ttfamily Move\+Along\+Wall\+::\+Move\+Along\+Wall (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{distance,  }\item[{\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}{POS}}}]{pos,  }\item[{int8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance} & целевое расстояние см \\
+\hline
+{\em pos} & положение датчика {\ttfamily DIST\+\_\+\+LEFT} \texorpdfstring{$\vert$}{|} {\ttfamily DIST\+\_\+\+RIGHT} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00046\ \ \ \ \ SPEED(speed),}
+\DoxyCodeLine{00047\ \ \ \ \ TARGET(distance),\ k(1.2\ *\ (\textcolor{keywordtype}{int})\ pos),\ \textcolor{comment}{//\ вынести\ коэф}}
+\DoxyCodeLine{00048\ \ \ \ \ sensor((pos\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914}{DIST\_LEFT}})\ ?\ \mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.\mbox{\hyperlink{struct_robot_config_aa9dbcdefbba927a2c0ef659d09321581}{dist\_left}}\ :\ (pos\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c}{DIST\_RIGHT}})\ ?\ \mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.dist\_right\ :\ \&\mbox{\hyperlink{enviroment_8cpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\_sensor}})\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79}\label{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79} 
+\index{mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}!tick@{tick}}
+\index{tick@{tick}!mosh::control::MoveAlongWall@{mosh::control::MoveAlongWall}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void Move\+Along\+Wall\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обновление системы 
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{mosh\+::control\+::\+Mover}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ int16\_t\ u\ =\ k\ *\ float(TARGET\ -\/\ sensor-\/>\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}}())\ *\ SPEED\ /\ (float)\ TARGET;}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{motors::setSpeeds}}(SPEED\ -\/\ u,\ SPEED\ +\ u);}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{motors::spin}}();}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{move_8hpp}{move.\+hpp}}\item 
+src/control/\mbox{\hyperlink{move_8cpp}{move.\+cpp}}\end{DoxyCompactItemize}

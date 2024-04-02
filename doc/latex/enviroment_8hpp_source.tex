@@ -1,0 +1,39 @@
+\doxysection{enviroment.\+hpp}
+\hypertarget{enviroment_8hpp_source}{}\label{enviroment_8hpp_source}\index{src/core/enviroment.hpp@{src/core/enviroment.hpp}}
+\mbox{\hyperlink{enviroment_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distancesensor_8hpp}{hardware/distancesensor.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{linesensor_8hpp}{hardware/linesensor.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{motorencoder_8hpp}{hardware/motorencoder.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh::hardware::LineSensor}}\ \mbox{\hyperlink{enviroment_8hpp_a0410a0ad9b5a08aa1f3b34f0bed79f8e}{lineL}};\ \ \textcolor{comment}{//\ Левый\ датчик\ линии}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh::hardware::LineSensor}}\ \mbox{\hyperlink{enviroment_8hpp_a197964cbacffac974330ab0cc7d4c53c}{lineR}};\ \ \textcolor{comment}{//Правый\ датчик\ линии}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{mosh::hardware::NoDistanceSensor}}\ \mbox{\hyperlink{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\_sensor}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh::hardware::IrSensorSharp}}\ \mbox{\hyperlink{enviroment_8hpp_a441b1cab9bc3bd392fc67e80de75291d}{ir0}};\ \ \textcolor{comment}{//Левый\ ИК-\/датчик\ расстояния}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh::hardware::IrSensorSharp}}\ \mbox{\hyperlink{enviroment_8hpp_a98f73d03b424e887050d181325a7cb6b}{ir1}};\ \ \textcolor{comment}{//\ Правый\ ИК-\/датчик\ расстояния}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{mosh::hardware::UltraSonic}}\ \mbox{\hyperlink{enviroment_8hpp_a12a7e0d27cabb3654ca82d1e8835339f}{us}};\ \ \textcolor{comment}{//\ Ультразвуковой\ датчик\ расстояния}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh::hardware::MotorEncoder}}\ \mbox{\hyperlink{enviroment_8hpp_a54edd9c7aca7c45cc0047623a796df13}{motorL}};\ \ \textcolor{comment}{//\ Левый\ мотор}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh::hardware::MotorEncoder}}\ \mbox{\hyperlink{enviroment_8hpp_ae612a47de01cc55960cbbe00ee454b3f}{motorR}};\ \ \textcolor{comment}{//\ Правый\ мотор}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_robot_config}{RobotConfig}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh::hardware::DistanceSensor}}*\ \mbox{\hyperlink{struct_robot_config_aa9dbcdefbba927a2c0ef659d09321581}{dist\_left}}\ =\ \&\mbox{\hyperlink{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\_sensor}};\ \textcolor{comment}{//\ используется\ при\ движении\ вдоль\ стены\ слева}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh::hardware::DistanceSensor}}*\ \mbox{\hyperlink{struct_robot_config_aa40fb1b51de5f06913ce61693d42cde1}{dist\_right}}\ =\ \&\mbox{\hyperlink{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\_sensor}};\ \textcolor{comment}{//\ используештся\ при\ движении\ вдоль\ стены\ справа}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh::hardware::DistanceSensor}}*\ \mbox{\hyperlink{struct_robot_config_a2797bacdbc321dcb17ba571611fc5dfa}{dist\_front}}\ =\ \&\mbox{\hyperlink{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\_sensor}};\ \textcolor{comment}{//\ используется\ при\ движении\ до\ объекта\ спереди}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ LINE\_REGULATORS\ line\_follow\_regulator\ =\ LINE\_REGULATORS::PROP;\ //\ TODO\ Регулятор\ движения\ по\ линии\ по\ умолчанию\ }}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_robot_config}{RobotConfig}}\ \mbox{\hyperlink{enviroment_8hpp_a8eb942373fca8eae496279b2127bbebf}{robot}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemotors}{motors}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemotors_a93992359acbce82869776ee24630c201}{reset}}();}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{spin}}();}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{setSpeeds}}(int16\_t\ left,\ int16\_t\ right);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemotors_a32c8f2b96166bcf2eb4d97fc45b7d02f}{setForTicks}}(int8\_t\ speed\_L,\ int32\_t\ ticks\_L,\ int8\_t\ speed\_R,\ int32\_t\ ticks\_R);}
+\DoxyCodeLine{00034\ \}\ \textcolor{comment}{//\ namespace\ motors}}
+
+\end{DoxyCode}

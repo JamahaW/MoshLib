@@ -1,0 +1,89 @@
+\doxysection{move.\+hpp}
+\hypertarget{move_8hpp_source}{}\label{move_8hpp_source}\index{src/control/move.hpp@{src/control/move.hpp}}
+\mbox{\hyperlink{move_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{enviroment_8hpp}{core/enviroment.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemosh}{mosh}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }control\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{tick}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed}{KeepSpeed}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_acfddba823d978205499d8acbdfa40535}{KeepSpeed}}(int8\_t\ speed\_left,\ int8\_t\ speed\_right);}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_acfddba823d978205499d8acbdfa40535}{KeepSpeed}}(int8\_t\ speed);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ FACT\_L;\ \textcolor{comment}{//\ Смещение\ левого}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ FACT\_R;\ \textcolor{comment}{//\ Смещение\ правого}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ KL;\ \textcolor{comment}{//\ К\ левого}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ KR;\ \textcolor{comment}{//\ К\ правого}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ SIG\_L;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ SIG\_R;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{Sync}}(int16\_t\ fact\_l,\ int16\_t\ fact\_r,\ int8\_t\ kl,\ int8\_t\ kr);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{Sync}}(int16\_t\ fact);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop}{LineProp}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ KP\ =\ 0.1;\ \textcolor{comment}{//\ TODO\ вынести\ коэф}}
+\DoxyCodeLine{00059\ \ \ \ \ uint8\_t\ BASE\_SPEED;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{protected}:\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}:\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_ac518f6ec8fab58f16243f3df08856100}{LineProp}}(int8\_t\ speed);}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay}{LineRelay}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ SPEED\_A,\ SPEED\_B;}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{hardware::LineSensor}}*\ sensor;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}{SENSOR}}\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}{LINE\_LEFT}},\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}{LINE\_RIGHT}}\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_adc519d4f345152a17f23ad6f87c56c85}{LineRelay}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}{SENSOR}}\ sensor\_dir,\ int8\_t\ speed);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2}{LineRelay2}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ int8\_t\ SPEED,\ SECOND;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2_a4f4a66703cdc30c4cab92a09e9d187a7}{LineRelay2}}(int8\_t\ speed);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2_a5e49aafdd1efe76be5acc70e50b2a2a4}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall}{MoveAlongWall}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{Mover}}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ SPEED;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ TARGET;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ k;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{hardware::DistanceSensor}}*\ sensor;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}{POS}}\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914}{DIST\_LEFT}}\ =\ -\/1,\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c}{DIST\_RIGHT}}\ =\ 1\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a3a6b2380128640eb53db11fe6f6283ee}{MoveAlongWall}}(uint8\_t\ distance,\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822d}{POS}}\ pos,\ int8\_t\ speed);}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ \}\ \textcolor{comment}{//\ namespace\ mosh}}
+
+\end{DoxyCode}

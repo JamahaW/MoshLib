@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Класс mosh::hardware::MotorEncoder</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemosh.html">mosh</a></li><li class="navelem"><a class="el" href="namespacemosh_1_1hardware.html">hardware</a></li><li class="navelem"><a class="el" href="classmosh_1_1hardware_1_1_motor_encoder.html">MotorEncoder</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="classmosh_1_1hardware_1_1_motor_encoder-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс mosh::hardware::MotorEncoder</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>класс DC-мотор-энкодера, управляемого H-мостом  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="motorencoder_8hpp_source.html">motorencoder.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a82fcedb6fb6304a9c1719daf610f6f92" id="r_a82fcedb6fb6304a9c1719daf610f6f92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82fcedb6fb6304a9c1719daf610f6f92">MotorEncoder</a> (void(*encoder_handler)(void), bool inverted, uint8_t pin_speed, uint8_t pin_dir, uint8_t pin_enc_a, uint8_t pin_enc_b)</td></tr>
+<tr class="memdesc:a82fcedb6fb6304a9c1719daf610f6f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мотор-Энкодер управляемый H-мостом  <br /></td></tr>
+<tr class="separator:a82fcedb6fb6304a9c1719daf610f6f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45c988c1f62c22b4cd3e2e7f19b80c7" id="r_aa45c988c1f62c22b4cd3e2e7f19b80c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa45c988c1f62c22b4cd3e2e7f19b80c7">enc</a> ()</td></tr>
+<tr class="memdesc:aa45c988c1f62c22b4cd3e2e7f19b80c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">вызывается исключительно в прерывании  <br /></td></tr>
+<tr class="separator:aa45c988c1f62c22b4cd3e2e7f19b80c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af75bc3b692e9896e31f77a480142fe76" id="r_af75bc3b692e9896e31f77a480142fe76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af75bc3b692e9896e31f77a480142fe76">reset</a> ()</td></tr>
+<tr class="memdesc:af75bc3b692e9896e31f77a480142fe76"><td class="mdescLeft">&#160;</td><td class="mdescRight">сброс  <br /></td></tr>
+<tr class="separator:af75bc3b692e9896e31f77a480142fe76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d02cdcec23a9e0d2ba05200e661bc0f" id="r_a9d02cdcec23a9e0d2ba05200e661bc0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d02cdcec23a9e0d2ba05200e661bc0f">setDir</a> (bool backward)</td></tr>
+<tr class="memdesc:a9d02cdcec23a9e0d2ba05200e661bc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить направление  <br /></td></tr>
+<tr class="separator:a9d02cdcec23a9e0d2ba05200e661bc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd98ee655476addbdb4729ee0d19d09" id="r_aabd98ee655476addbdb4729ee0d19d09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabd98ee655476addbdb4729ee0d19d09">setPWM</a> (uint8_t pwm)</td></tr>
+<tr class="memdesc:aabd98ee655476addbdb4729ee0d19d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить шим  <br /></td></tr>
+<tr class="separator:aabd98ee655476addbdb4729ee0d19d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbc115d4366eed0a9dcd71a4704b7c39" id="r_adbc115d4366eed0a9dcd71a4704b7c39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbc115d4366eed0a9dcd71a4704b7c39">setDirPWM</a> (int16_t power)</td></tr>
+<tr class="memdesc:adbc115d4366eed0a9dcd71a4704b7c39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить шим-направление. Отрицательные значения соотвествуют реверсу. ШИМ берётся по модулю и ограничивается.  <br /></td></tr>
+<tr class="separator:adbc115d4366eed0a9dcd71a4704b7c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0344bdfbb5f002688ef844fb0f17efa0" id="r_a0344bdfbb5f002688ef844fb0f17efa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0344bdfbb5f002688ef844fb0f17efa0">setSpeed</a> (int16_t dtick)</td></tr>
+<tr class="memdesc:a0344bdfbb5f002688ef844fb0f17efa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установить целевую скорость вращения  <br /></td></tr>
+<tr class="separator:a0344bdfbb5f002688ef844fb0f17efa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a9b21487bfe8172c915168aa57b1ae7" id="r_a1a9b21487bfe8172c915168aa57b1ae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a9b21487bfe8172c915168aa57b1ae7">spin</a> ()</td></tr>
+<tr class="memdesc:a1a9b21487bfe8172c915168aa57b1ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">вращать мотор (вызывать постоянно)  <br /></td></tr>
+<tr class="separator:a1a9b21487bfe8172c915168aa57b1ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:ad4a5aea4b71f5eb870d63a2870c934ba" id="r_ad4a5aea4b71f5eb870d63a2870c934ba"><td class="memItemLeft" align="right" valign="top">volatile int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4a5aea4b71f5eb870d63a2870c934ba">position</a> = 0</td></tr>
+<tr class="separator:ad4a5aea4b71f5eb870d63a2870c934ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>класс DC-мотор-энкодера, управляемого H-мостом </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a82fcedb6fb6304a9c1719daf610f6f92" name="a82fcedb6fb6304a9c1719daf610f6f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82fcedb6fb6304a9c1719daf610f6f92">&#9670;&#160;</a></span>MotorEncoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MotorEncoder::MotorEncoder </td>
+          <td>(</td>
+          <td class="paramtype">void(*)(void)</td>          <td class="paramname"><span class="paramname"><em>encoder_handler</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>inverted</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>pin_speed</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>pin_dir</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>pin_enc_a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>pin_enc_b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Мотор-Энкодер управляемый H-мостом </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">encoder_handler</td><td>обработчик энкодера в прерывании </td></tr>
+    <tr><td class="paramname">inverted</td><td>глобальная инверсия мотора (направления и энкодер) </td></tr>
+    <tr><td class="paramname">pin_speed</td><td>пин скорости (ШИМ) </td></tr>
+    <tr><td class="paramname">pin_dir</td><td>пин скорости (Цифровой) </td></tr>
+    <tr><td class="paramname">pin_enc_a</td><td>пин основного канала энкодера (Цифровой ПРЕРЫВАНИЕ) </td></tr>
+    <tr><td class="paramname">pin_enc_b</td><td>пин второго канала энкодера (Цифровой) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>    : PIN_SPEED(pin_speed), PIN_DIR(pin_dir), PIN_ENC_B(pin_enc_b), INVERTED(inverted) {</div>
+<div class="line"><span class="lineno">    8</span>    pinMode(PIN_SPEED, OUTPUT);</div>
+<div class="line"><span class="lineno">    9</span>    pinMode(PIN_DIR, OUTPUT);</div>
+<div class="line"><span class="lineno">   10</span>    pinMode(PIN_ENC_B, INPUT);</div>
+<div class="line"><span class="lineno">   11</span>    pinMode(pin_enc_a, INPUT);</div>
+<div class="line"><span class="lineno">   12</span>    attachInterrupt(digitalPinToInterrupt(pin_enc_a), encoder_handler, FALLING);</div>
+<div class="line"><span class="lineno">   13</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aa45c988c1f62c22b4cd3e2e7f19b80c7" name="aa45c988c1f62c22b4cd3e2e7f19b80c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45c988c1f62c22b4cd3e2e7f19b80c7">&#9670;&#160;</a></span>enc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::enc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>вызывается исключительно в прерывании </p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{ <a class="code hl_variable" href="#ad4a5aea4b71f5eb870d63a2870c934ba">position</a> += (digitalRead(PIN_ENC_B) ^ INVERTED) ? (1) : (-1); }</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_motor_encoder_html_ad4a5aea4b71f5eb870d63a2870c934ba"><div class="ttname"><a href="#ad4a5aea4b71f5eb870d63a2870c934ba">mosh::hardware::MotorEncoder::position</a></div><div class="ttdeci">volatile int32_t position</div><div class="ttdef"><b>Definition</b> motorencoder.hpp:29</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af75bc3b692e9896e31f77a480142fe76" name="af75bc3b692e9896e31f77a480142fe76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af75bc3b692e9896e31f77a480142fe76">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>сброс </p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>{ <a class="code hl_variable" href="#ad4a5aea4b71f5eb870d63a2870c934ba">position</a> = next_pos = speed_set = speed = timer = 0; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9d02cdcec23a9e0d2ba05200e661bc0f" name="a9d02cdcec23a9e0d2ba05200e661bc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d02cdcec23a9e0d2ba05200e661bc0f">&#9670;&#160;</a></span>setDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::setDir </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>backward</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить направление </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">backward</td><td>(true - нормально, false - реверс) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   19</span>{ digitalWrite(PIN_DIR, backward ^ INVERTED); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adbc115d4366eed0a9dcd71a4704b7c39" name="adbc115d4366eed0a9dcd71a4704b7c39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbc115d4366eed0a9dcd71a4704b7c39">&#9670;&#160;</a></span>setDirPWM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::setDirPWM </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>power</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить шим-направление. Отрицательные значения соотвествуют реверсу. ШИМ берётся по модулю и ограничивается. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">power</td><td>(-255..255) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                          {</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_function" href="#a9d02cdcec23a9e0d2ba05200e661bc0f">setDir</a>(power &lt; 0);</div>
+<div class="line"><span class="lineno">   25</span>    power = abs(power);</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_function" href="#aabd98ee655476addbdb4729ee0d19d09">setPWM</a>(constrain(power, 0, 255));</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_motor_encoder_html_a9d02cdcec23a9e0d2ba05200e661bc0f"><div class="ttname"><a href="#a9d02cdcec23a9e0d2ba05200e661bc0f">mosh::hardware::MotorEncoder::setDir</a></div><div class="ttdeci">void setDir(bool backward)</div><div class="ttdoc">Установить направление</div><div class="ttdef"><b>Definition</b> motorencoder.cpp:19</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_motor_encoder_html_aabd98ee655476addbdb4729ee0d19d09"><div class="ttname"><a href="#aabd98ee655476addbdb4729ee0d19d09">mosh::hardware::MotorEncoder::setPWM</a></div><div class="ttdeci">void setPWM(uint8_t pwm)</div><div class="ttdoc">Установить шим</div><div class="ttdef"><b>Definition</b> motorencoder.cpp:21</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aabd98ee655476addbdb4729ee0d19d09" name="aabd98ee655476addbdb4729ee0d19d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd98ee655476addbdb4729ee0d19d09">&#9670;&#160;</a></span>setPWM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::setPWM </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>pwm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить шим </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwm</td><td>ШИМ 0..255 </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{ analogWrite(PIN_SPEED, pwm); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0344bdfbb5f002688ef844fb0f17efa0" name="a0344bdfbb5f002688ef844fb0f17efa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0344bdfbb5f002688ef844fb0f17efa0">&#9670;&#160;</a></span>setSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::setSpeed </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>dtick</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Установить целевую скорость вращения </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dtick</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{ speed = speed_set = constrain(dtick, -<a class="code hl_enumvalue" href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e">PARAMS::MAX_DELTA_TICKS</a>, <a class="code hl_enumvalue" href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e">PARAMS::MAX_DELTA_TICKS</a>); }</div>
+<div class="ttc" id="aconfig_8hpp_html_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e"><div class="ttname"><a href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e">MAX_DELTA_TICKS</a></div><div class="ttdeci">@ MAX_DELTA_TICKS</div><div class="ttdef"><b>Definition</b> config.hpp:109</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1a9b21487bfe8172c915168aa57b1ae7" name="a1a9b21487bfe8172c915168aa57b1ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a9b21487bfe8172c915168aa57b1ae7">&#9670;&#160;</a></span>spin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MotorEncoder::spin </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>вращать мотор (вызывать постоянно) </p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>                        {</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_function" href="#adbc115d4366eed0a9dcd71a4704b7c39">setDirPWM</a>(<a class="code hl_enumvalue" href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0">KP_SPEED</a> * (next_pos - <a class="code hl_variable" href="#ad4a5aea4b71f5eb870d63a2870c934ba">position</a>));</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">if</span> (millis() &lt;= timer) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   34</span>    timer = millis() + <a class="code hl_enumvalue" href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e">PARAMS::SPIN_PERIOD_MS</a>;</div>
+<div class="line"><span class="lineno">   35</span>    next_pos += speed;</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   37</span>}</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_motor_encoder_html_adbc115d4366eed0a9dcd71a4704b7c39"><div class="ttname"><a href="#adbc115d4366eed0a9dcd71a4704b7c39">mosh::hardware::MotorEncoder::setDirPWM</a></div><div class="ttdeci">void setDirPWM(int16_t power)</div><div class="ttdoc">Установить шим-направление. Отрицательные значения соотвествуют реверсу. ШИМ берётся по модулю и огра...</div><div class="ttdef"><b>Definition</b> motorencoder.cpp:23</div></div>
+<div class="ttc" id="aconfig_8hpp_html_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0"><div class="ttname"><a href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0">KP_SPEED</a></div><div class="ttdeci">@ KP_SPEED</div><div class="ttdef"><b>Definition</b> config.hpp:107</div></div>
+<div class="ttc" id="aconfig_8hpp_html_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e"><div class="ttname"><a href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e">SPIN_PERIOD_MS</a></div><div class="ttdeci">@ SPIN_PERIOD_MS</div><div class="ttdef"><b>Definition</b> config.hpp:110</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ad4a5aea4b71f5eb870d63a2870c934ba" name="ad4a5aea4b71f5eb870d63a2870c934ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4a5aea4b71f5eb870d63a2870c934ba">&#9670;&#160;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32_t mosh::hardware::MotorEncoder::position = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/hardware/<a class="el" href="motorencoder_8hpp_source.html">motorencoder.hpp</a></li>
+<li>src/hardware/<a class="el" href="motorencoder_8cpp.html">motorencoder.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

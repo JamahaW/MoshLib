@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Класс mosh::control::Mover</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemosh.html">mosh</a></li><li class="navelem"><a class="el" href="namespacemosh_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classmosh_1_1control_1_1_mover.html">Mover</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classmosh_1_1control_1_1_mover-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс mosh::control::Mover</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Абстрактный исполнитель движения робота  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="move_8hpp_source.html">move.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:mosh::control::Mover:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classmosh_1_1control_1_1_mover.png" usemap="#mosh::control::Mover_map" alt=""/>
+  <map id="mosh::control::Mover_map" name="mosh::control::Mover_map">
+<area href="classmosh_1_1control_1_1_keep_speed.html" title="режим постоянной скорости" alt="mosh::control::KeepSpeed" shape="rect" coords="0,56,181,80"/>
+<area href="classmosh_1_1control_1_1_line_prop.html" title="Пропорциональный регулятор движения по линии" alt="mosh::control::LineProp" shape="rect" coords="191,56,372,80"/>
+<area href="classmosh_1_1control_1_1_line_relay.html" alt="mosh::control::LineRelay" shape="rect" coords="382,56,563,80"/>
+<area href="classmosh_1_1control_1_1_line_relay2.html" title="Релейный регулятор движения по линии по двум датчикам" alt="mosh::control::LineRelay2" shape="rect" coords="573,56,754,80"/>
+<area href="classmosh_1_1control_1_1_move_along_wall.html" alt="mosh::control::MoveAlongWall" shape="rect" coords="764,56,945,80"/>
+<area href="classmosh_1_1control_1_1_sync.html" title="Синхронизированое движение моторов" alt="mosh::control::Sync" shape="rect" coords="955,56,1136,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aa32c49cf5a96e285b70ca651bebcde70" id="r_aa32c49cf5a96e285b70ca651bebcde70"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa32c49cf5a96e285b70ca651bebcde70">tick</a> () const</td></tr>
+<tr class="memdesc:aa32c49cf5a96e285b70ca651bebcde70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновление системы  <br /></td></tr>
+<tr class="separator:aa32c49cf5a96e285b70ca651bebcde70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Абстрактный исполнитель движения робота </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="aa32c49cf5a96e285b70ca651bebcde70" name="aa32c49cf5a96e285b70ca651bebcde70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa32c49cf5a96e285b70ca651bebcde70">&#9670;&#160;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mover::tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обновление системы </p>
+
+<p>Переопределяется в <a class="el" href="classmosh_1_1control_1_1_keep_speed.html#a91f9dbf0a93599c7688cdc06b340a71f">mosh::control::KeepSpeed</a>, <a class="el" href="classmosh_1_1control_1_1_sync.html#adfedbc89fb1dee3f68ff7ba5f3ec742a">mosh::control::Sync</a>, <a class="el" href="classmosh_1_1control_1_1_line_prop.html#a4e560801581100c203e54df4a88733d9">mosh::control::LineProp</a>, <a class="el" href="classmosh_1_1control_1_1_line_relay.html#ad144d1a6eeb448bb5df8b4c586e6ba53">mosh::control::LineRelay</a>, <a class="el" href="classmosh_1_1control_1_1_line_relay2.html#a5e49aafdd1efe76be5acc70e50b2a2a4">mosh::control::LineRelay2</a> и <a class="el" href="classmosh_1_1control_1_1_move_along_wall.html#a9a3a569e9d7cd09910bbec876917cd79">mosh::control::MoveAlongWall</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/control/<a class="el" href="move_8hpp_source.html">move.hpp</a></li>
+<li>src/control/<a class="el" href="move_8cpp.html">move.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

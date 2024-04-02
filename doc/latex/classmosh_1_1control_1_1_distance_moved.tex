@@ -1,0 +1,110 @@
+\doxysection{Класс mosh\+::control\+::Distance\+Moved}
+\hypertarget{classmosh_1_1control_1_1_distance_moved}{}\label{classmosh_1_1control_1_1_distance_moved}\index{mosh::control::DistanceMoved@{mosh::control::DistanceMoved}}
+
+
+Было пройдено расстояние  
+
+
+
+
+{\ttfamily \#include $<$quit.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Distance\+Moved\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_distance_moved}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{Distance\+Moved}} (int32\+\_\+t target\+\_\+left, int32\+\_\+t target\+\_\+right, bool mm\+\_\+mode=true)
+\begin{DoxyCompactList}\small\item\em Опоры пройдут данное расстояние \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_a85d2ab732b34fd561df69bdfe224f268}{Distance\+Moved}} (int32\+\_\+t target)
+\begin{DoxyCompactList}\small\item\em Робот пройдёт расстояние в мм \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обработка события \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Было пройдено расстояние 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}\label{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26} 
+\index{mosh::control::DistanceMoved@{mosh::control::DistanceMoved}!DistanceMoved@{DistanceMoved}}
+\index{DistanceMoved@{DistanceMoved}!mosh::control::DistanceMoved@{mosh::control::DistanceMoved}}
+\doxysubsubsection{\texorpdfstring{DistanceMoved()}{DistanceMoved()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Distance\+Moved\+::\+Distance\+Moved (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{target\+\_\+left,  }\item[{int32\+\_\+t}]{target\+\_\+right,  }\item[{bool}]{mm\+\_\+mode = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Опоры пройдут данное расстояние 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em target\+\_\+left} & целевая позиция левого мотора \\
+\hline
+{\em target\+\_\+right} & целевая позиция правого мотора \\
+\hline
+{\em mm\+\_\+mode} & использовать миллиметры \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00015\ \ \ \ \ TARGET\_L(mm\_mode\ ?\ \mbox{\hyperlink{config_8hpp_a130e616866ce895fdc71378c94d3e85c}{MM2TICKS}}(dist\_l)\ :\ dist\_l),\ TARGET\_R(mm\_mode\ ?\ \mbox{\hyperlink{config_8hpp_a130e616866ce895fdc71378c94d3e85c}{MM2TICKS}}(dist\_r)\ :\ dist\_r)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{namespacemotors_a93992359acbce82869776ee24630c201}{motors::reset}}();}
+\DoxyCodeLine{00017\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1control_1_1_distance_moved_a85d2ab732b34fd561df69bdfe224f268}\label{classmosh_1_1control_1_1_distance_moved_a85d2ab732b34fd561df69bdfe224f268} 
+\index{mosh::control::DistanceMoved@{mosh::control::DistanceMoved}!DistanceMoved@{DistanceMoved}}
+\index{DistanceMoved@{DistanceMoved}!mosh::control::DistanceMoved@{mosh::control::DistanceMoved}}
+\doxysubsubsection{\texorpdfstring{DistanceMoved()}{DistanceMoved()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Distance\+Moved\+::\+Distance\+Moved (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{target }\end{DoxyParamCaption})}
+
+
+
+Робот пройдёт расстояние в мм 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em target} & данная дистанция \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ :\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{DistanceMoved}}(distance,\ distance)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c}\label{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c} 
+\index{mosh::control::DistanceMoved@{mosh::control::DistanceMoved}!tick@{tick}}
+\index{tick@{tick}!mosh::control::DistanceMoved@{mosh::control::DistanceMoved}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily bool Distance\+Moved\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обработка события 
+
+\begin{DoxyReturn}{Возвращает}
+true если ещё НЕ вышел, false когда следует прервать работу 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{mosh\+::control\+::\+Quiter}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{\ \textcolor{keywordflow}{return}\ (abs(\mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}\ -\/\ TARGET\_L)\ >\ 0)\ \&\&\ (abs(\mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}\ -\/\ TARGET\_R)\ >\ 0);\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{quit_8hpp}{quit.\+hpp}}\item 
+src/control/\mbox{\hyperlink{quit_8cpp}{quit.\+cpp}}\end{DoxyCompactItemize}

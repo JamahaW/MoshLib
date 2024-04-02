@@ -1,0 +1,53 @@
+\doxysection{distancesensor.\+cpp}
+\hypertarget{distancesensor_8cpp_source}{}\label{distancesensor_8cpp_source}\index{src/hardware/distancesensor.cpp@{src/hardware/distancesensor.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}distancesensor.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00004}00004\ \textcolor{keyword}{using\ namespace\ }mosh::hardware;}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00006}\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{00006}}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{DistanceSensor::DistanceSensor}}(\textcolor{keyword}{const}\ uint16\_t\ min\_dist,\ \textcolor{keyword}{const}\ uint16\_t\ max\_dist,\ \textcolor{keyword}{const}\ uint8\_t\ period)}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00007}00007\ \ \ \ \ :\ MIN\_DISTANCE(min\_dist),\ MAX\_DISTANCE(max\_dist),\ READ\_PERIOD(period)\ \{\}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00009}\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{00009}}\ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{DistanceSensor::read}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordflow}{if}\ (millis()\ >=\ next\_read)\ \{}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ next\_read\ =\ millis()\ +\ READ\_PERIOD;}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ value\ =\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a841357df44460801e7a7e57f1e36c074}{update}}();}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ value\ =\ constrain(value,\ MIN\_DISTANCE,\ MAX\_DISTANCE);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00018}00018\ uint8\_t\ DistanceSensor::operator\ ()\ ()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}}();\ \}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00021}00021\ \textcolor{comment}{//\ ИК\ ДАТЧИК\ РАССТОЯНИЯ}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00023}\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a1d374e3fbce53164887326f80b954b9e}{00023}}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a1d374e3fbce53164887326f80b954b9e}{IrSensorSharp::IrSensorSharp}}(uint8\_t\ pin)\ :}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}(PARAMS::IR\_DIST\_MIN,\ PARAMS::IR\_DIST\_MAX,\ PARAMS::IR\_PERIOD),\ PIN(pin)\ \{}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00025}00025\ \ \ \ \ pinMode(PIN,\ INPUT);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00028}\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a45eeaaa299d4446d2097434d4714c510}{00028}}\ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a45eeaaa299d4446d2097434d4714c510}{IrSensorSharp::update}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 32\ *\ pow(analogRead(PIN)\ *\ (5.0\ /\ 1024.0),\ -\/1.1);\ \}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00031}00031\ \textcolor{comment}{//\ УЗ\ ДАТЧИК\ РАССТОЯНИЯ}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00033}\mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_a51bd9d04ed5b5bafdb4165008fa0f9fc}{00033}}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_a51bd9d04ed5b5bafdb4165008fa0f9fc}{UltraSonic::UltraSonic}}(\textcolor{keyword}{const}\ uint8\_t\ pin\_echo,\ \textcolor{keyword}{const}\ uint8\_t\ pin\_trig)\ :}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}(PARAMS::US\_DIST\_MIN,\ PARAMS::US\_DIST\_MAX,\ PARAMS::US\_PERIOD),\ PIN\_ECHO(pin\_echo),\ PIN\_TRIG(pin\_trig)\ \{}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00035}00035\ \ \ \ \ pinMode(PIN\_ECHO,\ INPUT);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00036}00036\ \ \ \ \ pinMode(PIN\_TRIG,\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00039}\mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_afb4d14457ef65344585c8a75e3896676}{00039}}\ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_afb4d14457ef65344585c8a75e3896676}{UltraSonic::update}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00040}00040\ \ \ \ \ digitalWrite(PIN\_TRIG,\ LOW);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00041}00041\ \ \ \ \ delayMicroseconds(5);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00042}00042\ \ \ \ \ digitalWrite(PIN\_TRIG,\ HIGH);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00043}00043\ \ \ \ \ delayMicroseconds(15);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00044}00044\ \ \ \ \ digitalWrite(PIN\_TRIG,\ LOW);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00045}00045\ \ \ \ \ uint32\_t\ d\ =\ pulseIn(PIN\_ECHO,\ HIGH);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ d\ /\ (2\ *\ 29.1);}
+\DoxyCodeLine{\Hypertarget{distancesensor_8cpp_source_l00047}00047\ \}}
+
+\end{DoxyCode}

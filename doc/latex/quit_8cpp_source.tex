@@ -1,0 +1,49 @@
+\doxysection{quit.\+cpp}
+\hypertarget{quit_8cpp_source}{}\label{quit_8cpp_source}\index{src/control/quit.cpp@{src/control/quit.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}quit.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00004}00004\ \textcolor{keyword}{using\ namespace\ }mosh::control;}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00006}\mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2420307908eaa5751b79b27bdf883f6e}{00006}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2420307908eaa5751b79b27bdf883f6e}{OnTimer::OnTimer}}(uint16\_t\ duration)\ :\ END\_TIME(millis()\ +\ duration)\ \{\}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00007}\mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684}{00007}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684}{OnTimer::tick}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ millis()\ <\ END\_TIME;\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00009}\mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_aa838dbe2d9cb3b9b0aee348447f290b2}{00009}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_aa838dbe2d9cb3b9b0aee348447f290b2}{DistanceRead::DistanceRead}}(\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{hardware::DistanceSensor}}\&\ used\_sensor,\ \textcolor{keyword}{const}\ uint8\_t\ target\_distance,\ \textcolor{keyword}{enum}\ MODE\ condition)\ :}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00010}00010\ \ \ \ \ sensor(used\_sensor),\ DISTANCE(target\_distance),\ mode((bool)\ condition)\ \{\}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00012}\mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636}{00012}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636}{DistanceRead::tick}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (sensor.\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}}()\ <=\ DISTANCE)\ \string^\ mode;\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00014}\mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{00014}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{DistanceMoved::DistanceMoved}}(int32\_t\ dist\_l,\ int32\_t\ dist\_r,\ \textcolor{keywordtype}{bool}\ mm\_mode)\ :}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00015}00015\ \ \ \ \ TARGET\_L(mm\_mode\ ?\ MM2TICKS(dist\_l)\ :\ dist\_l),\ TARGET\_R(mm\_mode\ ?\ MM2TICKS(dist\_r)\ :\ dist\_r)\ \{}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00016}00016\ \ \ \ \ motors::reset();}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00019}\mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_a85d2ab732b34fd561df69bdfe224f268}{00019}}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{DistanceMoved::DistanceMoved}}(int32\_t\ distance)\ :\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved}{DistanceMoved}}(distance,\ distance)\ \{\}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00021}\mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c}{00021}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c}{DistanceMoved::tick}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (abs(motorL.position\ -\/\ TARGET\_L)\ >\ 0)\ \&\&\ (abs(motorR.position\ -\/\ TARGET\_R)\ >\ 0);\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00023}00023\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \_\_on\_line\_left()\ \{\ \textcolor{keywordflow}{return}\ lineL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}();\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00024}00024\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \_\_on\_line\_right()\ \{\ \textcolor{keywordflow}{return}\ lineR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}();\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00025}00025\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \_\_on\_line\_both()\ \{\ \textcolor{keywordflow}{return}\ lineL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}()\ \&\&\ lineR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}();\ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00027}00027\ LineFound::LineFound(MODE\ mode,\ uint8\_t\ crosses,\ \textcolor{keywordtype}{bool}\ exit\_at)\ :}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00028}00028\ \ \ \ \ EXIT(exit\_at),\ trigger((mode\ ==\ LINE\_LEFT)\ ?\ \_\_on\_line\_left\ :\ (mode\ ==\ LINE\_RIGHT)\ ?\ \_\_on\_line\_right\ :\ \_\_on\_line\_both),\ CROSSES(crosses)\ \{\}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00030}\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0}{00030}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0}{LineFound::tick}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ state\ =\ trigger()\ \string^\ EXIT;}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (state)\ \{}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ passed++;}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00038}00038\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ passed\ <\ CROSSES;}
+\DoxyCodeLine{\Hypertarget{quit_8cpp_source_l00043}00043\ \}}
+
+\end{DoxyCode}

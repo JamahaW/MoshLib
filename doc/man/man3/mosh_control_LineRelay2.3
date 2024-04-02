@@ -1,0 +1,57 @@
+.TH "mosh::control::LineRelay2" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::LineRelay2 \- Релейный регулятор движения по линии по двум датчикам  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <move\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Mover\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBLineRelay2\fP (int8_t speed)"
+.br
+.ti -1c
+.RI "void \fBtick\fP () const override"
+.br
+.RI "Обновление системы "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Релейный регулятор движения по линии по двум датчикам 
+.SH "Конструктор(ы)"
+.PP 
+.SS "LineRelay2::LineRelay2 (int8_t speed)"
+.PP
+.nf
+35                                    :
+36     SPEED(speed),
+37     SECOND(speed * \-0\&.3) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "void LineRelay2::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обновление системы 
+.PP
+Переопределяет метод предка \fBmosh::control::Mover\fP\&..PP
+.nf
+39                             {
+40     bool L = lineL\&.on(), R = lineR\&.on();
+41     motors::setSpeeds((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
+42     motors::spin();
+43 }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

@@ -1,0 +1,218 @@
+.TH "src/core/config.hpp" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/core/config.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <Arduino\&.h>\fP
+.br
+
+.SS "Макросы"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMOTOR_L_INVERT\fP   false"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_L_SPEED\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_L_DIR\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_L_ENC_A\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_L_ENC_B\fP   8"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_R_INVERT\fP   true"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_R_SPEED\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_R_DIR\fP   7"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_R_ENC_A\fP   3"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_R_ENC_B\fP   9"
+.br
+.ti -1c
+.RI "#define \fBLINE_L\fP   A0"
+.br
+.ti -1c
+.RI "#define \fBLINE_R\fP   A1"
+.br
+.ti -1c
+.RI "#define \fBIR_0\fP   A2"
+.br
+.ti -1c
+.RI "#define \fBIR_1\fP   A3"
+.br
+.ti -1c
+.RI "#define \fBUS_ECHO\fP   12"
+.br
+.ti -1c
+.RI "#define \fBUS_TRIG\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTRACK_SIZE_MM\fP   177"
+.br
+.ti -1c
+.RI "#define \fBMM_IN_1000_TICKS\fP   250"
+.br
+.ti -1c
+.RI "#define \fBMM2TICKS\fP(mm)   ( (int32_t)(mm) * 1000L / (int32_t)(\fBMM_IN_1000_TICKS\fP) )"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_SPEED_TICK\fP   18"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_SPEED_TICK\fP   18"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_SPEED_PWM\fP   144"
+.br
+.ti -1c
+.RI "#define \fBGRAY_PERCENT\fP   50"
+.br
+.ti -1c
+.RI "#define \fBR_LINE\fP   108"
+.br
+.ti -1c
+.RI "#define \fBR_FIELD\fP   981"
+.br
+.ti -1c
+.RI "#define \fBL_LINE\fP   57"
+.br
+.ti -1c
+.RI "#define \fBL_FIELD\fP   837"
+.br
+.ti -1c
+.RI "#define \fBSIGN\fP(x)   (((x) > 0) ? 1 : \-1)"
+.br
+.in -1c
+.SS "Перечисления"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPARAMS\fP { \fBHOLD_STOP_TIMEOUT\fP = 160, \fBALIGN_DURATION\fP = 240, \fBKP_SPEED\fP = 8, \fBSYNC_K\fP = 5, \fBMAX_DELTA_TICKS\fP = 32, \fBSPIN_PERIOD_MS\fP = 32, \fBIR_DIST_MIN\fP = 9, \fBIR_DIST_MAX\fP = 50, \fBIR_PERIOD\fP = 15, \fBUS_DIST_MIN\fP = 2, \fBUS_DIST_MAX\fP = 100, \fBUS_PERIOD\fP = 200 }"
+.br
+.in -1c
+.SH "Макросы"
+.PP 
+.SS "#define DEFAULT_SPEED_PWM   144"
+
+.SS "#define DEFAULT_SPEED_TICK   18"
+
+.SS "#define DEFAULT_SPEED_TICK   18"
+
+.SS "#define GRAY_PERCENT   50"
+
+.SS "#define IR_0   A2"
+
+.SS "#define IR_1   A3"
+
+.SS "#define L_FIELD   837"
+
+.SS "#define L_LINE   57"
+
+.SS "#define LINE_L   A0"
+
+.SS "#define LINE_R   A1"
+
+.SS "#define MM2TICKS(mm)   ( (int32_t)(mm) * 1000L / (int32_t)(\fBMM_IN_1000_TICKS\fP) )"
+
+.SS "#define MM_IN_1000_TICKS   250"
+
+.SS "#define MOTOR_L_DIR   4"
+
+.SS "#define MOTOR_L_ENC_A   2"
+
+.SS "#define MOTOR_L_ENC_B   8"
+
+.SS "#define MOTOR_L_INVERT   false"
+
+.SS "#define MOTOR_L_SPEED   5"
+
+.SS "#define MOTOR_R_DIR   7"
+
+.SS "#define MOTOR_R_ENC_A   3"
+
+.SS "#define MOTOR_R_ENC_B   9"
+
+.SS "#define MOTOR_R_INVERT   true"
+
+.SS "#define MOTOR_R_SPEED   6"
+
+.SS "#define R_FIELD   981"
+
+.SS "#define R_LINE   108"
+
+.SS "#define SIGN(x)   (((x) > 0) ? 1 : \-1)"
+
+.SS "#define TRACK_SIZE_MM   177"
+
+.SS "#define US_ECHO   12"
+
+.SS "#define US_TRIG   13"
+
+.SH "Перечисления"
+.PP 
+.SS "enum \fBPARAMS\fP"
+
+.PP
+\fBЭлементы перечислений\fP
+.in +1c
+.TP
+\fB\fIHOLD_STOP_TIMEOUT \fP\fP
+.TP
+\fB\fIALIGN_DURATION \fP\fP
+.TP
+\fB\fIKP_SPEED \fP\fP
+.TP
+\fB\fISYNC_K \fP\fP
+.TP
+\fB\fIMAX_DELTA_TICKS \fP\fP
+.TP
+\fB\fISPIN_PERIOD_MS \fP\fP
+.TP
+\fB\fIIR_DIST_MIN \fP\fP
+.TP
+\fB\fIIR_DIST_MAX \fP\fP
+.TP
+\fB\fIIR_PERIOD \fP\fP
+.TP
+\fB\fIUS_DIST_MIN \fP\fP
+.TP
+\fB\fIUS_DIST_MAX \fP\fP
+.TP
+\fB\fIUS_PERIOD \fP\fP
+.PP
+.nf
+103             {
+104     HOLD_STOP_TIMEOUT = 160, // время остановки удержанием позиции
+105     ALIGN_DURATION = 240, // время для выравнивания по линии
+106 
+107     KP_SPEED = 8, // KP смещение (скорость)
+108     SYNC_K = 5, // коэф\&. синх\&. движения 
+109     MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
+110     SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
+111 
+112     IR_DIST_MIN = 9,
+113     IR_DIST_MAX = 50,
+114     IR_PERIOD = 15,
+115 
+116     US_DIST_MIN = 2,
+117     US_DIST_MAX = 100,
+118     US_PERIOD = 200,
+119 };
+.fi
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

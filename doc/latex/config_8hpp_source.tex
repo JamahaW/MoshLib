@@ -1,0 +1,127 @@
+\doxysection{config.\+hpp}
+\hypertarget{config_8hpp_source}{}\label{config_8hpp_source}\index{src/core/config.hpp@{src/core/config.hpp}}
+\mbox{\hyperlink{config_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_L\_INVERT}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ MOTOR\_L\_INVERT\ false\ }\textcolor{comment}{//\ Левый\ мотор\ инверсия\ направления}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MOTOR\_L\_SPEED\ 5\ }\textcolor{comment}{//\ Левый\ мотор\ направление}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MOTOR\_L\_DIR\ 4\ }\textcolor{comment}{//\ Левый\ мотор\ скорость}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_L\_ENC\_A}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MOTOR\_L\_ENC\_A\ 2\ }\textcolor{comment}{//\ Левый\ мотор\ энкодер\ желтый}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_L\_ENC\_B}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MOTOR\_L\_ENC\_B\ 8\ }\textcolor{comment}{//\ Левый\ мотор\ энкодер\ зелёный}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_R\_INVERT}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MOTOR\_R\_INVERT\ true\ }\textcolor{comment}{//\ Правый\ мотор\ инверсия\ направления}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MOTOR\_R\_SPEED\ 6\ }\textcolor{comment}{//\ Правый\ мотор\ скорость}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ MOTOR\_R\_DIR\ 7\ }\textcolor{comment}{//\ Правый\ мотор\ направление}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_R\_ENC\_A}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ MOTOR\_R\_ENC\_A\ 3\ }\textcolor{comment}{//\ Правый\ мотор\ энкодер\ желтый}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_R\_ENC\_B}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ MOTOR\_R\_ENC\_B\ 9\ }\textcolor{comment}{//\ Правый\ мотор\ энкодер\ зелёный}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifndef\ LINE\_L}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LINE\_L\ A0\ }\textcolor{comment}{//\ Левый\ датчик\ линии}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ LINE\_R}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LINE\_R\ A1\ }\textcolor{comment}{//\ Правый\ датчик\ линии}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ IR\_0}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ IR\_0\ A2\ }\textcolor{comment}{//\ Инфракрасный\ датчик\ расстояния\ 0}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ IR\_1}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ IR\_1\ A3\ }\textcolor{comment}{//\ Инфракрасный\ датчик\ расстояния\ 1}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifndef\ US\_ECHO}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ US\_ECHO\ 12\ }\textcolor{comment}{//\ Ультразвуковой\ датчик\ расстояния\ приём}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#ifndef\ US\_TRIG}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ US\_TRIG\ 13\ }\textcolor{comment}{//\ Ультразвуковой\ датчик\ расстояния\ излучатель}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifndef\ TRACK\_SIZE\_MM}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ TRACK\_SIZE\_MM\ 177\ }\textcolor{comment}{//\ КОЛЕЯ}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#ifndef\ MM\_IN\_1000\_TICKS}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ MM\_IN\_1000\_TICKS\ 250\ }\textcolor{comment}{//\ В\ 1000\ ТИКАХ}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ MM2TICKS(mm)\ (\ (int32\_t)(mm)\ *\ 1000L\ /\ (int32\_t)(MM\_IN\_1000\_TICKS)\ )\ \ }\textcolor{comment}{//\ Переводной\ макрос\ из\ ММ\ пути\ в\ тики\ энкодера}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#ifndef\ DEFAULT\_SPEED\_TICK}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ DEFAULT\_SPEED\_TICK\ 18\ }\textcolor{comment}{//\ Скорость\ в\ тиках\ по\ умолчанию}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ DEFAULT\_SPEED\_TICK\ 18\ }\textcolor{comment}{//\ Скорость\ в\ тиках\ по\ умолчанию}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifndef\ DEFAULT\_SPEED\_PWM}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ DEFAULT\_SPEED\_PWM\ 144\ }\textcolor{comment}{//\ Скорость\ в\ ШИМ\ по\ умолчанию}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#ifndef\ GRAY\_PERCENT}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ GRAY\_PERCENT\ 50\ }\textcolor{comment}{//\ Уровень\ чувствительности\ датчика\ линии}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#ifndef\ R\_LINE}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ R\_LINE\ 108\ }\textcolor{comment}{//\ значеие\ ПРАВОГО\ датчика\ на\ ЛИНИИ\ }}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#ifndef\ R\_FIELD}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ R\_FIELD\ 981}\textcolor{comment}{//\ значеие\ ПРАВОГО\ датчика\ на\ ПОЛЕ\ }}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#ifndef\ L\_LINE}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ L\_LINE\ 57\ }\textcolor{comment}{//\ значеие\ ЛЕВОГО\ датчика\ на\ ЛИНИИ\ }}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifndef\ L\_FIELD}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ L\_FIELD\ 837\ }\textcolor{comment}{//\ значеие\ ЛЕВОГО\ датчика\ на\ ПОЛЕ\ }}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ КОНФИГУРАЦИЯ}}
+\DoxyCodeLine{00103\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7ee}{PARAMS}}\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335}{HOLD\_STOP\_TIMEOUT}}\ =\ 160,\ \textcolor{comment}{//\ время\ остановки\ удержанием\ позиции}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83}{ALIGN\_DURATION}}\ =\ 240,\ \textcolor{comment}{//\ время\ для\ выравнивания\ по\ линии}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0}{KP\_SPEED}}\ =\ 8,\ \textcolor{comment}{//\ KP\ смещение\ (скорость)}}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea59e05a5843b96454cd887cb22f8c9e2f}{SYNC\_K}}\ =\ 5,\ \textcolor{comment}{//\ коэф.\ синх.\ движения\ }}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e}{MAX\_DELTA\_TICKS}}\ =\ 32,\ \textcolor{comment}{//\ максимальная\ d\_tick\ при\ повороте}}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e}{SPIN\_PERIOD\_MS}}\ =\ 32,\ \textcolor{comment}{//\ период\ смены\ целевого\ положения\ мотора\ по\ d\_tick}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeabdecd5cf62a144466be7daecc683668a}{IR\_DIST\_MIN}}\ =\ 9,}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea0377e93ad0dd5d5d0f8614e8222a8a33}{IR\_DIST\_MAX}}\ =\ 50,}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea3c830caadeb22ce8818f849e80ea1ca1}{IR\_PERIOD}}\ =\ 15,}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeab52cd651a13722cf0d68467fe58e2283}{US\_DIST\_MIN}}\ =\ 2,}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea63d9d5eecb8e2600ad0f0718942205d3}{US\_DIST\_MAX}}\ =\ 100,}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2f37ea618b486343d0e4c0a33cb92ad0}{US\_PERIOD}}\ =\ 200,}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ SIGN(x)\ (((x)\ >\ 0)\ ?\ 1\ :\ -\/1)\ }\textcolor{comment}{//\ ЗНАК\ переменной}}
+
+\end{DoxyCode}

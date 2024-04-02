@@ -1,0 +1,90 @@
+.TH "mosh::hardware::IrSensorSharp" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::hardware::IrSensorSharp \- Инфокрасный датчик Sharp\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <distancesensor\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::hardware::DistanceSensor\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBIrSensorSharp\fP (uint8_t pin)"
+.br
+.RI "ИК-датчик расстояния "
+.in -1c
+
+Открытые члены унаследованные от \fBmosh::hardware::DistanceSensor\fP
+.in +1c
+.ti -1c
+.RI "\fBDistanceSensor\fP (uint16_t min_dist, uint16_t max_dist, uint8_t period)"
+.br
+.RI "Абстрактный Датчик расстояния "
+.ti -1c
+.RI "uint8_t \fBread\fP () const"
+.br
+.RI "Получить значение с датчика "
+.ti -1c
+.RI "uint8_t \fBoperator()\fP () const"
+.br
+.in -1c
+.SS "Защищенные члены"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBupdate\fP () const override"
+.br
+.RI "Опросить датчик "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Инфокрасный датчик Sharp\&. 
+.SH "Конструктор(ы)"
+.PP 
+.SS "IrSensorSharp::IrSensorSharp (uint8_t pin)"
+
+.PP
+ИК-датчик расстояния 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIpin\fP Аналоговый пин (A0 - A7) 
+.RE
+.PP
+.PP
+.nf
+23                                         :
+24     DistanceSensor(PARAMS::IR_DIST_MIN, PARAMS::IR_DIST_MAX, PARAMS::IR_PERIOD), PIN(pin) {
+25     pinMode(PIN, INPUT);
+26 }
+.fi
+
+.SH "Методы"
+.PP 
+.SS "uint8_t IrSensorSharp::update () const\fR [override]\fP, \fR [protected]\fP, \fR [virtual]\fP"
+
+.PP
+Опросить датчик 
+.PP
+\fBВозвращает\fP
+.RS 4
+значение расстояние в мм 
+.RE
+.PP
+
+.PP
+Замещает \fBmosh::hardware::DistanceSensor\fP\&..PP
+.nf
+28 { return 32 * pow(analogRead(PIN) * (5\&.0 / 1024\&.0), \-1\&.1); }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

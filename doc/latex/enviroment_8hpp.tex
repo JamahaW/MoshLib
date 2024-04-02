@@ -1,0 +1,104 @@
+\doxysection{Файл src/core/enviroment.hpp}
+\hypertarget{enviroment_8hpp}{}\label{enviroment_8hpp}\index{src/core/enviroment.hpp@{src/core/enviroment.hpp}}
+{\ttfamily \#include "{}hardware/distancesensor.\+hpp"{}}\newline
+{\ttfamily \#include "{}hardware/linesensor.\+hpp"{}}\newline
+{\ttfamily \#include "{}hardware/motorencoder.\+hpp"{}}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_robot_config}{Robot\+Config}}
+\begin{DoxyCompactList}\small\item\em Данные робота \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Пространства имен}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemotors}{motors}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemotors_a93992359acbce82869776ee24630c201}{motors\+::reset}} ()
+\item 
+void \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{motors\+::spin}} ()
+\item 
+void \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{motors\+::set\+Speeds}} (int16\+\_\+t left, int16\+\_\+t right)
+\item 
+void \mbox{\hyperlink{namespacemotors_a32c8f2b96166bcf2eb4d97fc45b7d02f}{motors\+::set\+For\+Ticks}} (int8\+\_\+t speed\+\_\+L, int32\+\_\+t ticks\+\_\+L, int8\+\_\+t speed\+\_\+R, int32\+\_\+t ticks\+\_\+R)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} \mbox{\hyperlink{enviroment_8hpp_a0410a0ad9b5a08aa1f3b34f0bed79f8e}{lineL}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} \mbox{\hyperlink{enviroment_8hpp_a197964cbacffac974330ab0cc7d4c53c}{lineR}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{mosh\+::hardware\+::\+No\+Distance\+Sensor}} \mbox{\hyperlink{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\+\_\+sensor}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} \mbox{\hyperlink{enviroment_8hpp_a441b1cab9bc3bd392fc67e80de75291d}{ir0}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} \mbox{\hyperlink{enviroment_8hpp_a98f73d03b424e887050d181325a7cb6b}{ir1}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{mosh\+::hardware\+::\+Ultra\+Sonic}} \mbox{\hyperlink{enviroment_8hpp_a12a7e0d27cabb3654ca82d1e8835339f}{us}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} \mbox{\hyperlink{enviroment_8hpp_a54edd9c7aca7c45cc0047623a796df13}{motorL}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} \mbox{\hyperlink{enviroment_8hpp_ae612a47de01cc55960cbbe00ee454b3f}{motorR}}
+\item 
+\mbox{\hyperlink{struct_robot_config}{Robot\+Config}} \mbox{\hyperlink{enviroment_8hpp_a8eb942373fca8eae496279b2127bbebf}{robot}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{enviroment_8hpp_a441b1cab9bc3bd392fc67e80de75291d}\label{enviroment_8hpp_a441b1cab9bc3bd392fc67e80de75291d} 
+\index{enviroment.hpp@{enviroment.hpp}!ir0@{ir0}}
+\index{ir0@{ir0}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{ir0}{ir0}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} ir0\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a98f73d03b424e887050d181325a7cb6b}\label{enviroment_8hpp_a98f73d03b424e887050d181325a7cb6b} 
+\index{enviroment.hpp@{enviroment.hpp}!ir1@{ir1}}
+\index{ir1@{ir1}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{ir1}{ir1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} ir1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a0410a0ad9b5a08aa1f3b34f0bed79f8e}\label{enviroment_8hpp_a0410a0ad9b5a08aa1f3b34f0bed79f8e} 
+\index{enviroment.hpp@{enviroment.hpp}!lineL@{lineL}}
+\index{lineL@{lineL}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{lineL}{lineL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} lineL\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a197964cbacffac974330ab0cc7d4c53c}\label{enviroment_8hpp_a197964cbacffac974330ab0cc7d4c53c} 
+\index{enviroment.hpp@{enviroment.hpp}!lineR@{lineR}}
+\index{lineR@{lineR}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{lineR}{lineR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} lineR\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a54edd9c7aca7c45cc0047623a796df13}\label{enviroment_8hpp_a54edd9c7aca7c45cc0047623a796df13} 
+\index{enviroment.hpp@{enviroment.hpp}!motorL@{motorL}}
+\index{motorL@{motorL}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{motorL}{motorL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} motorL\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_ae612a47de01cc55960cbbe00ee454b3f}\label{enviroment_8hpp_ae612a47de01cc55960cbbe00ee454b3f} 
+\index{enviroment.hpp@{enviroment.hpp}!motorR@{motorR}}
+\index{motorR@{motorR}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{motorR}{motorR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} motorR\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33}\label{enviroment_8hpp_a2fb0a982fefe2782d8ce55df197f5e33} 
+\index{enviroment.hpp@{enviroment.hpp}!no\_sensor@{no\_sensor}}
+\index{no\_sensor@{no\_sensor}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{no\_sensor}{no\_sensor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{mosh\+::hardware\+::\+No\+Distance\+Sensor}} no\+\_\+sensor\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a8eb942373fca8eae496279b2127bbebf}\label{enviroment_8hpp_a8eb942373fca8eae496279b2127bbebf} 
+\index{enviroment.hpp@{enviroment.hpp}!robot@{robot}}
+\index{robot@{robot}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{robot}{robot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_robot_config}{Robot\+Config}} robot\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{enviroment_8hpp_a12a7e0d27cabb3654ca82d1e8835339f}\label{enviroment_8hpp_a12a7e0d27cabb3654ca82d1e8835339f} 
+\index{enviroment.hpp@{enviroment.hpp}!us@{us}}
+\index{us@{us}!enviroment.hpp@{enviroment.hpp}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{mosh\+::hardware\+::\+Ultra\+Sonic}} us\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,68 @@
+.TH "mosh::control::OnTimer" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::OnTimer \- Обработка выхода по таймеру  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <quit\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Quiter\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBOnTimer\fP (uint16_t duration)"
+.br
+.RI "Выход по таймеру "
+.ti -1c
+.RI "bool \fBtick\fP () const override"
+.br
+.RI "Обработка события "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Обработка выхода по таймеру 
+.SH "Конструктор(ы)"
+.PP 
+.SS "OnTimer::OnTimer (uint16_t duration)"
+
+.PP
+Выход по таймеру 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIduration\fP время 
+.RE
+.PP
+.PP
+.nf
+6 : END_TIME(millis() + duration) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "bool OnTimer::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обработка события 
+.PP
+\fBВозвращает\fP
+.RS 4
+true если ещё НЕ вышел, false когда следует прервать работу 
+.RE
+.PP
+
+.PP
+Замещает \fBmosh::control::Quiter\fP\&..PP
+.nf
+7 { return millis() < END_TIME; }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

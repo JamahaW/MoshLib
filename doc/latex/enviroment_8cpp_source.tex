@@ -1,0 +1,40 @@
+\doxysection{enviroment.\+cpp}
+\hypertarget{enviroment_8cpp_source}{}\label{enviroment_8cpp_source}\index{src/core/enviroment.cpp@{src/core/enviroment.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}enviroment.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00004}00004\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh::hardware::LineSensor}}\ lineL(LINE\_L,\ L\_LINE,\ L\_FIELD);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00005}00005\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh::hardware::LineSensor}}\ lineR(LINE\_R,\ R\_LINE,\ R\_FIELD);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00007}00007\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{mosh::hardware::NoDistanceSensor}}\ no\_sensor;}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00008}00008\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh::hardware::IrSensorSharp}}\ ir0(IR\_0);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00009}00009\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh::hardware::IrSensorSharp}}\ ir1(IR\_1);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00010}00010\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{mosh::hardware::UltraSonic}}\ us(US\_ECHO,\ US\_TRIG);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00012}00012\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh::hardware::MotorEncoder}}\ motorL(mosh::hardware::\_\_l\_int,\ MOTOR\_L\_INVERT,\ MOTOR\_L\_SPEED,\ MOTOR\_L\_DIR,\ MOTOR\_L\_ENC\_A,\ MOTOR\_L\_ENC\_B);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00013}00013\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh::hardware::MotorEncoder}}\ motorR(mosh::hardware::\_\_r\_int,\ MOTOR\_R\_INVERT,\ MOTOR\_R\_SPEED,\ MOTOR\_R\_DIR,\ MOTOR\_R\_ENC\_A,\ MOTOR\_R\_ENC\_B);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00015}00015\ \textcolor{keywordtype}{void}\ mosh::hardware::\_\_l\_int()\ \{\ motorL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{enc}}();\ \}}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00016}00016\ \textcolor{keywordtype}{void}\ mosh::hardware::\_\_r\_int()\ \{\ motorR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{enc}}();\ \}}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00018}00018\ \mbox{\hyperlink{struct_robot_config}{RobotConfig}}\ robot;}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00020}00020\ \textcolor{comment}{//\ управление\ моторами\ [[[\ \ //\ TODO\ ликвидировать!\ \ ]]]}}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00021}00021\ \textcolor{keywordtype}{void}\ motors::reset()\ \{}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00022}00022\ \ \ \ \ motorL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{reset}}();}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00023}00023\ \ \ \ \ motorR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{reset}}();}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00026}00026\ \textcolor{keywordtype}{void}\ motors::spin()\ \{}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00027}00027\ \ \ \ \ motorL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{spin}}();}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00028}00028\ \ \ \ \ motorR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{spin}}();}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00031}00031\ \textcolor{keywordtype}{void}\ motors::setSpeeds(int16\_t\ left,\ int16\_t\ right)\ \{}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00032}00032\ \ \ \ \ motorL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{setSpeed}}(left);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00033}00033\ \ \ \ \ motorR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{setSpeed}}(right);}
+\DoxyCodeLine{\Hypertarget{enviroment_8cpp_source_l00034}00034\ \}}
+
+\end{DoxyCode}

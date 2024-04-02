@@ -1,0 +1,69 @@
+.TH "mosh::hardware" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::hardware
+.SH SYNOPSIS
+.br
+.PP
+.SS "Классы"
+
+.in +1c
+.ti -1c
+.RI "class \fBDistanceSensor\fP"
+.br
+.RI "Интерфейс датчика растояния "
+.ti -1c
+.RI "class \fBIrSensorSharp\fP"
+.br
+.RI "Инфокрасный датчик Sharp\&. "
+.ti -1c
+.RI "class \fBLineSensor\fP"
+.br
+.RI "Аналоговый датчик линии "
+.ti -1c
+.RI "class \fBMotorEncoder\fP"
+.br
+.RI "класс DC-мотор-энкодера, управляемого H-мостом "
+.ti -1c
+.RI "class \fBNoDistanceSensor\fP"
+.br
+.RI "Заглушка "
+.ti -1c
+.RI "class \fBUltraSonic\fP"
+.br
+.RI "УльтраЗвуковой датчик HC SR04\&. "
+.in -1c
+.SS "Функции"
+
+.in +1c
+.ti -1c
+.RI "void \fB__l_int\fP ()"
+.br
+.RI "Обработчик левого мотора "
+.ti -1c
+.RI "void \fB__r_int\fP ()"
+.br
+.RI "Обработчик правого мотора "
+.in -1c
+.SH "Функции"
+.PP 
+.SS "void mosh::hardware::__l_int ()"
+
+.PP
+Обработчик левого мотора .PP
+.nf
+15 { motorL\&.enc(); }
+.fi
+
+.SS "void mosh::hardware::__r_int ()"
+
+.PP
+Обработчик правого мотора .PP
+.nf
+16 { motorR\&.enc(); }
+.fi
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

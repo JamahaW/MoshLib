@@ -1,0 +1,117 @@
+\doxysection{Класс mosh\+::control\+::Distance\+Read}
+\hypertarget{classmosh_1_1control_1_1_distance_read}{}\label{classmosh_1_1control_1_1_distance_read}\index{mosh::control::DistanceRead@{mosh::control::DistanceRead}}
+
+
+Обработка расстояния  
+
+
+
+
+{\ttfamily \#include $<$quit.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Distance\+Read\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_distance_read}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}{MODE}} \{ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81}{LESS}} = 0
+, \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12}{GREATER}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_aa838dbe2d9cb3b9b0aee348447f290b2}{Distance\+Read}} (\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{hardware\+::\+Distance\+Sensor}} \&used\+\_\+sensor, const uint8\+\_\+t target\+\_\+distance, enum \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}{MODE}} condition)
+\begin{DoxyCompactList}\small\item\em Выход по расстоянию с датчика \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обработка события \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Обработка расстояния 
+
+\doxysubsection{Перечисления}
+\Hypertarget{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}\label{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6} 
+\index{mosh::control::DistanceRead@{mosh::control::DistanceRead}!MODE@{MODE}}
+\index{MODE@{MODE}!mosh::control::DistanceRead@{mosh::control::DistanceRead}}
+\doxysubsubsection{\texorpdfstring{MODE}{MODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}{mosh\+::control\+::\+Distance\+Read\+::\+MODE}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LESS@{LESS}!mosh::control::DistanceRead@{mosh::control::DistanceRead}}\index{mosh::control::DistanceRead@{mosh::control::DistanceRead}!LESS@{LESS}}}\Hypertarget{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81}\label{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81} 
+LESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREATER@{GREATER}!mosh::control::DistanceRead@{mosh::control::DistanceRead}}\index{mosh::control::DistanceRead@{mosh::control::DistanceRead}!GREATER@{GREATER}}}\Hypertarget{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12}\label{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12} 
+GREATER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81}{LESS}}\ =\ 0,\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12}{GREATER}}\ =\ 1\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_distance_read_aa838dbe2d9cb3b9b0aee348447f290b2}\label{classmosh_1_1control_1_1_distance_read_aa838dbe2d9cb3b9b0aee348447f290b2} 
+\index{mosh::control::DistanceRead@{mosh::control::DistanceRead}!DistanceRead@{DistanceRead}}
+\index{DistanceRead@{DistanceRead}!mosh::control::DistanceRead@{mosh::control::DistanceRead}}
+\doxysubsubsection{\texorpdfstring{DistanceRead()}{DistanceRead()}}
+{\footnotesize\ttfamily Distance\+Read\+::\+Distance\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{hardware\+::\+Distance\+Sensor}} \&}]{used\+\_\+sensor,  }\item[{const uint8\+\_\+t}]{target\+\_\+distance,  }\item[{enum \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}{MODE}}}]{condition }\end{DoxyParamCaption})}
+
+
+
+Выход по расстоянию с датчика 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em used\+\_\+sensor} & используемый датчик \\
+\hline
+{\em target\+\_\+distance} & целевое значение расстояния (см) \\
+\hline
+{\em condition} & условие поддержания работы \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00010\ \ \ \ \ sensor(used\_sensor),\ DISTANCE(target\_distance),\ mode((\textcolor{keywordtype}{bool})\ condition)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636}\label{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636} 
+\index{mosh::control::DistanceRead@{mosh::control::DistanceRead}!tick@{tick}}
+\index{tick@{tick}!mosh::control::DistanceRead@{mosh::control::DistanceRead}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily bool Distance\+Read\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обработка события 
+
+\begin{DoxyReturn}{Возвращает}
+true если ещё НЕ вышел, false когда следует прервать работу 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{mosh\+::control\+::\+Quiter}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{\ \textcolor{keywordflow}{return}\ (sensor.\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}}()\ <=\ DISTANCE)\ \string^\ mode;\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{quit_8hpp}{quit.\+hpp}}\item 
+src/control/\mbox{\hyperlink{quit_8cpp}{quit.\+cpp}}\end{DoxyCompactItemize}

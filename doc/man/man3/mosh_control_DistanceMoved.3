@@ -1,0 +1,94 @@
+.TH "mosh::control::DistanceMoved" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::DistanceMoved \- Было пройдено расстояние  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <quit\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Quiter\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBDistanceMoved\fP (int32_t target_left, int32_t target_right, bool mm_mode=true)"
+.br
+.RI "Опоры пройдут данное расстояние "
+.ti -1c
+.RI "\fBDistanceMoved\fP (int32_t target)"
+.br
+.RI "Робот пройдёт расстояние в мм "
+.ti -1c
+.RI "bool \fBtick\fP () const override"
+.br
+.RI "Обработка события "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Было пройдено расстояние 
+.SH "Конструктор(ы)"
+.PP 
+.SS "DistanceMoved::DistanceMoved (int32_t target_left, int32_t target_right, bool mm_mode = \fRtrue\fP)"
+
+.PP
+Опоры пройдут данное расстояние 
+.PP
+\fBАргументы\fP
+.RS 4
+\fItarget_left\fP целевая позиция левого мотора 
+.br
+\fItarget_right\fP целевая позиция правого мотора 
+.br
+\fImm_mode\fP использовать миллиметры 
+.RE
+.PP
+.PP
+.nf
+14                                                                          :
+15     TARGET_L(mm_mode ? MM2TICKS(dist_l) : dist_l), TARGET_R(mm_mode ? MM2TICKS(dist_r) : dist_r) {
+16     motors::reset();
+17 }
+.fi
+
+.SS "DistanceMoved::DistanceMoved (int32_t target)"
+
+.PP
+Робот пройдёт расстояние в мм 
+.PP
+\fBАргументы\fP
+.RS 4
+\fItarget\fP данная дистанция 
+.RE
+.PP
+.PP
+.nf
+19 : DistanceMoved(distance, distance) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "bool DistanceMoved::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обработка события 
+.PP
+\fBВозвращает\fP
+.RS 4
+true если ещё НЕ вышел, false когда следует прервать работу 
+.RE
+.PP
+
+.PP
+Замещает \fBmosh::control::Quiter\fP\&..PP
+.nf
+21 { return (abs(motorL\&.position \- TARGET_L) > 0) && (abs(motorR\&.position \- TARGET_R) > 0); }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

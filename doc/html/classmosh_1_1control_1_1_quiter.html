@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Класс mosh::control::Quiter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemosh.html">mosh</a></li><li class="navelem"><a class="el" href="namespacemosh_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classmosh_1_1control_1_1_quiter.html">Quiter</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classmosh_1_1control_1_1_quiter-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс mosh::control::Quiter<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс обработки завершения движения  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="quit_8hpp_source.html">quit.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:mosh::control::Quiter:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classmosh_1_1control_1_1_quiter.png" usemap="#mosh::control::Quiter_map" alt=""/>
+  <map id="mosh::control::Quiter_map" name="mosh::control::Quiter_map">
+<area href="classmosh_1_1control_1_1_distance_moved.html" title="Было пройдено расстояние" alt="mosh::control::DistanceMoved" shape="rect" coords="0,56,180,80"/>
+<area href="classmosh_1_1control_1_1_distance_read.html" title="Обработка расстояния" alt="mosh::control::DistanceRead" shape="rect" coords="190,56,370,80"/>
+<area href="classmosh_1_1control_1_1_line_found.html" title="Найден перекрёсток" alt="mosh::control::LineFound" shape="rect" coords="380,56,560,80"/>
+<area href="classmosh_1_1control_1_1_on_timer.html" title="Обработка выхода по таймеру" alt="mosh::control::OnTimer" shape="rect" coords="570,56,750,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aeee758c24de520f4416ee3609cbf20cb" id="r_aeee758c24de520f4416ee3609cbf20cb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeee758c24de520f4416ee3609cbf20cb">tick</a> () const =0</td></tr>
+<tr class="memdesc:aeee758c24de520f4416ee3609cbf20cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка события  <br /></td></tr>
+<tr class="separator:aeee758c24de520f4416ee3609cbf20cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс обработки завершения движения </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="aeee758c24de520f4416ee3609cbf20cb" name="aeee758c24de520f4416ee3609cbf20cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee758c24de520f4416ee3609cbf20cb">&#9670;&#160;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool mosh::control::Quiter::tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обработка события </p>
+<dl class="section return"><dt>Возвращает</dt><dd>true если ещё НЕ вышел, false когда следует прервать работу </dd></dl>
+
+<p>Замещается в <a class="el" href="classmosh_1_1control_1_1_on_timer.html#a2cdb9f4d871cd3265be2118526c00684">mosh::control::OnTimer</a>, <a class="el" href="classmosh_1_1control_1_1_distance_read.html#adfe11d43b0244f9fb435c172a119d636">mosh::control::DistanceRead</a>, <a class="el" href="classmosh_1_1control_1_1_distance_moved.html#af9c1fc953167bab5bf27e800d9f3ca6c">mosh::control::DistanceMoved</a> и <a class="el" href="classmosh_1_1control_1_1_line_found.html#abe545bff595d3411de0724a3c8787ea0">mosh::control::LineFound</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>src/control/<a class="el" href="quit_8hpp_source.html">quit.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

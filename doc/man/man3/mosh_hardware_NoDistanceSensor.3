@@ -1,0 +1,77 @@
+.TH "mosh::hardware::NoDistanceSensor" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::hardware::NoDistanceSensor \- Заглушка  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <distancesensor\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::hardware::DistanceSensor\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBNoDistanceSensor\fP ()"
+.br
+.in -1c
+
+Открытые члены унаследованные от \fBmosh::hardware::DistanceSensor\fP
+.in +1c
+.ti -1c
+.RI "\fBDistanceSensor\fP (uint16_t min_dist, uint16_t max_dist, uint8_t period)"
+.br
+.RI "Абстрактный Датчик расстояния "
+.ti -1c
+.RI "uint8_t \fBread\fP () const"
+.br
+.RI "Получить значение с датчика "
+.ti -1c
+.RI "uint8_t \fBoperator()\fP () const"
+.br
+.in -1c
+.SS "Защищенные члены"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBupdate\fP () const override"
+.br
+.RI "Опросить датчик "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Заглушка 
+.SH "Конструктор(ы)"
+.PP 
+.SS "mosh::hardware::NoDistanceSensor::NoDistanceSensor ()\fR [inline]\fP"
+.PP
+.nf
+47 : NoDistanceSensor() : DistanceSensor(0, 0, 0) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "uint8_t mosh::hardware::NoDistanceSensor::update () const\fR [inline]\fP, \fR [override]\fP, \fR [protected]\fP, \fR [virtual]\fP"
+
+.PP
+Опросить датчик 
+.PP
+\fBВозвращает\fP
+.RS 4
+значение расстояние в мм 
+.RE
+.PP
+
+.PP
+Замещает \fBmosh::hardware::DistanceSensor\fP\&..PP
+.nf
+46 : uint8_t update() const override { return 0; }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

@@ -1,0 +1,96 @@
+\doxysection{Класс mosh\+::hardware\+::Ir\+Sensor\+Sharp}
+\hypertarget{classmosh_1_1hardware_1_1_ir_sensor_sharp}{}\label{classmosh_1_1hardware_1_1_ir_sensor_sharp}\index{mosh::hardware::IrSensorSharp@{mosh::hardware::IrSensorSharp}}
+
+
+Инфокрасный датчик Sharp.  
+
+
+
+
+{\ttfamily \#include $<$distancesensor.\+hpp$>$}
+
+Граф наследования\+:mosh\+::hardware\+::Ir\+Sensor\+Sharp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1hardware_1_1_ir_sensor_sharp}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a1d374e3fbce53164887326f80b954b9e}{Ir\+Sensor\+Sharp}} (uint8\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em ИК-\/датчик расстояния \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{Distance\+Sensor}} (uint16\+\_\+t min\+\_\+dist, uint16\+\_\+t max\+\_\+dist, uint8\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em Абстрактный Датчик расстояния \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}} () const
+\begin{DoxyCompactList}\small\item\em Получить значение с датчика \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_aa0ed33ed19d91bf4e9d29a23434de871}{operator()}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a45eeaaa299d4446d2097434d4714c510}{update}} () const override
+\begin{DoxyCompactList}\small\item\em Опросить датчик \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Инфокрасный датчик Sharp. 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1hardware_1_1_ir_sensor_sharp_a1d374e3fbce53164887326f80b954b9e}\label{classmosh_1_1hardware_1_1_ir_sensor_sharp_a1d374e3fbce53164887326f80b954b9e} 
+\index{mosh::hardware::IrSensorSharp@{mosh::hardware::IrSensorSharp}!IrSensorSharp@{IrSensorSharp}}
+\index{IrSensorSharp@{IrSensorSharp}!mosh::hardware::IrSensorSharp@{mosh::hardware::IrSensorSharp}}
+\doxysubsubsection{\texorpdfstring{IrSensorSharp()}{IrSensorSharp()}}
+{\footnotesize\ttfamily Ir\+Sensor\+Sharp\+::\+Ir\+Sensor\+Sharp (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin }\end{DoxyParamCaption})}
+
+
+
+ИК-\/датчик расстояния 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Аналоговый пин (A0 -\/ A7) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{DistanceSensor}}(\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeabdecd5cf62a144466be7daecc683668a}{PARAMS::IR\_DIST\_MIN}},\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea0377e93ad0dd5d5d0f8614e8222a8a33}{PARAMS::IR\_DIST\_MAX}},\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea3c830caadeb22ce8818f849e80ea1ca1}{PARAMS::IR\_PERIOD}}),\ PIN(pin)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ pinMode(PIN,\ INPUT);}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1hardware_1_1_ir_sensor_sharp_a45eeaaa299d4446d2097434d4714c510}\label{classmosh_1_1hardware_1_1_ir_sensor_sharp_a45eeaaa299d4446d2097434d4714c510} 
+\index{mosh::hardware::IrSensorSharp@{mosh::hardware::IrSensorSharp}!update@{update}}
+\index{update@{update}!mosh::hardware::IrSensorSharp@{mosh::hardware::IrSensorSharp}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily uint8\+\_\+t Ir\+Sensor\+Sharp\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Опросить датчик 
+
+\begin{DoxyReturn}{Возвращает}
+значение расстояние в мм 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a841357df44460801e7a7e57f1e36c074}{mosh\+::hardware\+::\+Distance\+Sensor}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{\ \textcolor{keywordflow}{return}\ 32\ *\ pow(analogRead(PIN)\ *\ (5.0\ /\ 1024.0),\ -\/1.1);\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/hardware/\mbox{\hyperlink{distancesensor_8hpp}{distancesensor.\+hpp}}\item 
+src/hardware/\mbox{\hyperlink{distancesensor_8cpp}{distancesensor.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Класс mosh::control::MoveAlongWall</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemosh.html">mosh</a></li><li class="navelem"><a class="el" href="namespacemosh_1_1control.html">control</a></li><li class="navelem"><a class="el" href="classmosh_1_1control_1_1_move_along_wall.html">MoveAlongWall</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classmosh_1_1control_1_1_move_along_wall-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс mosh::control::MoveAlongWall</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="move_8hpp_source.html">move.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:mosh::control::MoveAlongWall:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classmosh_1_1control_1_1_move_along_wall.png" usemap="#mosh::control::MoveAlongWall_map" alt=""/>
+  <map id="mosh::control::MoveAlongWall_map" name="mosh::control::MoveAlongWall_map">
+<area href="classmosh_1_1control_1_1_mover.html" title="Абстрактный исполнитель движения робота" alt="mosh::control::Mover" shape="rect" coords="0,0,181,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:af61eb9f8104638ba7ff950ab97cb822d" id="r_af61eb9f8104638ba7ff950ab97cb822d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af61eb9f8104638ba7ff950ab97cb822d">POS</a> { <a class="el" href="#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">DIST_LEFT</a> = -1
+, <a class="el" href="#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">DIST_RIGHT</a> = 1
+ }</td></tr>
+<tr class="separator:af61eb9f8104638ba7ff950ab97cb822d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a3a6b2380128640eb53db11fe6f6283ee" id="r_a3a6b2380128640eb53db11fe6f6283ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a6b2380128640eb53db11fe6f6283ee">MoveAlongWall</a> (uint8_t distance, <a class="el" href="#af61eb9f8104638ba7ff950ab97cb822d">POS</a> pos, int8_t speed)</td></tr>
+<tr class="memdesc:a3a6b2380128640eb53db11fe6f6283ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА  <br /></td></tr>
+<tr class="separator:a3a6b2380128640eb53db11fe6f6283ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a3a569e9d7cd09910bbec876917cd79" id="r_a9a3a569e9d7cd09910bbec876917cd79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a3a569e9d7cd09910bbec876917cd79">tick</a> () const override</td></tr>
+<tr class="memdesc:a9a3a569e9d7cd09910bbec876917cd79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновление системы  <br /></td></tr>
+<tr class="separator:a9a3a569e9d7cd09910bbec876917cd79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Перечисления</h2>
+<a id="af61eb9f8104638ba7ff950ab97cb822d" name="af61eb9f8104638ba7ff950ab97cb822d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af61eb9f8104638ba7ff950ab97cb822d">&#9670;&#160;</a></span>POS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af61eb9f8104638ba7ff950ab97cb822d">mosh::control::MoveAlongWall::POS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914" name="af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914"></a>DIST_LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c" name="af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c"></a>DIST_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>{ <a class="code hl_enumvalue" href="#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">DIST_LEFT</a> = -1, <a class="code hl_enumvalue" href="#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">DIST_RIGHT</a> = 1 };</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c"><div class="ttname"><a href="#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">mosh::control::MoveAlongWall::DIST_RIGHT</a></div><div class="ttdeci">@ DIST_RIGHT</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914"><div class="ttname"><a href="#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">mosh::control::MoveAlongWall::DIST_LEFT</a></div><div class="ttdeci">@ DIST_LEFT</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a3a6b2380128640eb53db11fe6f6283ee" name="a3a6b2380128640eb53db11fe6f6283ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a6b2380128640eb53db11fe6f6283ee">&#9670;&#160;</a></span>MoveAlongWall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MoveAlongWall::MoveAlongWall </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af61eb9f8104638ba7ff950ab97cb822d">POS</a></td>          <td class="paramname"><span class="paramname"><em>pos</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td>целевое расстояние см </td></tr>
+    <tr><td class="paramname">pos</td><td>положение датчика <code>DIST_LEFT</code> | <code>DIST_RIGHT</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>                                                                    :</div>
+<div class="line"><span class="lineno">   46</span>    SPEED(speed),</div>
+<div class="line"><span class="lineno">   47</span>    TARGET(distance), k(1.2 * (<span class="keywordtype">int</span>) pos), <span class="comment">// вынести коэф</span></div>
+<div class="line"><span class="lineno">   48</span>    sensor((pos == <a class="code hl_enumvalue" href="#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">DIST_LEFT</a>) ? <a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.<a class="code hl_variable" href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">dist_left</a> : (pos == <a class="code hl_enumvalue" href="#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">DIST_RIGHT</a>) ? <a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.dist_right : &amp;<a class="code hl_variable" href="enviroment_8cpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a>) {}</div>
+<div class="ttc" id="aenviroment_8cpp_html_a2fb0a982fefe2782d8ce55df197f5e33"><div class="ttname"><a href="enviroment_8cpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a></div><div class="ttdeci">mosh::hardware::NoDistanceSensor no_sensor</div><div class="ttdef"><b>Definition</b> enviroment.cpp:7</div></div>
+<div class="ttc" id="aenviroment_8cpp_html_a8eb942373fca8eae496279b2127bbebf"><div class="ttname"><a href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a></div><div class="ttdeci">RobotConfig robot</div><div class="ttdef"><b>Definition</b> enviroment.cpp:18</div></div>
+<div class="ttc" id="astruct_robot_config_html_aa9dbcdefbba927a2c0ef659d09321581"><div class="ttname"><a href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">RobotConfig::dist_left</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_left</div><div class="ttdef"><b>Definition</b> enviroment.hpp:21</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a9a3a569e9d7cd09910bbec876917cd79" name="a9a3a569e9d7cd09910bbec876917cd79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a3a569e9d7cd09910bbec876917cd79">&#9670;&#160;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MoveAlongWall::tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обновление системы </p>
+
+<p>Переопределяет метод предка <a class="el" href="classmosh_1_1control_1_1_mover.html#aa32c49cf5a96e285b70ca651bebcde70">mosh::control::Mover</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>                               {</div>
+<div class="line"><span class="lineno">   51</span>    int16_t u = k * float(TARGET - sensor-&gt;<a class="code hl_function" href="classmosh_1_1hardware_1_1_distance_sensor.html#a5bfa64aea866c457bc153bf0153c9957">read</a>()) * SPEED / (float) TARGET;</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_function" href="namespacemotors.html#a3c74368833b68ccf6c149ba510ae6fee">motors::setSpeeds</a>(SPEED - u, SPEED + u);</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_function" href="namespacemotors.html#af6d060049222e07466d0241dc418c2bf">motors::spin</a>();</div>
+<div class="line"><span class="lineno">   54</span>}</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_distance_sensor_html_a5bfa64aea866c457bc153bf0153c9957"><div class="ttname"><a href="classmosh_1_1hardware_1_1_distance_sensor.html#a5bfa64aea866c457bc153bf0153c9957">mosh::hardware::DistanceSensor::read</a></div><div class="ttdeci">uint8_t read() const</div><div class="ttdoc">Получить значение с датчика</div><div class="ttdef"><b>Definition</b> distancesensor.cpp:9</div></div>
+<div class="ttc" id="anamespacemotors_html_a3c74368833b68ccf6c149ba510ae6fee"><div class="ttname"><a href="namespacemotors.html#a3c74368833b68ccf6c149ba510ae6fee">motors::setSpeeds</a></div><div class="ttdeci">void setSpeeds(int16_t left, int16_t right)</div><div class="ttdef"><b>Definition</b> enviroment.cpp:31</div></div>
+<div class="ttc" id="anamespacemotors_html_af6d060049222e07466d0241dc418c2bf"><div class="ttname"><a href="namespacemotors.html#af6d060049222e07466d0241dc418c2bf">motors::spin</a></div><div class="ttdeci">void spin()</div><div class="ttdef"><b>Definition</b> enviroment.cpp:26</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/control/<a class="el" href="move_8hpp_source.html">move.hpp</a></li>
+<li>src/control/<a class="el" href="move_8cpp.html">move.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

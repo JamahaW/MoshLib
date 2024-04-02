@@ -1,0 +1,88 @@
+.TH "mosh::control::LineRelay" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::LineRelay
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <move\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Mover\fP\&.
+.SS "Открытые типы"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSENSOR\fP { \fBLINE_LEFT\fP, \fBLINE_RIGHT\fP }"
+.br
+.in -1c
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBLineRelay\fP (\fBSENSOR\fP sensor_dir, int8_t speed)"
+.br
+.RI "Релейный регулятор движения по линии по одному датчику "
+.ti -1c
+.RI "void \fBtick\fP () const override"
+.br
+.RI "Обновление системы "
+.in -1c
+.SH "Перечисления"
+.PP 
+.SS "enum \fBmosh::control::LineRelay::SENSOR\fP"
+
+.PP
+\fBЭлементы перечислений\fP
+.in +1c
+.TP
+\fB\fILINE_LEFT \fP\fP
+.TP
+\fB\fILINE_RIGHT \fP\fP
+.PP
+.nf
+70 { LINE_LEFT, LINE_RIGHT };
+.fi
+.SH "Конструктор(ы)"
+.PP 
+.SS "LineRelay::LineRelay (\fBSENSOR\fP sensor_dir, int8_t speed)"
+
+.PP
+Релейный регулятор движения по линии по одному датчику 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIspeed\fP скорость перемещения 
+.br
+\fIsensor_dir\fP положение датчика \fRSENSOR::LEFT\fP | \fRSENSOR::RIGHT\fP 
+.RE
+.PP
+.PP
+.nf
+23                                              :
+24     SPEED_A((dir == LINE_LEFT) ? speed : speed * \-0\&.3),
+25     SPEED_B((dir == LINE_RIGHT) ? speed : speed * \-0\&.3),
+26     sensor((dir == LINE_LEFT) ? &lineL : (dir == LINE_RIGHT) ? &lineR : nullptr) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "void LineRelay::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обновление системы 
+.PP
+Переопределяет метод предка \fBmosh::control::Mover\fP\&..PP
+.nf
+28                            {
+29     bool on = sensor\->on();
+30     motors::setSpeeds(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
+31     motors::spin();
+32 }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

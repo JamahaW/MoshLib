@@ -1,0 +1,93 @@
+.TH "mosh::control::Sync" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::Sync \- Синхронизированое движение моторов  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <move\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Mover\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBSync\fP (int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr)"
+.br
+.RI "Синхронное вращение моторов "
+.ti -1c
+.RI "\fBSync\fP (int16_t fact)"
+.br
+.RI "Паралельный сихронный регулятор "
+.ti -1c
+.RI "void \fBtick\fP () const override"
+.br
+.RI "Обновление системы "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Синхронизированое движение моторов 
+.SH "Конструктор(ы)"
+.PP 
+.SS "Sync::Sync (int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr)"
+
+.PP
+Синхронное вращение моторов 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIfact_l\fP Смещение левого мотора 
+.br
+\fIfact_r\fP Смещение правого мотора 
+.br
+\fIkl\fP Множитель смещения левого 
+.br
+\fIkr\fP Множитель смещения правого 
+.RE
+.PP
+.PP
+.nf
+56                                                                :
+57     FACT_L(fact_l), FACT_R(fact_r), KL(kl), KR(kr), SIG_L(SIGN(KL)), SIG_R(KR) {
+58     motors::reset();
+59 }
+.fi
+
+.SS "Sync::Sync (int16_t fact)"
+
+.PP
+Паралельный сихронный регулятор 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIfact\fP скорость ШИМ 
+.RE
+.PP
+.PP
+.nf
+61 : Sync(fact, fact, 1, 1) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "void Sync::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обновление системы 
+.PP
+Переопределяет метод предка \fBmosh::control::Mover\fP\&..PP
+.nf
+63                       { // TODO разобоаться как сделать не ШИМ
+64     int16_t u = (KL * motorL\&.position \- KR * motorR\&.position) * PARAMS::SYNC_K;
+65     motorL\&.setDirPWM(FACT_L \- u * SIG_L);
+66     motorR\&.setDirPWM(FACT_R + u * SIG_R);
+67 }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

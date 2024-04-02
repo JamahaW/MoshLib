@@ -1,0 +1,96 @@
+.TH "mosh::control::LineFound" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::LineFound \- Найден перекрёсток  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <quit\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Quiter\fP\&.
+.SS "Открытые типы"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMODE\fP { \fBLINE_LEFT\fP, \fBLINE_RIGHT\fP, \fBLINE_BOTH\fP }"
+.br
+.in -1c
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBLineFound\fP (\fBMODE\fP mode, uint8_t crosses, bool exit_at)"
+.br
+.ti -1c
+.RI "bool \fBtick\fP () const override"
+.br
+.RI "Обработка события "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Найден перекрёсток 
+.SH "Перечисления"
+.PP 
+.SS "enum \fBmosh::control::LineFound::MODE\fP"
+
+.PP
+\fBЭлементы перечислений\fP
+.in +1c
+.TP
+\fB\fILINE_LEFT \fP\fP
+.TP
+\fB\fILINE_RIGHT \fP\fP
+.TP
+\fB\fILINE_BOTH \fP\fP
+.PP
+.nf
+87 { LINE_LEFT, LINE_RIGHT, LINE_BOTH };
+.fi
+.SH "Конструктор(ы)"
+.PP 
+.SS "LineFound::LineFound (\fBMODE\fP mode, uint8_t crosses, bool exit_at)"
+.PP
+.nf
+27                                                              :
+28     EXIT(exit_at), trigger((mode == LINE_LEFT) ? __on_line_left : (mode == LINE_RIGHT) ? __on_line_right : __on_line_both), CROSSES(crosses) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "bool LineFound::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обработка события 
+.PP
+\fBВозвращает\fP
+.RS 4
+true если ещё НЕ вышел, false когда следует прервать работу 
+.RE
+.PP
+
+.PP
+Замещает \fBmosh::control::Quiter\fP\&..PP
+.nf
+30                            {
+31     bool state = trigger() ^ EXIT;
+32 
+33     if (state) {
+34         if (!found) {
+35             found = true;
+36             passed++;
+37         }
+38     } else {
+39         found = false;
+40     }
+41 
+42     return passed < CROSSES;
+43 }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

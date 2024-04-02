@@ -1,0 +1,88 @@
+.TH "mosh::control::MoveAlongWall" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::MoveAlongWall
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <move\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Mover\fP\&.
+.SS "Открытые типы"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPOS\fP { \fBDIST_LEFT\fP = -1, \fBDIST_RIGHT\fP = 1 }"
+.br
+.in -1c
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBMoveAlongWall\fP (uint8_t distance, \fBPOS\fP pos, int8_t speed)"
+.br
+.RI "Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА "
+.ti -1c
+.RI "void \fBtick\fP () const override"
+.br
+.RI "Обновление системы "
+.in -1c
+.SH "Перечисления"
+.PP 
+.SS "enum \fBmosh::control::MoveAlongWall::POS\fP"
+
+.PP
+\fBЭлементы перечислений\fP
+.in +1c
+.TP
+\fB\fIDIST_LEFT \fP\fP
+.TP
+\fB\fIDIST_RIGHT \fP\fP
+.PP
+.nf
+98 { DIST_LEFT = \-1, DIST_RIGHT = 1 };
+.fi
+.SH "Конструктор(ы)"
+.PP 
+.SS "MoveAlongWall::MoveAlongWall (uint8_t distance, \fBPOS\fP pos, int8_t speed)"
+
+.PP
+Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIdistance\fP целевое расстояние см 
+.br
+\fIpos\fP положение датчика \fRDIST_LEFT\fP | \fRDIST_RIGHT\fP 
+.RE
+.PP
+.PP
+.nf
+45                                                                     :
+46     SPEED(speed),
+47     TARGET(distance), k(1\&.2 * (int) pos), // вынести коэф
+48     sensor((pos == DIST_LEFT) ? robot\&.dist_left : (pos == DIST_RIGHT) ? robot\&.dist_right : &no_sensor) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "void MoveAlongWall::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обновление системы 
+.PP
+Переопределяет метод предка \fBmosh::control::Mover\fP\&..PP
+.nf
+50                                {
+51     int16_t u = k * float(TARGET \- sensor\->read()) * SPEED / (float) TARGET;
+52     motors::setSpeeds(SPEED \- u, SPEED + u);
+53     motors::spin();
+54 }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

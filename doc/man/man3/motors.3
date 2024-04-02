@@ -1,0 +1,58 @@
+.TH "motors" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+motors
+.SH SYNOPSIS
+.br
+.PP
+.SS "Функции"
+
+.in +1c
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "void \fBspin\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetSpeeds\fP (int16_t left, int16_t right)"
+.br
+.ti -1c
+.RI "void \fBsetForTicks\fP (int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R)"
+.br
+.in -1c
+.SH "Функции"
+.PP 
+.SS "void motors::reset ()"
+.PP
+.nf
+21                    {
+22     motorL\&.reset();
+23     motorR\&.reset();
+24 }
+.fi
+
+.SS "void motors::setForTicks (int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R)"
+
+.SS "void motors::setSpeeds (int16_t left, int16_t right)"
+.PP
+.nf
+31                                                   {
+32     motorL\&.setSpeed(left);
+33     motorR\&.setSpeed(right);
+34 }
+.fi
+
+.SS "void motors::spin ()"
+.PP
+.nf
+26                   {
+27     motorL\&.spin();
+28     motorR\&.spin();
+29 }
+.fi
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

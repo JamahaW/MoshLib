@@ -1,0 +1,107 @@
+.TH "mosh::hardware::DistanceSensor" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::hardware::DistanceSensor \- Интерфейс датчика растояния  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <distancesensor\&.hpp>\fP
+.PP
+Производные классы:\fBmosh::hardware::IrSensorSharp\fP, \fBmosh::hardware::NoDistanceSensor\fP и \fBmosh::hardware::UltraSonic\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBDistanceSensor\fP (uint16_t min_dist, uint16_t max_dist, uint8_t period)"
+.br
+.RI "Абстрактный Датчик расстояния "
+.ti -1c
+.RI "uint8_t \fBread\fP () const"
+.br
+.RI "Получить значение с датчика "
+.ti -1c
+.RI "uint8_t \fBoperator()\fP () const"
+.br
+.in -1c
+.SS "Защищенные члены"
+
+.in +1c
+.ti -1c
+.RI "virtual uint8_t \fBupdate\fP () const =0"
+.br
+.RI "Опросить датчик "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Интерфейс датчика растояния 
+.SH "Конструктор(ы)"
+.PP 
+.SS "DistanceSensor::DistanceSensor (uint16_t min_dist, uint16_t max_dist, uint8_t period)"
+
+.PP
+Абстрактный Датчик расстояния 
+.PP
+\fBАргументы\fP
+.RS 4
+\fImin_dist\fP Нижняя граница отсечения расстояния 
+.br
+\fImax_dist\fP Верхняя граница отсеченя расстояния 
+.br
+\fIperiod\fP Период чтения (мс) 
+.RE
+.PP
+.PP
+.nf
+7     : MIN_DISTANCE(min_dist), MAX_DISTANCE(max_dist), READ_PERIOD(period) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "uint8_t DistanceSensor::operator() () const"
+.PP
+.nf
+18 { return read(); }
+.fi
+
+.SS "uint8_t DistanceSensor::read () const"
+
+.PP
+Получить значение с датчика 
+.PP
+\fBВозвращает\fP
+.RS 4
+расстояние датчика (см) 
+.RE
+.PP
+.PP
+.nf
+9                                    {
+10     if (millis() >= next_read) {
+11         next_read = millis() + READ_PERIOD;
+12         value = update();
+13         value = constrain(value, MIN_DISTANCE, MAX_DISTANCE);
+14     }
+15     return value;
+16 }
+.fi
+
+.SS "virtual uint8_t mosh::hardware::DistanceSensor::update () const\fR [protected]\fP, \fR [pure virtual]\fP"
+
+.PP
+Опросить датчик 
+.PP
+\fBВозвращает\fP
+.RS 4
+значение расстояние в мм 
+.RE
+.PP
+
+.PP
+Замещается в \fBmosh::hardware::NoDistanceSensor\fP, \fBmosh::hardware::IrSensorSharp\fP и \fBmosh::hardware::UltraSonic\fP\&.
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

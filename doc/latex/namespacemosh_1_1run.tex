@@ -1,0 +1,88 @@
+\doxysection{Пространство имен mosh\+::run}
+\hypertarget{namespacemosh_1_1run}{}\label{namespacemosh_1_1run}\index{mosh::run@{mosh::run}}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{base}} (const \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh\+::control\+::\+Mover}} \&mover, const \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh\+::control\+::\+Quiter}} \&quiter, bool hold\+\_\+at\+\_\+end=true)
+\begin{DoxyCompactList}\small\item\em Запустить выполнение задачи \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{time}} (const \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh\+::control\+::\+Mover}} \&mover, uint32\+\_\+t runtime)
+\begin{DoxyCompactList}\small\item\em Выполнение задачи в течении времени \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}{speed}} (int8\+\_\+t speed, const \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh\+::control\+::\+Quiter}} \&quiter)
+\begin{DoxyCompactList}\small\item\em Запустить независимое вращение моторов с заданой скоростью с проверкой \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}\label{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f} 
+\index{mosh::run@{mosh::run}!base@{base}}
+\index{base@{base}!mosh::run@{mosh::run}}
+\doxysubsubsection{\texorpdfstring{base()}{base()}}
+{\footnotesize\ttfamily void mosh\+::run\+::base (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh\+::control\+::\+Mover}} \&}]{mover,  }\item[{const \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh\+::control\+::\+Quiter}} \&}]{quiter,  }\item[{bool}]{hold\+\_\+at\+\_\+end = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Запустить выполнение задачи 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em mover} & обработчик движения робота \\
+\hline
+{\em quiter} & обработчик выхода \\
+\hline
+{\em hold\+\_\+at\+\_\+end} & удержания моторов в конце \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{while}\ (quiter.\mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{tick}}())\ mover.\mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{tick}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{namespacemotors_a93992359acbce82869776ee24630c201}{motors::reset}}();}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordflow}{if}\ (hold\_at\_end)\ \mbox{\hyperlink{moshlib_8cpp_a2d3b519b7264c89382fff59887d94591}{goHold}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(0);}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(0);}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}\label{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763} 
+\index{mosh::run@{mosh::run}!speed@{speed}}
+\index{speed@{speed}!mosh::run@{mosh::run}}
+\doxysubsubsection{\texorpdfstring{speed()}{speed()}}
+{\footnotesize\ttfamily void mosh\+::run\+::speed (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{speed,  }\item[{const \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh\+::control\+::\+Quiter}} \&}]{quiter }\end{DoxyParamCaption})}
+
+
+
+Запустить независимое вращение моторов с заданой скоростью с проверкой 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & скорость моторов \\
+\hline
+{\em quiter} & обработчик выхода \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed}{KeepSpeed}}(speed,\ speed),\ quiter);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}\label{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531} 
+\index{mosh::run@{mosh::run}!time@{time}}
+\index{time@{time}!mosh::run@{mosh::run}}
+\doxysubsubsection{\texorpdfstring{time()}{time()}}
+{\footnotesize\ttfamily void mosh\+::run\+::time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh\+::control\+::\+Mover}} \&}]{mover,  }\item[{uint32\+\_\+t}]{runtime }\end{DoxyParamCaption})}
+
+
+
+Выполнение задачи в течении времени 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em mover} & обработчик движения \\
+\hline
+{\em runtime} & время работы (мс) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{base}}(mover,\ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer}{OnTimer}}(runtime));\ \}}
+
+\end{DoxyCode}

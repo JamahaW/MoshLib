@@ -1,0 +1,59 @@
+.TH "mosh::control::LineProp" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::LineProp \- Пропорциональный регулятор движения по линии  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <move\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Mover\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBLineProp\fP (int8_t speed)"
+.br
+.in -1c
+.SS "Защищенные члены"
+
+.in +1c
+.ti -1c
+.RI "void \fBtick\fP () const override"
+.br
+.RI "Обновление системы "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Пропорциональный регулятор движения по линии 
+.SH "Конструктор(ы)"
+.PP 
+.SS "LineProp::LineProp (int8_t speed)"
+.PP
+.nf
+21 : BASE_SPEED(speed * 0\&.7) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "void LineProp::tick () const\fR [override]\fP, \fR [protected]\fP, \fR [virtual]\fP"
+
+.PP
+Обновление системы 
+.PP
+Переопределяет метод предка \fBmosh::control::Mover\fP\&..PP
+.nf
+15                           {
+16     int8_t u = (lineL() \- lineR()) * KP;
+17     motors::setSpeeds(BASE_SPEED \- u, BASE_SPEED + u);
+18     motors::spin();
+19 }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

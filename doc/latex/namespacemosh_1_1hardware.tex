@@ -1,0 +1,57 @@
+\doxysection{Пространство имен mosh\+::hardware}
+\hypertarget{namespacemosh_1_1hardware}{}\label{namespacemosh_1_1hardware}\index{mosh::hardware@{mosh::hardware}}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{Distance\+Sensor}}
+\begin{DoxyCompactList}\small\item\em Интерфейс датчика растояния \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{Ir\+Sensor\+Sharp}}
+\begin{DoxyCompactList}\small\item\em Инфокрасный датчик Sharp. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{Line\+Sensor}}
+\begin{DoxyCompactList}\small\item\em Аналоговый датчик линии \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{Motor\+Encoder}}
+\begin{DoxyCompactList}\small\item\em класс DC-\/мотор-\/энкодера, управляемого H-\/мостом \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{No\+Distance\+Sensor}}
+\begin{DoxyCompactList}\small\item\em Заглушка \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{Ultra\+Sonic}}
+\begin{DoxyCompactList}\small\item\em УльтраЗвуковой датчик HC SR04. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166}{\+\_\+\+\_\+l\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Обработчик левого мотора \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8}{\+\_\+\+\_\+r\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Обработчик правого мотора \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166}\label{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166} 
+\index{mosh::hardware@{mosh::hardware}!\_\_l\_int@{\_\_l\_int}}
+\index{\_\_l\_int@{\_\_l\_int}!mosh::hardware@{mosh::hardware}}
+\doxysubsubsection{\texorpdfstring{\_\_l\_int()}{\_\_l\_int()}}
+{\footnotesize\ttfamily void mosh\+::hardware\+::\+\_\+\+\_\+l\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обработчик левого мотора 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{enc}}();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8}\label{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8} 
+\index{mosh::hardware@{mosh::hardware}!\_\_r\_int@{\_\_r\_int}}
+\index{\_\_r\_int@{\_\_r\_int}!mosh::hardware@{mosh::hardware}}
+\doxysubsubsection{\texorpdfstring{\_\_r\_int()}{\_\_r\_int()}}
+{\footnotesize\ttfamily void mosh\+::hardware\+::\+\_\+\+\_\+r\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обработчик правого мотора 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \{\ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{enc}}();\ \}}
+
+\end{DoxyCode}

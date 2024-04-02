@@ -1,0 +1,107 @@
+\doxysection{Класс mosh\+::hardware\+::Ultra\+Sonic}
+\hypertarget{classmosh_1_1hardware_1_1_ultra_sonic}{}\label{classmosh_1_1hardware_1_1_ultra_sonic}\index{mosh::hardware::UltraSonic@{mosh::hardware::UltraSonic}}
+
+
+УльтраЗвуковой датчик HC SR04.  
+
+
+
+
+{\ttfamily \#include $<$distancesensor.\+hpp$>$}
+
+Граф наследования\+:mosh\+::hardware\+::Ultra\+Sonic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1hardware_1_1_ultra_sonic}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_a51bd9d04ed5b5bafdb4165008fa0f9fc}{Ultra\+Sonic}} (uint8\+\_\+t pin\+\_\+echo, uint8\+\_\+t pin\+\_\+trig)
+\begin{DoxyCompactList}\small\item\em Ультразвуковой датчик расстояния \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{Distance\+Sensor}} (uint16\+\_\+t min\+\_\+dist, uint16\+\_\+t max\+\_\+dist, uint8\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em Абстрактный Датчик расстояния \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}} () const
+\begin{DoxyCompactList}\small\item\em Получить значение с датчика \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_aa0ed33ed19d91bf4e9d29a23434de871}{operator()}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_afb4d14457ef65344585c8a75e3896676}{update}} () const override
+\begin{DoxyCompactList}\small\item\em Опросить датчик \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+УльтраЗвуковой датчик HC SR04. 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1hardware_1_1_ultra_sonic_a51bd9d04ed5b5bafdb4165008fa0f9fc}\label{classmosh_1_1hardware_1_1_ultra_sonic_a51bd9d04ed5b5bafdb4165008fa0f9fc} 
+\index{mosh::hardware::UltraSonic@{mosh::hardware::UltraSonic}!UltraSonic@{UltraSonic}}
+\index{UltraSonic@{UltraSonic}!mosh::hardware::UltraSonic@{mosh::hardware::UltraSonic}}
+\doxysubsubsection{\texorpdfstring{UltraSonic()}{UltraSonic()}}
+{\footnotesize\ttfamily Ultra\+Sonic\+::\+Ultra\+Sonic (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+\_\+echo,  }\item[{uint8\+\_\+t}]{pin\+\_\+trig }\end{DoxyParamCaption})}
+
+
+
+Ультразвуковой датчик расстояния 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin\+\_\+echo} & Пин приёма \\
+\hline
+{\em pin\+\_\+trig} & Пин Триггера \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{DistanceSensor}}(\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeab52cd651a13722cf0d68467fe58e2283}{PARAMS::US\_DIST\_MIN}},\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea63d9d5eecb8e2600ad0f0718942205d3}{PARAMS::US\_DIST\_MAX}},\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2f37ea618b486343d0e4c0a33cb92ad0}{PARAMS::US\_PERIOD}}),\ PIN\_ECHO(pin\_echo),\ PIN\_TRIG(pin\_trig)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ pinMode(PIN\_ECHO,\ INPUT);}
+\DoxyCodeLine{00036\ \ \ \ \ pinMode(PIN\_TRIG,\ OUTPUT);}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1hardware_1_1_ultra_sonic_afb4d14457ef65344585c8a75e3896676}\label{classmosh_1_1hardware_1_1_ultra_sonic_afb4d14457ef65344585c8a75e3896676} 
+\index{mosh::hardware::UltraSonic@{mosh::hardware::UltraSonic}!update@{update}}
+\index{update@{update}!mosh::hardware::UltraSonic@{mosh::hardware::UltraSonic}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily uint8\+\_\+t Ultra\+Sonic\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Опросить датчик 
+
+\begin{DoxyReturn}{Возвращает}
+значение расстояние в мм 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a841357df44460801e7a7e57f1e36c074}{mosh\+::hardware\+::\+Distance\+Sensor}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ digitalWrite(PIN\_TRIG,\ LOW);}
+\DoxyCodeLine{00041\ \ \ \ \ delayMicroseconds(5);}
+\DoxyCodeLine{00042\ \ \ \ \ digitalWrite(PIN\_TRIG,\ HIGH);}
+\DoxyCodeLine{00043\ \ \ \ \ delayMicroseconds(15);}
+\DoxyCodeLine{00044\ \ \ \ \ digitalWrite(PIN\_TRIG,\ LOW);}
+\DoxyCodeLine{00045\ \ \ \ \ uint32\_t\ d\ =\ pulseIn(PIN\_ECHO,\ HIGH);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ d\ /\ (2\ *\ 29.1);}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/hardware/\mbox{\hyperlink{distancesensor_8hpp}{distancesensor.\+hpp}}\item 
+src/hardware/\mbox{\hyperlink{distancesensor_8cpp}{distancesensor.\+cpp}}\end{DoxyCompactItemize}

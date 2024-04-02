@@ -1,0 +1,95 @@
+.TH "mosh::control::DistanceRead" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::DistanceRead \- Обработка расстояния  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <quit\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Quiter\fP\&.
+.SS "Открытые типы"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMODE\fP { \fBLESS\fP = 0, \fBGREATER\fP = 1 }"
+.br
+.in -1c
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBDistanceRead\fP (\fBhardware::DistanceSensor\fP &used_sensor, const uint8_t target_distance, enum \fBMODE\fP condition)"
+.br
+.RI "Выход по расстоянию с датчика "
+.ti -1c
+.RI "bool \fBtick\fP () const override"
+.br
+.RI "Обработка события "
+.in -1c
+.SH "Подробное описание"
+.PP 
+Обработка расстояния 
+.SH "Перечисления"
+.PP 
+.SS "enum \fBmosh::control::DistanceRead::MODE\fP"
+
+.PP
+\fBЭлементы перечислений\fP
+.in +1c
+.TP
+\fB\fILESS \fP\fP
+.TP
+\fB\fIGREATER \fP\fP
+.PP
+.nf
+42 { LESS = 0, GREATER = 1 };
+.fi
+.SH "Конструктор(ы)"
+.PP 
+.SS "DistanceRead::DistanceRead (\fBhardware::DistanceSensor\fP & used_sensor, const uint8_t target_distance, enum \fBMODE\fP condition)"
+
+.PP
+Выход по расстоянию с датчика 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIused_sensor\fP используемый датчик 
+.br
+\fItarget_distance\fP целевое значение расстояния (см) 
+.br
+\fIcondition\fP условие поддержания работы 
+.RE
+.PP
+.PP
+.nf
+9                                                                                                                   :
+10     sensor(used_sensor), DISTANCE(target_distance), mode((bool) condition) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "bool DistanceRead::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обработка события 
+.PP
+\fBВозвращает\fP
+.RS 4
+true если ещё НЕ вышел, false когда следует прервать работу 
+.RE
+.PP
+
+.PP
+Замещает \fBmosh::control::Quiter\fP\&..PP
+.nf
+12 { return (sensor\&.read() <= DISTANCE) ^ mode; }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

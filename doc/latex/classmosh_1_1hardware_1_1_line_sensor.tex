@@ -1,0 +1,140 @@
+\doxysection{Класс mosh\+::hardware\+::Line\+Sensor}
+\hypertarget{classmosh_1_1hardware_1_1_line_sensor}{}\label{classmosh_1_1hardware_1_1_line_sensor}\index{mosh::hardware::LineSensor@{mosh::hardware::LineSensor}}
+
+
+Аналоговый датчик линии  
+
+
+
+
+{\ttfamily \#include $<$linesensor.\+hpp$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a328af9f4ba7948d38bee0d193aa3dba4}{Line\+Sensor}} (uint8\+\_\+t pin, uint16\+\_\+t on\+\_\+line, uint16\+\_\+t on\+\_\+field)
+\begin{DoxyCompactList}\small\item\em Аналоговый датчик линии \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{read\+Raw}} () const
+\begin{DoxyCompactList}\small\item\em Считать значение с АЦП \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{read}} () const
+\begin{DoxyCompactList}\small\item\em определить на сколько (\%) датчик находится на линии \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a0ed684ef06eb2d545c8235c59a80a484}{operator()}} () const
+\begin{DoxyCompactList}\small\item\em Оператор Функтора для сокращения \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}} () const
+\begin{DoxyCompactList}\small\item\em Проверить логическое наличие линии \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Аналоговый датчик линии 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1hardware_1_1_line_sensor_a328af9f4ba7948d38bee0d193aa3dba4}\label{classmosh_1_1hardware_1_1_line_sensor_a328af9f4ba7948d38bee0d193aa3dba4} 
+\index{mosh::hardware::LineSensor@{mosh::hardware::LineSensor}!LineSensor@{LineSensor}}
+\index{LineSensor@{LineSensor}!mosh::hardware::LineSensor@{mosh::hardware::LineSensor}}
+\doxysubsubsection{\texorpdfstring{LineSensor()}{LineSensor()}}
+{\footnotesize\ttfamily Line\+Sensor\+::\+Line\+Sensor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin,  }\item[{uint16\+\_\+t}]{on\+\_\+line,  }\item[{uint16\+\_\+t}]{on\+\_\+field }\end{DoxyParamCaption})}
+
+
+
+Аналоговый датчик линии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pin} & Аналоговый Пин датчика (A0-\/\+A7) \\
+\hline
+{\em on\+\_\+line} & Значение АЦП с пина датчика на линии \\
+\hline
+{\em on\+\_\+field} & Значение АЦП с пина датчика на поле \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ :\ PIN(pin),\ ON\_LINE(on\_line),\ ON\_FIELD(on\_field)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ pinMode(PIN,\ INPUT);}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}\label{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c} 
+\index{mosh::hardware::LineSensor@{mosh::hardware::LineSensor}!on@{on}}
+\index{on@{on}!mosh::hardware::LineSensor@{mosh::hardware::LineSensor}}
+\doxysubsubsection{\texorpdfstring{on()}{on()}}
+{\footnotesize\ttfamily bool Line\+Sensor\+::on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Проверить логическое наличие линии 
+
+\begin{DoxyReturn}{Возвращает}
+(\%) линии больше {\ttfamily GRAY\+\_\+\+PERCENT} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{read}}()\ >\ \mbox{\hyperlink{config_8hpp_aa742a792f7838f635f9df76fb1c2e893}{GRAY\_PERCENT}};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_line_sensor_a0ed684ef06eb2d545c8235c59a80a484}\label{classmosh_1_1hardware_1_1_line_sensor_a0ed684ef06eb2d545c8235c59a80a484} 
+\index{mosh::hardware::LineSensor@{mosh::hardware::LineSensor}!operator()@{operator()}}
+\index{operator()@{operator()}!mosh::hardware::LineSensor@{mosh::hardware::LineSensor}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily int8\+\_\+t Line\+Sensor\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Оператор Функтора для сокращения 
+
+\begin{DoxyReturn}{Возвращает}
+Процент нахождения датчика на линии 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{read}}();\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}\label{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6} 
+\index{mosh::hardware::LineSensor@{mosh::hardware::LineSensor}!read@{read}}
+\index{read@{read}!mosh::hardware::LineSensor@{mosh::hardware::LineSensor}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int8\+\_\+t Line\+Sensor\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+определить на сколько (\%) датчик находится на линии 
+
+\begin{DoxyReturn}{Возвращает}
+уровень нахождения датчика на линии (0 .. 100) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ int16\_t\ ret\ =\ map(\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{readRaw}}(),\ ON\_LINE,\ ON\_FIELD,\ 100,\ 0);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{return}\ (int8\_t)\ constrain(ret,\ 0,\ 100);}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}\label{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335} 
+\index{mosh::hardware::LineSensor@{mosh::hardware::LineSensor}!readRaw@{readRaw}}
+\index{readRaw@{readRaw}!mosh::hardware::LineSensor@{mosh::hardware::LineSensor}}
+\doxysubsubsection{\texorpdfstring{readRaw()}{readRaw()}}
+{\footnotesize\ttfamily int16\+\_\+t Line\+Sensor\+::read\+Raw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Считать значение с АЦП 
+
+\begin{DoxyReturn}{Возвращает}
+уровень сигнала 0 -\/ 1024 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \{\ \textcolor{keywordflow}{return}\ analogRead(PIN);\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/hardware/\mbox{\hyperlink{linesensor_8hpp}{linesensor.\+hpp}}\item 
+src/hardware/\mbox{\hyperlink{linesensor_8cpp}{linesensor.\+cpp}}\end{DoxyCompactItemize}

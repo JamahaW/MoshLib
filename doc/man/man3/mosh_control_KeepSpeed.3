@@ -1,0 +1,60 @@
+.TH "mosh::control::KeepSpeed" 3 "MoshLib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mosh::control::KeepSpeed \- режим постоянной скорости  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <move\&.hpp>\fP
+.PP
+Базовые классы:\fBmosh::control::Mover\fP\&.
+.SS "Открытые члены"
+
+.in +1c
+.ti -1c
+.RI "\fBKeepSpeed\fP (int8_t speed_left, int8_t speed_right)"
+.br
+.ti -1c
+.RI "\fBKeepSpeed\fP (int8_t speed)"
+.br
+.ti -1c
+.RI "void \fBtick\fP () const override"
+.br
+.RI "Обновление системы "
+.in -1c
+.SH "Подробное описание"
+.PP 
+режим постоянной скорости 
+.SH "Конструктор(ы)"
+.PP 
+.SS "KeepSpeed::KeepSpeed (int8_t speed_left, int8_t speed_right)"
+.PP
+.nf
+9 { motors::setSpeeds(speed_left, speed_right); }
+.fi
+
+.SS "KeepSpeed::KeepSpeed (int8_t speed)"
+.PP
+.nf
+11 : KeepSpeed(speed, speed) {}
+.fi
+
+.SH "Методы"
+.PP 
+.SS "void mosh::control::KeepSpeed::tick () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Обновление системы 
+.PP
+Переопределяет метод предка \fBmosh::control::Mover\fP\&..PP
+.nf
+13 { motors::spin(); }
+.fi
+
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для MoshLib из исходного текста\&.

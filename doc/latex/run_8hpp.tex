@@ -1,0 +1,21 @@
+\doxysection{Файл src/core/run.hpp}
+\hypertarget{run_8hpp}{}\label{run_8hpp}\index{src/core/run.hpp@{src/core/run.hpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}control/move.\+hpp"{}}\newline
+{\ttfamily \#include "{}control/quit.\+hpp"{}}\newline
+\doxysubsubsection*{Пространства имен}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemosh}{mosh}}
+\item 
+namespace \mbox{\hyperlink{namespacemosh_1_1run}{mosh\+::run}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{mosh\+::run\+::base}} (const \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh\+::control\+::\+Mover}} \&mover, const \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh\+::control\+::\+Quiter}} \&quiter, bool hold\+\_\+at\+\_\+end=true)
+\begin{DoxyCompactList}\small\item\em Запустить выполнение задачи \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{mosh\+::run\+::time}} (const \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh\+::control\+::\+Mover}} \&mover, uint32\+\_\+t runtime)
+\begin{DoxyCompactList}\small\item\em Выполнение задачи в течении времени \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}{mosh\+::run\+::speed}} (int8\+\_\+t speed, const \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh\+::control\+::\+Quiter}} \&quiter)
+\begin{DoxyCompactList}\small\item\em Запустить независимое вращение моторов с заданой скоростью с проверкой \end{DoxyCompactList}\end{DoxyCompactItemize}

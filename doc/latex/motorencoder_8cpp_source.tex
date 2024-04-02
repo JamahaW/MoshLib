@@ -1,0 +1,43 @@
+\doxysection{motorencoder.\+cpp}
+\hypertarget{motorencoder_8cpp_source}{}\label{motorencoder_8cpp_source}\index{src/hardware/motorencoder.cpp@{src/hardware/motorencoder.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}motorencoder.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00004}00004\ \textcolor{keyword}{using\ namespace\ }mosh::hardware;}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00006}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a82fcedb6fb6304a9c1719daf610f6f92}{00006}}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a82fcedb6fb6304a9c1719daf610f6f92}{MotorEncoder::MotorEncoder}}(\textcolor{keywordtype}{void}\ (*encoder\_handler)\ (\textcolor{keywordtype}{void}),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ inverted,\ \textcolor{keyword}{const}\ uint8\_t\ pin\_speed,\ \textcolor{keyword}{const}\ uint8\_t\ pin\_dir,\ \textcolor{keyword}{const}\ uint8\_t\ pin\_enc\_a,\ \textcolor{keyword}{const}\ uint8\_t\ pin\_enc\_b)}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00007}00007\ \ \ \ \ :\ PIN\_SPEED(pin\_speed),\ PIN\_DIR(pin\_dir),\ PIN\_ENC\_B(pin\_enc\_b),\ INVERTED(inverted)\ \{}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00008}00008\ \ \ \ \ pinMode(PIN\_SPEED,\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00009}00009\ \ \ \ \ pinMode(PIN\_DIR,\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00010}00010\ \ \ \ \ pinMode(PIN\_ENC\_B,\ INPUT);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00011}00011\ \ \ \ \ pinMode(pin\_enc\_a,\ INPUT);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00012}00012\ \ \ \ \ attachInterrupt(digitalPinToInterrupt(pin\_enc\_a),\ encoder\_handler,\ FALLING);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00013}00013\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00015}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{00015}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{MotorEncoder::enc}}()\ \{\ position\ +=\ (digitalRead(PIN\_ENC\_B)\ \string^\ INVERTED)\ ?\ (1)\ :\ (-\/1);\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00017}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{MotorEncoder::reset}}()\ \{\ position\ =\ next\_pos\ =\ speed\_set\ =\ speed\ =\ timer\ =\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00019}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}{00019}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}{MotorEncoder::setDir}}(\textcolor{keywordtype}{bool}\ backward)\ \{\ digitalWrite(PIN\_DIR,\ backward\ \string^\ INVERTED);\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00021}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{MotorEncoder::setPWM}}(uint8\_t\ pwm)\ \{\ analogWrite(PIN\_SPEED,\ pwm);\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00023}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{MotorEncoder::setDirPWM}}(int16\_t\ power)\ \{}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}{setDir}}(power\ <\ 0);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00025}00025\ \ \ \ \ power\ =\ abs(power);}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(constrain(power,\ 0,\ 255));}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00029}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{00029}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{MotorEncoder::setSpeed}}(int16\_t\ dtick)\ \{\ speed\ =\ speed\_set\ =\ constrain(dtick,\ -\/PARAMS::MAX\_DELTA\_TICKS,\ PARAMS::MAX\_DELTA\_TICKS);\ \}}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00031}\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{00031}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{MotorEncoder::spin}}()\ \{}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(KP\_SPEED\ *\ (next\_pos\ -\/\ position));}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (millis()\ <=\ timer)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00034}00034\ \ \ \ \ timer\ =\ millis()\ +\ PARAMS::SPIN\_PERIOD\_MS;}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00035}00035\ \ \ \ \ next\_pos\ +=\ speed;}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{motorencoder_8cpp_source_l00037}00037\ \}}
+
+\end{DoxyCode}

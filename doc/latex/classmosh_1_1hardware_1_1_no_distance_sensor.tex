@@ -1,0 +1,83 @@
+\doxysection{Класс mosh\+::hardware\+::No\+Distance\+Sensor}
+\hypertarget{classmosh_1_1hardware_1_1_no_distance_sensor}{}\label{classmosh_1_1hardware_1_1_no_distance_sensor}\index{mosh::hardware::NoDistanceSensor@{mosh::hardware::NoDistanceSensor}}
+
+
+Заглушка  
+
+
+
+
+{\ttfamily \#include $<$distancesensor.\+hpp$>$}
+
+Граф наследования\+:mosh\+::hardware\+::No\+Distance\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1hardware_1_1_no_distance_sensor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor_ad72b71b1003c3b20d68096916daedb79}{No\+Distance\+Sensor}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены унаследованные от \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{Distance\+Sensor}} (uint16\+\_\+t min\+\_\+dist, uint16\+\_\+t max\+\_\+dist, uint8\+\_\+t period)
+\begin{DoxyCompactList}\small\item\em Абстрактный Датчик расстояния \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}} () const
+\begin{DoxyCompactList}\small\item\em Получить значение с датчика \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_aa0ed33ed19d91bf4e9d29a23434de871}{operator()}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor_ae69f17a785bda3519246baef3f305f31}{update}} () const override
+\begin{DoxyCompactList}\small\item\em Опросить датчик \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заглушка 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1hardware_1_1_no_distance_sensor_ad72b71b1003c3b20d68096916daedb79}\label{classmosh_1_1hardware_1_1_no_distance_sensor_ad72b71b1003c3b20d68096916daedb79} 
+\index{mosh::hardware::NoDistanceSensor@{mosh::hardware::NoDistanceSensor}!NoDistanceSensor@{NoDistanceSensor}}
+\index{NoDistanceSensor@{NoDistanceSensor}!mosh::hardware::NoDistanceSensor@{mosh::hardware::NoDistanceSensor}}
+\doxysubsubsection{\texorpdfstring{NoDistanceSensor()}{NoDistanceSensor()}}
+{\footnotesize\ttfamily mosh\+::hardware\+::\+No\+Distance\+Sensor\+::\+No\+Distance\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ :\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor_ad72b71b1003c3b20d68096916daedb79}{NoDistanceSensor}}()\ :\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{DistanceSensor}}(0,\ 0,\ 0)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1hardware_1_1_no_distance_sensor_ae69f17a785bda3519246baef3f305f31}\label{classmosh_1_1hardware_1_1_no_distance_sensor_ae69f17a785bda3519246baef3f305f31} 
+\index{mosh::hardware::NoDistanceSensor@{mosh::hardware::NoDistanceSensor}!update@{update}}
+\index{update@{update}!mosh::hardware::NoDistanceSensor@{mosh::hardware::NoDistanceSensor}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily uint8\+\_\+t mosh\+::hardware\+::\+No\+Distance\+Sensor\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Опросить датчик 
+
+\begin{DoxyReturn}{Возвращает}
+значение расстояние в мм 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a841357df44460801e7a7e57f1e36c074}{mosh\+::hardware\+::\+Distance\+Sensor}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ :\ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor_ae69f17a785bda3519246baef3f305f31}{update}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+src/hardware/\mbox{\hyperlink{distancesensor_8hpp}{distancesensor.\+hpp}}\end{DoxyCompactItemize}
