@@ -18,6 +18,7 @@ DistanceMoved::DistanceMoved(int32_t dist_l, int32_t dist_r, bool mm_mode) :
 
 DistanceMoved::DistanceMoved(int32_t distance) : DistanceMoved(distance, distance) {}
 
+// TODO расчёт среднего расстояния
 bool DistanceMoved::tick() const { return (abs(motorL.position - TARGET_L) > 0) && (abs(motorR.position - TARGET_R) > 0); }
 
 static bool __on_line_left() { return lineL.on(); }
@@ -35,7 +36,8 @@ bool LineFound::tick() const {
             found = true;
             passed++;
         }
-    } else {
+    }
+    else {
         found = false;
     }
 

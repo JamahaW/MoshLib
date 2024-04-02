@@ -23,12 +23,5 @@ void base(const mosh::control::Mover& mover, const mosh::control::Quiter& quiter
  */
 void time(const mosh::control::Mover& mover, uint32_t runtime);
 
-/**
- * @brief Запустить независимое вращение моторов с заданой скоростью с проверкой
- * @param speed скорость моторов
- * @param quiter обработчик выхода
- */
-void speed(int8_t speed, const mosh::control::Quiter& quiter);
-
 } // namespace run
 }
