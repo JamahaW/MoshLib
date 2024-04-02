@@ -1,0 +1,51 @@
+\doxysection{motorencoder.\+hpp}
+\hypertarget{motorencoder_8hpp_source}{}\label{motorencoder_8hpp_source}\index{src/hardware/motorencoder.hpp@{src/hardware/motorencoder.hpp}}
+\mbox{\hyperlink{motorencoder_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8hpp}{core/config.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemosh}{mosh}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }hardware\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166}{\_\_l\_int}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8}{\_\_r\_int}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{MotorEncoder}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PIN\_SPEED,\ PIN\_DIR,\ PIN\_ENC\_B;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ INVERTED;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ uint8\_t\ speed\_set\ =\ 0;\ \ \textcolor{comment}{//\ Модуль\ заданой\ скорости}}
+\DoxyCodeLine{00023\ \ \ \ \ int8\_t\ speed\ =\ 0;\ \ \textcolor{comment}{//\ регулируемая\ скорость}}
+\DoxyCodeLine{00024\ \ \ \ \ uint32\_t\ timer\ =\ 0;\ \ \textcolor{comment}{//\ таймер\ смены\ позиции}}
+\DoxyCodeLine{00025\ \ \ \ \ int32\_t\ next\_pos\ =\ 0;\ \ \textcolor{comment}{//\ следущая\ целевая\ позиция}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{volatile}\ int32\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}\ =\ 0;\ \ \textcolor{comment}{//\ текущее\ положение}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a82fcedb6fb6304a9c1719daf610f6f92}{MotorEncoder}}(\textcolor{keywordtype}{void}\ (*encoder\_handler)\ (\textcolor{keywordtype}{void}),\ \textcolor{keywordtype}{bool}\ inverted,\ uint8\_t\ pin\_speed,\ uint8\_t\ pin\_dir,\ uint8\_t\ pin\_enc\_a,\ uint8\_t\ pin\_enc\_b);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{enc}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{reset}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}{setDir}}(\textcolor{keywordtype}{bool}\ backward);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(uint8\_t\ pwm);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(int16\_t\ power);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{setSpeed}}(int16\_t\ dtick);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{spin}}();}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ \}\ \textcolor{comment}{//\ namespace\ mosh}}
+
+\end{DoxyCode}

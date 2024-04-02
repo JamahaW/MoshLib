@@ -1,0 +1,66 @@
+\doxysection{quit.\+hpp}
+\hypertarget{quit_8hpp_source}{}\label{quit_8hpp_source}\index{src/control/quit.hpp@{src/control/quit.hpp}}
+\mbox{\hyperlink{quit_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{enviroment_8hpp}{core/enviroment.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemosh}{mosh}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }control\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{Quiter}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{tick}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_on_timer}{OnTimer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{Quiter}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ END\_TIME;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2420307908eaa5751b79b27bdf883f6e}{OnTimer}}(uint16\_t\ duration);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_distance_read}{DistanceRead}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{Quiter}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{hardware::DistanceSensor}}\&\ sensor;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DISTANCE;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ mode;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}{MODE}}\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81}{LESS}}\ =\ 0,\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12}{GREATER}}\ =\ 1\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_aa838dbe2d9cb3b9b0aee348447f290b2}{DistanceRead}}(\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{hardware::DistanceSensor}}\&\ used\_sensor,\ \textcolor{keyword}{const}\ uint8\_t\ target\_distance,\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6}{MODE}}\ condition);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved}{DistanceMoved}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{Quiter}}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ TARGET\_L,\ TARGET\_R;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{DistanceMoved}}(int32\_t\ target\_left,\ int32\_t\ target\_right,\ \textcolor{keywordtype}{bool}\ mm\_mode\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_ac2322a44a359a79d3a4ac636f5399f26}{DistanceMoved}}(int32\_t\ target);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1control_1_1_line_found}{LineFound}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{Quiter}}\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ EXIT;\ \textcolor{comment}{//\ состояние\ при\ котором\ будет\ выход}}
+\DoxyCodeLine{00080\ \ \ \ \ bool\ (*trigger)\ (void);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ CROSSES;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keywordtype}{bool}\ found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{mutable}\ uint8\_t\ passed\ =\ 0;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}{MODE}}\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6}{LINE\_LEFT}},\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f}{LINE\_RIGHT}},\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051}{LINE\_BOTH}}\ \};}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_ada997906704cabea8b63c92bdcd7fb33}{LineFound}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}{MODE}}\ mode,\ uint8\_t\ crosses,\ \textcolor{keywordtype}{bool}\ exit\_at);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0}{tick}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}

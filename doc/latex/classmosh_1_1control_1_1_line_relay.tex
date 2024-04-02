@@ -1,0 +1,110 @@
+\doxysection{Класс mosh\+::control\+::Line\+Relay}
+\hypertarget{classmosh_1_1control_1_1_line_relay}{}\label{classmosh_1_1control_1_1_line_relay}\index{mosh::control::LineRelay@{mosh::control::LineRelay}}
+
+
+{\ttfamily \#include $<$move.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Line\+Relay\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_line_relay}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}{SENSOR}} \{ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}{LINE\+\_\+\+LEFT}}
+, \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}{LINE\+\_\+\+RIGHT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_adc519d4f345152a17f23ad6f87c56c85}{Line\+Relay}} (\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}{SENSOR}} sensor\+\_\+dir, int8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Релейный регулятор движения по линии по одному датчику \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обновление системы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}\label{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3} 
+\index{mosh::control::LineRelay@{mosh::control::LineRelay}!SENSOR@{SENSOR}}
+\index{SENSOR@{SENSOR}!mosh::control::LineRelay@{mosh::control::LineRelay}}
+\doxysubsubsection{\texorpdfstring{SENSOR}{SENSOR}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}{mosh\+::control\+::\+Line\+Relay\+::\+SENSOR}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE\_LEFT@{LINE\_LEFT}!mosh::control::LineRelay@{mosh::control::LineRelay}}\index{mosh::control::LineRelay@{mosh::control::LineRelay}!LINE\_LEFT@{LINE\_LEFT}}}\Hypertarget{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}\label{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa} 
+LINE\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE\_RIGHT@{LINE\_RIGHT}!mosh::control::LineRelay@{mosh::control::LineRelay}}\index{mosh::control::LineRelay@{mosh::control::LineRelay}!LINE\_RIGHT@{LINE\_RIGHT}}}\Hypertarget{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}\label{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435} 
+LINE\+\_\+\+RIGHT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}{LINE\_LEFT}},\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}{LINE\_RIGHT}}\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_line_relay_adc519d4f345152a17f23ad6f87c56c85}\label{classmosh_1_1control_1_1_line_relay_adc519d4f345152a17f23ad6f87c56c85} 
+\index{mosh::control::LineRelay@{mosh::control::LineRelay}!LineRelay@{LineRelay}}
+\index{LineRelay@{LineRelay}!mosh::control::LineRelay@{mosh::control::LineRelay}}
+\doxysubsubsection{\texorpdfstring{LineRelay()}{LineRelay()}}
+{\footnotesize\ttfamily Line\+Relay\+::\+Line\+Relay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3}{SENSOR}}}]{sensor\+\_\+dir,  }\item[{int8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+Релейный регулятор движения по линии по одному датчику 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & скорость перемещения \\
+\hline
+{\em sensor\+\_\+dir} & положение датчика {\ttfamily SENSOR\+::\+LEFT} \texorpdfstring{$\vert$}{|} {\ttfamily SENSOR\+::\+RIGHT} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00024\ \ \ \ \ SPEED\_A((dir\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}{LINE\_LEFT}})\ ?\ speed\ :\ \mbox{\hyperlink{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}{speed}}\ *\ -\/0.3),}
+\DoxyCodeLine{00025\ \ \ \ \ SPEED\_B((dir\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}{LINE\_RIGHT}})\ ?\ \mbox{\hyperlink{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}{speed}}\ :\ \mbox{\hyperlink{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}{speed}}\ *\ -\/0.3),}
+\DoxyCodeLine{00026\ \ \ \ \ sensor((dir\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}{LINE\_LEFT}})\ ?\ \&\mbox{\hyperlink{enviroment_8cpp_a819b91b43c618b3632e8a8a68d099efb}{lineL}}\ :\ (dir\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}{LINE\_RIGHT}})\ ?\ \&\mbox{\hyperlink{enviroment_8cpp_a566cbf3f924b8e5a46690d2af846422d}{lineR}}\ :\ nullptr)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53}\label{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53} 
+\index{mosh::control::LineRelay@{mosh::control::LineRelay}!tick@{tick}}
+\index{tick@{tick}!mosh::control::LineRelay@{mosh::control::LineRelay}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void Line\+Relay\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обновление системы 
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{mosh\+::control\+::\+Mover}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ on\ =\ sensor-\/>\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{motors::setSpeeds}}(on\ ?\ SPEED\_A\ :\ SPEED\_B,\ on\ ?\ SPEED\_B\ :\ SPEED\_A);}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{motors::spin}}();}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{move_8hpp}{move.\+hpp}}\item 
+src/control/\mbox{\hyperlink{move_8cpp}{move.\+cpp}}\end{DoxyCompactItemize}

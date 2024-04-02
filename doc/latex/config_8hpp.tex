@@ -1,0 +1,333 @@
+\doxysection{Файл src/core/config.hpp}
+\hypertarget{config_8hpp}{}\label{config_8hpp}\index{src/core/config.hpp@{src/core/config.hpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{config_8hpp_adc604ea34cb7de9e61cd091e4e896bff}{MOTOR\+\_\+\+L\+\_\+\+INVERT}}~false
+\item 
+\#define \mbox{\hyperlink{config_8hpp_abd3a04df236e11c84aa8bdd139c52a61}{MOTOR\+\_\+\+L\+\_\+\+SPEED}}~5
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a764d34170cc1b6f45ad661d44007f6e2}{MOTOR\+\_\+\+L\+\_\+\+DIR}}~4
+\item 
+\#define \mbox{\hyperlink{config_8hpp_ac60ec82e672987f20581b8f04194b239}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+A}}~2
+\item 
+\#define \mbox{\hyperlink{config_8hpp_ab95d88cdaa359968f5c99b5bbfbf8e11}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+B}}~8
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a8be735042a4b545f714a2782e3561fad}{MOTOR\+\_\+\+R\+\_\+\+INVERT}}~true
+\item 
+\#define \mbox{\hyperlink{config_8hpp_acb0513aae8ccb5a9a3ae72e16aec059c}{MOTOR\+\_\+\+R\+\_\+\+SPEED}}~6
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a07416a19a96ef31a4815460e47c1bb12}{MOTOR\+\_\+\+R\+\_\+\+DIR}}~7
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a9bf2c6983b07add039e9616a6e2dbe40}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+A}}~3
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a6e7dd8fc8ac4c25a52d6452ce642dff6}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+B}}~9
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a0ff1109f42be60d8dbf393f9402ab69c}{LINE\+\_\+L}}~A0
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a493dcfc2f8b8a46877111a004725acc8}{LINE\+\_\+R}}~A1
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a938fdcc7fa29ce25d037bcff1d1f5282}{IR\+\_\+0}}~A2
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a11ec7abbe5bee76637e496513a45e67e}{IR\+\_\+1}}~A3
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a60240f82bf58ebadfbe05d1762f6955b}{US\+\_\+\+ECHO}}~12
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a36c53a01b5fa0a07b02a673165abf62d}{US\+\_\+\+TRIG}}~13
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a0b791a5285b16c620b21f76a3b7e85ff}{TRACK\+\_\+\+SIZE\+\_\+\+MM}}~177
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a05e5c07147c085e9874f834873d053f1}{MM\+\_\+\+IN\+\_\+1000\+\_\+\+TICKS}}~250
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a130e616866ce895fdc71378c94d3e85c}{MM2\+TICKS}}(mm)~( (int32\+\_\+t)(mm) \texorpdfstring{$\ast$}{*} 1000L / (int32\+\_\+t)(\mbox{\hyperlink{config_8hpp_a05e5c07147c085e9874f834873d053f1}{MM\+\_\+\+IN\+\_\+1000\+\_\+\+TICKS}}) )
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}~18
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}~18
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}~144
+\item 
+\#define \mbox{\hyperlink{config_8hpp_aa742a792f7838f635f9df76fb1c2e893}{GRAY\+\_\+\+PERCENT}}~50
+\item 
+\#define \mbox{\hyperlink{config_8hpp_aa5b9d05809fd87870ee83c18f387c417}{R\+\_\+\+LINE}}~108
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a49415f35c5e58fc59909a35d43e790e1}{R\+\_\+\+FIELD}}~981
+\item 
+\#define \mbox{\hyperlink{config_8hpp_ad03c6040d0a5fe3f07b252f11b2bfbe5}{L\+\_\+\+LINE}}~57
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a680093f8a6625cf5081210d7b8e0999e}{L\+\_\+\+FIELD}}~837
+\item 
+\#define \mbox{\hyperlink{config_8hpp_a8c5ff70b6b28cd0157c50a22406f92c4}{SIGN}}(x)~(((x) $>$ 0) ? 1 \+: -\/1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7ee}{PARAMS}} \{ \newline
+\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335}{HOLD\+\_\+\+STOP\+\_\+\+TIMEOUT}} = 160
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83}{ALIGN\+\_\+\+DURATION}} = 240
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0}{KP\+\_\+\+SPEED}} = 8
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea59e05a5843b96454cd887cb22f8c9e2f}{SYNC\+\_\+K}} = 5
+, \newline
+\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e}{MAX\+\_\+\+DELTA\+\_\+\+TICKS}} = 32
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e}{SPIN\+\_\+\+PERIOD\+\_\+\+MS}} = 32
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeabdecd5cf62a144466be7daecc683668a}{IR\+\_\+\+DIST\+\_\+\+MIN}} = 9
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea0377e93ad0dd5d5d0f8614e8222a8a33}{IR\+\_\+\+DIST\+\_\+\+MAX}} = 50
+, \newline
+\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea3c830caadeb22ce8818f849e80ea1ca1}{IR\+\_\+\+PERIOD}} = 15
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeab52cd651a13722cf0d68467fe58e2283}{US\+\_\+\+DIST\+\_\+\+MIN}} = 2
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea63d9d5eecb8e2600ad0f0718942205d3}{US\+\_\+\+DIST\+\_\+\+MAX}} = 100
+, \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2f37ea618b486343d0e4c0a33cb92ad0}{US\+\_\+\+PERIOD}} = 200
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\Hypertarget{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}\label{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9} 
+\index{config.hpp@{config.hpp}!DEFAULT\_SPEED\_PWM@{DEFAULT\_SPEED\_PWM}}
+\index{DEFAULT\_SPEED\_PWM@{DEFAULT\_SPEED\_PWM}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_SPEED\_PWM}{DEFAULT\_SPEED\_PWM}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+SPEED\+\_\+\+PWM~144}
+
+\Hypertarget{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}\label{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45} 
+\index{config.hpp@{config.hpp}!DEFAULT\_SPEED\_TICK@{DEFAULT\_SPEED\_TICK}}
+\index{DEFAULT\_SPEED\_TICK@{DEFAULT\_SPEED\_TICK}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_SPEED\_TICK}{DEFAULT\_SPEED\_TICK}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+SPEED\+\_\+\+TICK~18}
+
+\Hypertarget{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}\label{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45} 
+\index{config.hpp@{config.hpp}!DEFAULT\_SPEED\_TICK@{DEFAULT\_SPEED\_TICK}}
+\index{DEFAULT\_SPEED\_TICK@{DEFAULT\_SPEED\_TICK}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_SPEED\_TICK}{DEFAULT\_SPEED\_TICK}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+SPEED\+\_\+\+TICK~18}
+
+\Hypertarget{config_8hpp_aa742a792f7838f635f9df76fb1c2e893}\label{config_8hpp_aa742a792f7838f635f9df76fb1c2e893} 
+\index{config.hpp@{config.hpp}!GRAY\_PERCENT@{GRAY\_PERCENT}}
+\index{GRAY\_PERCENT@{GRAY\_PERCENT}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{GRAY\_PERCENT}{GRAY\_PERCENT}}
+{\footnotesize\ttfamily \#define GRAY\+\_\+\+PERCENT~50}
+
+\Hypertarget{config_8hpp_a938fdcc7fa29ce25d037bcff1d1f5282}\label{config_8hpp_a938fdcc7fa29ce25d037bcff1d1f5282} 
+\index{config.hpp@{config.hpp}!IR\_0@{IR\_0}}
+\index{IR\_0@{IR\_0}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{IR\_0}{IR\_0}}
+{\footnotesize\ttfamily \#define IR\+\_\+0~A2}
+
+\Hypertarget{config_8hpp_a11ec7abbe5bee76637e496513a45e67e}\label{config_8hpp_a11ec7abbe5bee76637e496513a45e67e} 
+\index{config.hpp@{config.hpp}!IR\_1@{IR\_1}}
+\index{IR\_1@{IR\_1}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{IR\_1}{IR\_1}}
+{\footnotesize\ttfamily \#define IR\+\_\+1~A3}
+
+\Hypertarget{config_8hpp_a680093f8a6625cf5081210d7b8e0999e}\label{config_8hpp_a680093f8a6625cf5081210d7b8e0999e} 
+\index{config.hpp@{config.hpp}!L\_FIELD@{L\_FIELD}}
+\index{L\_FIELD@{L\_FIELD}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{L\_FIELD}{L\_FIELD}}
+{\footnotesize\ttfamily \#define L\+\_\+\+FIELD~837}
+
+\Hypertarget{config_8hpp_ad03c6040d0a5fe3f07b252f11b2bfbe5}\label{config_8hpp_ad03c6040d0a5fe3f07b252f11b2bfbe5} 
+\index{config.hpp@{config.hpp}!L\_LINE@{L\_LINE}}
+\index{L\_LINE@{L\_LINE}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{L\_LINE}{L\_LINE}}
+{\footnotesize\ttfamily \#define L\+\_\+\+LINE~57}
+
+\Hypertarget{config_8hpp_a0ff1109f42be60d8dbf393f9402ab69c}\label{config_8hpp_a0ff1109f42be60d8dbf393f9402ab69c} 
+\index{config.hpp@{config.hpp}!LINE\_L@{LINE\_L}}
+\index{LINE\_L@{LINE\_L}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{LINE\_L}{LINE\_L}}
+{\footnotesize\ttfamily \#define LINE\+\_\+L~A0}
+
+\Hypertarget{config_8hpp_a493dcfc2f8b8a46877111a004725acc8}\label{config_8hpp_a493dcfc2f8b8a46877111a004725acc8} 
+\index{config.hpp@{config.hpp}!LINE\_R@{LINE\_R}}
+\index{LINE\_R@{LINE\_R}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{LINE\_R}{LINE\_R}}
+{\footnotesize\ttfamily \#define LINE\+\_\+R~A1}
+
+\Hypertarget{config_8hpp_a130e616866ce895fdc71378c94d3e85c}\label{config_8hpp_a130e616866ce895fdc71378c94d3e85c} 
+\index{config.hpp@{config.hpp}!MM2TICKS@{MM2TICKS}}
+\index{MM2TICKS@{MM2TICKS}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MM2TICKS}{MM2TICKS}}
+{\footnotesize\ttfamily \#define MM2\+TICKS(\begin{DoxyParamCaption}\item[{}]{mm }\end{DoxyParamCaption})~( (int32\+\_\+t)(mm) \texorpdfstring{$\ast$}{*} 1000L / (int32\+\_\+t)(\mbox{\hyperlink{config_8hpp_a05e5c07147c085e9874f834873d053f1}{MM\+\_\+\+IN\+\_\+1000\+\_\+\+TICKS}}) )}
+
+\Hypertarget{config_8hpp_a05e5c07147c085e9874f834873d053f1}\label{config_8hpp_a05e5c07147c085e9874f834873d053f1} 
+\index{config.hpp@{config.hpp}!MM\_IN\_1000\_TICKS@{MM\_IN\_1000\_TICKS}}
+\index{MM\_IN\_1000\_TICKS@{MM\_IN\_1000\_TICKS}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MM\_IN\_1000\_TICKS}{MM\_IN\_1000\_TICKS}}
+{\footnotesize\ttfamily \#define MM\+\_\+\+IN\+\_\+1000\+\_\+\+TICKS~250}
+
+\Hypertarget{config_8hpp_a764d34170cc1b6f45ad661d44007f6e2}\label{config_8hpp_a764d34170cc1b6f45ad661d44007f6e2} 
+\index{config.hpp@{config.hpp}!MOTOR\_L\_DIR@{MOTOR\_L\_DIR}}
+\index{MOTOR\_L\_DIR@{MOTOR\_L\_DIR}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_L\_DIR}{MOTOR\_L\_DIR}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+L\+\_\+\+DIR~4}
+
+\Hypertarget{config_8hpp_ac60ec82e672987f20581b8f04194b239}\label{config_8hpp_ac60ec82e672987f20581b8f04194b239} 
+\index{config.hpp@{config.hpp}!MOTOR\_L\_ENC\_A@{MOTOR\_L\_ENC\_A}}
+\index{MOTOR\_L\_ENC\_A@{MOTOR\_L\_ENC\_A}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_L\_ENC\_A}{MOTOR\_L\_ENC\_A}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+A~2}
+
+\Hypertarget{config_8hpp_ab95d88cdaa359968f5c99b5bbfbf8e11}\label{config_8hpp_ab95d88cdaa359968f5c99b5bbfbf8e11} 
+\index{config.hpp@{config.hpp}!MOTOR\_L\_ENC\_B@{MOTOR\_L\_ENC\_B}}
+\index{MOTOR\_L\_ENC\_B@{MOTOR\_L\_ENC\_B}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_L\_ENC\_B}{MOTOR\_L\_ENC\_B}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+B~8}
+
+\Hypertarget{config_8hpp_adc604ea34cb7de9e61cd091e4e896bff}\label{config_8hpp_adc604ea34cb7de9e61cd091e4e896bff} 
+\index{config.hpp@{config.hpp}!MOTOR\_L\_INVERT@{MOTOR\_L\_INVERT}}
+\index{MOTOR\_L\_INVERT@{MOTOR\_L\_INVERT}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_L\_INVERT}{MOTOR\_L\_INVERT}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+L\+\_\+\+INVERT~false}
+
+\Hypertarget{config_8hpp_abd3a04df236e11c84aa8bdd139c52a61}\label{config_8hpp_abd3a04df236e11c84aa8bdd139c52a61} 
+\index{config.hpp@{config.hpp}!MOTOR\_L\_SPEED@{MOTOR\_L\_SPEED}}
+\index{MOTOR\_L\_SPEED@{MOTOR\_L\_SPEED}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_L\_SPEED}{MOTOR\_L\_SPEED}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+L\+\_\+\+SPEED~5}
+
+\Hypertarget{config_8hpp_a07416a19a96ef31a4815460e47c1bb12}\label{config_8hpp_a07416a19a96ef31a4815460e47c1bb12} 
+\index{config.hpp@{config.hpp}!MOTOR\_R\_DIR@{MOTOR\_R\_DIR}}
+\index{MOTOR\_R\_DIR@{MOTOR\_R\_DIR}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_R\_DIR}{MOTOR\_R\_DIR}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+R\+\_\+\+DIR~7}
+
+\Hypertarget{config_8hpp_a9bf2c6983b07add039e9616a6e2dbe40}\label{config_8hpp_a9bf2c6983b07add039e9616a6e2dbe40} 
+\index{config.hpp@{config.hpp}!MOTOR\_R\_ENC\_A@{MOTOR\_R\_ENC\_A}}
+\index{MOTOR\_R\_ENC\_A@{MOTOR\_R\_ENC\_A}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_R\_ENC\_A}{MOTOR\_R\_ENC\_A}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+A~3}
+
+\Hypertarget{config_8hpp_a6e7dd8fc8ac4c25a52d6452ce642dff6}\label{config_8hpp_a6e7dd8fc8ac4c25a52d6452ce642dff6} 
+\index{config.hpp@{config.hpp}!MOTOR\_R\_ENC\_B@{MOTOR\_R\_ENC\_B}}
+\index{MOTOR\_R\_ENC\_B@{MOTOR\_R\_ENC\_B}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_R\_ENC\_B}{MOTOR\_R\_ENC\_B}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+B~9}
+
+\Hypertarget{config_8hpp_a8be735042a4b545f714a2782e3561fad}\label{config_8hpp_a8be735042a4b545f714a2782e3561fad} 
+\index{config.hpp@{config.hpp}!MOTOR\_R\_INVERT@{MOTOR\_R\_INVERT}}
+\index{MOTOR\_R\_INVERT@{MOTOR\_R\_INVERT}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_R\_INVERT}{MOTOR\_R\_INVERT}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+R\+\_\+\+INVERT~true}
+
+\Hypertarget{config_8hpp_acb0513aae8ccb5a9a3ae72e16aec059c}\label{config_8hpp_acb0513aae8ccb5a9a3ae72e16aec059c} 
+\index{config.hpp@{config.hpp}!MOTOR\_R\_SPEED@{MOTOR\_R\_SPEED}}
+\index{MOTOR\_R\_SPEED@{MOTOR\_R\_SPEED}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_R\_SPEED}{MOTOR\_R\_SPEED}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+R\+\_\+\+SPEED~6}
+
+\Hypertarget{config_8hpp_a49415f35c5e58fc59909a35d43e790e1}\label{config_8hpp_a49415f35c5e58fc59909a35d43e790e1} 
+\index{config.hpp@{config.hpp}!R\_FIELD@{R\_FIELD}}
+\index{R\_FIELD@{R\_FIELD}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{R\_FIELD}{R\_FIELD}}
+{\footnotesize\ttfamily \#define R\+\_\+\+FIELD~981}
+
+\Hypertarget{config_8hpp_aa5b9d05809fd87870ee83c18f387c417}\label{config_8hpp_aa5b9d05809fd87870ee83c18f387c417} 
+\index{config.hpp@{config.hpp}!R\_LINE@{R\_LINE}}
+\index{R\_LINE@{R\_LINE}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{R\_LINE}{R\_LINE}}
+{\footnotesize\ttfamily \#define R\+\_\+\+LINE~108}
+
+\Hypertarget{config_8hpp_a8c5ff70b6b28cd0157c50a22406f92c4}\label{config_8hpp_a8c5ff70b6b28cd0157c50a22406f92c4} 
+\index{config.hpp@{config.hpp}!SIGN@{SIGN}}
+\index{SIGN@{SIGN}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{SIGN}{SIGN}}
+{\footnotesize\ttfamily \#define SIGN(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(((x) $>$ 0) ? 1 \+: -\/1)}
+
+\Hypertarget{config_8hpp_a0b791a5285b16c620b21f76a3b7e85ff}\label{config_8hpp_a0b791a5285b16c620b21f76a3b7e85ff} 
+\index{config.hpp@{config.hpp}!TRACK\_SIZE\_MM@{TRACK\_SIZE\_MM}}
+\index{TRACK\_SIZE\_MM@{TRACK\_SIZE\_MM}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{TRACK\_SIZE\_MM}{TRACK\_SIZE\_MM}}
+{\footnotesize\ttfamily \#define TRACK\+\_\+\+SIZE\+\_\+\+MM~177}
+
+\Hypertarget{config_8hpp_a60240f82bf58ebadfbe05d1762f6955b}\label{config_8hpp_a60240f82bf58ebadfbe05d1762f6955b} 
+\index{config.hpp@{config.hpp}!US\_ECHO@{US\_ECHO}}
+\index{US\_ECHO@{US\_ECHO}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{US\_ECHO}{US\_ECHO}}
+{\footnotesize\ttfamily \#define US\+\_\+\+ECHO~12}
+
+\Hypertarget{config_8hpp_a36c53a01b5fa0a07b02a673165abf62d}\label{config_8hpp_a36c53a01b5fa0a07b02a673165abf62d} 
+\index{config.hpp@{config.hpp}!US\_TRIG@{US\_TRIG}}
+\index{US\_TRIG@{US\_TRIG}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{US\_TRIG}{US\_TRIG}}
+{\footnotesize\ttfamily \#define US\+\_\+\+TRIG~13}
+
+
+
+\doxysubsection{Перечисления}
+\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7ee}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7ee} 
+\index{config.hpp@{config.hpp}!PARAMS@{PARAMS}}
+\index{PARAMS@{PARAMS}!config.hpp@{config.hpp}}
+\doxysubsubsection{\texorpdfstring{PARAMS}{PARAMS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7ee}{PARAMS}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOLD\_STOP\_TIMEOUT@{HOLD\_STOP\_TIMEOUT}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!HOLD\_STOP\_TIMEOUT@{HOLD\_STOP\_TIMEOUT}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335} 
+HOLD\+\_\+\+STOP\+\_\+\+TIMEOUT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALIGN\_DURATION@{ALIGN\_DURATION}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!ALIGN\_DURATION@{ALIGN\_DURATION}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83} 
+ALIGN\+\_\+\+DURATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KP\_SPEED@{KP\_SPEED}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!KP\_SPEED@{KP\_SPEED}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0} 
+KP\+\_\+\+SPEED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYNC\_K@{SYNC\_K}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!SYNC\_K@{SYNC\_K}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea59e05a5843b96454cd887cb22f8c9e2f}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea59e05a5843b96454cd887cb22f8c9e2f} 
+SYNC\+\_\+K&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_DELTA\_TICKS@{MAX\_DELTA\_TICKS}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!MAX\_DELTA\_TICKS@{MAX\_DELTA\_TICKS}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e} 
+MAX\+\_\+\+DELTA\+\_\+\+TICKS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPIN\_PERIOD\_MS@{SPIN\_PERIOD\_MS}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!SPIN\_PERIOD\_MS@{SPIN\_PERIOD\_MS}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e} 
+SPIN\+\_\+\+PERIOD\+\_\+\+MS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IR\_DIST\_MIN@{IR\_DIST\_MIN}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!IR\_DIST\_MIN@{IR\_DIST\_MIN}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeabdecd5cf62a144466be7daecc683668a}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeabdecd5cf62a144466be7daecc683668a} 
+IR\+\_\+\+DIST\+\_\+\+MIN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IR\_DIST\_MAX@{IR\_DIST\_MAX}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!IR\_DIST\_MAX@{IR\_DIST\_MAX}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea0377e93ad0dd5d5d0f8614e8222a8a33}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea0377e93ad0dd5d5d0f8614e8222a8a33} 
+IR\+\_\+\+DIST\+\_\+\+MAX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IR\_PERIOD@{IR\_PERIOD}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!IR\_PERIOD@{IR\_PERIOD}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea3c830caadeb22ce8818f849e80ea1ca1}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea3c830caadeb22ce8818f849e80ea1ca1} 
+IR\+\_\+\+PERIOD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{US\_DIST\_MIN@{US\_DIST\_MIN}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!US\_DIST\_MIN@{US\_DIST\_MIN}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeab52cd651a13722cf0d68467fe58e2283}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeab52cd651a13722cf0d68467fe58e2283} 
+US\+\_\+\+DIST\+\_\+\+MIN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{US\_DIST\_MAX@{US\_DIST\_MAX}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!US\_DIST\_MAX@{US\_DIST\_MAX}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea63d9d5eecb8e2600ad0f0718942205d3}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea63d9d5eecb8e2600ad0f0718942205d3} 
+US\+\_\+\+DIST\+\_\+\+MAX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{US\_PERIOD@{US\_PERIOD}!config.hpp@{config.hpp}}\index{config.hpp@{config.hpp}!US\_PERIOD@{US\_PERIOD}}}\Hypertarget{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2f37ea618b486343d0e4c0a33cb92ad0}\label{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2f37ea618b486343d0e4c0a33cb92ad0} 
+US\+\_\+\+PERIOD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335}{HOLD\_STOP\_TIMEOUT}}\ =\ 160,\ \textcolor{comment}{//\ время\ остановки\ удержанием\ позиции}}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83}{ALIGN\_DURATION}}\ =\ 240,\ \textcolor{comment}{//\ время\ для\ выравнивания\ по\ линии}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0}{KP\_SPEED}}\ =\ 8,\ \textcolor{comment}{//\ KP\ смещение\ (скорость)}}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea59e05a5843b96454cd887cb22f8c9e2f}{SYNC\_K}}\ =\ 5,\ \textcolor{comment}{//\ коэф.\ синх.\ движения\ }}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e}{MAX\_DELTA\_TICKS}}\ =\ 32,\ \textcolor{comment}{//\ максимальная\ d\_tick\ при\ повороте}}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e}{SPIN\_PERIOD\_MS}}\ =\ 32,\ \textcolor{comment}{//\ период\ смены\ целевого\ положения\ мотора\ по\ d\_tick}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeabdecd5cf62a144466be7daecc683668a}{IR\_DIST\_MIN}}\ =\ 9,}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea0377e93ad0dd5d5d0f8614e8222a8a33}{IR\_DIST\_MAX}}\ =\ 50,}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea3c830caadeb22ce8818f849e80ea1ca1}{IR\_PERIOD}}\ =\ 15,}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeab52cd651a13722cf0d68467fe58e2283}{US\_DIST\_MIN}}\ =\ 2,}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea63d9d5eecb8e2600ad0f0718942205d3}{US\_DIST\_MAX}}\ =\ 100,}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2f37ea618b486343d0e4c0a33cb92ad0}{US\_PERIOD}}\ =\ 200,}
+\DoxyCodeLine{00119\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,53 @@
+\doxysection{Класс mosh\+::control\+::Mover}
+\hypertarget{classmosh_1_1control_1_1_mover}{}\label{classmosh_1_1control_1_1_mover}\index{mosh::control::Mover@{mosh::control::Mover}}
+
+
+Абстрактный исполнитель движения робота  
+
+
+
+
+{\ttfamily \#include $<$move.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Mover\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.987654cm]{classmosh_1_1control_1_1_mover}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{tick}} () const
+\begin{DoxyCompactList}\small\item\em Обновление системы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Абстрактный исполнитель движения робота 
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}\label{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70} 
+\index{mosh::control::Mover@{mosh::control::Mover}!tick@{tick}}
+\index{tick@{tick}!mosh::control::Mover@{mosh::control::Mover}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void Mover\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Обновление системы 
+
+
+
+Переопределяется в \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f}{mosh\+::control\+::\+Keep\+Speed}}, \mbox{\hyperlink{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a}{mosh\+::control\+::\+Sync}}, \mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9}{mosh\+::control\+::\+Line\+Prop}}, \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_ad144d1a6eeb448bb5df8b4c586e6ba53}{mosh\+::control\+::\+Line\+Relay}}, \mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2_a5e49aafdd1efe76be5acc70e50b2a2a4}{mosh\+::control\+::\+Line\+Relay2}} и \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_a9a3a569e9d7cd09910bbec876917cd79}{mosh\+::control\+::\+Move\+Along\+Wall}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\};}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{move_8hpp}{move.\+hpp}}\item 
+src/control/\mbox{\hyperlink{move_8cpp}{move.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,1004 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Файл src/moshlib.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle"><div class="title">Файл moshlib.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="_mosh_lib_8hpp_source.html">MoshLib.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="run_8hpp_source.html">core/run.hpp</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:af7cc16c9efaad6f7e4a6027a1da2dc74" id="r_af7cc16c9efaad6f7e4a6027a1da2dc74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7cc16c9efaad6f7e4a6027a1da2dc74">setDistL</a> (<a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">DistanceSensor</a> &amp;sensor)</td></tr>
+<tr class="memdesc:af7cc16c9efaad6f7e4a6027a1da2dc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указать ЛЕВЫЙ датчик расстояния  <br /></td></tr>
+<tr class="separator:af7cc16c9efaad6f7e4a6027a1da2dc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33540909b282a67ecdaae3061dcead64" id="r_a33540909b282a67ecdaae3061dcead64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33540909b282a67ecdaae3061dcead64">setDistR</a> (<a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">DistanceSensor</a> &amp;sensor)</td></tr>
+<tr class="memdesc:a33540909b282a67ecdaae3061dcead64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указать ПРАВЫЙ датчик расстояния  <br /></td></tr>
+<tr class="separator:a33540909b282a67ecdaae3061dcead64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4938dabf3a7839d8a9f392d548f4749" id="r_ae4938dabf3a7839d8a9f392d548f4749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4938dabf3a7839d8a9f392d548f4749">setDistF</a> (<a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">DistanceSensor</a> &amp;sensor)</td></tr>
+<tr class="memdesc:ae4938dabf3a7839d8a9f392d548f4749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указать ПЕРЕДНИЙ датчик расстояния  <br /></td></tr>
+<tr class="separator:ae4938dabf3a7839d8a9f392d548f4749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4779d624f87b0701074941fbec71b91b" id="r_a4779d624f87b0701074941fbec71b91b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4779d624f87b0701074941fbec71b91b">goTime</a> (uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end)</td></tr>
+<tr class="memdesc:a4779d624f87b0701074941fbec71b91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение с заданой скоростью на время  <br /></td></tr>
+<tr class="separator:a4779d624f87b0701074941fbec71b91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9261c9fe30dba1bb943dbd29c0e6f56e" id="r_a9261c9fe30dba1bb943dbd29c0e6f56e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9261c9fe30dba1bb943dbd29c0e6f56e">goTime</a> (uint32_t runtime, int8_t speed)</td></tr>
+<tr class="memdesc:a9261c9fe30dba1bb943dbd29c0e6f56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение с заданой скоростью на время  <br /></td></tr>
+<tr class="separator:a9261c9fe30dba1bb943dbd29c0e6f56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3b519b7264c89382fff59887d94591" id="r_a2d3b519b7264c89382fff59887d94591"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d3b519b7264c89382fff59887d94591">goHold</a> (uint32_t timeout)</td></tr>
+<tr class="memdesc:a2d3b519b7264c89382fff59887d94591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удерживать моторы в текущем положении на время  <br /></td></tr>
+<tr class="separator:a2d3b519b7264c89382fff59887d94591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44daccfe50f2bc2d7cd425e21a0c0c1" id="r_ad44daccfe50f2bc2d7cd425e21a0c0c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad44daccfe50f2bc2d7cd425e21a0c0c1">goTick</a> (int32_t ticks, uint8_t speed)</td></tr>
+<tr class="memdesc:ad44daccfe50f2bc2d7cd425e21a0c0c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">на число тиков  <br /></td></tr>
+<tr class="separator:ad44daccfe50f2bc2d7cd425e21a0c0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac3ef9e698e442347b8fca814c00f4ac" id="r_aac3ef9e698e442347b8fca814c00f4ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac3ef9e698e442347b8fca814c00f4ac">goDist</a> (int32_t distance_mm, int16_t speed)</td></tr>
+<tr class="memdesc:aac3ef9e698e442347b8fca814c00f4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямолинейное синхронное движение  <br /></td></tr>
+<tr class="separator:aac3ef9e698e442347b8fca814c00f4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac368e5f00212e7df35e4a2630f0bbdc0" id="r_ac368e5f00212e7df35e4a2630f0bbdc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac368e5f00212e7df35e4a2630f0bbdc0">goCross</a> (uint8_t crosses, bool found_line, int16_t speed_PWMDIR)</td></tr>
+<tr class="memdesc:ac368e5f00212e7df35e4a2630f0bbdc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямолинейное синхронное движение до перекрёстка  <br /></td></tr>
+<tr class="separator:ac368e5f00212e7df35e4a2630f0bbdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3d544133aceb6d57b0897ec433712e1" id="r_ab3d544133aceb6d57b0897ec433712e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3d544133aceb6d57b0897ec433712e1">turnAngle</a> (int16_t a, int16_t speed)</td></tr>
+<tr class="memdesc:ab3d544133aceb6d57b0897ec433712e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">синхронный Поворот на заданый угол вокруг центра  <br /></td></tr>
+<tr class="separator:ab3d544133aceb6d57b0897ec433712e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d620c9eaf19b1047de03d6d7c5a3e1" id="r_ae9d620c9eaf19b1047de03d6d7c5a3e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9d620c9eaf19b1047de03d6d7c5a3e1">alignLine</a> (uint32_t duration)</td></tr>
+<tr class="memdesc:ae9d620c9eaf19b1047de03d6d7c5a3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выровнять робота по линии  <br /></td></tr>
+<tr class="separator:ae9d620c9eaf19b1047de03d6d7c5a3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0e9f1fdf0de91359ff6412daa1df4e" id="r_a0e0e9f1fdf0de91359ff6412daa1df4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e0e9f1fdf0de91359ff6412daa1df4e">turnLineL</a> (int8_t crosses, int16_t speed)</td></tr>
+<tr class="memdesc:a0e0e9f1fdf0de91359ff6412daa1df4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">повернуться вокруг центра влево пересекая линии  <br /></td></tr>
+<tr class="separator:a0e0e9f1fdf0de91359ff6412daa1df4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12cfabd0e199e63c9af384bf887133f5" id="r_a12cfabd0e199e63c9af384bf887133f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12cfabd0e199e63c9af384bf887133f5">turnLineR</a> (int8_t crosses, int16_t speed)</td></tr>
+<tr class="memdesc:a12cfabd0e199e63c9af384bf887133f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">повернуться вокруг центра направо по перекрёсткам  <br /></td></tr>
+<tr class="separator:a12cfabd0e199e63c9af384bf887133f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc9a3cf9d07dddb65816bba152329b9" id="r_a9bc9a3cf9d07dddb65816bba152329b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bc9a3cf9d07dddb65816bba152329b9">wallFront</a> (<a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">DistanceSensor</a> &amp;sensor, uint8_t wall_dist_cm, uint8_t speed)</td></tr>
+<tr class="memdesc:a9bc9a3cf9d07dddb65816bba152329b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямолинейное синхронное движение до стены (любой датчик)  <br /></td></tr>
+<tr class="separator:a9bc9a3cf9d07dddb65816bba152329b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc921efd3a5888bc67079e7d7420b954" id="r_afc921efd3a5888bc67079e7d7420b954"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc921efd3a5888bc67079e7d7420b954">wallFront</a> (uint8_t distance, uint8_t speed)</td></tr>
+<tr class="memdesc:afc921efd3a5888bc67079e7d7420b954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямолинейное синхронное движение до стены (передний датчик)  <br /></td></tr>
+<tr class="separator:afc921efd3a5888bc67079e7d7420b954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba30dee0ae5d779bfa8a45bcaea0288f" id="r_aba30dee0ae5d779bfa8a45bcaea0288f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba30dee0ae5d779bfa8a45bcaea0288f">wallBack</a> (<a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">DistanceSensor</a> &amp;sensor, uint8_t wall_dist_cm, int16_t speed)</td></tr>
+<tr class="memdesc:aba30dee0ae5d779bfa8a45bcaea0288f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямолинейное синхронное движение назад от стены (любой датчик)  <br /></td></tr>
+<tr class="separator:aba30dee0ae5d779bfa8a45bcaea0288f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6fff4eac9fa840d92645156c27fd6db" id="r_af6fff4eac9fa840d92645156c27fd6db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6fff4eac9fa840d92645156c27fd6db">wallBack</a> (uint8_t distance, uint8_t speed)</td></tr>
+<tr class="memdesc:af6fff4eac9fa840d92645156c27fd6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Прямолинейное синхронное движение назад от стены (передний датчик)  <br /></td></tr>
+<tr class="separator:af6fff4eac9fa840d92645156c27fd6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a433f174b127553cd6d7787831aa29d64" id="r_a433f174b127553cd6d7787831aa29d64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a433f174b127553cd6d7787831aa29d64">wallTimeL</a> (uint8_t distance, uint32_t runtime, uint8_t speed)</td></tr>
+<tr class="memdesc:a433f174b127553cd6d7787831aa29d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение вдоль стены по ЛЕВОМУ датчику  <br /></td></tr>
+<tr class="separator:a433f174b127553cd6d7787831aa29d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc8bd9e4ac623bc34adaa3a96b06a58" id="r_a2fc8bd9e4ac623bc34adaa3a96b06a58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fc8bd9e4ac623bc34adaa3a96b06a58">wallTimeR</a> (uint8_t distance, uint32_t runtime, uint8_t speed)</td></tr>
+<tr class="memdesc:a2fc8bd9e4ac623bc34adaa3a96b06a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение вдоль стены по ПРАВОМУ датчику  <br /></td></tr>
+<tr class="separator:a2fc8bd9e4ac623bc34adaa3a96b06a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39be8e460a61d948042f0962482c719e" id="r_a39be8e460a61d948042f0962482c719e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39be8e460a61d948042f0962482c719e">lineTimeL</a> (uint32_t runtime, uint8_t speed)</td></tr>
+<tr class="memdesc:a39be8e460a61d948042f0962482c719e"><td class="mdescLeft">&#160;</td><td class="mdescRight">движение по линии по левому датчику  <br /></td></tr>
+<tr class="separator:a39be8e460a61d948042f0962482c719e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc9a4e977d146cba2eff3b24dbe887a" id="r_a9cc9a4e977d146cba2eff3b24dbe887a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cc9a4e977d146cba2eff3b24dbe887a">lineTimeR</a> (uint32_t runtime, uint8_t speed)</td></tr>
+<tr class="memdesc:a9cc9a4e977d146cba2eff3b24dbe887a"><td class="mdescLeft">&#160;</td><td class="mdescRight">движение по линии по правому датчику  <br /></td></tr>
+<tr class="separator:a9cc9a4e977d146cba2eff3b24dbe887a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb7331b346ba87dbbaf7e143efd7213" id="r_a0cb7331b346ba87dbbaf7e143efd7213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cb7331b346ba87dbbaf7e143efd7213">lineTimeLR</a> (uint32_t runtime, uint8_t speed)</td></tr>
+<tr class="memdesc:a0cb7331b346ba87dbbaf7e143efd7213"><td class="mdescLeft">&#160;</td><td class="mdescRight">движение по линии по двум датчикам  <br /></td></tr>
+<tr class="separator:a0cb7331b346ba87dbbaf7e143efd7213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8951ccc3c7c28d99a8b8f7551ceb0362" id="r_a8951ccc3c7c28d99a8b8f7551ceb0362"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8951ccc3c7c28d99a8b8f7551ceb0362">lineTimeP</a> (uint32_t runtime, uint8_t speed)</td></tr>
+<tr class="memdesc:a8951ccc3c7c28d99a8b8f7551ceb0362"><td class="mdescLeft">&#160;</td><td class="mdescRight">движение по линии по P-регулятору  <br /></td></tr>
+<tr class="separator:a8951ccc3c7c28d99a8b8f7551ceb0362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b8232a6e343077778abbae228d64c5" id="r_ab4b8232a6e343077778abbae228d64c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4b8232a6e343077778abbae228d64c5">lineCrossP</a> (uint8_t crosses, uint8_t speed)</td></tr>
+<tr class="memdesc:ab4b8232a6e343077778abbae228d64c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение по линии до перекрёстка P-регулятор  <br /></td></tr>
+<tr class="separator:ab4b8232a6e343077778abbae228d64c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622f543fe2cd28843109d428b66e9f35" id="r_a622f543fe2cd28843109d428b66e9f35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a622f543fe2cd28843109d428b66e9f35">lineDistP</a> (int32_t distance, uint8_t speed)</td></tr>
+<tr class="memdesc:a622f543fe2cd28843109d428b66e9f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Движение по линии на расстояние P-регулятор  <br /></td></tr>
+<tr class="separator:a622f543fe2cd28843109d428b66e9f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="ae9d620c9eaf19b1047de03d6d7c5a3e1" name="ae9d620c9eaf19b1047de03d6d7c5a3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9d620c9eaf19b1047de03d6d7c5a3e1">&#9670;&#160;</a></span>alignLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void alignLine </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>duration</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83">PARAMS::ALIGN_DURATION</a></span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Выровнять робота по линии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>время выравнивания </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_prop.html">LineProp</a>(0), duration); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_prop_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_prop.html">mosh::control::LineProp</a></div><div class="ttdoc">Пропорциональный регулятор движения по линии</div><div class="ttdef"><b>Definition</b> move.hpp:57</div></div>
+<div class="ttc" id="anamespacemosh_1_1run_html_ac52ffc1a219b12d57fe95b95519a8531"><div class="ttname"><a href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">mosh::run::time</a></div><div class="ttdeci">void time(const mosh::control::Mover &amp;mover, uint32_t runtime)</div><div class="ttdoc">Выполнение задачи в течении времени</div><div class="ttdef"><b>Definition</b> run.cpp:16</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac368e5f00212e7df35e4a2630f0bbdc0" name="ac368e5f00212e7df35e4a2630f0bbdc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac368e5f00212e7df35e4a2630f0bbdc0">&#9670;&#160;</a></span>goCross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void goCross </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>crosses</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>found_line</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>speed_PWMDIR</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямолинейное синхронное движение до перекрёстка </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">crosses</td><td>кол-во перекрёстков </td></tr>
+    <tr><td class="paramname">found_line</td><td>искомое состояние </td></tr>
+    <tr><td class="paramname">speed_PWMDIR</td><td>скорость (отрицательная - движение назад) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a>(speed_PWMDIR), <a class="code hl_class" href="classmosh_1_1control_1_1_line_found.html">LineFound</a>(<a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051">LineFound::LINE_BOTH</a>, crosses, found_line)); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_found_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_found.html">mosh::control::LineFound</a></div><div class="ttdoc">Найден перекрёсток</div><div class="ttdef"><b>Definition</b> quit.hpp:78</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_found_html_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051"><div class="ttname"><a href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051">mosh::control::LineFound::LINE_BOTH</a></div><div class="ttdeci">@ LINE_BOTH</div><div class="ttdef"><b>Definition</b> quit.hpp:87</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_sync_html"><div class="ttname"><a href="classmosh_1_1control_1_1_sync.html">mosh::control::Sync</a></div><div class="ttdoc">Синхронизированое движение моторов</div><div class="ttdef"><b>Definition</b> move.hpp:29</div></div>
+<div class="ttc" id="anamespacemosh_1_1run_html_ac580fef30c72fa8e5a7cf1039a10b37f"><div class="ttname"><a href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">mosh::run::base</a></div><div class="ttdeci">void base(const mosh::control::Mover &amp;mover, const mosh::control::Quiter &amp;quiter, bool hold_at_end=true)</div><div class="ttdoc">Запустить выполнение задачи</div><div class="ttdef"><b>Definition</b> run.cpp:8</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aac3ef9e698e442347b8fca814c00f4ac" name="aac3ef9e698e442347b8fca814c00f4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac3ef9e698e442347b8fca814c00f4ac">&#9670;&#160;</a></span>goDist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void goDist </td>
+          <td>(</td>
+          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>distance_mm</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>speed_PWM</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямолинейное синхронное движение </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance_mm</td><td>расстояние (отрицательное - едет назад) </td></tr>
+    <tr><td class="paramname">speed_PWM</td><td>скорость движения ШИМ </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                                                {</div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span> (distance_mm &lt; 0) <a class="code hl_function" href="namespacemosh_1_1run.html#ab60ce91c8b3df1d0466424ab3951c763">speed</a> *= -1;</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a>(speed), <a class="code hl_class" href="classmosh_1_1control_1_1_distance_moved.html">DistanceMoved</a>(distance_mm));</div>
+<div class="line"><span class="lineno">   38</span>}</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_distance_moved_html"><div class="ttname"><a href="classmosh_1_1control_1_1_distance_moved.html">mosh::control::DistanceMoved</a></div><div class="ttdoc">Было пройдено расстояние</div><div class="ttdef"><b>Definition</b> quit.hpp:56</div></div>
+<div class="ttc" id="anamespacemosh_1_1run_html_ab60ce91c8b3df1d0466424ab3951c763"><div class="ttname"><a href="namespacemosh_1_1run.html#ab60ce91c8b3df1d0466424ab3951c763">mosh::run::speed</a></div><div class="ttdeci">void speed(int8_t speed, const mosh::control::Quiter &amp;quiter)</div><div class="ttdoc">Запустить независимое вращение моторов с заданой скоростью с проверкой</div><div class="ttdef"><b>Definition</b> run.cpp:18</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2d3b519b7264c89382fff59887d94591" name="a2d3b519b7264c89382fff59887d94591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3b519b7264c89382fff59887d94591">&#9670;&#160;</a></span>goHold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void goHold </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335">HOLD_STOP_TIMEOUT</a></span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Удерживать моторы в текущем положении на время </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>время удержания </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>{ <a class="code hl_function" href="#a4779d624f87b0701074941fbec71b91b">goTime</a>(timeout, 0, 0, <span class="keyword">false</span>); }</div>
+<div class="ttc" id="amoshlib_8cpp_html_a4779d624f87b0701074941fbec71b91b"><div class="ttname"><a href="#a4779d624f87b0701074941fbec71b91b">goTime</a></div><div class="ttdeci">void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end)</div><div class="ttdoc">Движение с заданой скоростью на время</div><div class="ttdef"><b>Definition</b> moshlib.cpp:25</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad44daccfe50f2bc2d7cd425e21a0c0c1" name="ad44daccfe50f2bc2d7cd425e21a0c0c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44daccfe50f2bc2d7cd425e21a0c0c1">&#9670;&#160;</a></span>goTick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void goTick </td>
+          <td>(</td>
+          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>ticks</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>на число тиков </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>ШИМ скорость движения </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a>(speed), <a class="code hl_class" href="classmosh_1_1control_1_1_distance_moved.html">DistanceMoved</a>(ticks, ticks, <span class="keyword">false</span>)); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9261c9fe30dba1bb943dbd29c0e6f56e" name="a9261c9fe30dba1bb943dbd29c0e6f56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9261c9fe30dba1bb943dbd29c0e6f56e">&#9670;&#160;</a></span>goTime() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void goTime </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение с заданой скоростью на время </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">runtime</td><td>время работы </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{ <a class="code hl_function" href="#a4779d624f87b0701074941fbec71b91b">goTime</a>(runtime, speed, speed); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4779d624f87b0701074941fbec71b91b" name="a4779d624f87b0701074941fbec71b91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4779d624f87b0701074941fbec71b91b">&#9670;&#160;</a></span>goTime() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void goTime </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>speed_left</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>speed_right</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>__hold_at_end</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение с заданой скоростью на время </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">runtime</td><td>время работы </td></tr>
+    <tr><td class="paramname">speed_left</td><td>скорость левого мотора </td></tr>
+    <tr><td class="paramname">speed_right</td><td>скорость правого мотора </td></tr>
+    <tr><td class="paramname">__hold_at_end</td><td>удержание моторов в конце движения (для реализации goHold) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>                                                                                         {</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_keep_speed.html">KeepSpeed</a>(speed_left, speed_right), <a class="code hl_class" href="classmosh_1_1control_1_1_on_timer.html">OnTimer</a>(runtime), __hold_at_end);</div>
+<div class="line"><span class="lineno">   27</span>}</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_keep_speed_html"><div class="ttname"><a href="classmosh_1_1control_1_1_keep_speed.html">mosh::control::KeepSpeed</a></div><div class="ttdoc">режим постоянной скорости</div><div class="ttdef"><b>Definition</b> move.hpp:21</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_on_timer_html"><div class="ttname"><a href="classmosh_1_1control_1_1_on_timer.html">mosh::control::OnTimer</a></div><div class="ttdoc">Обработка выхода по таймеру</div><div class="ttdef"><b>Definition</b> quit.hpp:21</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab4b8232a6e343077778abbae228d64c5" name="ab4b8232a6e343077778abbae228d64c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b8232a6e343077778abbae228d64c5">&#9670;&#160;</a></span>lineCrossP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineCrossP </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>crosses</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение по линии до перекрёстка P-регулятор </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">crosses</td><td>на каком перекрёстке остановиться </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость ТИК </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   97</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_prop.html">LineProp</a>(speed), <a class="code hl_class" href="classmosh_1_1control_1_1_line_found.html">LineFound</a>(<a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051">LineFound::LINE_BOTH</a>, crosses, <span class="keyword">false</span>)); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a622f543fe2cd28843109d428b66e9f35" name="a622f543fe2cd28843109d428b66e9f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622f543fe2cd28843109d428b66e9f35">&#9670;&#160;</a></span>lineDistP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineDistP </td>
+          <td>(</td>
+          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение по линии на расстояние P-регулятор </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td>Расстояние движения </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость ТИК </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_prop.html">LineProp</a>(speed), <a class="code hl_class" href="classmosh_1_1control_1_1_distance_moved.html">DistanceMoved</a>(distance)); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a39be8e460a61d948042f0962482c719e" name="a39be8e460a61d948042f0962482c719e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39be8e460a61d948042f0962482c719e">&#9670;&#160;</a></span>lineTimeL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineTimeL </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>движение по линии по левому датчику </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_relay.html">LineRelay</a>(<a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa">LineRelay::LINE_LEFT</a>, speed), runtime); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html">mosh::control::LineRelay</a></div><div class="ttdef"><b>Definition</b> move.hpp:64</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa">mosh::control::LineRelay::LINE_LEFT</a></div><div class="ttdeci">@ LINE_LEFT</div><div class="ttdef"><b>Definition</b> move.hpp:70</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0cb7331b346ba87dbbaf7e143efd7213" name="a0cb7331b346ba87dbbaf7e143efd7213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cb7331b346ba87dbbaf7e143efd7213">&#9670;&#160;</a></span>lineTimeLR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineTimeLR </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>движение по линии по двум датчикам </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_relay2.html">LineRelay2</a>(speed), runtime); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay2_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay2.html">mosh::control::LineRelay2</a></div><div class="ttdoc">Релейный регулятор движения по линии по двум датчикам</div><div class="ttdef"><b>Definition</b> move.hpp:82</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8951ccc3c7c28d99a8b8f7551ceb0362" name="a8951ccc3c7c28d99a8b8f7551ceb0362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8951ccc3c7c28d99a8b8f7551ceb0362">&#9670;&#160;</a></span>lineTimeP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineTimeP </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>движение по линии по P-регулятору </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_prop.html">LineProp</a>(speed), runtime); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9cc9a4e977d146cba2eff3b24dbe887a" name="a9cc9a4e977d146cba2eff3b24dbe887a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cc9a4e977d146cba2eff3b24dbe887a">&#9670;&#160;</a></span>lineTimeR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineTimeR </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>движение по линии по правому датчику </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   90</span>{ <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_line_relay.html">LineRelay</a>(<a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435">LineRelay::LINE_RIGHT</a>, speed), runtime); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435">mosh::control::LineRelay::LINE_RIGHT</a></div><div class="ttdeci">@ LINE_RIGHT</div><div class="ttdef"><b>Definition</b> move.hpp:70</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae4938dabf3a7839d8a9f392d548f4749" name="ae4938dabf3a7839d8a9f392d548f4749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4938dabf3a7839d8a9f392d548f4749">&#9670;&#160;</a></span>setDistF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDistF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Указать ПЕРЕДНИЙ датчик расстояния </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>ссылка на датчик </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>{ <a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.<a class="code hl_variable" href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">dist_front</a> = &amp;sensor; }</div>
+<div class="ttc" id="aenviroment_8cpp_html_a8eb942373fca8eae496279b2127bbebf"><div class="ttname"><a href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a></div><div class="ttdeci">RobotConfig robot</div><div class="ttdef"><b>Definition</b> enviroment.cpp:18</div></div>
+<div class="ttc" id="astruct_robot_config_html_a2797bacdbc321dcb17ba571611fc5dfa"><div class="ttname"><a href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">RobotConfig::dist_front</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_front</div><div class="ttdef"><b>Definition</b> enviroment.hpp:23</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af7cc16c9efaad6f7e4a6027a1da2dc74" name="af7cc16c9efaad6f7e4a6027a1da2dc74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7cc16c9efaad6f7e4a6027a1da2dc74">&#9670;&#160;</a></span>setDistL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDistL </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Указать ЛЕВЫЙ датчик расстояния </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>ссылка на датчик </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>{ <a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.<a class="code hl_variable" href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">dist_left</a> = &amp;sensor; }</div>
+<div class="ttc" id="astruct_robot_config_html_aa9dbcdefbba927a2c0ef659d09321581"><div class="ttname"><a href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">RobotConfig::dist_left</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_left</div><div class="ttdef"><b>Definition</b> enviroment.hpp:21</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a33540909b282a67ecdaae3061dcead64" name="a33540909b282a67ecdaae3061dcead64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33540909b282a67ecdaae3061dcead64">&#9670;&#160;</a></span>setDistR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setDistR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Указать ПРАВЫЙ датчик расстояния </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>ссылка на датчик </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>{ <a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.<a class="code hl_variable" href="struct_robot_config.html#aa40fb1b51de5f06913ce61693d42cde1">dist_right</a> = &amp;sensor; }</div>
+<div class="ttc" id="astruct_robot_config_html_aa40fb1b51de5f06913ce61693d42cde1"><div class="ttname"><a href="struct_robot_config.html#aa40fb1b51de5f06913ce61693d42cde1">RobotConfig::dist_right</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_right</div><div class="ttdef"><b>Definition</b> enviroment.hpp:22</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab3d544133aceb6d57b0897ec433712e1" name="ab3d544133aceb6d57b0897ec433712e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3d544133aceb6d57b0897ec433712e1">&#9670;&#160;</a></span>turnAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnAngle </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>синхронный Поворот на заданый угол вокруг центра </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>угол поворота ( &lt;0 - поворот против часовой) </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорось поворота </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>                                         {</div>
+<div class="line"><span class="lineno">   45</span>    int32_t dist = (int32_t) a * (<a class="code hl_define" href="config_8hpp.html#a0b791a5285b16c620b21f76a3b7e85ff">TRACK_SIZE_MM</a> * M_PI / 360.0);</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a>(speed, -speed, 1, -1), <a class="code hl_class" href="classmosh_1_1control_1_1_distance_moved.html">DistanceMoved</a>(dist, -dist));</div>
+<div class="line"><span class="lineno">   47</span>}</div>
+<div class="ttc" id="aconfig_8hpp_html_a0b791a5285b16c620b21f76a3b7e85ff"><div class="ttname"><a href="config_8hpp.html#a0b791a5285b16c620b21f76a3b7e85ff">TRACK_SIZE_MM</a></div><div class="ttdeci">#define TRACK_SIZE_MM</div><div class="ttdef"><b>Definition</b> config.hpp:63</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0e0e9f1fdf0de91359ff6412daa1df4e" name="a0e0e9f1fdf0de91359ff6412daa1df4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0e9f1fdf0de91359ff6412daa1df4e">&#9670;&#160;</a></span>turnLineL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnLineL </td>
+          <td>(</td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>crosses</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>повернуться вокруг центра влево пересекая линии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">crosses</td><td>кол-во линий </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{ __turn_line(crosses, speed, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6">LineFound::LINE_LEFT</a>); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_found_html_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6"><div class="ttname"><a href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6">mosh::control::LineFound::LINE_LEFT</a></div><div class="ttdeci">@ LINE_LEFT</div><div class="ttdef"><b>Definition</b> quit.hpp:87</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a12cfabd0e199e63c9af384bf887133f5" name="a12cfabd0e199e63c9af384bf887133f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12cfabd0e199e63c9af384bf887133f5">&#9670;&#160;</a></span>turnLineR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnLineR </td>
+          <td>(</td>
+          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>crosses</em><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>повернуться вокруг центра направо по перекрёсткам </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">crosses</td><td>кол-во линий </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{ __turn_line(crosses, -speed, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f">LineFound::LINE_RIGHT</a>); }</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_found_html_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f"><div class="ttname"><a href="classmosh_1_1control_1_1_line_found.html#a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f">mosh::control::LineFound::LINE_RIGHT</a></div><div class="ttdeci">@ LINE_RIGHT</div><div class="ttdef"><b>Definition</b> quit.hpp:87</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aba30dee0ae5d779bfa8a45bcaea0288f" name="aba30dee0ae5d779bfa8a45bcaea0288f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba30dee0ae5d779bfa8a45bcaea0288f">&#9670;&#160;</a></span>wallBack() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wallBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямолинейное синхронное движение назад от стены (любой датчик) </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>ссылка на датчик </td></tr>
+    <tr><td class="paramname">distance</td><td>расстояние до стены </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорость движения </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                                           {</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a>(-speed), <a class="code hl_class" href="classmosh_1_1control_1_1_distance_read.html">DistanceRead</a>(sensor, wall_dist_cm, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_distance_read.html#acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81">DistanceRead::LESS</a>));</div>
+<div class="line"><span class="lineno">   70</span>}</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_distance_read_html"><div class="ttname"><a href="classmosh_1_1control_1_1_distance_read.html">mosh::control::DistanceRead</a></div><div class="ttdoc">Обработка расстояния</div><div class="ttdef"><b>Definition</b> quit.hpp:36</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_distance_read_html_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81"><div class="ttname"><a href="classmosh_1_1control_1_1_distance_read.html#acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81">mosh::control::DistanceRead::LESS</a></div><div class="ttdeci">@ LESS</div><div class="ttdef"><b>Definition</b> quit.hpp:42</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af6fff4eac9fa840d92645156c27fd6db" name="af6fff4eac9fa840d92645156c27fd6db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6fff4eac9fa840d92645156c27fd6db">&#9670;&#160;</a></span>wallBack() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wallBack </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямолинейное синхронное движение назад от стены (передний датчик) </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td>расстояния, на котором будет стены </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорость движения </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>{ <a class="code hl_function" href="#aba30dee0ae5d779bfa8a45bcaea0288f">wallBack</a>(*<a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.<a class="code hl_variable" href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">dist_front</a>, distance, speed); }</div>
+<div class="ttc" id="amoshlib_8cpp_html_aba30dee0ae5d779bfa8a45bcaea0288f"><div class="ttname"><a href="#aba30dee0ae5d779bfa8a45bcaea0288f">wallBack</a></div><div class="ttdeci">void wallBack(DistanceSensor &amp;sensor, uint8_t wall_dist_cm, int16_t speed)</div><div class="ttdoc">Прямолинейное синхронное движение назад от стены (любой датчик)</div><div class="ttdef"><b>Definition</b> moshlib.cpp:68</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9bc9a3cf9d07dddb65816bba152329b9" name="a9bc9a3cf9d07dddb65816bba152329b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc9a3cf9d07dddb65816bba152329b9">&#9670;&#160;</a></span>wallFront() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wallFront </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>sensor</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямолинейное синхронное движение до стены (любой датчик) </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>ссылка на датчик </td></tr>
+    <tr><td class="paramname">distance</td><td>расстояние до стены </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорость движения </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>                                                                            {</div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac580fef30c72fa8e5a7cf1039a10b37f">run::base</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a>(speed), <a class="code hl_class" href="classmosh_1_1control_1_1_distance_read.html">DistanceRead</a>(sensor, wall_dist_cm, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_distance_read.html#acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12">DistanceRead::GREATER</a>));</div>
+<div class="line"><span class="lineno">   64</span>}</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_distance_read_html_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12"><div class="ttname"><a href="classmosh_1_1control_1_1_distance_read.html#acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12">mosh::control::DistanceRead::GREATER</a></div><div class="ttdeci">@ GREATER</div><div class="ttdef"><b>Definition</b> quit.hpp:42</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afc921efd3a5888bc67079e7d7420b954" name="afc921efd3a5888bc67079e7d7420b954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc921efd3a5888bc67079e7d7420b954">&#9670;&#160;</a></span>wallFront() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wallFront </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a7ec4bbadff02ef2cd8526db58b12dfb9">DEFAULT_SPEED_PWM</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Прямолинейное синхронное движение до стены (передний датчик) </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td>расстояние до стены </td></tr>
+    <tr><td class="paramname">speed</td><td>ШИМ скорость движения </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>{ <a class="code hl_function" href="#a9bc9a3cf9d07dddb65816bba152329b9">wallFront</a>(*<a class="code hl_variable" href="enviroment_8cpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>.<a class="code hl_variable" href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">dist_front</a>, distance, speed); }</div>
+<div class="ttc" id="amoshlib_8cpp_html_a9bc9a3cf9d07dddb65816bba152329b9"><div class="ttname"><a href="#a9bc9a3cf9d07dddb65816bba152329b9">wallFront</a></div><div class="ttdeci">void wallFront(DistanceSensor &amp;sensor, uint8_t wall_dist_cm, uint8_t speed)</div><div class="ttdoc">Прямолинейное синхронное движение до стены (любой датчик)</div><div class="ttdef"><b>Definition</b> moshlib.cpp:62</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a433f174b127553cd6d7787831aa29d64" name="a433f174b127553cd6d7787831aa29d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433f174b127553cd6d7787831aa29d64">&#9670;&#160;</a></span>wallTimeL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wallTimeL </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение вдоль стены по ЛЕВОМУ датчику </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td>целевое расстояние в см </td></tr>
+    <tr><td class="paramname">runtime</td><td>время движения </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>                                                                  {</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_move_along_wall.html">MoveAlongWall</a>(distance, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">MoveAlongWall::DIST_LEFT</a>, speed), runtime);</div>
+<div class="line"><span class="lineno">   76</span>}</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html">mosh::control::MoveAlongWall</a></div><div class="ttdef"><b>Definition</b> move.hpp:90</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">mosh::control::MoveAlongWall::DIST_LEFT</a></div><div class="ttdeci">@ DIST_LEFT</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2fc8bd9e4ac623bc34adaa3a96b06a58" name="a2fc8bd9e4ac623bc34adaa3a96b06a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fc8bd9e4ac623bc34adaa3a96b06a58">&#9670;&#160;</a></span>wallTimeR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wallTimeR </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>distance</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>runtime</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>speed</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="config_8hpp.html#a62dba99ab0b8b9205c0fa0e0cc78bc45">DEFAULT_SPEED_TICK</a></span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Движение вдоль стены по ПРАВОМУ датчику </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td>целевое расстояние в см </td></tr>
+    <tr><td class="paramname">runtime</td><td>время движения </td></tr>
+    <tr><td class="paramname">speed</td><td>скорость </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>                                                                  {</div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_function" href="namespacemosh_1_1run.html#ac52ffc1a219b12d57fe95b95519a8531">run::time</a>(<a class="code hl_class" href="classmosh_1_1control_1_1_move_along_wall.html">MoveAlongWall</a>(distance, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">MoveAlongWall::DIST_RIGHT</a>, speed), runtime);</div>
+<div class="line"><span class="lineno">   80</span>}</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">mosh::control::MoveAlongWall::DIST_RIGHT</a></div><div class="ttdeci">@ DIST_RIGHT</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

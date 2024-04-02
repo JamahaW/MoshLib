@@ -1,0 +1,50 @@
+\doxysection{Класс mosh\+::control\+::Quiter}
+\hypertarget{classmosh_1_1control_1_1_quiter}{}\label{classmosh_1_1control_1_1_quiter}\index{mosh::control::Quiter@{mosh::control::Quiter}}
+
+
+Интерфейс обработки завершения движения  
+
+
+
+
+{\ttfamily \#include $<$quit.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Quiter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.489362cm]{classmosh_1_1control_1_1_quiter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{tick}} () const =0
+\begin{DoxyCompactList}\small\item\em Обработка события \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Интерфейс обработки завершения движения 
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}\label{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb} 
+\index{mosh::control::Quiter@{mosh::control::Quiter}!tick@{tick}}
+\index{tick@{tick}!mosh::control::Quiter@{mosh::control::Quiter}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily virtual bool mosh\+::control\+::\+Quiter\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Обработка события 
+
+\begin{DoxyReturn}{Возвращает}
+true если ещё НЕ вышел, false когда следует прервать работу 
+\end{DoxyReturn}
+
+
+Замещается в \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684}{mosh\+::control\+::\+On\+Timer}}, \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_adfe11d43b0244f9fb435c172a119d636}{mosh\+::control\+::\+Distance\+Read}}, \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved_af9c1fc953167bab5bf27e800d9f3ca6c}{mosh\+::control\+::\+Distance\+Moved}} и \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0}{mosh\+::control\+::\+Line\+Found}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{quit_8hpp}{quit.\+hpp}}\end{DoxyCompactItemize}

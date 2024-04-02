@@ -1,0 +1,81 @@
+\doxysection{Класс mosh\+::control\+::On\+Timer}
+\hypertarget{classmosh_1_1control_1_1_on_timer}{}\label{classmosh_1_1control_1_1_on_timer}\index{mosh::control::OnTimer@{mosh::control::OnTimer}}
+
+
+Обработка выхода по таймеру  
+
+
+
+
+{\ttfamily \#include $<$quit.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::On\+Timer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_on_timer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2420307908eaa5751b79b27bdf883f6e}{On\+Timer}} (uint16\+\_\+t duration)
+\begin{DoxyCompactList}\small\item\em Выход по таймеру \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обработка события \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Обработка выхода по таймеру 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_on_timer_a2420307908eaa5751b79b27bdf883f6e}\label{classmosh_1_1control_1_1_on_timer_a2420307908eaa5751b79b27bdf883f6e} 
+\index{mosh::control::OnTimer@{mosh::control::OnTimer}!OnTimer@{OnTimer}}
+\index{OnTimer@{OnTimer}!mosh::control::OnTimer@{mosh::control::OnTimer}}
+\doxysubsubsection{\texorpdfstring{OnTimer()}{OnTimer()}}
+{\footnotesize\ttfamily On\+Timer\+::\+On\+Timer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{duration }\end{DoxyParamCaption})}
+
+
+
+Выход по таймеру 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em duration} & время \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006\ :\ END\_TIME(millis()\ +\ duration)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684}\label{classmosh_1_1control_1_1_on_timer_a2cdb9f4d871cd3265be2118526c00684} 
+\index{mosh::control::OnTimer@{mosh::control::OnTimer}!tick@{tick}}
+\index{tick@{tick}!mosh::control::OnTimer@{mosh::control::OnTimer}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily bool On\+Timer\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обработка события 
+
+\begin{DoxyReturn}{Возвращает}
+true если ещё НЕ вышел, false когда следует прервать работу 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{mosh\+::control\+::\+Quiter}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{\ \textcolor{keywordflow}{return}\ millis()\ <\ END\_TIME;\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{quit_8hpp}{quit.\+hpp}}\item 
+src/control/\mbox{\hyperlink{quit_8cpp}{quit.\+cpp}}\end{DoxyCompactItemize}

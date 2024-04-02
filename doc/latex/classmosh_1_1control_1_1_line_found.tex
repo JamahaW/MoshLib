@@ -1,0 +1,122 @@
+\doxysection{Класс mosh\+::control\+::Line\+Found}
+\hypertarget{classmosh_1_1control_1_1_line_found}{}\label{classmosh_1_1control_1_1_line_found}\index{mosh::control::LineFound@{mosh::control::LineFound}}
+
+
+Найден перекрёсток  
+
+
+
+
+{\ttfamily \#include $<$quit.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Line\+Found\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_line_found}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}{MODE}} \{ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6}{LINE\+\_\+\+LEFT}}
+, \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f}{LINE\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051}{LINE\+\_\+\+BOTH}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_ada997906704cabea8b63c92bdcd7fb33}{Line\+Found}} (\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}{MODE}} mode, uint8\+\_\+t crosses, bool exit\+\_\+at)
+\item 
+bool \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обработка события \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Найден перекрёсток 
+
+\doxysubsection{Перечисления}
+\Hypertarget{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}\label{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f} 
+\index{mosh::control::LineFound@{mosh::control::LineFound}!MODE@{MODE}}
+\index{MODE@{MODE}!mosh::control::LineFound@{mosh::control::LineFound}}
+\doxysubsubsection{\texorpdfstring{MODE}{MODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}{mosh\+::control\+::\+Line\+Found\+::\+MODE}}}
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE\_LEFT@{LINE\_LEFT}!mosh::control::LineFound@{mosh::control::LineFound}}\index{mosh::control::LineFound@{mosh::control::LineFound}!LINE\_LEFT@{LINE\_LEFT}}}\Hypertarget{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6}\label{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6} 
+LINE\+\_\+\+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE\_RIGHT@{LINE\_RIGHT}!mosh::control::LineFound@{mosh::control::LineFound}}\index{mosh::control::LineFound@{mosh::control::LineFound}!LINE\_RIGHT@{LINE\_RIGHT}}}\Hypertarget{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f}\label{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f} 
+LINE\+\_\+\+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINE\_BOTH@{LINE\_BOTH}!mosh::control::LineFound@{mosh::control::LineFound}}\index{mosh::control::LineFound@{mosh::control::LineFound}!LINE\_BOTH@{LINE\_BOTH}}}\Hypertarget{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051}\label{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051} 
+LINE\+\_\+\+BOTH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \{\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6}{LINE\_LEFT}},\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f}{LINE\_RIGHT}},\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051}{LINE\_BOTH}}\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_line_found_ada997906704cabea8b63c92bdcd7fb33}\label{classmosh_1_1control_1_1_line_found_ada997906704cabea8b63c92bdcd7fb33} 
+\index{mosh::control::LineFound@{mosh::control::LineFound}!LineFound@{LineFound}}
+\index{LineFound@{LineFound}!mosh::control::LineFound@{mosh::control::LineFound}}
+\doxysubsubsection{\texorpdfstring{LineFound()}{LineFound()}}
+{\footnotesize\ttfamily Line\+Found\+::\+Line\+Found (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11f}{MODE}}}]{mode,  }\item[{uint8\+\_\+t}]{crosses,  }\item[{bool}]{exit\+\_\+at }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00028\ \ \ \ \ EXIT(exit\_at),\ trigger((mode\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6}{LINE\_LEFT}})\ ?\ \_\_on\_line\_left\ :\ (mode\ ==\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f}{LINE\_RIGHT}})\ ?\ \_\_on\_line\_right\ :\ \_\_on\_line\_both),\ CROSSES(crosses)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0}\label{classmosh_1_1control_1_1_line_found_abe545bff595d3411de0724a3c8787ea0} 
+\index{mosh::control::LineFound@{mosh::control::LineFound}!tick@{tick}}
+\index{tick@{tick}!mosh::control::LineFound@{mosh::control::LineFound}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily bool Line\+Found\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обработка события 
+
+\begin{DoxyReturn}{Возвращает}
+true если ещё НЕ вышел, false когда следует прервать работу 
+\end{DoxyReturn}
+
+
+Замещает \mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{mosh\+::control\+::\+Quiter}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ state\ =\ trigger()\ \string^\ EXIT;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (state)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!found)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ passed++;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ found\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ passed\ <\ CROSSES;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{quit_8hpp}{quit.\+hpp}}\item 
+src/control/\mbox{\hyperlink{quit_8cpp}{quit.\+cpp}}\end{DoxyCompactItemize}

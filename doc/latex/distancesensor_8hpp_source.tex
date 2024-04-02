@@ -1,0 +1,65 @@
+\doxysection{distancesensor.\+hpp}
+\hypertarget{distancesensor_8hpp_source}{}\label{distancesensor_8hpp_source}\index{src/hardware/distancesensor.hpp@{src/hardware/distancesensor.hpp}}
+\mbox{\hyperlink{distancesensor_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8hpp}{core/config.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemosh}{mosh}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }hardware\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ MIN\_DISTANCE,\ MAX\_DISTANCE;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ READ\_PERIOD;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{mutable}\ uint32\_t\ next\_read\ =\ 0;\ \textcolor{comment}{//\ время\ следующего\ опроса\ датчика}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{mutable}\ uint8\_t\ value\ =\ 0;\ \textcolor{comment}{//\ предыдущее\ значение\ датчика}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a841357df44460801e7a7e57f1e36c074}{update}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_ac40c676fbade7fd4e698d73164996872}{DistanceSensor}}(uint16\_t\ min\_dist,\ uint16\_t\ max\_dist,\ uint8\_t\ period);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_a5bfa64aea866c457bc153bf0153c9957}{read}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor_aa0ed33ed19d91bf4e9d29a23434de871}{operator\ ()\ }}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{NoDistanceSensor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{protected}:\ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor_ae69f17a785bda3519246baef3f305f31}{update}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}:\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor_ad72b71b1003c3b20d68096916daedb79}{NoDistanceSensor}}()\ :\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}(0,\ 0,\ 0)\ \{\}}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{IrSensorSharp}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PIN;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00056\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a45eeaaa299d4446d2097434d4714c510}{update}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp_a1d374e3fbce53164887326f80b954b9e}{IrSensorSharp}}(uint8\_t\ pin);}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{UltraSonic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{DistanceSensor}}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PIN\_ECHO,\ PIN\_TRIG;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_afb4d14457ef65344585c8a75e3896676}{update}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic_a51bd9d04ed5b5bafdb4165008fa0f9fc}{UltraSonic}}(uint8\_t\ pin\_echo,\ uint8\_t\ pin\_trig);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ \}\ \textcolor{comment}{//\ namespace\ mosh}}
+
+\end{DoxyCode}

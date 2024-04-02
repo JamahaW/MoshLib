@@ -1,0 +1,25 @@
+\doxysection{run.\+cpp}
+\hypertarget{run_8cpp_source}{}\label{run_8cpp_source}\index{src/core/run.cpp@{src/core/run.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}run.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}MoshLib.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00005}00005\ \textcolor{keyword}{using\ namespace\ }mosh::control;}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00008}00008\ \textcolor{keywordtype}{void}\ mosh::run::base(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh::control::Mover}}\&\ mover,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh::control::Quiter}}\&\ quiter,\ \textcolor{keywordtype}{bool}\ hold\_at\_end)\ \{}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{while}\ (quiter.\mbox{\hyperlink{classmosh_1_1control_1_1_quiter_aeee758c24de520f4416ee3609cbf20cb}{tick}}())\ mover.\mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{tick}}();}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00010}00010\ \ \ \ \ motors::reset();}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{if}\ (hold\_at\_end)\ goHold();}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00012}00012\ \ \ \ \ motorL.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(0);}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00013}00013\ \ \ \ \ motorR.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(0);}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00016}00016\ \textcolor{keywordtype}{void}\ mosh::run::time(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmosh_1_1control_1_1_mover}{mosh::control::Mover}}\&\ mover,\ uint32\_t\ runtime)\ \{\ base(mover,\ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer}{OnTimer}}(runtime));\ \}}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00018}00018\ \textcolor{keywordtype}{void}\ mosh::run::speed(int8\_t\ speed,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmosh_1_1control_1_1_quiter}{mosh::control::Quiter}}\&\ quiter)\ \{\ base(\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed}{KeepSpeed}}(speed,\ speed),\ quiter);\ \}}
+\DoxyCodeLine{\Hypertarget{run_8cpp_source_l00019}00019\ }
+
+\end{DoxyCode}

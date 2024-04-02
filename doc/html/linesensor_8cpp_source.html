@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Исходный файл src/hardware/linesensor.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_59b1e980a670de987a696efba6dbbdbc.html">hardware</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">linesensor.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;linesensor.hpp&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using namespace </span>mosh::hardware;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classmosh_1_1hardware_1_1_line_sensor.html#a328af9f4ba7948d38bee0d193aa3dba4">    6</a></span><a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a328af9f4ba7948d38bee0d193aa3dba4">LineSensor::LineSensor</a>(<span class="keyword">const</span> uint8_t pin, <span class="keyword">const</span> uint16_t on_line, <span class="keyword">const</span> uint16_t on_field)</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    : PIN(pin), ON_LINE(on_line), ON_FIELD(on_field) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    pinMode(PIN, INPUT);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classmosh_1_1hardware_1_1_line_sensor.html#a3968ca8384190ac12b2945c33c94a335">   11</a></span>int16_t <a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a3968ca8384190ac12b2945c33c94a335">LineSensor::readRaw</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> analogRead(PIN); }</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classmosh_1_1hardware_1_1_line_sensor.html#a96fcd71a7d4de5eca3dc433ccdb1d1a6">   13</a></span>int8_t <a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a96fcd71a7d4de5eca3dc433ccdb1d1a6">LineSensor::read</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    int16_t ret = map(<a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a3968ca8384190ac12b2945c33c94a335">readRaw</a>(), ON_LINE, ON_FIELD, 100, 0);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">return</span> (int8_t) constrain(ret, 0, 100);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classmosh_1_1hardware_1_1_line_sensor.html#a0ed684ef06eb2d545c8235c59a80a484">   18</a></span>int8_t <a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a0ed684ef06eb2d545c8235c59a80a484">LineSensor::operator () </a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a96fcd71a7d4de5eca3dc433ccdb1d1a6">read</a>(); }</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classmosh_1_1hardware_1_1_line_sensor.html#a75c5deae7c0f7397e164f241bc89d06c">   20</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a75c5deae7c0f7397e164f241bc89d06c">LineSensor::on</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="classmosh_1_1hardware_1_1_line_sensor.html#a96fcd71a7d4de5eca3dc433ccdb1d1a6">read</a>() &gt; GRAY_PERCENT; }</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html_a0ed684ef06eb2d545c8235c59a80a484"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html#a0ed684ef06eb2d545c8235c59a80a484">mosh::hardware::LineSensor::operator()</a></div><div class="ttdeci">int8_t operator()() const</div><div class="ttdoc">Оператор Функтора для сокращения</div><div class="ttdef"><b>Definition</b> <a href="#l00018">linesensor.cpp:18</a></div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html_a328af9f4ba7948d38bee0d193aa3dba4"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html#a328af9f4ba7948d38bee0d193aa3dba4">mosh::hardware::LineSensor::LineSensor</a></div><div class="ttdeci">LineSensor(uint8_t pin, uint16_t on_line, uint16_t on_field)</div><div class="ttdoc">Аналоговый датчик линии</div><div class="ttdef"><b>Definition</b> <a href="#l00006">linesensor.cpp:6</a></div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html_a3968ca8384190ac12b2945c33c94a335"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html#a3968ca8384190ac12b2945c33c94a335">mosh::hardware::LineSensor::readRaw</a></div><div class="ttdeci">int16_t readRaw() const</div><div class="ttdoc">Считать значение с АЦП</div><div class="ttdef"><b>Definition</b> <a href="#l00011">linesensor.cpp:11</a></div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html_a75c5deae7c0f7397e164f241bc89d06c"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html#a75c5deae7c0f7397e164f241bc89d06c">mosh::hardware::LineSensor::on</a></div><div class="ttdeci">bool on() const</div><div class="ttdoc">Проверить логическое наличие линии</div><div class="ttdef"><b>Definition</b> <a href="#l00020">linesensor.cpp:20</a></div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html_a96fcd71a7d4de5eca3dc433ccdb1d1a6"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html#a96fcd71a7d4de5eca3dc433ccdb1d1a6">mosh::hardware::LineSensor::read</a></div><div class="ttdeci">int8_t read() const</div><div class="ttdoc">определить на сколько (%) датчик находится на линии</div><div class="ttdef"><b>Definition</b> <a href="#l00013">linesensor.cpp:13</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

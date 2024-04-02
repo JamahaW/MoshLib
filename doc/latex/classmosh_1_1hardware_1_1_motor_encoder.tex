@@ -1,0 +1,230 @@
+\doxysection{Класс mosh\+::hardware\+::Motor\+Encoder}
+\hypertarget{classmosh_1_1hardware_1_1_motor_encoder}{}\label{classmosh_1_1hardware_1_1_motor_encoder}\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+
+
+класс DC-\/мотор-\/энкодера, управляемого H-\/мостом  
+
+
+
+
+{\ttfamily \#include $<$motorencoder.\+hpp$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a82fcedb6fb6304a9c1719daf610f6f92}{Motor\+Encoder}} (void(\texorpdfstring{$\ast$}{*}encoder\+\_\+handler)(void), bool inverted, uint8\+\_\+t pin\+\_\+speed, uint8\+\_\+t pin\+\_\+dir, uint8\+\_\+t pin\+\_\+enc\+\_\+a, uint8\+\_\+t pin\+\_\+enc\+\_\+b)
+\begin{DoxyCompactList}\small\item\em Мотор-\/Энкодер управляемый H-\/мостом \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}{enc}} ()
+\begin{DoxyCompactList}\small\item\em вызывается исключительно в прерывании \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}{reset}} ()
+\begin{DoxyCompactList}\small\item\em сброс \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}{set\+Dir}} (bool backward)
+\begin{DoxyCompactList}\small\item\em Установить направление \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{set\+PWM}} (uint8\+\_\+t pwm)
+\begin{DoxyCompactList}\small\item\em Установить шим \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{set\+Dir\+PWM}} (int16\+\_\+t power)
+\begin{DoxyCompactList}\small\item\em Установить шим-\/направление. Отрицательные значения соотвествуют реверсу. ШИМ берётся по модулю и ограничивается. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}{set\+Speed}} (int16\+\_\+t dtick)
+\begin{DoxyCompactList}\small\item\em Установить целевую скорость вращения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}{spin}} ()
+\begin{DoxyCompactList}\small\item\em вращать мотор (вызывать постоянно) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32\+\_\+t \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+класс DC-\/мотор-\/энкодера, управляемого H-\/мостом 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_a82fcedb6fb6304a9c1719daf610f6f92}\label{classmosh_1_1hardware_1_1_motor_encoder_a82fcedb6fb6304a9c1719daf610f6f92} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!MotorEncoder@{MotorEncoder}}
+\index{MotorEncoder@{MotorEncoder}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{MotorEncoder()}{MotorEncoder()}}
+{\footnotesize\ttfamily Motor\+Encoder\+::\+Motor\+Encoder (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*})(void)}]{encoder\+\_\+handler,  }\item[{bool}]{inverted,  }\item[{uint8\+\_\+t}]{pin\+\_\+speed,  }\item[{uint8\+\_\+t}]{pin\+\_\+dir,  }\item[{uint8\+\_\+t}]{pin\+\_\+enc\+\_\+a,  }\item[{uint8\+\_\+t}]{pin\+\_\+enc\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Мотор-\/Энкодер управляемый H-\/мостом 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em encoder\+\_\+handler} & обработчик энкодера в прерывании \\
+\hline
+{\em inverted} & глобальная инверсия мотора (направления и энкодер) \\
+\hline
+{\em pin\+\_\+speed} & пин скорости (ШИМ) \\
+\hline
+{\em pin\+\_\+dir} & пин скорости (Цифровой) \\
+\hline
+{\em pin\+\_\+enc\+\_\+a} & пин основного канала энкодера (Цифровой ПРЕРЫВАНИЕ) \\
+\hline
+{\em pin\+\_\+enc\+\_\+b} & пин второго канала энкодера (Цифровой) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \ \ \ \ :\ PIN\_SPEED(pin\_speed),\ PIN\_DIR(pin\_dir),\ PIN\_ENC\_B(pin\_enc\_b),\ INVERTED(inverted)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ pinMode(PIN\_SPEED,\ OUTPUT);}
+\DoxyCodeLine{00009\ \ \ \ \ pinMode(PIN\_DIR,\ OUTPUT);}
+\DoxyCodeLine{00010\ \ \ \ \ pinMode(PIN\_ENC\_B,\ INPUT);}
+\DoxyCodeLine{00011\ \ \ \ \ pinMode(pin\_enc\_a,\ INPUT);}
+\DoxyCodeLine{00012\ \ \ \ \ attachInterrupt(digitalPinToInterrupt(pin\_enc\_a),\ encoder\_handler,\ FALLING);}
+\DoxyCodeLine{00013\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7}\label{classmosh_1_1hardware_1_1_motor_encoder_aa45c988c1f62c22b4cd3e2e7f19b80c7} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!enc@{enc}}
+\index{enc@{enc}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{enc()}{enc()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::enc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+вызывается исключительно в прерывании 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \{\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}\ +=\ (digitalRead(PIN\_ENC\_B)\ \string^\ INVERTED)\ ?\ (1)\ :\ (-\/1);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76}\label{classmosh_1_1hardware_1_1_motor_encoder_af75bc3b692e9896e31f77a480142fe76} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!reset@{reset}}
+\index{reset@{reset}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+сброс 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}\ =\ next\_pos\ =\ speed\_set\ =\ speed\ =\ timer\ =\ 0;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}\label{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!setDir@{setDir}}
+\index{setDir@{setDir}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{setDir()}{setDir()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::set\+Dir (\begin{DoxyParamCaption}\item[{bool}]{backward }\end{DoxyParamCaption})}
+
+
+
+Установить направление 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em backward} & (true -\/ нормально, false -\/ реверс) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \{\ digitalWrite(PIN\_DIR,\ backward\ \string^\ INVERTED);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}\label{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!setDirPWM@{setDirPWM}}
+\index{setDirPWM@{setDirPWM}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{setDirPWM()}{setDirPWM()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::set\+Dir\+PWM (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{power }\end{DoxyParamCaption})}
+
+
+
+Установить шим-\/направление. Отрицательные значения соотвествуют реверсу. ШИМ берётся по модулю и ограничивается. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em power} & (-\/255..255) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_a9d02cdcec23a9e0d2ba05200e661bc0f}{setDir}}(power\ <\ 0);}
+\DoxyCodeLine{00025\ \ \ \ \ power\ =\ abs(power);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(constrain(power,\ 0,\ 255));}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}\label{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!setPWM@{setPWM}}
+\index{setPWM@{setPWM}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{setPWM()}{setPWM()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::set\+PWM (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pwm }\end{DoxyParamCaption})}
+
+
+
+Установить шим 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pwm} & ШИМ 0..255 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{\ analogWrite(PIN\_SPEED,\ pwm);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0}\label{classmosh_1_1hardware_1_1_motor_encoder_a0344bdfbb5f002688ef844fb0f17efa0} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{setSpeed()}{setSpeed()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::set\+Speed (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{dtick }\end{DoxyParamCaption})}
+
+
+
+Установить целевую скорость вращения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em dtick} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{\ speed\ =\ speed\_set\ =\ constrain(dtick,\ -\/\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e}{PARAMS::MAX\_DELTA\_TICKS}},\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea539412154d1e32d25bd9f529df96369e}{PARAMS::MAX\_DELTA\_TICKS}});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7}\label{classmosh_1_1hardware_1_1_motor_encoder_a1a9b21487bfe8172c915168aa57b1ae7} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!spin@{spin}}
+\index{spin@{spin}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{spin()}{spin()}}
+{\footnotesize\ttfamily void Motor\+Encoder\+::spin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+вращать мотор (вызывать постоянно) 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(\mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea4b4ea0892c4af4fbf8969c4008d9bfa0}{KP\_SPEED}}\ *\ (next\_pos\ -\/\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}));}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (millis()\ <=\ timer)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00034\ \ \ \ \ timer\ =\ millis()\ +\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eeadf8135a95b5fed630158c49b7768964e}{PARAMS::SPIN\_PERIOD\_MS}};}
+\DoxyCodeLine{00035\ \ \ \ \ next\_pos\ +=\ speed;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}\label{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba} 
+\index{mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}!position@{position}}
+\index{position@{position}!mosh::hardware::MotorEncoder@{mosh::hardware::MotorEncoder}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily volatile int32\+\_\+t mosh\+::hardware\+::\+Motor\+Encoder\+::position = 0}
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/hardware/\mbox{\hyperlink{motorencoder_8hpp}{motorencoder.\+hpp}}\item 
+src/hardware/\mbox{\hyperlink{motorencoder_8cpp}{motorencoder.\+cpp}}\end{DoxyCompactItemize}

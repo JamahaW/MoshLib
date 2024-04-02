@@ -1,0 +1,34 @@
+\doxysection{linesensor.\+hpp}
+\hypertarget{linesensor_8hpp_source}{}\label{linesensor_8hpp_source}\index{src/hardware/linesensor.hpp@{src/hardware/linesensor.hpp}}
+\mbox{\hyperlink{linesensor_8hpp}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8hpp}{core/config.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacemosh}{mosh}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }hardware\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{LineSensor}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ PIN;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ ON\_LINE,\ ON\_FIELD;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a328af9f4ba7948d38bee0d193aa3dba4}{LineSensor}}(uint8\_t\ pin,\ uint16\_t\ on\_line,\ uint16\_t\ on\_field);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ int16\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{readRaw}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ int8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a96fcd71a7d4de5eca3dc433ccdb1d1a6}{read}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ int8\_t\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a0ed684ef06eb2d545c8235c59a80a484}{operator\ ()\ }}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a75c5deae7c0f7397e164f241bc89d06c}{on}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ mosh}}
+
+\end{DoxyCode}

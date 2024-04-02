@@ -1,0 +1,113 @@
+\doxysection{Класс mosh\+::control\+::Sync}
+\hypertarget{classmosh_1_1control_1_1_sync}{}\label{classmosh_1_1control_1_1_sync}\index{mosh::control::Sync@{mosh::control::Sync}}
+
+
+Синхронизированое движение моторов  
+
+
+
+
+{\ttfamily \#include $<$move.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Sync\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_sync}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{Sync}} (int16\+\_\+t fact\+\_\+l, int16\+\_\+t fact\+\_\+r, int8\+\_\+t kl, int8\+\_\+t kr)
+\begin{DoxyCompactList}\small\item\em Синхронное вращение моторов \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_sync_a8c6008902ff1ad8c13ce22c54973bdb0}{Sync}} (int16\+\_\+t fact)
+\begin{DoxyCompactList}\small\item\em Паралельный сихронный регулятор \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обновление системы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Синхронизированое движение моторов 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}\label{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211} 
+\index{mosh::control::Sync@{mosh::control::Sync}!Sync@{Sync}}
+\index{Sync@{Sync}!mosh::control::Sync@{mosh::control::Sync}}
+\doxysubsubsection{\texorpdfstring{Sync()}{Sync()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sync\+::\+Sync (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{fact\+\_\+l,  }\item[{int16\+\_\+t}]{fact\+\_\+r,  }\item[{int8\+\_\+t}]{kl,  }\item[{int8\+\_\+t}]{kr }\end{DoxyParamCaption})}
+
+
+
+Синхронное вращение моторов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em fact\+\_\+l} & Смещение левого мотора \\
+\hline
+{\em fact\+\_\+r} & Смещение правого мотора \\
+\hline
+{\em kl} & Множитель смещения левого \\
+\hline
+{\em kr} & Множитель смещения правого \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00057\ \ \ \ \ FACT\_L(fact\_l),\ FACT\_R(fact\_r),\ KL(kl),\ KR(kr),\ SIG\_L(\mbox{\hyperlink{config_8hpp_a8c5ff70b6b28cd0157c50a22406f92c4}{SIGN}}(KL)),\ SIG\_R(KR)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{namespacemotors_a93992359acbce82869776ee24630c201}{motors::reset}}();}
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1control_1_1_sync_a8c6008902ff1ad8c13ce22c54973bdb0}\label{classmosh_1_1control_1_1_sync_a8c6008902ff1ad8c13ce22c54973bdb0} 
+\index{mosh::control::Sync@{mosh::control::Sync}!Sync@{Sync}}
+\index{Sync@{Sync}!mosh::control::Sync@{mosh::control::Sync}}
+\doxysubsubsection{\texorpdfstring{Sync()}{Sync()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sync\+::\+Sync (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{fact }\end{DoxyParamCaption})}
+
+
+
+Паралельный сихронный регулятор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em fact} & скорость ШИМ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ :\ \mbox{\hyperlink{classmosh_1_1control_1_1_sync_aac6e34b782b4de75acdd15a39626a211}{Sync}}(fact,\ fact,\ 1,\ 1)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a}\label{classmosh_1_1control_1_1_sync_adfedbc89fb1dee3f68ff7ba5f3ec742a} 
+\index{mosh::control::Sync@{mosh::control::Sync}!tick@{tick}}
+\index{tick@{tick}!mosh::control::Sync@{mosh::control::Sync}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void Sync\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обновление системы 
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{mosh\+::control\+::\+Mover}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{//\ TODO\ разобоаться\ как\ сделать\ не\ ШИМ}}
+\DoxyCodeLine{00064\ \ \ \ \ int16\_t\ u\ =\ (KL\ *\ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}}\ -\/\ KR\ *\ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_ad4a5aea4b71f5eb870d63a2870c934ba}{position}})\ *\ \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea59e05a5843b96454cd887cb22f8c9e2f}{PARAMS::SYNC\_K}};}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(FACT\_L\ -\/\ u\ *\ SIG\_L);}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_adbc115d4366eed0a9dcd71a4704b7c39}{setDirPWM}}(FACT\_R\ +\ u\ *\ SIG\_R);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{move_8hpp}{move.\+hpp}}\item 
+src/control/\mbox{\hyperlink{move_8cpp}{move.\+cpp}}\end{DoxyCompactItemize}

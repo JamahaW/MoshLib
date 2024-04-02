@@ -1,0 +1,81 @@
+\doxysection{Файл src/core/enviroment.cpp}
+\hypertarget{enviroment_8cpp}{}\label{enviroment_8cpp}\index{src/core/enviroment.cpp@{src/core/enviroment.cpp}}
+{\ttfamily \#include "{}enviroment.\+hpp"{}}\newline
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} \mbox{\hyperlink{enviroment_8cpp_a819b91b43c618b3632e8a8a68d099efb}{lineL}} (\mbox{\hyperlink{config_8hpp_a0ff1109f42be60d8dbf393f9402ab69c}{LINE\+\_\+L}}, \mbox{\hyperlink{config_8hpp_ad03c6040d0a5fe3f07b252f11b2bfbe5}{L\+\_\+\+LINE}}, \mbox{\hyperlink{config_8hpp_a680093f8a6625cf5081210d7b8e0999e}{L\+\_\+\+FIELD}})
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} \mbox{\hyperlink{enviroment_8cpp_a566cbf3f924b8e5a46690d2af846422d}{lineR}} (\mbox{\hyperlink{config_8hpp_a493dcfc2f8b8a46877111a004725acc8}{LINE\+\_\+R}}, \mbox{\hyperlink{config_8hpp_aa5b9d05809fd87870ee83c18f387c417}{R\+\_\+\+LINE}}, \mbox{\hyperlink{config_8hpp_a49415f35c5e58fc59909a35d43e790e1}{R\+\_\+\+FIELD}})
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{mosh\+::hardware\+::\+No\+Distance\+Sensor}} \mbox{\hyperlink{enviroment_8cpp_a2fb0a982fefe2782d8ce55df197f5e33}{no\+\_\+sensor}}
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} \mbox{\hyperlink{enviroment_8cpp_aecb7c020e5b69777d102d074fddb00b1}{ir0}} (\mbox{\hyperlink{config_8hpp_a938fdcc7fa29ce25d037bcff1d1f5282}{IR\+\_\+0}})
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} \mbox{\hyperlink{enviroment_8cpp_a270965713e355a3a36d54bf30fba42bb}{ir1}} (\mbox{\hyperlink{config_8hpp_a11ec7abbe5bee76637e496513a45e67e}{IR\+\_\+1}})
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{mosh\+::hardware\+::\+Ultra\+Sonic}} \mbox{\hyperlink{enviroment_8cpp_a7af41155c31352e42e70f4ef0afbeb8b}{us}} (\mbox{\hyperlink{config_8hpp_a60240f82bf58ebadfbe05d1762f6955b}{US\+\_\+\+ECHO}}, \mbox{\hyperlink{config_8hpp_a36c53a01b5fa0a07b02a673165abf62d}{US\+\_\+\+TRIG}})
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} \mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}} (\mbox{\hyperlink{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166}{mosh\+::hardware\+::\+\_\+\+\_\+l\+\_\+int}}, \mbox{\hyperlink{config_8hpp_adc604ea34cb7de9e61cd091e4e896bff}{MOTOR\+\_\+\+L\+\_\+\+INVERT}}, \mbox{\hyperlink{config_8hpp_abd3a04df236e11c84aa8bdd139c52a61}{MOTOR\+\_\+\+L\+\_\+\+SPEED}}, \mbox{\hyperlink{config_8hpp_a764d34170cc1b6f45ad661d44007f6e2}{MOTOR\+\_\+\+L\+\_\+\+DIR}}, \mbox{\hyperlink{config_8hpp_ac60ec82e672987f20581b8f04194b239}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+A}}, \mbox{\hyperlink{config_8hpp_ab95d88cdaa359968f5c99b5bbfbf8e11}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+B}})
+\item 
+\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} \mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}} (\mbox{\hyperlink{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8}{mosh\+::hardware\+::\+\_\+\+\_\+r\+\_\+int}}, \mbox{\hyperlink{config_8hpp_a8be735042a4b545f714a2782e3561fad}{MOTOR\+\_\+\+R\+\_\+\+INVERT}}, \mbox{\hyperlink{config_8hpp_acb0513aae8ccb5a9a3ae72e16aec059c}{MOTOR\+\_\+\+R\+\_\+\+SPEED}}, \mbox{\hyperlink{config_8hpp_a07416a19a96ef31a4815460e47c1bb12}{MOTOR\+\_\+\+R\+\_\+\+DIR}}, \mbox{\hyperlink{config_8hpp_a9bf2c6983b07add039e9616a6e2dbe40}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+A}}, \mbox{\hyperlink{config_8hpp_a6e7dd8fc8ac4c25a52d6452ce642dff6}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+B}})
+\item 
+\mbox{\hyperlink{struct_robot_config}{Robot\+Config}} \mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{enviroment_8cpp_aecb7c020e5b69777d102d074fddb00b1}\label{enviroment_8cpp_aecb7c020e5b69777d102d074fddb00b1} 
+\index{enviroment.cpp@{enviroment.cpp}!ir0@{ir0}}
+\index{ir0@{ir0}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{ir0}{ir0}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} ir0(\mbox{\hyperlink{config_8hpp_a938fdcc7fa29ce25d037bcff1d1f5282}{IR\+\_\+0}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{config_8hpp_a938fdcc7fa29ce25d037bcff1d1f5282}{IR\+\_\+0}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{enviroment_8cpp_a270965713e355a3a36d54bf30fba42bb}\label{enviroment_8cpp_a270965713e355a3a36d54bf30fba42bb} 
+\index{enviroment.cpp@{enviroment.cpp}!ir1@{ir1}}
+\index{ir1@{ir1}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{ir1}{ir1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_ir_sensor_sharp}{mosh\+::hardware\+::\+Ir\+Sensor\+Sharp}} ir1(\mbox{\hyperlink{config_8hpp_a11ec7abbe5bee76637e496513a45e67e}{IR\+\_\+1}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{config_8hpp_a11ec7abbe5bee76637e496513a45e67e}{IR\+\_\+1}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{enviroment_8cpp_a819b91b43c618b3632e8a8a68d099efb}\label{enviroment_8cpp_a819b91b43c618b3632e8a8a68d099efb} 
+\index{enviroment.cpp@{enviroment.cpp}!lineL@{lineL}}
+\index{lineL@{lineL}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{lineL}{lineL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} lineL(\mbox{\hyperlink{config_8hpp_a0ff1109f42be60d8dbf393f9402ab69c}{LINE\+\_\+L}}, \mbox{\hyperlink{config_8hpp_ad03c6040d0a5fe3f07b252f11b2bfbe5}{L\+\_\+\+LINE}}, \mbox{\hyperlink{config_8hpp_a680093f8a6625cf5081210d7b8e0999e}{L\+\_\+\+FIELD}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{config_8hpp_a0ff1109f42be60d8dbf393f9402ab69c}{LINE\+\_\+L}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_ad03c6040d0a5fe3f07b252f11b2bfbe5}{L\+\_\+\+LINE}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a680093f8a6625cf5081210d7b8e0999e}{L\+\_\+\+FIELD}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{enviroment_8cpp_a566cbf3f924b8e5a46690d2af846422d}\label{enviroment_8cpp_a566cbf3f924b8e5a46690d2af846422d} 
+\index{enviroment.cpp@{enviroment.cpp}!lineR@{lineR}}
+\index{lineR@{lineR}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{lineR}{lineR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor}{mosh\+::hardware\+::\+Line\+Sensor}} lineR(\mbox{\hyperlink{config_8hpp_a493dcfc2f8b8a46877111a004725acc8}{LINE\+\_\+R}}, \mbox{\hyperlink{config_8hpp_aa5b9d05809fd87870ee83c18f387c417}{R\+\_\+\+LINE}}, \mbox{\hyperlink{config_8hpp_a49415f35c5e58fc59909a35d43e790e1}{R\+\_\+\+FIELD}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{config_8hpp_a493dcfc2f8b8a46877111a004725acc8}{LINE\+\_\+R}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_aa5b9d05809fd87870ee83c18f387c417}{R\+\_\+\+LINE}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a49415f35c5e58fc59909a35d43e790e1}{R\+\_\+\+FIELD}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{enviroment_8cpp_ac700a60585c167d8334765547afab303}\label{enviroment_8cpp_ac700a60585c167d8334765547afab303} 
+\index{enviroment.cpp@{enviroment.cpp}!motorL@{motorL}}
+\index{motorL@{motorL}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{motorL}{motorL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} motorL(\mbox{\hyperlink{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166}{mosh\+::hardware\+::\+\_\+\+\_\+l\+\_\+int}}, \mbox{\hyperlink{config_8hpp_adc604ea34cb7de9e61cd091e4e896bff}{MOTOR\+\_\+\+L\+\_\+\+INVERT}}, \mbox{\hyperlink{config_8hpp_abd3a04df236e11c84aa8bdd139c52a61}{MOTOR\+\_\+\+L\+\_\+\+SPEED}}, \mbox{\hyperlink{config_8hpp_a764d34170cc1b6f45ad661d44007f6e2}{MOTOR\+\_\+\+L\+\_\+\+DIR}}, \mbox{\hyperlink{config_8hpp_ac60ec82e672987f20581b8f04194b239}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+A}}, \mbox{\hyperlink{config_8hpp_ab95d88cdaa359968f5c99b5bbfbf8e11}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+B}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemosh_1_1hardware_a96dbf6d58e588d65466006c0b3057166}{mosh\+::hardware\+::\+\_\+\+\_\+l\+\_\+int}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_adc604ea34cb7de9e61cd091e4e896bff}{MOTOR\+\_\+\+L\+\_\+\+INVERT}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_abd3a04df236e11c84aa8bdd139c52a61}{MOTOR\+\_\+\+L\+\_\+\+SPEED}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a764d34170cc1b6f45ad661d44007f6e2}{MOTOR\+\_\+\+L\+\_\+\+DIR}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_ac60ec82e672987f20581b8f04194b239}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+A}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_ab95d88cdaa359968f5c99b5bbfbf8e11}{MOTOR\+\_\+\+L\+\_\+\+ENC\+\_\+B}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}\label{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4} 
+\index{enviroment.cpp@{enviroment.cpp}!motorR@{motorR}}
+\index{motorR@{motorR}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{motorR}{motorR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{mosh\+::hardware\+::\+Motor\+Encoder}} motorR(\mbox{\hyperlink{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8}{mosh\+::hardware\+::\+\_\+\+\_\+r\+\_\+int}}, \mbox{\hyperlink{config_8hpp_a8be735042a4b545f714a2782e3561fad}{MOTOR\+\_\+\+R\+\_\+\+INVERT}}, \mbox{\hyperlink{config_8hpp_acb0513aae8ccb5a9a3ae72e16aec059c}{MOTOR\+\_\+\+R\+\_\+\+SPEED}}, \mbox{\hyperlink{config_8hpp_a07416a19a96ef31a4815460e47c1bb12}{MOTOR\+\_\+\+R\+\_\+\+DIR}}, \mbox{\hyperlink{config_8hpp_a9bf2c6983b07add039e9616a6e2dbe40}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+A}}, \mbox{\hyperlink{config_8hpp_a6e7dd8fc8ac4c25a52d6452ce642dff6}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+B}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemosh_1_1hardware_aec919fbe99a88e1b1c6f2b9bd86bb5f8}{mosh\+::hardware\+::\+\_\+\+\_\+r\+\_\+int}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a8be735042a4b545f714a2782e3561fad}{MOTOR\+\_\+\+R\+\_\+\+INVERT}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_acb0513aae8ccb5a9a3ae72e16aec059c}{MOTOR\+\_\+\+R\+\_\+\+SPEED}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a07416a19a96ef31a4815460e47c1bb12}{MOTOR\+\_\+\+R\+\_\+\+DIR}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a9bf2c6983b07add039e9616a6e2dbe40}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+A}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a6e7dd8fc8ac4c25a52d6452ce642dff6}{MOTOR\+\_\+\+R\+\_\+\+ENC\+\_\+B}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{enviroment_8cpp_a2fb0a982fefe2782d8ce55df197f5e33}\label{enviroment_8cpp_a2fb0a982fefe2782d8ce55df197f5e33} 
+\index{enviroment.cpp@{enviroment.cpp}!no\_sensor@{no\_sensor}}
+\index{no\_sensor@{no\_sensor}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{no\_sensor}{no\_sensor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_no_distance_sensor}{mosh\+::hardware\+::\+No\+Distance\+Sensor}} no\+\_\+sensor}
+
+\Hypertarget{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}\label{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf} 
+\index{enviroment.cpp@{enviroment.cpp}!robot@{robot}}
+\index{robot@{robot}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{robot}{robot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_robot_config}{Robot\+Config}} robot}
+
+\Hypertarget{enviroment_8cpp_a7af41155c31352e42e70f4ef0afbeb8b}\label{enviroment_8cpp_a7af41155c31352e42e70f4ef0afbeb8b} 
+\index{enviroment.cpp@{enviroment.cpp}!us@{us}}
+\index{us@{us}!enviroment.cpp@{enviroment.cpp}}
+\doxysubsubsection{\texorpdfstring{us}{us}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmosh_1_1hardware_1_1_ultra_sonic}{mosh\+::hardware\+::\+Ultra\+Sonic}} us(\mbox{\hyperlink{config_8hpp_a60240f82bf58ebadfbe05d1762f6955b}{US\+\_\+\+ECHO}}, \mbox{\hyperlink{config_8hpp_a36c53a01b5fa0a07b02a673165abf62d}{US\+\_\+\+TRIG}}) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{config_8hpp_a60240f82bf58ebadfbe05d1762f6955b}{US\+\_\+\+ECHO}}}]{,  }\item[{\mbox{\hyperlink{config_8hpp_a36c53a01b5fa0a07b02a673165abf62d}{US\+\_\+\+TRIG}}}]{ }\end{DoxyParamCaption})}
+

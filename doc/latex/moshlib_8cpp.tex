@@ -1,0 +1,620 @@
+\doxysection{Файл src/moshlib.cpp}
+\hypertarget{moshlib_8cpp}{}\label{moshlib_8cpp}\index{src/moshlib.cpp@{src/moshlib.cpp}}
+{\ttfamily \#include "{}Mosh\+Lib.\+hpp"{}}\newline
+{\ttfamily \#include "{}core/run.\+hpp"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{moshlib_8cpp_af7cc16c9efaad6f7e4a6027a1da2dc74}{set\+DistL}} (\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{Distance\+Sensor}} \&sensor)
+\begin{DoxyCompactList}\small\item\em Указать ЛЕВЫЙ датчик расстояния \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a33540909b282a67ecdaae3061dcead64}{set\+DistR}} (\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{Distance\+Sensor}} \&sensor)
+\begin{DoxyCompactList}\small\item\em Указать ПРАВЫЙ датчик расстояния \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_ae4938dabf3a7839d8a9f392d548f4749}{set\+DistF}} (\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{Distance\+Sensor}} \&sensor)
+\begin{DoxyCompactList}\small\item\em Указать ПЕРЕДНИЙ датчик расстояния \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a4779d624f87b0701074941fbec71b91b}{go\+Time}} (uint32\+\_\+t runtime, int8\+\_\+t speed\+\_\+left, int8\+\_\+t speed\+\_\+right, bool \+\_\+\+\_\+hold\+\_\+at\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Движение с заданой скоростью на время \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a9261c9fe30dba1bb943dbd29c0e6f56e}{go\+Time}} (uint32\+\_\+t runtime, int8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Движение с заданой скоростью на время \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a2d3b519b7264c89382fff59887d94591}{go\+Hold}} (uint32\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Удерживать моторы в текущем положении на время \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_ad44daccfe50f2bc2d7cd425e21a0c0c1}{go\+Tick}} (int32\+\_\+t ticks, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em на число тиков \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_aac3ef9e698e442347b8fca814c00f4ac}{go\+Dist}} (int32\+\_\+t distance\+\_\+mm, int16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Прямолинейное синхронное движение \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_ac368e5f00212e7df35e4a2630f0bbdc0}{go\+Cross}} (uint8\+\_\+t crosses, bool found\+\_\+line, int16\+\_\+t speed\+\_\+\+PWMDIR)
+\begin{DoxyCompactList}\small\item\em Прямолинейное синхронное движение до перекрёстка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_ab3d544133aceb6d57b0897ec433712e1}{turn\+Angle}} (int16\+\_\+t a, int16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em синхронный Поворот на заданый угол вокруг центра \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_ae9d620c9eaf19b1047de03d6d7c5a3e1}{align\+Line}} (uint32\+\_\+t duration)
+\begin{DoxyCompactList}\small\item\em Выровнять робота по линии \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a0e0e9f1fdf0de91359ff6412daa1df4e}{turn\+LineL}} (int8\+\_\+t crosses, int16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em повернуться вокруг центра влево пересекая линии \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a12cfabd0e199e63c9af384bf887133f5}{turn\+LineR}} (int8\+\_\+t crosses, int16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em повернуться вокруг центра направо по перекрёсткам \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a9bc9a3cf9d07dddb65816bba152329b9}{wall\+Front}} (\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{Distance\+Sensor}} \&sensor, uint8\+\_\+t wall\+\_\+dist\+\_\+cm, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Прямолинейное синхронное движение до стены (любой датчик) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_afc921efd3a5888bc67079e7d7420b954}{wall\+Front}} (uint8\+\_\+t distance, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Прямолинейное синхронное движение до стены (передний датчик) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_aba30dee0ae5d779bfa8a45bcaea0288f}{wall\+Back}} (\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{Distance\+Sensor}} \&sensor, uint8\+\_\+t wall\+\_\+dist\+\_\+cm, int16\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Прямолинейное синхронное движение назад от стены (любой датчик) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_af6fff4eac9fa840d92645156c27fd6db}{wall\+Back}} (uint8\+\_\+t distance, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Прямолинейное синхронное движение назад от стены (передний датчик) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a433f174b127553cd6d7787831aa29d64}{wall\+TimeL}} (uint8\+\_\+t distance, uint32\+\_\+t runtime, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Движение вдоль стены по ЛЕВОМУ датчику \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a2fc8bd9e4ac623bc34adaa3a96b06a58}{wall\+TimeR}} (uint8\+\_\+t distance, uint32\+\_\+t runtime, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Движение вдоль стены по ПРАВОМУ датчику \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a39be8e460a61d948042f0962482c719e}{line\+TimeL}} (uint32\+\_\+t runtime, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em движение по линии по левому датчику \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a9cc9a4e977d146cba2eff3b24dbe887a}{line\+TimeR}} (uint32\+\_\+t runtime, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em движение по линии по правому датчику \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a0cb7331b346ba87dbbaf7e143efd7213}{line\+Time\+LR}} (uint32\+\_\+t runtime, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em движение по линии по двум датчикам \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a8951ccc3c7c28d99a8b8f7551ceb0362}{line\+TimeP}} (uint32\+\_\+t runtime, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em движение по линии по P-\/регулятору \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_ab4b8232a6e343077778abbae228d64c5}{line\+CrossP}} (uint8\+\_\+t crosses, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Движение по линии до перекрёстка P-\/регулятор \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{moshlib_8cpp_a622f543fe2cd28843109d428b66e9f35}{line\+DistP}} (int32\+\_\+t distance, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Движение по линии на расстояние P-\/регулятор \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{moshlib_8cpp_ae9d620c9eaf19b1047de03d6d7c5a3e1}\label{moshlib_8cpp_ae9d620c9eaf19b1047de03d6d7c5a3e1} 
+\index{moshlib.cpp@{moshlib.cpp}!alignLine@{alignLine}}
+\index{alignLine@{alignLine}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{alignLine()}{alignLine()}}
+{\footnotesize\ttfamily void align\+Line (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duration = {\ttfamily \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea84a2211c3a9601cd7266457c3aeb8e83}{PARAMS\+::\+ALIGN\+\_\+\+DURATION}}} }\end{DoxyParamCaption})}
+
+
+
+Выровнять робота по линии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em duration} & время выравнивания \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop}{LineProp}}(0),\ duration);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_ac368e5f00212e7df35e4a2630f0bbdc0}\label{moshlib_8cpp_ac368e5f00212e7df35e4a2630f0bbdc0} 
+\index{moshlib.cpp@{moshlib.cpp}!goCross@{goCross}}
+\index{goCross@{goCross}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{goCross()}{goCross()}}
+{\footnotesize\ttfamily void go\+Cross (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{crosses = {\ttfamily 1},  }\item[{bool}]{found\+\_\+line = {\ttfamily false},  }\item[{int16\+\_\+t}]{speed\+\_\+\+PWMDIR = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+Прямолинейное синхронное движение до перекрёстка 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em crosses} & кол-\/во перекрёстков \\
+\hline
+{\em found\+\_\+line} & искомое состояние \\
+\hline
+{\em speed\+\_\+\+PWMDIR} & скорость (отрицательная -\/ движение назад) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(speed\_PWMDIR),\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found}{LineFound}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051}{LineFound::LINE\_BOTH}},\ crosses,\ found\_line));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_aac3ef9e698e442347b8fca814c00f4ac}\label{moshlib_8cpp_aac3ef9e698e442347b8fca814c00f4ac} 
+\index{moshlib.cpp@{moshlib.cpp}!goDist@{goDist}}
+\index{goDist@{goDist}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{goDist()}{goDist()}}
+{\footnotesize\ttfamily void go\+Dist (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{distance\+\_\+mm,  }\item[{int16\+\_\+t}]{speed\+\_\+\+PWM = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+Прямолинейное синхронное движение 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance\+\_\+mm} & расстояние (отрицательное -\/ едет назад) \\
+\hline
+{\em speed\+\_\+\+PWM} & скорость движения ШИМ \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (distance\_mm\ <\ 0)\ \mbox{\hyperlink{namespacemosh_1_1run_ab60ce91c8b3df1d0466424ab3951c763}{speed}}\ *=\ -\/1;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(speed),\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved}{DistanceMoved}}(distance\_mm));}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a2d3b519b7264c89382fff59887d94591}\label{moshlib_8cpp_a2d3b519b7264c89382fff59887d94591} 
+\index{moshlib.cpp@{moshlib.cpp}!goHold@{goHold}}
+\index{goHold@{goHold}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{goHold()}{goHold()}}
+{\footnotesize\ttfamily void go\+Hold (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{timeout = {\ttfamily \mbox{\hyperlink{config_8hpp_a0f38d677bf7565d6cca7adfa1fc4d7eea2acb3a1c5eede9c86f6b228ba0805335}{HOLD\+\_\+\+STOP\+\_\+\+TIMEOUT}}} }\end{DoxyParamCaption})}
+
+
+
+Удерживать моторы в текущем положении на время 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em timeout} & время удержания \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \{\ \mbox{\hyperlink{moshlib_8cpp_a4779d624f87b0701074941fbec71b91b}{goTime}}(timeout,\ 0,\ 0,\ \textcolor{keyword}{false});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_ad44daccfe50f2bc2d7cd425e21a0c0c1}\label{moshlib_8cpp_ad44daccfe50f2bc2d7cd425e21a0c0c1} 
+\index{moshlib.cpp@{moshlib.cpp}!goTick@{goTick}}
+\index{goTick@{goTick}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{goTick()}{goTick()}}
+{\footnotesize\ttfamily void go\+Tick (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{ticks,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+на число тиков 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & ШИМ скорость движения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(speed),\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved}{DistanceMoved}}(ticks,\ ticks,\ \textcolor{keyword}{false}));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a9261c9fe30dba1bb943dbd29c0e6f56e}\label{moshlib_8cpp_a9261c9fe30dba1bb943dbd29c0e6f56e} 
+\index{moshlib.cpp@{moshlib.cpp}!goTime@{goTime}}
+\index{goTime@{goTime}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{goTime()}{goTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void go\+Time (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{runtime,  }\item[{int8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+Движение с заданой скоростью на время 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em runtime} & время работы \\
+\hline
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{\ \mbox{\hyperlink{moshlib_8cpp_a4779d624f87b0701074941fbec71b91b}{goTime}}(runtime,\ speed,\ speed);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a4779d624f87b0701074941fbec71b91b}\label{moshlib_8cpp_a4779d624f87b0701074941fbec71b91b} 
+\index{moshlib.cpp@{moshlib.cpp}!goTime@{goTime}}
+\index{goTime@{goTime}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{goTime()}{goTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void go\+Time (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{runtime,  }\item[{int8\+\_\+t}]{speed\+\_\+left,  }\item[{int8\+\_\+t}]{speed\+\_\+right,  }\item[{bool}]{\+\_\+\+\_\+hold\+\_\+at\+\_\+end = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Движение с заданой скоростью на время 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em runtime} & время работы \\
+\hline
+{\em speed\+\_\+left} & скорость левого мотора \\
+\hline
+{\em speed\+\_\+right} & скорость правого мотора \\
+\hline
+{\em \+\_\+\+\_\+hold\+\_\+at\+\_\+end} & удержание моторов в конце движения (для реализации go\+Hold) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed}{KeepSpeed}}(speed\_left,\ speed\_right),\ \mbox{\hyperlink{classmosh_1_1control_1_1_on_timer}{OnTimer}}(runtime),\ \_\_hold\_at\_end);}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_ab4b8232a6e343077778abbae228d64c5}\label{moshlib_8cpp_ab4b8232a6e343077778abbae228d64c5} 
+\index{moshlib.cpp@{moshlib.cpp}!lineCrossP@{lineCrossP}}
+\index{lineCrossP@{lineCrossP}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{lineCrossP()}{lineCrossP()}}
+{\footnotesize\ttfamily void line\+CrossP (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{crosses = {\ttfamily 1},  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+Движение по линии до перекрёстка P-\/регулятор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em crosses} & на каком перекрёстке остановиться \\
+\hline
+{\em speed} & скорость ТИК \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop}{LineProp}}(speed),\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found}{LineFound}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fa72de5cae6ee0cb0eced8f8b13a4a1051}{LineFound::LINE\_BOTH}},\ crosses,\ \textcolor{keyword}{false}));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a622f543fe2cd28843109d428b66e9f35}\label{moshlib_8cpp_a622f543fe2cd28843109d428b66e9f35} 
+\index{moshlib.cpp@{moshlib.cpp}!lineDistP@{lineDistP}}
+\index{lineDistP@{lineDistP}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{lineDistP()}{lineDistP()}}
+{\footnotesize\ttfamily void line\+DistP (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{distance,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+Движение по линии на расстояние P-\/регулятор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance} & Расстояние движения \\
+\hline
+{\em speed} & скорость ТИК \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop}{LineProp}}(speed),\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved}{DistanceMoved}}(distance));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a39be8e460a61d948042f0962482c719e}\label{moshlib_8cpp_a39be8e460a61d948042f0962482c719e} 
+\index{moshlib.cpp@{moshlib.cpp}!lineTimeL@{lineTimeL}}
+\index{lineTimeL@{lineTimeL}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{lineTimeL()}{lineTimeL()}}
+{\footnotesize\ttfamily void line\+TimeL (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{runtime,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+движение по линии по левому датчику 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay}{LineRelay}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa}{LineRelay::LINE\_LEFT}},\ speed),\ runtime);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a0cb7331b346ba87dbbaf7e143efd7213}\label{moshlib_8cpp_a0cb7331b346ba87dbbaf7e143efd7213} 
+\index{moshlib.cpp@{moshlib.cpp}!lineTimeLR@{lineTimeLR}}
+\index{lineTimeLR@{lineTimeLR}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{lineTimeLR()}{lineTimeLR()}}
+{\footnotesize\ttfamily void line\+Time\+LR (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{runtime,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+движение по линии по двум датчикам 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay2}{LineRelay2}}(speed),\ runtime);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a8951ccc3c7c28d99a8b8f7551ceb0362}\label{moshlib_8cpp_a8951ccc3c7c28d99a8b8f7551ceb0362} 
+\index{moshlib.cpp@{moshlib.cpp}!lineTimeP@{lineTimeP}}
+\index{lineTimeP@{lineTimeP}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{lineTimeP()}{lineTimeP()}}
+{\footnotesize\ttfamily void line\+TimeP (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{runtime,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+движение по линии по P-\/регулятору 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00094\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop}{LineProp}}(speed),\ runtime);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a9cc9a4e977d146cba2eff3b24dbe887a}\label{moshlib_8cpp_a9cc9a4e977d146cba2eff3b24dbe887a} 
+\index{moshlib.cpp@{moshlib.cpp}!lineTimeR@{lineTimeR}}
+\index{lineTimeR@{lineTimeR}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{lineTimeR()}{lineTimeR()}}
+{\footnotesize\ttfamily void line\+TimeR (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{runtime,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+движение по линии по правому датчику 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{\ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay}{LineRelay}}(\mbox{\hyperlink{classmosh_1_1control_1_1_line_relay_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435}{LineRelay::LINE\_RIGHT}},\ speed),\ runtime);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_ae4938dabf3a7839d8a9f392d548f4749}\label{moshlib_8cpp_ae4938dabf3a7839d8a9f392d548f4749} 
+\index{moshlib.cpp@{moshlib.cpp}!setDistF@{setDistF}}
+\index{setDistF@{setDistF}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{setDistF()}{setDistF()}}
+{\footnotesize\ttfamily void set\+DistF (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}} \&}]{sensor }\end{DoxyParamCaption})}
+
+
+
+Указать ПЕРЕДНИЙ датчик расстояния 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensor} & ссылка на датчик \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \{\ \mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.\mbox{\hyperlink{struct_robot_config_a2797bacdbc321dcb17ba571611fc5dfa}{dist\_front}}\ =\ \&sensor;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_af7cc16c9efaad6f7e4a6027a1da2dc74}\label{moshlib_8cpp_af7cc16c9efaad6f7e4a6027a1da2dc74} 
+\index{moshlib.cpp@{moshlib.cpp}!setDistL@{setDistL}}
+\index{setDistL@{setDistL}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{setDistL()}{setDistL()}}
+{\footnotesize\ttfamily void set\+DistL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}} \&}]{sensor }\end{DoxyParamCaption})}
+
+
+
+Указать ЛЕВЫЙ датчик расстояния 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensor} & ссылка на датчик \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{\ \mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.\mbox{\hyperlink{struct_robot_config_aa9dbcdefbba927a2c0ef659d09321581}{dist\_left}}\ =\ \&sensor;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a33540909b282a67ecdaae3061dcead64}\label{moshlib_8cpp_a33540909b282a67ecdaae3061dcead64} 
+\index{moshlib.cpp@{moshlib.cpp}!setDistR@{setDistR}}
+\index{setDistR@{setDistR}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{setDistR()}{setDistR()}}
+{\footnotesize\ttfamily void set\+DistR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}} \&}]{sensor }\end{DoxyParamCaption})}
+
+
+
+Указать ПРАВЫЙ датчик расстояния 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensor} & ссылка на датчик \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{\ \mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.\mbox{\hyperlink{struct_robot_config_aa40fb1b51de5f06913ce61693d42cde1}{dist\_right}}\ =\ \&sensor;\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_ab3d544133aceb6d57b0897ec433712e1}\label{moshlib_8cpp_ab3d544133aceb6d57b0897ec433712e1} 
+\index{moshlib.cpp@{moshlib.cpp}!turnAngle@{turnAngle}}
+\index{turnAngle@{turnAngle}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{turnAngle()}{turnAngle()}}
+{\footnotesize\ttfamily void turn\+Angle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{a,  }\item[{int16\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+синхронный Поворот на заданый угол вокруг центра 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em a} & угол поворота ( \texorpdfstring{$<$}{<}0 -\/ поворот против часовой) \\
+\hline
+{\em speed} & ШИМ скорось поворота \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ int32\_t\ dist\ =\ (int32\_t)\ a\ *\ (\mbox{\hyperlink{config_8hpp_a0b791a5285b16c620b21f76a3b7e85ff}{TRACK\_SIZE\_MM}}\ *\ M\_PI\ /\ 360.0);}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(speed,\ -\/speed,\ 1,\ -\/1),\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_moved}{DistanceMoved}}(dist,\ -\/dist));}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a0e0e9f1fdf0de91359ff6412daa1df4e}\label{moshlib_8cpp_a0e0e9f1fdf0de91359ff6412daa1df4e} 
+\index{moshlib.cpp@{moshlib.cpp}!turnLineL@{turnLineL}}
+\index{turnLineL@{turnLineL}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{turnLineL()}{turnLineL()}}
+{\footnotesize\ttfamily void turn\+LineL (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{crosses = {\ttfamily 1},  }\item[{int16\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+повернуться вокруг центра влево пересекая линии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em crosses} & кол-\/во линий \\
+\hline
+{\em speed} & ШИМ скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \{\ \_\_turn\_line(crosses,\ speed,\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11fae60c1da574e33de846844f7a4559fed6}{LineFound::LINE\_LEFT}});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a12cfabd0e199e63c9af384bf887133f5}\label{moshlib_8cpp_a12cfabd0e199e63c9af384bf887133f5} 
+\index{moshlib.cpp@{moshlib.cpp}!turnLineR@{turnLineR}}
+\index{turnLineR@{turnLineR}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{turnLineR()}{turnLineR()}}
+{\footnotesize\ttfamily void turn\+LineR (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{crosses = {\ttfamily 1},  }\item[{int16\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+повернуться вокруг центра направо по перекрёсткам 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em crosses} & кол-\/во линий \\
+\hline
+{\em speed} & ШИМ скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{\ \_\_turn\_line(crosses,\ -\/speed,\ \mbox{\hyperlink{classmosh_1_1control_1_1_line_found_a2014aaf16e04b915f8cf006ae142b11faa118eea66308c9316918c0f6f22efd7f}{LineFound::LINE\_RIGHT}});\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_aba30dee0ae5d779bfa8a45bcaea0288f}\label{moshlib_8cpp_aba30dee0ae5d779bfa8a45bcaea0288f} 
+\index{moshlib.cpp@{moshlib.cpp}!wallBack@{wallBack}}
+\index{wallBack@{wallBack}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{wallBack()}{wallBack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void wall\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}} \&}]{sensor,  }\item[{uint8\+\_\+t}]{distance,  }\item[{int16\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+Прямолинейное синхронное движение назад от стены (любой датчик) 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensor} & ссылка на датчик \\
+\hline
+{\em distance} & расстояние до стены \\
+\hline
+{\em speed} & ШИМ скорость движения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(-\/speed),\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read}{DistanceRead}}(sensor,\ wall\_dist\_cm,\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a85cda3d0d5b55c1b4ffbcaab9d029a81}{DistanceRead::LESS}}));}
+\DoxyCodeLine{00070\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_af6fff4eac9fa840d92645156c27fd6db}\label{moshlib_8cpp_af6fff4eac9fa840d92645156c27fd6db} 
+\index{moshlib.cpp@{moshlib.cpp}!wallBack@{wallBack}}
+\index{wallBack@{wallBack}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{wallBack()}{wallBack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void wall\+Back (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{distance,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+Прямолинейное синхронное движение назад от стены (передний датчик) 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance} & расстояния, на котором будет стены \\
+\hline
+{\em speed} & ШИМ скорость движения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{\ \mbox{\hyperlink{moshlib_8cpp_aba30dee0ae5d779bfa8a45bcaea0288f}{wallBack}}(*\mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.\mbox{\hyperlink{struct_robot_config_a2797bacdbc321dcb17ba571611fc5dfa}{dist\_front}},\ distance,\ speed);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a9bc9a3cf9d07dddb65816bba152329b9}\label{moshlib_8cpp_a9bc9a3cf9d07dddb65816bba152329b9} 
+\index{moshlib.cpp@{moshlib.cpp}!wallFront@{wallFront}}
+\index{wallFront@{wallFront}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{wallFront()}{wallFront()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void wall\+Front (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmosh_1_1hardware_1_1_distance_sensor}{mosh\+::hardware\+::\+Distance\+Sensor}} \&}]{sensor,  }\item[{uint8\+\_\+t}]{distance,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+Прямолинейное синхронное движение до стены (любой датчик) 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sensor} & ссылка на датчик \\
+\hline
+{\em distance} & расстояние до стены \\
+\hline
+{\em speed} & ШИМ скорость движения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac580fef30c72fa8e5a7cf1039a10b37f}{run::base}}(\mbox{\hyperlink{classmosh_1_1control_1_1_sync}{Sync}}(speed),\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read}{DistanceRead}}(sensor,\ wall\_dist\_cm,\ \mbox{\hyperlink{classmosh_1_1control_1_1_distance_read_acfbfa155fb63729d4641c166726e76a6a7453c6e803cac647665315fb54a0db12}{DistanceRead::GREATER}}));}
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_afc921efd3a5888bc67079e7d7420b954}\label{moshlib_8cpp_afc921efd3a5888bc67079e7d7420b954} 
+\index{moshlib.cpp@{moshlib.cpp}!wallFront@{wallFront}}
+\index{wallFront@{wallFront}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{wallFront()}{wallFront()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void wall\+Front (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{distance,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a7ec4bbadff02ef2cd8526db58b12dfb9}{DEFAULT\+\_\+\+SPEED\+\_\+\+PWM}}} }\end{DoxyParamCaption})}
+
+
+
+Прямолинейное синхронное движение до стены (передний датчик) 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance} & расстояние до стены \\
+\hline
+{\em speed} & ШИМ скорость движения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \{\ \mbox{\hyperlink{moshlib_8cpp_a9bc9a3cf9d07dddb65816bba152329b9}{wallFront}}(*\mbox{\hyperlink{enviroment_8cpp_a8eb942373fca8eae496279b2127bbebf}{robot}}.\mbox{\hyperlink{struct_robot_config_a2797bacdbc321dcb17ba571611fc5dfa}{dist\_front}},\ distance,\ speed);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a433f174b127553cd6d7787831aa29d64}\label{moshlib_8cpp_a433f174b127553cd6d7787831aa29d64} 
+\index{moshlib.cpp@{moshlib.cpp}!wallTimeL@{wallTimeL}}
+\index{wallTimeL@{wallTimeL}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{wallTimeL()}{wallTimeL()}}
+{\footnotesize\ttfamily void wall\+TimeL (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{distance,  }\item[{uint32\+\_\+t}]{runtime,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+Движение вдоль стены по ЛЕВОМУ датчику 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance} & целевое расстояние в см \\
+\hline
+{\em runtime} & время движения \\
+\hline
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall}{MoveAlongWall}}(distance,\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914}{MoveAlongWall::DIST\_LEFT}},\ speed),\ runtime);}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\Hypertarget{moshlib_8cpp_a2fc8bd9e4ac623bc34adaa3a96b06a58}\label{moshlib_8cpp_a2fc8bd9e4ac623bc34adaa3a96b06a58} 
+\index{moshlib.cpp@{moshlib.cpp}!wallTimeR@{wallTimeR}}
+\index{wallTimeR@{wallTimeR}!moshlib.cpp@{moshlib.cpp}}
+\doxysubsubsection{\texorpdfstring{wallTimeR()}{wallTimeR()}}
+{\footnotesize\ttfamily void wall\+TimeR (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{distance,  }\item[{uint32\+\_\+t}]{runtime,  }\item[{uint8\+\_\+t}]{speed = {\ttfamily \mbox{\hyperlink{config_8hpp_a62dba99ab0b8b9205c0fa0e0cc78bc45}{DEFAULT\+\_\+\+SPEED\+\_\+\+TICK}}} }\end{DoxyParamCaption})}
+
+
+
+Движение вдоль стены по ПРАВОМУ датчику 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em distance} & целевое расстояние в см \\
+\hline
+{\em runtime} & время движения \\
+\hline
+{\em speed} & скорость \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{namespacemosh_1_1run_ac52ffc1a219b12d57fe95b95519a8531}{run::time}}(\mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall}{MoveAlongWall}}(distance,\ \mbox{\hyperlink{classmosh_1_1control_1_1_move_along_wall_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c}{MoveAlongWall::DIST\_RIGHT}},\ speed),\ runtime);}
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\doxysection{Класс mosh\+::control\+::Keep\+Speed}
+\hypertarget{classmosh_1_1control_1_1_keep_speed}{}\label{classmosh_1_1control_1_1_keep_speed}\index{mosh::control::KeepSpeed@{mosh::control::KeepSpeed}}
+
+
+режим постоянной скорости  
+
+
+
+
+{\ttfamily \#include $<$move.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Keep\+Speed\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_keep_speed}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_acfddba823d978205499d8acbdfa40535}{Keep\+Speed}} (int8\+\_\+t speed\+\_\+left, int8\+\_\+t speed\+\_\+right)
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_ab4feba237db8e29581c7386f20490648}{Keep\+Speed}} (int8\+\_\+t speed)
+\item 
+void \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обновление системы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+режим постоянной скорости 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_keep_speed_acfddba823d978205499d8acbdfa40535}\label{classmosh_1_1control_1_1_keep_speed_acfddba823d978205499d8acbdfa40535} 
+\index{mosh::control::KeepSpeed@{mosh::control::KeepSpeed}!KeepSpeed@{KeepSpeed}}
+\index{KeepSpeed@{KeepSpeed}!mosh::control::KeepSpeed@{mosh::control::KeepSpeed}}
+\doxysubsubsection{\texorpdfstring{KeepSpeed()}{KeepSpeed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Keep\+Speed\+::\+Keep\+Speed (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{speed\+\_\+left,  }\item[{int8\+\_\+t}]{speed\+\_\+right }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \{\ \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{motors::setSpeeds}}(speed\_left,\ speed\_right);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classmosh_1_1control_1_1_keep_speed_ab4feba237db8e29581c7386f20490648}\label{classmosh_1_1control_1_1_keep_speed_ab4feba237db8e29581c7386f20490648} 
+\index{mosh::control::KeepSpeed@{mosh::control::KeepSpeed}!KeepSpeed@{KeepSpeed}}
+\index{KeepSpeed@{KeepSpeed}!mosh::control::KeepSpeed@{mosh::control::KeepSpeed}}
+\doxysubsubsection{\texorpdfstring{KeepSpeed()}{KeepSpeed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Keep\+Speed\+::\+Keep\+Speed (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ :\ \mbox{\hyperlink{classmosh_1_1control_1_1_keep_speed_acfddba823d978205499d8acbdfa40535}{KeepSpeed}}(speed,\ speed)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f}\label{classmosh_1_1control_1_1_keep_speed_a91f9dbf0a93599c7688cdc06b340a71f} 
+\index{mosh::control::KeepSpeed@{mosh::control::KeepSpeed}!tick@{tick}}
+\index{tick@{tick}!mosh::control::KeepSpeed@{mosh::control::KeepSpeed}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void mosh\+::control\+::\+Keep\+Speed\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Обновление системы 
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{mosh\+::control\+::\+Mover}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013\ \{\ \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{motors::spin}}();\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{move_8hpp}{move.\+hpp}}\item 
+src/control/\mbox{\hyperlink{move_8cpp}{move.\+cpp}}\end{DoxyCompactItemize}

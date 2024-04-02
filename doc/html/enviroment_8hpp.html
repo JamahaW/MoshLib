@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Файл src/core/enviroment.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#namespaces">Пространства имен</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">Файл enviroment.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="distancesensor_8hpp_source.html">hardware/distancesensor.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="linesensor_8hpp_source.html">hardware/linesensor.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="motorencoder_8hpp_source.html">hardware/motorencoder.hpp</a>&quot;</code><br />
+</div>
+<p><a href="enviroment_8hpp_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_robot_config.html">RobotConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Данные робота  <a href="struct_robot_config.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Пространства имен</h2></td></tr>
+<tr class="memitem:namespacemotors" id="r_namespacemotors"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotors.html">motors</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a93992359acbce82869776ee24630c201" id="r_a93992359acbce82869776ee24630c201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotors.html#a93992359acbce82869776ee24630c201">motors::reset</a> ()</td></tr>
+<tr class="separator:a93992359acbce82869776ee24630c201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d060049222e07466d0241dc418c2bf" id="r_af6d060049222e07466d0241dc418c2bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotors.html#af6d060049222e07466d0241dc418c2bf">motors::spin</a> ()</td></tr>
+<tr class="separator:af6d060049222e07466d0241dc418c2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c74368833b68ccf6c149ba510ae6fee" id="r_a3c74368833b68ccf6c149ba510ae6fee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotors.html#a3c74368833b68ccf6c149ba510ae6fee">motors::setSpeeds</a> (int16_t left, int16_t right)</td></tr>
+<tr class="separator:a3c74368833b68ccf6c149ba510ae6fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c8f2b96166bcf2eb4d97fc45b7d02f" id="r_a32c8f2b96166bcf2eb4d97fc45b7d02f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemotors.html#a32c8f2b96166bcf2eb4d97fc45b7d02f">motors::setForTicks</a> (int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R)</td></tr>
+<tr class="separator:a32c8f2b96166bcf2eb4d97fc45b7d02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a0410a0ad9b5a08aa1f3b34f0bed79f8e" id="r_a0410a0ad9b5a08aa1f3b34f0bed79f8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0410a0ad9b5a08aa1f3b34f0bed79f8e">lineL</a></td></tr>
+<tr class="separator:a0410a0ad9b5a08aa1f3b34f0bed79f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a197964cbacffac974330ab0cc7d4c53c" id="r_a197964cbacffac974330ab0cc7d4c53c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a197964cbacffac974330ab0cc7d4c53c">lineR</a></td></tr>
+<tr class="separator:a197964cbacffac974330ab0cc7d4c53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fb0a982fefe2782d8ce55df197f5e33" id="r_a2fb0a982fefe2782d8ce55df197f5e33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_no_distance_sensor.html">mosh::hardware::NoDistanceSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a></td></tr>
+<tr class="separator:a2fb0a982fefe2782d8ce55df197f5e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a441b1cab9bc3bd392fc67e80de75291d" id="r_a441b1cab9bc3bd392fc67e80de75291d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a441b1cab9bc3bd392fc67e80de75291d">ir0</a></td></tr>
+<tr class="separator:a441b1cab9bc3bd392fc67e80de75291d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f73d03b424e887050d181325a7cb6b" id="r_a98f73d03b424e887050d181325a7cb6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98f73d03b424e887050d181325a7cb6b">ir1</a></td></tr>
+<tr class="separator:a98f73d03b424e887050d181325a7cb6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a7e0d27cabb3654ca82d1e8835339f" id="r_a12a7e0d27cabb3654ca82d1e8835339f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_ultra_sonic.html">mosh::hardware::UltraSonic</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12a7e0d27cabb3654ca82d1e8835339f">us</a></td></tr>
+<tr class="separator:a12a7e0d27cabb3654ca82d1e8835339f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54edd9c7aca7c45cc0047623a796df13" id="r_a54edd9c7aca7c45cc0047623a796df13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54edd9c7aca7c45cc0047623a796df13">motorL</a></td></tr>
+<tr class="separator:a54edd9c7aca7c45cc0047623a796df13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae612a47de01cc55960cbbe00ee454b3f" id="r_ae612a47de01cc55960cbbe00ee454b3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae612a47de01cc55960cbbe00ee454b3f">motorR</a></td></tr>
+<tr class="separator:ae612a47de01cc55960cbbe00ee454b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb942373fca8eae496279b2127bbebf" id="r_a8eb942373fca8eae496279b2127bbebf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_robot_config.html">RobotConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8eb942373fca8eae496279b2127bbebf">robot</a></td></tr>
+<tr class="separator:a8eb942373fca8eae496279b2127bbebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Переменные</h2>
+<a id="a441b1cab9bc3bd392fc67e80de75291d" name="a441b1cab9bc3bd392fc67e80de75291d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a441b1cab9bc3bd392fc67e80de75291d">&#9670;&#160;</a></span>ir0</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a> ir0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98f73d03b424e887050d181325a7cb6b" name="a98f73d03b424e887050d181325a7cb6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f73d03b424e887050d181325a7cb6b">&#9670;&#160;</a></span>ir1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a> ir1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0410a0ad9b5a08aa1f3b34f0bed79f8e" name="a0410a0ad9b5a08aa1f3b34f0bed79f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0410a0ad9b5a08aa1f3b34f0bed79f8e">&#9670;&#160;</a></span>lineL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a> lineL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a197964cbacffac974330ab0cc7d4c53c" name="a197964cbacffac974330ab0cc7d4c53c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a197964cbacffac974330ab0cc7d4c53c">&#9670;&#160;</a></span>lineR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a> lineR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54edd9c7aca7c45cc0047623a796df13" name="a54edd9c7aca7c45cc0047623a796df13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54edd9c7aca7c45cc0047623a796df13">&#9670;&#160;</a></span>motorL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a> motorL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae612a47de01cc55960cbbe00ee454b3f" name="ae612a47de01cc55960cbbe00ee454b3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae612a47de01cc55960cbbe00ee454b3f">&#9670;&#160;</a></span>motorR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a> motorR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fb0a982fefe2782d8ce55df197f5e33" name="a2fb0a982fefe2782d8ce55df197f5e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fb0a982fefe2782d8ce55df197f5e33">&#9670;&#160;</a></span>no_sensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_no_distance_sensor.html">mosh::hardware::NoDistanceSensor</a> no_sensor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8eb942373fca8eae496279b2127bbebf" name="a8eb942373fca8eae496279b2127bbebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb942373fca8eae496279b2127bbebf">&#9670;&#160;</a></span>robot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_robot_config.html">RobotConfig</a> robot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12a7e0d27cabb3654ca82d1e8835339f" name="a12a7e0d27cabb3654ca82d1e8835339f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a7e0d27cabb3654ca82d1e8835339f">&#9670;&#160;</a></span>us</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmosh_1_1hardware_1_1_ultra_sonic.html">mosh::hardware::UltraSonic</a> us</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

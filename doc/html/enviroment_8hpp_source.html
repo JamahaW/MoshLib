@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Исходный файл src/core/enviroment.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">enviroment.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="enviroment_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="distancesensor_8hpp.html">hardware/distancesensor.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="linesensor_8hpp.html">hardware/linesensor.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="motorencoder_8hpp.html">hardware/motorencoder.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a> <a class="code hl_variable" href="enviroment_8hpp.html#a0410a0ad9b5a08aa1f3b34f0bed79f8e">lineL</a>;  <span class="comment">// Левый датчик линии</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a> <a class="code hl_variable" href="enviroment_8hpp.html#a197964cbacffac974330ab0cc7d4c53c">lineR</a>;  <span class="comment">//Правый датчик линии</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_no_distance_sensor.html">mosh::hardware::NoDistanceSensor</a> <a class="code hl_variable" href="enviroment_8hpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a> <a class="code hl_variable" href="enviroment_8hpp.html#a441b1cab9bc3bd392fc67e80de75291d">ir0</a>;  <span class="comment">//Левый ИК-датчик расстояния</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a> <a class="code hl_variable" href="enviroment_8hpp.html#a98f73d03b424e887050d181325a7cb6b">ir1</a>;  <span class="comment">// Правый ИК-датчик расстояния</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_ultra_sonic.html">mosh::hardware::UltraSonic</a> <a class="code hl_variable" href="enviroment_8hpp.html#a12a7e0d27cabb3654ca82d1e8835339f">us</a>;  <span class="comment">// Ультразвуковой датчик расстояния</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a> <a class="code hl_variable" href="enviroment_8hpp.html#a54edd9c7aca7c45cc0047623a796df13">motorL</a>;  <span class="comment">// Левый мотор</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <a class="code hl_class" href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a> <a class="code hl_variable" href="enviroment_8hpp.html#ae612a47de01cc55960cbbe00ee454b3f">motorR</a>;  <span class="comment">// Правый мотор</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct_robot_config.html">   20</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_robot_config.html">RobotConfig</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">   21</a></span>    <a class="code hl_class" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a>* <a class="code hl_variable" href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">dist_left</a> = &amp;<a class="code hl_variable" href="enviroment_8hpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a>; <span class="comment">// используется при движении вдоль стены слева</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_robot_config.html#aa40fb1b51de5f06913ce61693d42cde1">   22</a></span>    <a class="code hl_class" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a>* <a class="code hl_variable" href="struct_robot_config.html#aa40fb1b51de5f06913ce61693d42cde1">dist_right</a> = &amp;<a class="code hl_variable" href="enviroment_8hpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a>; <span class="comment">// используештся при движении вдоль стены справа</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">   23</a></span>    <a class="code hl_class" href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a>* <a class="code hl_variable" href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">dist_front</a> = &amp;<a class="code hl_variable" href="enviroment_8hpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a>; <span class="comment">// используется при движении до объекта спереди</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// LINE_REGULATORS line_follow_regulator = LINE_REGULATORS::PROP; // TODO Регулятор движения по линии по умолчанию </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_robot_config.html">RobotConfig</a> <a class="code hl_variable" href="enviroment_8hpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacemotors.html">   29</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemotors.html">motors</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacemotors.html#a93992359acbce82869776ee24630c201">reset</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacemotors.html#af6d060049222e07466d0241dc418c2bf">spin</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacemotors.html#a3c74368833b68ccf6c149ba510ae6fee">setSpeeds</a>(int16_t left, int16_t right);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacemotors.html#a32c8f2b96166bcf2eb4d97fc45b7d02f">   33</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacemotors.html#a32c8f2b96166bcf2eb4d97fc45b7d02f">setForTicks</a>(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>} <span class="comment">// namespace motors</span></div>
+</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_distance_sensor_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a></div><div class="ttdoc">Интерфейс датчика растояния</div><div class="ttdef"><b>Definition</b> distancesensor.hpp:11</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_ir_sensor_sharp_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html">mosh::hardware::IrSensorSharp</a></div><div class="ttdoc">Инфокрасный датчик Sharp.</div><div class="ttdef"><b>Definition</b> distancesensor.hpp:52</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a></div><div class="ttdoc">Аналоговый датчик линии</div><div class="ttdef"><b>Definition</b> linesensor.hpp:11</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_motor_encoder_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_motor_encoder.html">mosh::hardware::MotorEncoder</a></div><div class="ttdoc">класс DC-мотор-энкодера, управляемого H-мостом</div><div class="ttdef"><b>Definition</b> motorencoder.hpp:18</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_no_distance_sensor_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_no_distance_sensor.html">mosh::hardware::NoDistanceSensor</a></div><div class="ttdoc">Заглушка</div><div class="ttdef"><b>Definition</b> distancesensor.hpp:45</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_ultra_sonic_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_ultra_sonic.html">mosh::hardware::UltraSonic</a></div><div class="ttdoc">УльтраЗвуковой датчик HC SR04.</div><div class="ttdef"><b>Definition</b> distancesensor.hpp:65</div></div>
+<div class="ttc" id="adistancesensor_8hpp_html"><div class="ttname"><a href="distancesensor_8hpp.html">distancesensor.hpp</a></div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a0410a0ad9b5a08aa1f3b34f0bed79f8e"><div class="ttname"><a href="enviroment_8hpp.html#a0410a0ad9b5a08aa1f3b34f0bed79f8e">lineL</a></div><div class="ttdeci">mosh::hardware::LineSensor lineL</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a12a7e0d27cabb3654ca82d1e8835339f"><div class="ttname"><a href="enviroment_8hpp.html#a12a7e0d27cabb3654ca82d1e8835339f">us</a></div><div class="ttdeci">mosh::hardware::UltraSonic us</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a197964cbacffac974330ab0cc7d4c53c"><div class="ttname"><a href="enviroment_8hpp.html#a197964cbacffac974330ab0cc7d4c53c">lineR</a></div><div class="ttdeci">mosh::hardware::LineSensor lineR</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a2fb0a982fefe2782d8ce55df197f5e33"><div class="ttname"><a href="enviroment_8hpp.html#a2fb0a982fefe2782d8ce55df197f5e33">no_sensor</a></div><div class="ttdeci">mosh::hardware::NoDistanceSensor no_sensor</div><div class="ttdef"><b>Definition</b> enviroment.cpp:7</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a441b1cab9bc3bd392fc67e80de75291d"><div class="ttname"><a href="enviroment_8hpp.html#a441b1cab9bc3bd392fc67e80de75291d">ir0</a></div><div class="ttdeci">mosh::hardware::IrSensorSharp ir0</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a54edd9c7aca7c45cc0047623a796df13"><div class="ttname"><a href="enviroment_8hpp.html#a54edd9c7aca7c45cc0047623a796df13">motorL</a></div><div class="ttdeci">mosh::hardware::MotorEncoder motorL</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a8eb942373fca8eae496279b2127bbebf"><div class="ttname"><a href="enviroment_8hpp.html#a8eb942373fca8eae496279b2127bbebf">robot</a></div><div class="ttdeci">RobotConfig robot</div><div class="ttdef"><b>Definition</b> enviroment.cpp:18</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_a98f73d03b424e887050d181325a7cb6b"><div class="ttname"><a href="enviroment_8hpp.html#a98f73d03b424e887050d181325a7cb6b">ir1</a></div><div class="ttdeci">mosh::hardware::IrSensorSharp ir1</div></div>
+<div class="ttc" id="aenviroment_8hpp_html_ae612a47de01cc55960cbbe00ee454b3f"><div class="ttname"><a href="enviroment_8hpp.html#ae612a47de01cc55960cbbe00ee454b3f">motorR</a></div><div class="ttdeci">mosh::hardware::MotorEncoder motorR</div></div>
+<div class="ttc" id="alinesensor_8hpp_html"><div class="ttname"><a href="linesensor_8hpp.html">linesensor.hpp</a></div></div>
+<div class="ttc" id="amotorencoder_8hpp_html"><div class="ttname"><a href="motorencoder_8hpp.html">motorencoder.hpp</a></div></div>
+<div class="ttc" id="anamespacemotors_html"><div class="ttname"><a href="namespacemotors.html">motors</a></div><div class="ttdef"><b>Definition</b> enviroment.hpp:29</div></div>
+<div class="ttc" id="anamespacemotors_html_a32c8f2b96166bcf2eb4d97fc45b7d02f"><div class="ttname"><a href="namespacemotors.html#a32c8f2b96166bcf2eb4d97fc45b7d02f">motors::setForTicks</a></div><div class="ttdeci">void setForTicks(int8_t speed_L, int32_t ticks_L, int8_t speed_R, int32_t ticks_R)</div></div>
+<div class="ttc" id="anamespacemotors_html_a3c74368833b68ccf6c149ba510ae6fee"><div class="ttname"><a href="namespacemotors.html#a3c74368833b68ccf6c149ba510ae6fee">motors::setSpeeds</a></div><div class="ttdeci">void setSpeeds(int16_t left, int16_t right)</div><div class="ttdef"><b>Definition</b> enviroment.cpp:31</div></div>
+<div class="ttc" id="anamespacemotors_html_a93992359acbce82869776ee24630c201"><div class="ttname"><a href="namespacemotors.html#a93992359acbce82869776ee24630c201">motors::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> enviroment.cpp:21</div></div>
+<div class="ttc" id="anamespacemotors_html_af6d060049222e07466d0241dc418c2bf"><div class="ttname"><a href="namespacemotors.html#af6d060049222e07466d0241dc418c2bf">motors::spin</a></div><div class="ttdeci">void spin()</div><div class="ttdef"><b>Definition</b> enviroment.cpp:26</div></div>
+<div class="ttc" id="astruct_robot_config_html"><div class="ttname"><a href="struct_robot_config.html">RobotConfig</a></div><div class="ttdoc">Данные робота</div><div class="ttdef"><b>Definition</b> enviroment.hpp:20</div></div>
+<div class="ttc" id="astruct_robot_config_html_a2797bacdbc321dcb17ba571611fc5dfa"><div class="ttname"><a href="struct_robot_config.html#a2797bacdbc321dcb17ba571611fc5dfa">RobotConfig::dist_front</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_front</div><div class="ttdef"><b>Definition</b> enviroment.hpp:23</div></div>
+<div class="ttc" id="astruct_robot_config_html_aa40fb1b51de5f06913ce61693d42cde1"><div class="ttname"><a href="struct_robot_config.html#aa40fb1b51de5f06913ce61693d42cde1">RobotConfig::dist_right</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_right</div><div class="ttdef"><b>Definition</b> enviroment.hpp:22</div></div>
+<div class="ttc" id="astruct_robot_config_html_aa9dbcdefbba927a2c0ef659d09321581"><div class="ttname"><a href="struct_robot_config.html#aa9dbcdefbba927a2c0ef659d09321581">RobotConfig::dist_left</a></div><div class="ttdeci">mosh::hardware::DistanceSensor * dist_left</div><div class="ttdef"><b>Definition</b> enviroment.hpp:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

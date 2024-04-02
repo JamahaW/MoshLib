@@ -1,0 +1,76 @@
+\doxysection{Класс mosh\+::control\+::Line\+Prop}
+\hypertarget{classmosh_1_1control_1_1_line_prop}{}\label{classmosh_1_1control_1_1_line_prop}\index{mosh::control::LineProp@{mosh::control::LineProp}}
+
+
+Пропорциональный регулятор движения по линии  
+
+
+
+
+{\ttfamily \#include $<$move.\+hpp$>$}
+
+Граф наследования\+:mosh\+::control\+::Line\+Prop\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmosh_1_1control_1_1_line_prop}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_ac518f6ec8fab58f16243f3df08856100}{Line\+Prop}} (int8\+\_\+t speed)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9}{tick}} () const override
+\begin{DoxyCompactList}\small\item\em Обновление системы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Пропорциональный регулятор движения по линии 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{classmosh_1_1control_1_1_line_prop_ac518f6ec8fab58f16243f3df08856100}\label{classmosh_1_1control_1_1_line_prop_ac518f6ec8fab58f16243f3df08856100} 
+\index{mosh::control::LineProp@{mosh::control::LineProp}!LineProp@{LineProp}}
+\index{LineProp@{LineProp}!mosh::control::LineProp@{mosh::control::LineProp}}
+\doxysubsubsection{\texorpdfstring{LineProp()}{LineProp()}}
+{\footnotesize\ttfamily Line\+Prop\+::\+Line\+Prop (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ :\ BASE\_SPEED(speed\ *\ 0.7)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9}\label{classmosh_1_1control_1_1_line_prop_a4e560801581100c203e54df4a88733d9} 
+\index{mosh::control::LineProp@{mosh::control::LineProp}!tick@{tick}}
+\index{tick@{tick}!mosh::control::LineProp@{mosh::control::LineProp}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void Line\+Prop\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Обновление системы 
+
+
+
+Переопределяет метод предка \mbox{\hyperlink{classmosh_1_1control_1_1_mover_aa32c49cf5a96e285b70ca651bebcde70}{mosh\+::control\+::\+Mover}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ int8\_t\ u\ =\ (\mbox{\hyperlink{enviroment_8cpp_a819b91b43c618b3632e8a8a68d099efb}{lineL}}()\ -\/\ \mbox{\hyperlink{enviroment_8cpp_a566cbf3f924b8e5a46690d2af846422d}{lineR}}())\ *\ KP;}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{namespacemotors_a3c74368833b68ccf6c149ba510ae6fee}{motors::setSpeeds}}(BASE\_SPEED\ -\/\ u,\ BASE\_SPEED\ +\ u);}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{namespacemotors_af6d060049222e07466d0241dc418c2bf}{motors::spin}}();}
+\DoxyCodeLine{00019\ \}}
+
+\end{DoxyCode}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/control/\mbox{\hyperlink{move_8hpp}{move.\+hpp}}\item 
+src/control/\mbox{\hyperlink{move_8cpp}{move.\+cpp}}\end{DoxyCompactItemize}

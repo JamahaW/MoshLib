@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Класс mosh::hardware::DistanceSensor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemosh.html">mosh</a></li><li class="navelem"><a class="el" href="namespacemosh_1_1hardware.html">hardware</a></li><li class="navelem"><a class="el" href="classmosh_1_1hardware_1_1_distance_sensor.html">DistanceSensor</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="classmosh_1_1hardware_1_1_distance_sensor-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс mosh::hardware::DistanceSensor<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Интерфейс датчика растояния  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="distancesensor_8hpp_source.html">distancesensor.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:mosh::hardware::DistanceSensor:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classmosh_1_1hardware_1_1_distance_sensor.png" usemap="#mosh::hardware::DistanceSensor_map" alt=""/>
+  <map id="mosh::hardware::DistanceSensor_map" name="mosh::hardware::DistanceSensor_map">
+<area href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html" title="Инфокрасный датчик Sharp." alt="mosh::hardware::IrSensorSharp" shape="rect" coords="0,56,212,80"/>
+<area href="classmosh_1_1hardware_1_1_no_distance_sensor.html" title="Заглушка" alt="mosh::hardware::NoDistanceSensor" shape="rect" coords="222,56,434,80"/>
+<area href="classmosh_1_1hardware_1_1_ultra_sonic.html" title="УльтраЗвуковой датчик HC SR04." alt="mosh::hardware::UltraSonic" shape="rect" coords="444,56,656,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ac40c676fbade7fd4e698d73164996872" id="r_ac40c676fbade7fd4e698d73164996872"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac40c676fbade7fd4e698d73164996872">DistanceSensor</a> (uint16_t min_dist, uint16_t max_dist, uint8_t period)</td></tr>
+<tr class="memdesc:ac40c676fbade7fd4e698d73164996872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Абстрактный Датчик расстояния  <br /></td></tr>
+<tr class="separator:ac40c676fbade7fd4e698d73164996872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bfa64aea866c457bc153bf0153c9957" id="r_a5bfa64aea866c457bc153bf0153c9957"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bfa64aea866c457bc153bf0153c9957">read</a> () const</td></tr>
+<tr class="memdesc:a5bfa64aea866c457bc153bf0153c9957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получить значение с датчика  <br /></td></tr>
+<tr class="separator:a5bfa64aea866c457bc153bf0153c9957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ed33ed19d91bf4e9d29a23434de871" id="r_aa0ed33ed19d91bf4e9d29a23434de871"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0ed33ed19d91bf4e9d29a23434de871">operator()</a> () const</td></tr>
+<tr class="separator:aa0ed33ed19d91bf4e9d29a23434de871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a841357df44460801e7a7e57f1e36c074" id="r_a841357df44460801e7a7e57f1e36c074"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841357df44460801e7a7e57f1e36c074">update</a> () const =0</td></tr>
+<tr class="memdesc:a841357df44460801e7a7e57f1e36c074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Опросить датчик  <br /></td></tr>
+<tr class="separator:a841357df44460801e7a7e57f1e36c074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс датчика растояния </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ac40c676fbade7fd4e698d73164996872" name="ac40c676fbade7fd4e698d73164996872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40c676fbade7fd4e698d73164996872">&#9670;&#160;</a></span>DistanceSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DistanceSensor::DistanceSensor </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>min_dist</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>max_dist</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>period</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Абстрактный Датчик расстояния </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min_dist</td><td>Нижняя граница отсечения расстояния </td></tr>
+    <tr><td class="paramname">max_dist</td><td>Верхняя граница отсеченя расстояния </td></tr>
+    <tr><td class="paramname">period</td><td>Период чтения (мс) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="lineno">    7</span>    : MIN_DISTANCE(min_dist), MAX_DISTANCE(max_dist), READ_PERIOD(period) {}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aa0ed33ed19d91bf4e9d29a23434de871" name="aa0ed33ed19d91bf4e9d29a23434de871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ed33ed19d91bf4e9d29a23434de871">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t DistanceSensor::operator() </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   18</span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="#a5bfa64aea866c457bc153bf0153c9957">read</a>(); }</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_distance_sensor_html_a5bfa64aea866c457bc153bf0153c9957"><div class="ttname"><a href="#a5bfa64aea866c457bc153bf0153c9957">mosh::hardware::DistanceSensor::read</a></div><div class="ttdeci">uint8_t read() const</div><div class="ttdoc">Получить значение с датчика</div><div class="ttdef"><b>Definition</b> distancesensor.cpp:9</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5bfa64aea866c457bc153bf0153c9957" name="a5bfa64aea866c457bc153bf0153c9957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bfa64aea866c457bc153bf0153c9957">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t DistanceSensor::read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Получить значение с датчика </p>
+<dl class="section return"><dt>Возвращает</dt><dd>расстояние датчика (см) </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                   {</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">if</span> (millis() &gt;= next_read) {</div>
+<div class="line"><span class="lineno">   11</span>        next_read = millis() + READ_PERIOD;</div>
+<div class="line"><span class="lineno">   12</span>        value = <a class="code hl_function" href="#a841357df44460801e7a7e57f1e36c074">update</a>();</div>
+<div class="line"><span class="lineno">   13</span>        value = constrain(value, MIN_DISTANCE, MAX_DISTANCE);</div>
+<div class="line"><span class="lineno">   14</span>    }</div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> value;</div>
+<div class="line"><span class="lineno">   16</span>}</div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_distance_sensor_html_a841357df44460801e7a7e57f1e36c074"><div class="ttname"><a href="#a841357df44460801e7a7e57f1e36c074">mosh::hardware::DistanceSensor::update</a></div><div class="ttdeci">virtual uint8_t update() const =0</div><div class="ttdoc">Опросить датчик</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a841357df44460801e7a7e57f1e36c074" name="a841357df44460801e7a7e57f1e36c074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841357df44460801e7a7e57f1e36c074">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint8_t mosh::hardware::DistanceSensor::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Опросить датчик </p>
+<dl class="section return"><dt>Возвращает</dt><dd>значение расстояние в мм </dd></dl>
+
+<p>Замещается в <a class="el" href="classmosh_1_1hardware_1_1_no_distance_sensor.html#ae69f17a785bda3519246baef3f305f31">mosh::hardware::NoDistanceSensor</a>, <a class="el" href="classmosh_1_1hardware_1_1_ir_sensor_sharp.html#a45eeaaa299d4446d2097434d4714c510">mosh::hardware::IrSensorSharp</a> и <a class="el" href="classmosh_1_1hardware_1_1_ultra_sonic.html#afb4d14457ef65344585c8a75e3896676">mosh::hardware::UltraSonic</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/hardware/<a class="el" href="distancesensor_8hpp_source.html">distancesensor.hpp</a></li>
+<li>src/hardware/<a class="el" href="distancesensor_8cpp.html">distancesensor.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

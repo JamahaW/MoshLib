@@ -1,0 +1,99 @@
+\doxysection{Пространство имен test}
+\hypertarget{namespacetest}{}\label{namespacetest}\index{test@{test}}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacetest_a3a9ef055c77c8387983f8769b27f86f8}{lines}} (uint16\+\_\+t \&ret\+\_\+L, uint16\+\_\+t \&ret\+\_\+R, uint32\+\_\+t timeout=1000)
+\begin{DoxyCompactList}\small\item\em Измерить значения датчиков линий \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetest_a06ffd6637541f3a5d4ca969232b2b3ac}{motors\+Accel}} ()
+\begin{DoxyCompactList}\small\item\em тест функциональности моторов \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetest_a49d0afe1bd7f4860490dd87cd85e2a7b}{motors\+PWM}} ()
+\begin{DoxyCompactList}\small\item\em тест функциональности моторов (ШИМ ВЕРСИЯ) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{namespacetest_a3a9ef055c77c8387983f8769b27f86f8}\label{namespacetest_a3a9ef055c77c8387983f8769b27f86f8} 
+\index{test@{test}!lines@{lines}}
+\index{lines@{lines}!test@{test}}
+\doxysubsubsection{\texorpdfstring{lines()}{lines()}}
+{\footnotesize\ttfamily void test\+::lines (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \&}]{ret\+\_\+L,  }\item[{uint16\+\_\+t \&}]{ret\+\_\+R,  }\item[{uint32\+\_\+t}]{timeout = {\ttfamily 1000} }\end{DoxyParamCaption})}
+
+
+
+Измерить значения датчиков линий 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ret\+\_\+L} & возврат для левого \\
+\hline
+{\em ret\+\_\+R} & возврат для правого \\
+\hline
+{\em timeout} & время измерения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ uint16\_t\ i;}
+\DoxyCodeLine{00104\ \ \ \ \ uint32\_t\ sum\_L\ =\ 0,\ sum\_R\ =\ 0;}
+\DoxyCodeLine{00105\ \ \ \ \ timeout\ +=\ millis();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ millis()\ <\ timeout;\ i++)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ sum\_L\ +=\ \mbox{\hyperlink{enviroment_8cpp_a819b91b43c618b3632e8a8a68d099efb}{lineL}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{readRaw}}();}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ sum\_R\ +=\ \mbox{\hyperlink{enviroment_8cpp_a566cbf3f924b8e5a46690d2af846422d}{lineR}}.\mbox{\hyperlink{classmosh_1_1hardware_1_1_line_sensor_a3968ca8384190ac12b2945c33c94a335}{readRaw}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ ret\_L\ =\ sum\_L\ /\ i;}
+\DoxyCodeLine{00113\ \ \ \ \ ret\_R\ =\ sum\_R\ /\ i;}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacetest_a06ffd6637541f3a5d4ca969232b2b3ac}\label{namespacetest_a06ffd6637541f3a5d4ca969232b2b3ac} 
+\index{test@{test}!motorsAccel@{motorsAccel}}
+\index{motorsAccel@{motorsAccel}!test@{test}}
+\doxysubsubsection{\texorpdfstring{motorsAccel()}{motorsAccel()}}
+{\footnotesize\ttfamily void test\+::motors\+Accel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+тест функциональности моторов 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{MotorEncoder}}*\ \_motors[]\{\ \&\mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}},\ \&\mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}\ \};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{MotorEncoder}}*\ m\ :\ \_motors)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ test\_motors\_speed(m,\ 1);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ test\_motors\_speed(m,\ -\/1);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}
+\Hypertarget{namespacetest_a49d0afe1bd7f4860490dd87cd85e2a7b}\label{namespacetest_a49d0afe1bd7f4860490dd87cd85e2a7b} 
+\index{test@{test}!motorsPWM@{motorsPWM}}
+\index{motorsPWM@{motorsPWM}!test@{test}}
+\doxysubsubsection{\texorpdfstring{motorsPWM()}{motorsPWM()}}
+{\footnotesize\ttfamily void test\+::motors\+PWM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+тест функциональности моторов (ШИМ ВЕРСИЯ) 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{MotorEncoder}}*\ \_motors[]\{\ \&\mbox{\hyperlink{enviroment_8cpp_ac700a60585c167d8334765547afab303}{motorL}},\ \&\mbox{\hyperlink{enviroment_8cpp_a0276ae9d5af8d3aa1015b06eae2738c4}{motorR}}\ \};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder}{MotorEncoder}}*\ motor\ :\ \_motors)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int16\_t\ i\ =\ -\/255;\ i\ <\ 256;\ i++)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ motor-\/>\mbox{\hyperlink{classmosh_1_1hardware_1_1_motor_encoder_aabd98ee655476addbdb4729ee0d19d09}{setPWM}}(255\ -\/\ abs(i));}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ motor-\/>setDir(i\ >\ 0);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ delay(2\ *\ 2000\ /\ 256);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ motor-\/>setPWM(0);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ delay(500);}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \}}
+
+\end{DoxyCode}

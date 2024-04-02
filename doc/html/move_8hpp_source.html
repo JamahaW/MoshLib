@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoshLib: Исходный файл src/control/move.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">MoshLib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b81b067251166617f9d0a8c0cfc3a4a9.html">control</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">move.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="move_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="enviroment_8hpp.html">core/enviroment.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespacemosh.html">    7</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemosh.html">mosh</a> {</div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacemosh_1_1control.html">    8</a></span><span class="keyword">namespace </span>control {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_mover.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_mover.html#aa32c49cf5a96e285b70ca651bebcde70">tick</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_keep_speed.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_keep_speed.html">KeepSpeed</a> : <span class="keyword">public</span> <a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_keep_speed.html#acfddba823d978205499d8acbdfa40535">KeepSpeed</a>(int8_t speed_left, int8_t speed_right);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_keep_speed.html#acfddba823d978205499d8acbdfa40535">KeepSpeed</a>(int8_t speed);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_keep_speed.html#a91f9dbf0a93599c7688cdc06b340a71f">tick</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_sync.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_sync.html">Sync</a> : <span class="keyword">public</span> <a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> int16_t FACT_L; <span class="comment">// Смещение левого</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> int16_t FACT_R; <span class="comment">// Смещение правого</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> int8_t KL; <span class="comment">// К левого</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> int8_t KR; <span class="comment">// К правого</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">const</span> int8_t SIG_L;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">const</span> int8_t SIG_R;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_sync.html#aac6e34b782b4de75acdd15a39626a211">Sync</a>(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_sync.html#aac6e34b782b4de75acdd15a39626a211">Sync</a>(int16_t fact);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_sync.html#adfedbc89fb1dee3f68ff7ba5f3ec742a">tick</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_line_prop.html">   57</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_line_prop.html">LineProp</a> : <span class="keyword">public</span> <a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> KP = 0.1; <span class="comment">// TODO вынести коэф</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    uint8_t BASE_SPEED;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_line_prop.html#a4e560801581100c203e54df4a88733d9">tick</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">public</span>: <a class="code hl_function" href="classmosh_1_1control_1_1_line_prop.html#ac518f6ec8fab58f16243f3df08856100">LineProp</a>(int8_t speed);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_line_relay.html">   64</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_line_relay.html">LineRelay</a> : <span class="keyword">public</span> <a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">const</span> int8_t SPEED_A, SPEED_B;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="classmosh_1_1hardware_1_1_line_sensor.html">hardware::LineSensor</a>* sensor;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa">   70</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3">SENSOR</a> { <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa">LINE_LEFT</a>, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435">LINE_RIGHT</a> };</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_line_relay.html#adc519d4f345152a17f23ad6f87c56c85">LineRelay</a>(<a class="code hl_enumeration" href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3">SENSOR</a> sensor_dir, int8_t speed);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_line_relay.html#ad144d1a6eeb448bb5df8b4c586e6ba53">tick</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="};">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_line_relay2.html">   82</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_line_relay2.html">LineRelay2</a> : <span class="keyword">public</span> <a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    int8_t SPEED, SECOND;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_line_relay2.html#a4f4a66703cdc30c4cab92a09e9d187a7">LineRelay2</a>(int8_t speed);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_line_relay2.html#a5e49aafdd1efe76be5acc70e50b2a2a4">tick</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="};">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_move_along_wall.html">   90</a></span><span class="keyword">class </span><a class="code hl_class" href="classmosh_1_1control_1_1_move_along_wall.html">MoveAlongWall</a> : <span class="keyword">public</span> <a class="code hl_class" href="classmosh_1_1control_1_1_mover.html">Mover</a> {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">const</span> int16_t SPEED;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">const</span> uint8_t TARGET;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> k;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_class" href="classmosh_1_1hardware_1_1_distance_sensor.html">hardware::DistanceSensor</a>* sensor;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">   98</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822d">POS</a> { <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">DIST_LEFT</a> = -1, <a class="code hl_enumvalue" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">DIST_RIGHT</a> = 1 };</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_function" href="classmosh_1_1control_1_1_move_along_wall.html#a3a6b2380128640eb53db11fe6f6283ee">MoveAlongWall</a>(uint8_t distance, <a class="code hl_enumeration" href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822d">POS</a> pos, int8_t speed);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classmosh_1_1control_1_1_move_along_wall.html#a9a3a569e9d7cd09910bbec876917cd79">tick</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>} <span class="comment">// namespace mosh</span></div>
+</div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_keep_speed_html"><div class="ttname"><a href="classmosh_1_1control_1_1_keep_speed.html">mosh::control::KeepSpeed</a></div><div class="ttdoc">режим постоянной скорости</div><div class="ttdef"><b>Definition</b> move.hpp:21</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_keep_speed_html_a91f9dbf0a93599c7688cdc06b340a71f"><div class="ttname"><a href="classmosh_1_1control_1_1_keep_speed.html#a91f9dbf0a93599c7688cdc06b340a71f">mosh::control::KeepSpeed::tick</a></div><div class="ttdeci">void tick() const override</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:13</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_keep_speed_html_acfddba823d978205499d8acbdfa40535"><div class="ttname"><a href="classmosh_1_1control_1_1_keep_speed.html#acfddba823d978205499d8acbdfa40535">mosh::control::KeepSpeed::KeepSpeed</a></div><div class="ttdeci">KeepSpeed(int8_t speed_left, int8_t speed_right)</div><div class="ttdef"><b>Definition</b> move.cpp:9</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_prop_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_prop.html">mosh::control::LineProp</a></div><div class="ttdoc">Пропорциональный регулятор движения по линии</div><div class="ttdef"><b>Definition</b> move.hpp:57</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_prop_html_a4e560801581100c203e54df4a88733d9"><div class="ttname"><a href="classmosh_1_1control_1_1_line_prop.html#a4e560801581100c203e54df4a88733d9">mosh::control::LineProp::tick</a></div><div class="ttdeci">void tick() const override</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:15</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_prop_html_ac518f6ec8fab58f16243f3df08856100"><div class="ttname"><a href="classmosh_1_1control_1_1_line_prop.html#ac518f6ec8fab58f16243f3df08856100">mosh::control::LineProp::LineProp</a></div><div class="ttdeci">LineProp(int8_t speed)</div><div class="ttdef"><b>Definition</b> move.cpp:21</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay2_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay2.html">mosh::control::LineRelay2</a></div><div class="ttdoc">Релейный регулятор движения по линии по двум датчикам</div><div class="ttdef"><b>Definition</b> move.hpp:82</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay2_html_a4f4a66703cdc30c4cab92a09e9d187a7"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay2.html#a4f4a66703cdc30c4cab92a09e9d187a7">mosh::control::LineRelay2::LineRelay2</a></div><div class="ttdeci">LineRelay2(int8_t speed)</div><div class="ttdef"><b>Definition</b> move.cpp:35</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay2_html_a5e49aafdd1efe76be5acc70e50b2a2a4"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay2.html#a5e49aafdd1efe76be5acc70e50b2a2a4">mosh::control::LineRelay2::tick</a></div><div class="ttdeci">void tick() const override</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:39</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html">mosh::control::LineRelay</a></div><div class="ttdef"><b>Definition</b> move.hpp:64</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_a70ea7fcde70e7df9d9188889aadf96a3"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3">mosh::control::LineRelay::SENSOR</a></div><div class="ttdeci">SENSOR</div><div class="ttdef"><b>Definition</b> move.hpp:70</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a1481c2d75510227afdf175c963d17435">mosh::control::LineRelay::LINE_RIGHT</a></div><div class="ttdeci">@ LINE_RIGHT</div><div class="ttdef"><b>Definition</b> move.hpp:70</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#a70ea7fcde70e7df9d9188889aadf96a3a62fa117202e34f9076cb8ea26b1412fa">mosh::control::LineRelay::LINE_LEFT</a></div><div class="ttdeci">@ LINE_LEFT</div><div class="ttdef"><b>Definition</b> move.hpp:70</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_ad144d1a6eeb448bb5df8b4c586e6ba53"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#ad144d1a6eeb448bb5df8b4c586e6ba53">mosh::control::LineRelay::tick</a></div><div class="ttdeci">void tick() const override</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:28</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_line_relay_html_adc519d4f345152a17f23ad6f87c56c85"><div class="ttname"><a href="classmosh_1_1control_1_1_line_relay.html#adc519d4f345152a17f23ad6f87c56c85">mosh::control::LineRelay::LineRelay</a></div><div class="ttdeci">LineRelay(SENSOR sensor_dir, int8_t speed)</div><div class="ttdoc">Релейный регулятор движения по линии по одному датчику</div><div class="ttdef"><b>Definition</b> move.cpp:23</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html">mosh::control::MoveAlongWall</a></div><div class="ttdef"><b>Definition</b> move.hpp:90</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_a3a6b2380128640eb53db11fe6f6283ee"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#a3a6b2380128640eb53db11fe6f6283ee">mosh::control::MoveAlongWall::MoveAlongWall</a></div><div class="ttdeci">MoveAlongWall(uint8_t distance, POS pos, int8_t speed)</div><div class="ttdoc">Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА</div><div class="ttdef"><b>Definition</b> move.cpp:45</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_a9a3a569e9d7cd09910bbec876917cd79"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#a9a3a569e9d7cd09910bbec876917cd79">mosh::control::MoveAlongWall::tick</a></div><div class="ttdeci">void tick() const override</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:50</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822d"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822d">mosh::control::MoveAlongWall::POS</a></div><div class="ttdeci">POS</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822da1013f0d266f07cda9af4f8032925549c">mosh::control::MoveAlongWall::DIST_RIGHT</a></div><div class="ttdeci">@ DIST_RIGHT</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_move_along_wall_html_af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914"><div class="ttname"><a href="classmosh_1_1control_1_1_move_along_wall.html#af61eb9f8104638ba7ff950ab97cb822daf786b31e9b777f5a4c32c721812a0914">mosh::control::MoveAlongWall::DIST_LEFT</a></div><div class="ttdeci">@ DIST_LEFT</div><div class="ttdef"><b>Definition</b> move.hpp:98</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_mover_html"><div class="ttname"><a href="classmosh_1_1control_1_1_mover.html">mosh::control::Mover</a></div><div class="ttdoc">Абстрактный исполнитель движения робота</div><div class="ttdef"><b>Definition</b> move.hpp:13</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_mover_html_aa32c49cf5a96e285b70ca651bebcde70"><div class="ttname"><a href="classmosh_1_1control_1_1_mover.html#aa32c49cf5a96e285b70ca651bebcde70">mosh::control::Mover::tick</a></div><div class="ttdeci">virtual void tick() const</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:7</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_sync_html"><div class="ttname"><a href="classmosh_1_1control_1_1_sync.html">mosh::control::Sync</a></div><div class="ttdoc">Синхронизированое движение моторов</div><div class="ttdef"><b>Definition</b> move.hpp:29</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_sync_html_aac6e34b782b4de75acdd15a39626a211"><div class="ttname"><a href="classmosh_1_1control_1_1_sync.html#aac6e34b782b4de75acdd15a39626a211">mosh::control::Sync::Sync</a></div><div class="ttdeci">Sync(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr)</div><div class="ttdoc">Синхронное вращение моторов</div><div class="ttdef"><b>Definition</b> move.cpp:56</div></div>
+<div class="ttc" id="aclassmosh_1_1control_1_1_sync_html_adfedbc89fb1dee3f68ff7ba5f3ec742a"><div class="ttname"><a href="classmosh_1_1control_1_1_sync.html#adfedbc89fb1dee3f68ff7ba5f3ec742a">mosh::control::Sync::tick</a></div><div class="ttdeci">void tick() const override</div><div class="ttdoc">Обновление системы</div><div class="ttdef"><b>Definition</b> move.cpp:63</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_distance_sensor_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_distance_sensor.html">mosh::hardware::DistanceSensor</a></div><div class="ttdoc">Интерфейс датчика растояния</div><div class="ttdef"><b>Definition</b> distancesensor.hpp:11</div></div>
+<div class="ttc" id="aclassmosh_1_1hardware_1_1_line_sensor_html"><div class="ttname"><a href="classmosh_1_1hardware_1_1_line_sensor.html">mosh::hardware::LineSensor</a></div><div class="ttdoc">Аналоговый датчик линии</div><div class="ttdef"><b>Definition</b> linesensor.hpp:11</div></div>
+<div class="ttc" id="aenviroment_8hpp_html"><div class="ttname"><a href="enviroment_8hpp.html">enviroment.hpp</a></div></div>
+<div class="ttc" id="anamespacemosh_html"><div class="ttname"><a href="namespacemosh.html">mosh</a></div><div class="ttdef"><b>Definition</b> move.hpp:7</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>
