@@ -57,7 +57,7 @@ goTime(runtime, speed_left, speed_right);
   - `speed_right`: Скорость правого мотора.
 
 ```c++
-goTime(uint32_t runtime, int8_t speed = DEFAULT_SPEED_TICK);
+goTime(runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Вариант функции `goTime`, где используется одна скорость для обоих моторов**
 - **Параметры**:
@@ -65,14 +65,14 @@ goTime(uint32_t runtime, int8_t speed = DEFAULT_SPEED_TICK);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-goHold(uint32_t timeout = HOLD_STOP_TIMEOUT);
+goHold(timeout = HOLD_STOP_TIMEOUT);
 ```
 **Удерживает моторы в текущем положении на заданное время**
 - **Параметры**:
   - `timeout`: Время удержания (по умолчанию `HOLD_STOP_TIMEOUT`).
 
 ```c++
-goTick(int32_t ticks, uint8_t speed = DEFAULT_SPEED_PWM);
+goTick(ticks, speed = DEFAULT_SPEED_PWM);
 ```
 **Движение на заданное количество тиков**
 - **Параметры**:
@@ -80,7 +80,7 @@ goTick(int32_t ticks, uint8_t speed = DEFAULT_SPEED_PWM);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-goDist(int32_t distance_mm, int16_t speed_PWM = DEFAULT_SPEED_PWM);
+goDist(distance_mm, speed_PWM = DEFAULT_SPEED_PWM);
 ```
 **Прямолинейное синхронное движение на заданное расстояние**
 - **Параметры**:
@@ -88,7 +88,7 @@ goDist(int32_t distance_mm, int16_t speed_PWM = DEFAULT_SPEED_PWM);
   - `speed_PWM`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-goCross(uint8_t crosses = 1, bool found_line = false, int16_t speed_PWMDIR = DEFAULT_SPEED_PWM);
+goCross(crosses = 1, found_line = false, speed_PWMDIR = DEFAULT_SPEED_PWM);
 ```
 **Синхронное движение до перекрестка**
 - **Параметры**:
@@ -97,7 +97,7 @@ goCross(uint8_t crosses = 1, bool found_line = false, int16_t speed_PWMDIR = DEF
   - `speed_PWMDIR`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-turnAngle(int16_t a, int16_t speed = DEFAULT_SPEED_PWM);
+turnAngle(a, speed = DEFAULT_SPEED_PWM);
 ```
 **Поворот вокруг центра на заданный угол**
 - **Параметры**:
@@ -105,14 +105,14 @@ turnAngle(int16_t a, int16_t speed = DEFAULT_SPEED_PWM);
   - `speed`: Скорость поворота (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-alignLine(uint32_t duration = PARAMS::ALIGN_DURATION);
+alignLine(duration = PARAMS::ALIGN_DURATION);
 ```
 **Выравнивание робота по линии**
 - **Параметры**:
   - `duration`: Время выравнивания (по умолчанию `PARAMS::ALIGN_DURATION`).
 
 ```c++
-turnLineL(int8_t crosses = 1, int16_t speed = DEFAULT_SPEED_PWM);
+turnLineL(crosses = 1, speed = DEFAULT_SPEED_PWM);
 ```
 **Поворот вокруг центра влево, пересекая линии**
 - **Параметры**:
@@ -120,7 +120,7 @@ turnLineL(int8_t crosses = 1, int16_t speed = DEFAULT_SPEED_PWM);
   - `speed`: Скорость поворота (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-turnLineR(int8_t crosses = 1, int16_t speed = DEFAULT_SPEED_PWM);
+turnLineR(crosses = 1, speed = DEFAULT_SPEED_PWM);
 ```
 **Поворот вокруг центра вправо по перекресткам**
 - **Параметры**:
@@ -129,7 +129,7 @@ turnLineR(int8_t crosses = 1, int16_t speed = DEFAULT_SPEED_PWM);
 
 ### Функции движения до-по-вдоль стены
 ```c++
-wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
+wallFront(sensor, distance, speed = DEFAULT_SPEED_PWM);
 ```
 **Прямолинейное синхронное движение до стены**
 - **Параметры**:
@@ -138,7 +138,7 @@ wallFront(mosh::hardware::DistanceSensor& sensor, uint8_t distance, uint8_t spee
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-wallFront(uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
+wallFront(distance, speed = DEFAULT_SPEED_PWM);
 ```
 **Вариант функции `wallFront`, где используется передний датчик расстояния**
 - **Параметры**:
@@ -146,7 +146,7 @@ wallFront(uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, int16_t speed = DEFAULT_SPEED_PWM);
+wallBack(sensor, distance, speed = DEFAULT_SPEED_PWM);
 ```
 **Прямолинейное синхронное движение назад от стены**
 - **Параметры**:
@@ -155,7 +155,7 @@ wallBack(mosh::hardware::DistanceSensor& sensor, uint8_t distance, int16_t speed
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-wallBack(uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
+wallBack(distance, speed = DEFAULT_SPEED_PWM);
 ```
 **Вариант функции `wallBack`, где используется передний датчик расстояния**
 - **Параметры**:
@@ -163,7 +163,7 @@ wallBack(uint8_t distance, uint8_t speed = DEFAULT_SPEED_PWM);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_PWM`).
 
 ```c++
-wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+wallTimeL(distance, runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение вдоль стены по левому датчику**
 - **Параметры**:
@@ -172,7 +172,7 @@ wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+wallTimeR(distance, runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение вдоль стены по правому датчику**
 - **Параметры**:
@@ -182,7 +182,7 @@ wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK
 
 ### Функции движения по линии
 ```c++
-lineTime(uint32_t runtime, uint8_t speed = DEFAULT_SPEED);
+lineTime(runtime, speed = DEFAULT_SPEED);
 ```
 **Движение по линии с регулятором по умолчанию**
 - **Параметры**:
@@ -190,7 +190,7 @@ lineTime(uint32_t runtime, uint8_t speed = DEFAULT_SPEED);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED`).
 
 ```c++
-lineTimeL(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+lineTimeL(runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение по линии по левому датчику**
 - **Параметры**:
@@ -198,7 +198,7 @@ lineTimeL(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-lineTimeR(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+lineTimeR(runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение по линии по правому датчику**
 - **Параметры**:
@@ -206,7 +206,7 @@ lineTimeR(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-lineTimeLR(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+lineTimeLR(runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение по линии по двум датчикам**
 - **Параметры**:
@@ -214,7 +214,7 @@ lineTimeLR(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-lineTimeP(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
+lineTimeP(runtime, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение по линии по P-регулятору**
 - **Параметры**:
@@ -222,7 +222,7 @@ lineTimeP(uint32_t runtime, uint8_t speed = DEFAULT_SPEED_TICK);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-lineCrossP(uint8_t crosses = 1, uint8_t speed = DEFAULT_SPEED_TICK);
+lineCrossP(crosses = 1, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение по линии до перекрестка P-регулятором**
 - **Параметры**:
@@ -230,7 +230,7 @@ lineCrossP(uint8_t crosses = 1, uint8_t speed = DEFAULT_SPEED_TICK);
   - `speed`: Скорость движения (по умолчанию `DEFAULT_SPEED_TICK`).
 
 ```c++
-lineDistP(int32_t distance, uint8_t speed = DEFAULT_SPEED_TICK);
+lineDistP(distance, speed = DEFAULT_SPEED_TICK);
 ```
 **Движение по линии на расстояние P-регулятором**
 - **Параметры**:
