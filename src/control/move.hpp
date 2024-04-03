@@ -27,8 +27,8 @@ class KeepSpeed : public Mover {
 
 /// @brief Синхронизированое движение моторов
 class Sync : public Mover {
-    const int16_t FACT_L; // Смещение левого
-    const int16_t FACT_R; // Смещение правого
+    const int16_t FACT_L; // Скорость левого
+    const int16_t FACT_R; // Скорость правого
     const int8_t KL; // К левого
     const int8_t KR; // К правого
     const int8_t SIG_L;
@@ -38,8 +38,8 @@ class Sync : public Mover {
 
     /**
      * @brief Синхронное вращение моторов
-     * @param fact_l Смещение левого мотора
-     * @param fact_r Смещение правого мотора
+     * @param fact_l Скорость левого мотора
+     * @param fact_r Скорость правого мотора
      * @param kl Множитель смещения левого
      * @param kr Множитель смещения правого
      */
