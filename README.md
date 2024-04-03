@@ -37,25 +37,24 @@ setDistF(sensor);
   -  `setDistF(ir1);`: установка первого инфрокрасного датчика по умолчанию
 
 ```c++
-setLineReg(enum LINE_REGULATORS default_regulator);
+setLineReg(regulator);
 ```
 **Устанавливает регулятор движения по линии по умолчанию**
 - **Параметры**:
-  - `default_regulator`: Доступные варианты регуляторов: Тип рRELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`).
+  - `regulator`: Доступные варианты регуляторов: RELAY_L, RELAY_R, RELAY_LR, PROP
 - **Пример использования**:
-  -  `default_regulator(PROP);`: установка регулятора движения по линии по умолчанию
+  -  `setLineReg(PROP);`: установка пропорционального регулятора движения по линии по умолчанию
 
 ### Функции простого передвижения
 
 ```c++
-goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end = true);
+goTime(runtime, speed_left, speed_right);
 ```
 **Движение с заданной скоростью на определенное время**
 - **Параметры**:
-  - `runtime`: Время работы в тиках.
+  - `runtime`: Время работы в мс.
   - `speed_left`: Скорость левого мотора.
   - `speed_right`: Скорость правого мотора.
-  - `__hold_at_end`: Опциональный параметр, определяющий, следует ли удерживать моторы в конце движения (по умолчанию `true`).
 
 ```c++
 goTime(uint32_t runtime, int8_t speed = DEFAULT_SPEED_TICK);
