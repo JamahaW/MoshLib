@@ -9,8 +9,12 @@ namespace hardware {
 
 /// @brief Аналоговый датчик линии
 class LineSensor {
+    /// @brief Аналоговый пин датчика
     const uint8_t PIN;
-    const uint16_t ON_LINE, ON_FIELD;
+    /// @brief значение АЦП на линии
+    const uint16_t LINE;
+    /// @brief значение АЦП на поле
+    const uint16_t FIELD;
 
     public:
 
