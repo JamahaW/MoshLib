@@ -4,8 +4,8 @@
 using namespace mosh::hardware;
 using namespace mosh::env;
 
-LineSensor lineL(LINE_L, L_LINE, L_FIELD);
-LineSensor lineR(LINE_R, R_LINE, R_FIELD);
+LineSensor lineL;
+LineSensor lineR;
 
 NoDistanceSensor __no_sensor;
 IrSensorSharp ir0(IR_0);

@@ -9,25 +9,26 @@ namespace hardware {
 
 /// @brief Аналоговый датчик линии
 class LineSensor {
+
     /// @brief Аналоговый пин датчика
-     uint8_t PIN;
+    uint8_t pin;
+
     /// @brief значение АЦП на линии
-     uint16_t LINE;
+    uint16_t on_line = DEFAULT_CONF::LINE_ON_LINE;
+
     /// @brief значение АЦП на поле
-    const uint16_t FIELD;
+    uint16_t on_field = DEFAULT_CONF::LINE_ON_FIELD;
 
     public:
 
-    /**
-     * @brief Аналоговый датчик линии
-     * @param pin Аналоговый Пин датчика (A0-A7)
-     */
-    LineSensor(uint8_t pin);
+    /// @brief Установить пин датчика
+    /// @param pin Аналоговый Пин датчика (A0-A7)
+    LineSensor& setPin(uint8_t pin);
 
     /// @brief
     /// @param on_line Значение АЦП с пина датчика на линии
     /// @param on_field Значение АЦП с пина датчика на поле
-    void config(uint16_t on_line, uint16_t on_field);
+    LineSensor& config(uint16_t on_line, uint16_t on_field);
 
     /**
      * @brief Считать значение с АЦП

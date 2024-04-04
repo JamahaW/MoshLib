@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 
+// TODO перенести большую часть конфигураций в методы тех или 
 
 #ifndef MOTOR_L_INVERT
 #define MOTOR_L_INVERT false // Левый мотор инверсия направления
@@ -35,12 +36,14 @@
 #define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
 #endif
 
-#ifndef LINE_L
-#define LINE_L A0 // Левый датчик линии
+#ifdef LINE_L
+// #define LINE_L A0 // Левый датчик линии
+#warning LINE_L - этот макрос больше не поддерживается, используйте метод lineL.setPin(uint8_t pin)
 #endif
 
-#ifndef LINE_R
-#define LINE_R A1 // Правый датчик линии
+#ifdef LINE_R
+// #define LINE_R A1 // Правый датчик линии
+#warning LINE_R - этот макрос больше не поддерживается, используйте метод lineR.setPin(uint8_t pin)
 #endif
 
 #ifndef IR_0
@@ -82,20 +85,28 @@
 #define GRAY_PERCENT 50 // Уровень чувствительности датчика линии
 #endif
 
-#ifndef R_LINE
-#define R_LINE 108 // значеие ПРАВОГО датчика на ЛИНИИ 
+#ifdef R_LINE
+// #define R_LINE 108 // значеие ПРАВОГО датчика на ЛИНИИ 
+#warning R_LINE - этот макрос больше не поддерживается, используйте метод lineR.config(uint16_t on_line, uint16_t on_field)
+#warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_LINE
 #endif
 
-#ifndef R_FIELD
-#define R_FIELD 981// значеие ПРАВОГО датчика на ПОЛЕ 
+#ifdef R_FIELD
+// #define R_FIELD 981// значеие ПРАВОГО датчика на ПОЛЕ
+#warning R_FIELD - этот макрос больше не поддерживается, используйте метод lineR.config(uint16_t on_line, uint16_t on_field)
+#warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_FIELD
 #endif
 
-#ifndef L_LINE
-#define L_LINE 57 // значеие ЛЕВОГО датчика на ЛИНИИ 
+#ifdef L_LINE
+// #define L_LINE 57 // значеие ЛЕВОГО датчика на ЛИНИИ 
+#warning L_LINE - этот макрос больше не поддерживается, используйте метод lineL.config(uint16_t on_line, uint16_t on_field)
+#warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_LINE
 #endif
 
-#ifndef L_FIELD
-#define L_FIELD 837 // значеие ЛЕВОГО датчика на ПОЛЕ 
+#ifdef L_FIELD
+// #define L_FIELD 837 // значеие ЛЕВОГО датчика на ПОЛЕ 
+#warning L_FIELD - этот макрос больше не поддерживается, используйте метод lineL.config(uint16_t on_line, uint16_t on_field)
+#warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_FIELD
 #endif
 
 
@@ -116,6 +127,11 @@ enum PARAMS {
     US_DIST_MIN = 2,
     US_DIST_MAX = 100,
     US_PERIOD = 200,
+};
+
+enum DEFAULT_CONF {
+    LINE_ON_LINE = 82,
+    LINE_ON_FIELD = 909
 };
 
 #define SIGN(x) (((x) > 0) ? 1 : -1) // ЗНАК переменной
