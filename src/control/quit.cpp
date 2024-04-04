@@ -2,6 +2,7 @@
 
 
 using namespace mosh::control;
+using mosh::env::robot;
 
 OnTimer::OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
 bool OnTimer::tick() const { return millis() < END_TIME; }
@@ -13,7 +14,7 @@ bool DistanceRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
 
 DistanceMoved::DistanceMoved(int32_t dist_l, int32_t dist_r, bool mm_mode) :
     TARGET_L(mm_mode ? MM2TICKS(dist_l) : dist_l), TARGET_R(mm_mode ? MM2TICKS(dist_r) : dist_r) {
-    motors::reset();
+    robot.motorsReset();
 }
 
 DistanceMoved::DistanceMoved(int32_t distance) : DistanceMoved(distance, distance) {}

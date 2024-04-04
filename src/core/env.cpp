@@ -1,6 +1,8 @@
 #include "env.hpp"
 
+
 using namespace mosh::hardware;
+using namespace mosh::env;
 
 LineSensor lineL(LINE_L, L_LINE, L_FIELD);
 LineSensor lineR(LINE_R, R_LINE, R_FIELD);
@@ -16,26 +18,29 @@ MotorEncoder motorR(mosh::hardware::__r_int, MOTOR_R_INVERT, MOTOR_R_SPEED, MOTO
 void mosh::hardware::__l_int() { motorL.enc(); }
 void mosh::hardware::__r_int() { motorR.enc(); }
 
-mosh::env::RobotController robot;
-
-// управление моторами [[[  // TODO ликвидировать!  ]]]
-void motors::reset() {
-    motorL.reset();
-    motorR.reset();
-}
-
-void motors::spin() {
-    motorL.spin();
-    motorR.spin();
-}
-
-void motors::setSpeeds(int16_t left, int16_t right) {
-    motorL.setSpeed(left);
-    motorR.setSpeed(right);
-}
 
 void setDistL(DistanceSensor& sensor) { robot.dist_left = &sensor; }
 
 void setDistR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
 
 void setDistF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
+
+void RobotController::motorsReset() {
+    motorL.reset();
+    motorR.reset();
+}
+
+void RobotController::motorsSpin() {
+    motorL.spin();
+    motorR.spin();
+}
+
+void RobotController::motorsSpeed(int16_t left, int16_t right) {
+    motorL.setSpeed(left);
+    motorR.setSpeed(right);
+}
+
+void RobotController::motorsDirPWM(int16_t dirpwm_left, int16_t dirpwm_right) {
+    motorL.setDirPWM(dirpwm_left);
+    motorR.setDirPWM(dirpwm_right);
+}
