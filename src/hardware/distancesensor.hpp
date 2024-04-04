@@ -9,17 +9,21 @@ namespace hardware {
 
 /// @brief Интерфейс датчика растояния
 class DistanceSensor {
-    const uint16_t MIN_DISTANCE, MAX_DISTANCE;
-    const uint8_t READ_PERIOD;
-    mutable uint32_t next_read = 0; // время следующего опроса датчика
-    mutable uint8_t value = 0; // предыдущее значение датчика
+    /// @brief 
+    const uint16_t DIST_FLOOR;
+    /// @brief верхняя границы
+    const uint16_t DIST_CEIL;
+    /// @brief период изменения значения
+    const uint8_t PERIOD;
+    /// @brief таймер для периодического опрашивания
+    mutable uint32_t timer = 0;
+    /// @brief предыдущее значение датчика
+    mutable uint8_t value = 0;
 
     protected:
 
-    /**
-     * @brief Опросить датчик
-     * @return значение расстояние в мм
-     */
+    /// @brief Опросить датчик
+    /// @return значение расстояние в мм
     virtual uint8_t update() const = 0;
 
     public:
@@ -37,11 +41,15 @@ class DistanceSensor {
      * @return расстояние датчика (см)
      */
     uint8_t read() const;
+
+
+    /// @brief Оператор Функтора для упрощения
+    /// @return как и метод read()
     uint8_t operator () () const;
 };
 
 
-/// @brief Заглушка
+/// @brief Заглушка, возвращает всегда 0
 class NoDistanceSensor : public DistanceSensor {
     protected: uint8_t update() const override { return 0; }
     public: NoDistanceSensor() : DistanceSensor(0, 0, 0) {}
@@ -50,6 +58,7 @@ class NoDistanceSensor : public DistanceSensor {
 
 /// @brief Инфокрасный датчик Sharp
 class IrSensorSharp : public DistanceSensor {
+    /// @brief Аналоговый пин датчика
     const uint8_t PIN;
 
     protected:
@@ -63,7 +72,10 @@ class IrSensorSharp : public DistanceSensor {
 
 /// @brief УльтраЗвуковой датчик HC SR04
 class UltraSonic : public DistanceSensor {
-    const uint8_t PIN_ECHO, PIN_TRIG;
+    /// @brief Пин приёма
+    const uint8_t ECHO;
+    /// @brief Пин триггера
+    const uint8_t TRIG;
 
     protected:
 
