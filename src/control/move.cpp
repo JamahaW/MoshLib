@@ -45,7 +45,7 @@ void LineRelay2::tick() const {
 MoveAlongWall::MoveAlongWall(uint8_t distance, POS pos, int8_t speed) :
     SPEED(speed),
     TARGET(distance), k(1.2 * (int) pos), // вынести коэф
-    sensor((pos == DIST_LEFT) ? robot.dist_left : (pos == DIST_RIGHT) ? robot.dist_right : &no_sensor) {}
+    sensor((pos == DIST_LEFT) ? mosh::env::robot.dist_left : (pos == DIST_RIGHT) ? mosh::env::robot.dist_right : &__no_sensor) {}
 
 void MoveAlongWall::tick() const {
     int16_t u = k * float(TARGET - sensor->read()) * SPEED / (float) TARGET;

@@ -9,19 +9,6 @@ using namespace mosh::control;
 using namespace mosh;
 
 
-void setDistL(DistanceSensor& sensor) { robot.dist_left = &sensor; }
-
-void setDistR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
-
-void setDistF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
-
-// // TODO доделать!!
-// void setLineReg(enum LINE_REGULATORS default_regulator) {
-//     robot.line_follow_regulator = default_regulator;
-// }
-
-
-
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
     run::base(KeepSpeed(speed_left, speed_right), OnTimer(runtime), __hold_at_end);
 }
@@ -63,13 +50,13 @@ void wallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     run::base(Sync(speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::GREATER));
 }
 
-void wallFront(uint8_t distance, uint8_t speed) { wallFront(*robot.dist_front, distance, speed); }
+void wallFront(uint8_t distance, uint8_t speed) { wallFront(*mosh::env::robot.dist_front, distance, speed); }
 
 void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, int16_t speed) {
     run::base(Sync(-speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::LESS));
 }
 
-void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }
+void wallBack(uint8_t distance, uint8_t speed) { wallBack(*mosh::env::robot.dist_front, distance, speed); }
 
 void wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);

@@ -9,29 +9,7 @@
 
 // КОНФИГУРИРОВАНИЕ
 
-/**
- * @brief Указать ЛЕВЫЙ датчик расстояния
- * @param sensor ссылка на датчик
- */
-void setDistL(mosh::hardware::DistanceSensor& sensor);
 
-/**
- * @brief Указать ПРАВЫЙ датчик расстояния
- * @param sensor ссылка на датчик
- */
-void setDistR(mosh::hardware::DistanceSensor& sensor);
-
-/**
- * @brief Указать ПЕРЕДНИЙ датчик расстояния
- * @param sensor ссылка на датчик
- */
-void setDistF(mosh::hardware::DistanceSensor& sensor);
-
-// /**
-//  * @brief Установить регулятор движения по линии по умолчанию
-//  * @param default_regulator тип регулятора `RELAY_L` | `RELAY_R` | `RELAY_LR` | `PROP`
-//  */
-// void setLineReg(enum LINE_REGULATORS default_regulator);
 
 
 // ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
