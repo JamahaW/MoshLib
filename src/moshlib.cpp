@@ -43,7 +43,7 @@ void goCross(uint8_t crosses, bool found_line, int16_t speed_PWMDIR) { run::base
 
 void turnAngle(int16_t a, int16_t speed) {
     int32_t dist = (int32_t) a * (TRACK_SIZE_MM * M_PI / 360.0);
-    run::base(Sync(speed, -speed, 1, -1), DistanceMoved(dist, -dist));
+    run::base(Sync(a > 0 ? speed : -speed, a > 0 ? -speed : speed, 1, -1), DistanceMoved(dist, -dist));
 }
 
 void alignLine(uint32_t duration) { run::time(LineProp(0), duration); }
