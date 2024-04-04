@@ -3,7 +3,7 @@
 #pragma once
 
 #include "core/config.hpp"
-#include "core/enviroment.hpp"
+#include "core/env.hpp"
 #include "control/move.hpp"
 
 
