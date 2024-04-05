@@ -2,15 +2,18 @@
 
 #include <Arduino.h>
 
-// TODO перенести большую часть конфигураций в методы тех или 
 
-#ifndef MOTOR_L_INVERT
-#define MOTOR_L_INVERT false // Левый мотор инверсия направления
-#endif
+/// @brief Левый мотор скорость
+#define MOTOR_L_DIR 4
 
-#define MOTOR_L_SPEED 5 // Левый мотор направление
+/// @brief Левый мотор направление
+#define MOTOR_L_SPEED 5
 
-#define MOTOR_L_DIR 4 // Левый мотор скорость
+/// @brief Правый мотор скорость
+#define MOTOR_R_SPEED 6
+
+/// @brief Правый мотор направление
+#define MOTOR_R_DIR 7 
 
 #ifndef MOTOR_L_ENC_A
 #define MOTOR_L_ENC_A 2 // Левый мотор энкодер желтый
@@ -20,13 +23,13 @@
 #define MOTOR_L_ENC_B 8 // Левый мотор энкодер зелёный
 #endif
 
+#ifndef MOTOR_L_INVERT
+#define MOTOR_L_INVERT false // Левый мотор инверсия направления
+#endif
+
 #ifndef MOTOR_R_INVERT
 #define MOTOR_R_INVERT true // Правый мотор инверсия направления
 #endif
-
-#define MOTOR_R_SPEED 6 // Правый мотор скорость
-
-#define MOTOR_R_DIR 7 // Правый мотор направление
 
 #ifndef MOTOR_R_ENC_A
 #define MOTOR_R_ENC_A 3 // Правый мотор энкодер желтый
@@ -53,17 +56,17 @@
 
 #ifdef IR_1
 // #define IR_1 A3 // Инфракрасный датчик расстояния 1
-#warning IR_0 - этот макрос больше не поддерживается, используйте ir1.pinout(uint8_t pin)
+#warning IR_1 - этот макрос больше не поддерживается, используйте ir1.pinout(uint8_t pin)
 #endif
 
 #ifdef US_ECHO
 // #define US_ECHO 12 // Ультразвуковой датчик расстояния приём
-#warning IR_0 - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
+#warning US_ECHO - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
 #endif
 
 #ifdef US_TRIG
 // #define US_TRIG 13 // Ультразвуковой датчик расстояния излучатель
-#warning IR_0 - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
+#warning US_TRIG - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
 #endif
 
 #ifndef TRACK_SIZE_MM
