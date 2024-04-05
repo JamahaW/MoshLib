@@ -1,4 +1,5 @@
 #include "MoshLib.hpp"
+#include "hardware/motorencoder.hpp"
 #include "core/run.hpp"
 
 
@@ -50,13 +51,13 @@ void wallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     run::base(Sync(speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::GREATER));
 }
 
-void wallFront(uint8_t distance, uint8_t speed) { wallFront(*mosh::env::robot.dist_front, distance, speed); }
+void wallFront(uint8_t distance, uint8_t speed) { wallFront(*conf.dist_front, distance, speed); }
 
 void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, int16_t speed) {
     run::base(Sync(-speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::LESS));
 }
 
-void wallBack(uint8_t distance, uint8_t speed) { wallBack(*mosh::env::robot.dist_front, distance, speed); }
+void wallBack(uint8_t distance, uint8_t speed) { wallBack(*conf.dist_front, distance, speed); }
 
 void wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
     run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);
@@ -105,8 +106,8 @@ static void test_motors_speed(MotorEncoder* motor, int8_t dir) {
 
     motor->reset();
 
-    for (int16_t speed = -PARAMS::MAX_DELTA_TICKS; speed <= PARAMS::MAX_DELTA_TICKS; speed++) {
-        motor->setSpeed((PARAMS::MAX_DELTA_TICKS - abs(speed)) * dir);
+    for (int16_t speed = -ENV_PARAMS::MAX_DELTA_TICKS; speed <= ENV_PARAMS::MAX_DELTA_TICKS; speed++) {
+        motor->setSpeed((ENV_PARAMS::MAX_DELTA_TICKS - abs(speed)) * dir);
         while (millis() < timer) motor->spin();
         timer += 120;
     }

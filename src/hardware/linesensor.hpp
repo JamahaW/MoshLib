@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-#include "core/config.hpp"
+#include "core/values.hpp"
 
 
 namespace mosh {
@@ -14,10 +14,10 @@ class LineSensor {
     uint8_t pin;
 
     /// @brief значение АЦП на линии
-    uint16_t on_line = DEFAULT_CONF::LINE_ON_LINE;
+    uint16_t on_line = CONF_DEFAULT::LINE_ON_LINE;
 
     /// @brief значение АЦП на поле
-    uint16_t on_field = DEFAULT_CONF::LINE_ON_FIELD;
+    uint16_t on_field = CONF_DEFAULT::LINE_ON_FIELD;
 
     public:
 
@@ -50,10 +50,16 @@ class LineSensor {
 
     /**
      * @brief Проверить логическое наличие линии
-     * @return (%) линии больше `GRAY_PERCENT`
+     * @return (%) линии больше `LINE_GRAY_PERCENT`
      */
     bool on() const;
 };
 
 }
 } // namespace mosh
+
+/// @brief Левый датчик линии
+extern mosh::hardware::LineSensor lineL;
+
+/// @brief Правый датчик линии
+extern mosh::hardware::LineSensor lineR;

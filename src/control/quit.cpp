@@ -1,8 +1,9 @@
 #include "quit.hpp"
-
+#include "hardware/motorencoder.hpp"
+#include "hardware/robotconfig.hpp"
+#include "hardware/linesensor.hpp"
 
 using namespace mosh::control;
-using mosh::env::robot;
 
 OnTimer::OnTimer(uint16_t duration) : END_TIME(millis() + duration) {}
 bool OnTimer::tick() const { return millis() < END_TIME; }
@@ -13,8 +14,8 @@ DistanceRead::DistanceRead(hardware::DistanceSensor& used_sensor, const uint8_t 
 bool DistanceRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
 
 DistanceMoved::DistanceMoved(int32_t dist_l, int32_t dist_r, bool mm_mode) :
-    TARGET_L(mm_mode ? robot.mm2ticks(dist_l) : dist_l), TARGET_R(mm_mode ? robot.mm2ticks(dist_r) : dist_r) {
-    robot.motorsReset();
+    TARGET_L(mm_mode ? conf.mm2ticks(dist_l) : dist_l), TARGET_R(mm_mode ? conf.mm2ticks(dist_r) : dist_r) {
+    motors.reset();
 }
 
 DistanceMoved::DistanceMoved(int32_t distance) : DistanceMoved(distance, distance) {}

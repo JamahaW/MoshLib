@@ -26,12 +26,44 @@ void MotorEncoder::setDirPWM(int16_t power) {
     setPWM(constrain(power, 0, 255));
 }
 
-void MotorEncoder::setSpeed(int16_t dtick) { speed = speed_set = constrain(dtick, -PARAMS::MAX_DELTA_TICKS, PARAMS::MAX_DELTA_TICKS); }
+void MotorEncoder::setSpeed(int16_t dtick) { speed = speed_set = constrain(dtick, -ENV_PARAMS::MAX_DELTA_TICKS, ENV_PARAMS::MAX_DELTA_TICKS); }
 
 void MotorEncoder::spin() {
     setDirPWM(KP_SPEED * (next_pos - position));
     if (millis() <= timer) return;
-    timer = millis() + PARAMS::SPIN_PERIOD_MS;
+    timer = millis() + ENV_PARAMS::SPIN_PERIOD_MS;
     next_pos += speed;
     return;
 }
+
+/// @brief Обработчик левого мотора
+static void __l_int() { motorL.enc(); }
+
+/// @brief Обработчик правого мотора
+static void __r_int() { motorR.enc(); }
+
+MotorEncoder motorL(__l_int, MOTOR_L_INVERT, MOTOR_L_SPEED, MOTOR_L_DIR, MOTOR_L_ENC_A, MOTOR_L_ENC_B);
+MotorEncoder motorR(__r_int, MOTOR_R_INVERT, MOTOR_R_SPEED, MOTOR_R_DIR, MOTOR_R_ENC_A, MOTOR_R_ENC_B);
+
+
+void MotorController::reset() {
+    motorL.reset();
+    motorR.reset();
+}
+
+void MotorController::motorsSpin() {
+    motorL.spin();
+    motorR.spin();
+}
+
+void MotorController::setSpeed(int16_t left, int16_t right) {
+    motorL.setSpeed(left);
+    motorR.setSpeed(right);
+}
+
+void MotorController::setDirPWM(int16_t dirpwm_left, int16_t dirpwm_right) {
+    motorL.setDirPWM(dirpwm_left);
+    motorR.setDirPWM(dirpwm_right);
+}
+
+MotorController motors;

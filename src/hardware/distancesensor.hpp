@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-#include "core/config.hpp"
+#include "core/values.hpp"
 
 
 namespace mosh {
@@ -103,3 +103,16 @@ class UltraSonic : public DistanceSensor {
 
 }
 } // namespace mosh
+
+
+/// @brief Заглушка
+extern mosh::hardware::NoDistanceSensor __no_sensor;
+
+/// @brief Левый ИК-датчик расстояния
+extern mosh::hardware::IrSensorSharp ir0;
+
+/// @brief Правый ИК-датчик расстояния
+extern mosh::hardware::IrSensorSharp ir1;
+
+/// @brief Ультразвуковой датчик расстояния
+extern mosh::hardware::UltraSonic us;

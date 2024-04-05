@@ -1,18 +1,48 @@
 #pragma once
 
 #include <Arduino.h>
-#include "core/config.hpp"
+#include "core/values.hpp"
+
+
+/// @brief Левый мотор скорость
+#define MOTOR_L_DIR 4
+
+/// @brief Левый мотор направление
+#define MOTOR_L_SPEED 5
+
+/// @brief Правый мотор скорость
+#define MOTOR_R_SPEED 6
+
+/// @brief Правый мотор направление
+#define MOTOR_R_DIR 7 
+
+#ifndef MOTOR_L_ENC_A
+#define MOTOR_L_ENC_A 2 // Левый мотор энкодер желтый
+#endif
+
+#ifndef MOTOR_L_ENC_B
+#define MOTOR_L_ENC_B 8 // Левый мотор энкодер зелёный
+#endif
+
+#ifndef MOTOR_L_INVERT
+#define MOTOR_L_INVERT false // Левый мотор инверсия направления
+#endif
+
+#ifndef MOTOR_R_INVERT
+#define MOTOR_R_INVERT true // Правый мотор инверсия направления
+#endif
+
+#ifndef MOTOR_R_ENC_A
+#define MOTOR_R_ENC_A 3 // Правый мотор энкодер желтый
+#endif
+
+#ifndef MOTOR_R_ENC_B
+#define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
+#endif
 
 
 namespace mosh {
 namespace hardware {
-
-/// @brief Обработчик левого мотора
-void __l_int();
-
-/// @brief Обработчик правого мотора
-void __r_int();
-
 
 /// @brief класс DC-мотор-энкодера, управляемого H-мостом
 class MotorEncoder {
@@ -66,3 +96,38 @@ class MotorEncoder {
 };
 }
 } // namespace mosh
+
+/// @brief Левый мотор
+extern mosh::hardware::MotorEncoder motorL;
+
+/// @brief Правый мотор
+extern mosh::hardware::MotorEncoder motorR;
+
+
+namespace mosh {
+namespace hardware {
+
+/// @brief контроллер робота
+struct MotorController {
+
+    /// @brief Сброс данных моторов
+    void reset();
+
+    /// @brief Обновить поворот моторов по энкодеру
+    void motorsSpin();
+
+    /// @brief Задать целевые значения скоростей моторов
+    /// @param left скорость-тик левого мотора
+    /// @param right скорость-тик правого мотора
+    void setSpeed(int16_t left, int16_t right);
+
+    /// @brief Установить Направление-ШИМ для моторов
+    /// @param dirpwm_left направление-ШИМ левого мотора
+    /// @param dirpwm_right направление-ШИМ правого мотора
+    void setDirPWM(int16_t dirpwm_left, int16_t dirpwm_right);
+};
+
+} // namespace hardware
+} // namespace mosh
+
+extern mosh::hardware::MotorController motors;

@@ -1,7 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include "..\core\env.hpp"
+#include "hardware/linesensor.hpp"
+#include "hardware/distancesensor.hpp"
 
 
 namespace mosh {
@@ -63,7 +64,7 @@ class LineProp : public Mover {
 
 class LineRelay : public Mover {
     const int8_t SPEED_A, SPEED_B;
-    hardware::LineSensor* sensor;
+    mosh::hardware::LineSensor* sensor;
 
     public:
 
@@ -91,7 +92,7 @@ class MoveAlongWall : public Mover {
     const int16_t SPEED;
     const uint8_t TARGET;
     const float k;
-    hardware::DistanceSensor* sensor;
+    mosh::hardware::DistanceSensor* sensor;
 
     public:
 
