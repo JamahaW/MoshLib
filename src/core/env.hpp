@@ -37,6 +37,7 @@ namespace env {
 
 /// @brief контроллер робота
 struct RobotController {
+
     /// @brief используется при движении вдоль стены слева
     mosh::hardware::DistanceSensor* dist_left = &__no_sensor;
 
@@ -46,9 +47,32 @@ struct RobotController {
     /// @brief используется при движении до объекта спереди
     mosh::hardware::DistanceSensor* dist_front = &__no_sensor;
 
+    /// @brief скорость-тик мотора
+    uint8_t default_speed_tick = DEFAULT_CONF::SPEED_TICK;
+
+    /// @brief скорость-ШИМ мотора
+    uint8_t default_speed_pwm = DEFAULT_CONF::SPEED_PWM;
+
+    /// @brief колея
+    uint8_t track_size = DEFAULT_CONF::TRACK_SIZE_MM;
+
+    /// @brief мм в 1000 тиках
+    uint16_t mm_in_1000_ticks = DEFAULT_CONF::MM_IN_1000_TICKS;
+
+    /// @brief время выравнивания
+    uint16_t align_duration = DEFAULT_CONF::ALIGN_DURATION;
+
+    /// @brief время удержания позиции
+    uint16_t hold_duration = DEFAULT_CONF::HOLD_DURATION;
+
+    /// @brief Перевести мм в тики энкодера
+    /// @param mm дистанция в мм
+    /// @return дистанция в тиках
+    int32_t mm2ticks(int32_t mm);
+
     /// @brief Сброс данных моторов
     void motorsReset();
-    
+
     /// @brief Обновить поворот моторов по энкодеру
     void motorsSpin();
 
@@ -82,3 +106,19 @@ void setDistR(mosh::hardware::DistanceSensor& sensor);
 /// @brief Указать ПЕРЕДНИЙ датчик расстояния
 /// @param sensor ссылка на датчик
 void setDistF(mosh::hardware::DistanceSensor& sensor);
+
+/// @brief Задать размер колеи
+/// @param trasksize_mm ширина колеи в мм
+void confTrack(uint8_t trasksize_mm);
+
+/// @brief Задать скорость в тиках по умолчанию
+/// @param ticks d-tick
+void confSpeedTick(uint8_t ticks);
+
+/// @brief Задать скорость в ШИМ по умолчанию
+/// @param pwm ШИМ (0..255)
+void confSpeedPWM(uint8_t pwm);
+
+/// @brief Задать кол-во пути в 1000 тиках энкодера
+/// @param mm_in_1000_ticks 
+void confMM2Ticks(uint16_t mm_in_1000_ticks);

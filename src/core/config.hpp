@@ -39,6 +39,42 @@
 #define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
 #endif
 
+// КОНФИГУРАЦИЯ
+enum PARAMS {
+    KP_SPEED = 8, // KP смещение (скорость)
+    SYNC_K = 5, // коэф. синх. движения 
+    MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
+    SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
+
+    IR_DIST_MIN = 9,
+    IR_DIST_MAX = 50,
+    IR_PERIOD = 15,
+
+    US_DIST_MIN = 2,
+    US_DIST_MAX = 100,
+    US_PERIOD = 200,
+};
+
+enum DEFAULT_CONF {
+    LINE_ON_LINE = 82,
+    LINE_ON_FIELD = 909,
+
+    HOLD_DURATION = 160, // время остановки удержанием позиции
+    ALIGN_DURATION = 400, // время для выравнивания по линии
+
+    TRACK_SIZE_MM = 177,
+    MM_IN_1000_TICKS = 250,
+    
+    SPEED_TICK = 20,
+    SPEED_PWM = 144,
+};
+
+
+#ifndef GRAY_PERCENT
+#define GRAY_PERCENT 50 // Уровень чувствительности датчика линии
+#endif
+
+
 #ifdef LINE_L
 // #define LINE_L A0 // Левый датчик линии
 #warning LINE_L - этот макрос больше не поддерживается, используйте lineL.pinout(uint8_t pin)
@@ -69,27 +105,24 @@
 #warning US_TRIG - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
 #endif
 
-#ifndef TRACK_SIZE_MM
-#define TRACK_SIZE_MM 177 // КОЛЕЯ
+#ifdef TRACK_SIZE_MM
+// #define TRACK_SIZE_MM 177 // КОЛЕЯ
+#warning TRACK_SIZE_MM - этот макрос больше не поддерживается, используйте confTrack(uint8_t)
 #endif
 
-#ifndef MM_IN_1000_TICKS
-#define MM_IN_1000_TICKS 250 // В 1000 ТИКАХ
+#ifdef MM_IN_1000_TICKS
+// #define MM_IN_1000_TICKS 250 // В 1000 ТИКАХ
+#warning MM_IN_1000_TICKS - этот макрос больше не поддерживается, используйте confTicksMM(uint16_t)
 #endif
-
-#define MM2TICKS(mm) ( (int32_t)(mm) * 1000L / (int32_t)(MM_IN_1000_TICKS) )  // Переводной макрос из ММ пути в тики энкодера
 
 #ifndef DEFAULT_SPEED_TICK
-#define DEFAULT_SPEED_TICK 18 // Скорость в тиках по умолчанию
-#define DEFAULT_SPEED_TICK 18 // Скорость в тиках по умолчанию
+// #define DEFAULT_SPEED_TICK 18 // Скорость в тиках по умолчанию
+#warning DEFAULT_SPEED_TICK - этот макрос больше не поддерживается, используйте confSpeedTick(uint8_t)
 #endif
 
-#ifndef DEFAULT_SPEED_PWM
-#define DEFAULT_SPEED_PWM 144 // Скорость в ШИМ по умолчанию
-#endif
-
-#ifndef GRAY_PERCENT
-#define GRAY_PERCENT 50 // Уровень чувствительности датчика линии
+#ifdef DEFAULT_SPEED_PWM
+// #define DEFAULT_SPEED_PWM 144 // Скорость в ШИМ по умолчанию
+#warning DEFAULT_SPEED_PWM - этот макрос больше не поддерживается, используйте confSpeedPWM(uint8_t)
 #endif
 
 #ifdef R_LINE
@@ -115,30 +148,5 @@
 #warning L_FIELD - этот макрос больше не поддерживается, используйте lineL.config(uint16_t on_line, uint16_t on_field)
 #warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_FIELD
 #endif
-
-
-// КОНФИГУРАЦИЯ
-enum PARAMS {
-    HOLD_STOP_TIMEOUT = 160, // время остановки удержанием позиции
-    ALIGN_DURATION = 400, // время для выравнивания по линии
-
-    KP_SPEED = 8, // KP смещение (скорость)
-    SYNC_K = 5, // коэф. синх. движения 
-    MAX_DELTA_TICKS = 32, // максимальная d_tick при повороте
-    SPIN_PERIOD_MS = 32, // период смены целевого положения мотора по d_tick
-
-    IR_DIST_MIN = 9,
-    IR_DIST_MAX = 50,
-    IR_PERIOD = 15,
-
-    US_DIST_MIN = 2,
-    US_DIST_MAX = 100,
-    US_PERIOD = 200,
-};
-
-enum DEFAULT_CONF {
-    LINE_ON_LINE = 82,
-    LINE_ON_FIELD = 909
-};
 
 #define SIGN(x) (((x) > 0) ? 1 : -1) // ЗНАК переменной

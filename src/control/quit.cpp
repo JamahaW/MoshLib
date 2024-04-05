@@ -13,7 +13,7 @@ DistanceRead::DistanceRead(hardware::DistanceSensor& used_sensor, const uint8_t 
 bool DistanceRead::tick() const { return (sensor.read() <= DISTANCE) ^ mode; }
 
 DistanceMoved::DistanceMoved(int32_t dist_l, int32_t dist_r, bool mm_mode) :
-    TARGET_L(mm_mode ? MM2TICKS(dist_l) : dist_l), TARGET_R(mm_mode ? MM2TICKS(dist_r) : dist_r) {
+    TARGET_L(mm_mode ? robot.mm2ticks(dist_l) : dist_l), TARGET_R(mm_mode ? robot.mm2ticks(dist_r) : dist_r) {
     robot.motorsReset();
 }
 
