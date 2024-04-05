@@ -3,7 +3,7 @@
 
 using namespace mosh::hardware;
 
-LineSensor& LineSensor::setPin(uint8_t pin) {
+LineSensor& LineSensor::pinout(uint8_t pin) {
     this->pin = pin;
     pinMode(pin, INPUT);
     return *this;

@@ -8,9 +8,9 @@ LineSensor lineL;
 LineSensor lineR;
 
 NoDistanceSensor __no_sensor;
-IrSensorSharp ir0(IR_0);
-IrSensorSharp ir1(IR_1);
-UltraSonic us(US_ECHO, US_TRIG);
+IrSensorSharp ir0;
+IrSensorSharp ir1;
+UltraSonic us;
 
 MotorEncoder motorL(mosh::hardware::__l_int, MOTOR_L_INVERT, MOTOR_L_SPEED, MOTOR_L_DIR, MOTOR_L_ENC_A, MOTOR_L_ENC_B);
 MotorEncoder motorR(mosh::hardware::__r_int, MOTOR_R_INVERT, MOTOR_R_SPEED, MOTOR_R_DIR, MOTOR_R_ENC_A, MOTOR_R_ENC_B);

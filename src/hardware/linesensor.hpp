@@ -23,7 +23,7 @@ class LineSensor {
 
     /// @brief Установить пин датчика
     /// @param pin Аналоговый Пин датчика (A0-A7)
-    LineSensor& setPin(uint8_t pin);
+    LineSensor& pinout(uint8_t pin);
 
     /// @brief
     /// @param on_line Значение АЦП с пина датчика на линии

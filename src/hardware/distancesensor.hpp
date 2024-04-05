@@ -9,14 +9,19 @@ namespace hardware {
 
 /// @brief Интерфейс датчика растояния
 class DistanceSensor {
-    /// @brief 
+
+    /// @brief нижняя граница расстояния
     const uint16_t DIST_FLOOR;
-    /// @brief верхняя границы
+
+    /// @brief верхняя граница расстояния
     const uint16_t DIST_CEIL;
+
     /// @brief период изменения значения
     const uint8_t PERIOD;
+
     /// @brief таймер для периодического опрашивания
     mutable uint32_t timer = 0;
+
     /// @brief предыдущее значение датчика
     mutable uint8_t value = 0;
 
@@ -58,38 +63,42 @@ class NoDistanceSensor : public DistanceSensor {
 
 /// @brief Инфокрасный датчик Sharp
 class IrSensorSharp : public DistanceSensor {
-    /// @brief Аналоговый пин датчика
-    const uint8_t PIN;
 
-    protected:
-    uint8_t update() const override;
+    /// @brief Аналоговый пин датчика
+    uint8_t pin;
+
+    protected: uint8_t update() const override;
 
     public:
-    /// @brief ИК-датчик расстояния
+
+    /// @brief Инфокрасный датчик Sharp
+    IrSensorSharp();
+
+    /// @brief Задать пин датчика
     /// @param pin Аналоговый пин (A0 - A7)
-    IrSensorSharp(uint8_t pin);
+    void pinout(uint8_t pin);
 };
 
 /// @brief УльтраЗвуковой датчик HC SR04
 class UltraSonic : public DistanceSensor {
+
     /// @brief Пин приёма
-    const uint8_t ECHO;
+    uint8_t ECHO;
+
     /// @brief Пин триггера
-    const uint8_t TRIG;
+    uint8_t TRIG;
 
-    protected:
-
-    uint8_t update() const override;
+    protected: uint8_t update() const override;
 
     public:
 
-    /**
-     * @brief Ультразвуковой датчик расстояния
-     * @param pin_echo Пин приёма
-     * @param pin_trig Пин Триггера
-     */
-    UltraSonic(uint8_t pin_echo, uint8_t pin_trig);
+    /// @brief Ультразвуковой датчик расстояния
+    UltraSonic();
 
+    /// @brief задать распиновку
+    /// @param pin_echo Пин приёма
+    /// @param pin_trig Пин Триггера
+    void pinout(uint8_t pin_echo, uint8_t pin_trig);
 };
 
 }

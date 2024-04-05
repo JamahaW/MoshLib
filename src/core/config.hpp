@@ -38,28 +38,32 @@
 
 #ifdef LINE_L
 // #define LINE_L A0 // Левый датчик линии
-#warning LINE_L - этот макрос больше не поддерживается, используйте метод lineL.setPin(uint8_t pin)
+#warning LINE_L - этот макрос больше не поддерживается, используйте lineL.pinout(uint8_t pin)
 #endif
 
 #ifdef LINE_R
 // #define LINE_R A1 // Правый датчик линии
-#warning LINE_R - этот макрос больше не поддерживается, используйте метод lineR.setPin(uint8_t pin)
+#warning LINE_R - этот макрос больше не поддерживается, используйте lineR.pinout(uint8_t pin)
 #endif
 
-#ifndef IR_0
-#define IR_0 A2 // Инфракрасный датчик расстояния 0
+#ifdef IR_0
+// #define IR_0 A2 // Инфракрасный датчик расстояния 0
+#warning IR_0 - этот макрос больше не поддерживается, используйте ir0.pinout(uint8_t pin)
 #endif
 
-#ifndef IR_1
-#define IR_1 A3 // Инфракрасный датчик расстояния 1
+#ifdef IR_1
+// #define IR_1 A3 // Инфракрасный датчик расстояния 1
+#warning IR_0 - этот макрос больше не поддерживается, используйте ir1.pinout(uint8_t pin)
 #endif
 
-#ifndef US_ECHO
-#define US_ECHO 12 // Ультразвуковой датчик расстояния приём
+#ifdef US_ECHO
+// #define US_ECHO 12 // Ультразвуковой датчик расстояния приём
+#warning IR_0 - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
 #endif
 
-#ifndef US_TRIG
-#define US_TRIG 13 // Ультразвуковой датчик расстояния излучатель
+#ifdef US_TRIG
+// #define US_TRIG 13 // Ультразвуковой датчик расстояния излучатель
+#warning IR_0 - этот макрос больше не поддерживается, используйте us.pinout(uint8_t pin_echo, uint8_t pin_trig)
 #endif
 
 #ifndef TRACK_SIZE_MM
@@ -87,25 +91,25 @@
 
 #ifdef R_LINE
 // #define R_LINE 108 // значеие ПРАВОГО датчика на ЛИНИИ 
-#warning R_LINE - этот макрос больше не поддерживается, используйте метод lineR.config(uint16_t on_line, uint16_t on_field)
+#warning R_LINE - этот макрос больше не поддерживается, используйте lineR.config(uint16_t on_line, uint16_t on_field)
 #warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_LINE
 #endif
 
 #ifdef R_FIELD
 // #define R_FIELD 981// значеие ПРАВОГО датчика на ПОЛЕ
-#warning R_FIELD - этот макрос больше не поддерживается, используйте метод lineR.config(uint16_t on_line, uint16_t on_field)
+#warning R_FIELD - этот макрос больше не поддерживается, используйте lineR.config(uint16_t on_line, uint16_t on_field)
 #warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_FIELD
 #endif
 
 #ifdef L_LINE
 // #define L_LINE 57 // значеие ЛЕВОГО датчика на ЛИНИИ 
-#warning L_LINE - этот макрос больше не поддерживается, используйте метод lineL.config(uint16_t on_line, uint16_t on_field)
+#warning L_LINE - этот макрос больше не поддерживается, используйте lineL.config(uint16_t on_line, uint16_t on_field)
 #warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_LINE
 #endif
 
 #ifdef L_FIELD
 // #define L_FIELD 837 // значеие ЛЕВОГО датчика на ПОЛЕ 
-#warning L_FIELD - этот макрос больше не поддерживается, используйте метод lineL.config(uint16_t on_line, uint16_t on_field)
+#warning L_FIELD - этот макрос больше не поддерживается, используйте lineL.config(uint16_t on_line, uint16_t on_field)
 #warning В ином случае в качестве начальных значений будет PARAMS::LINE_DEFAULT_ON_FIELD
 #endif
 
