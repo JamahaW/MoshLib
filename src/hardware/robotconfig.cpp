@@ -6,18 +6,18 @@ using namespace mosh::hardware;
 
 int32_t RobotConfig::mm2ticks(int32_t mm) { return mm * 1000L / mm_in_1000_ticks; }
 
-void RobotConfig::distL(DistanceSensor& sensor) { dist_left = &sensor; }
+RobotConfig& RobotConfig::distL(DistanceSensor& sensor) { dist_left = &sensor; return *this; }
 
-void RobotConfig::distR(DistanceSensor& sensor) { dist_right = &sensor; }
+RobotConfig& RobotConfig::distR(DistanceSensor& sensor) { dist_right = &sensor; return *this; }
 
-void RobotConfig::distF(DistanceSensor& sensor) { dist_front = &sensor; }
+RobotConfig& RobotConfig::distF(DistanceSensor& sensor) { dist_front = &sensor; return *this; }
 
-void RobotConfig::track(uint8_t trasksize_mm) { track_size = trasksize_mm; }
+RobotConfig& RobotConfig::track(uint8_t track_size) { this->track_size = track_size; return *this; }
 
-void RobotConfig::speedTick(uint8_t ticks) { default_speed_tick = ticks; }
+RobotConfig& RobotConfig::speedTick(uint8_t ticks) { default_speed_tick = ticks; return *this; }
 
-void RobotConfig::speedPWM(uint8_t pwm) { default_speed_pwm = pwm; }
+RobotConfig& RobotConfig::speedPWM(uint8_t pwm) { default_speed_pwm = pwm; return *this; }
 
-void RobotConfig::mmInTicks1000(uint16_t mm_in_1000_ticks) { this->mm_in_1000_ticks = mm_in_1000_ticks; }
+RobotConfig& RobotConfig::mmInTicks1000(uint16_t mm_in_1000_ticks) { this->mm_in_1000_ticks = mm_in_1000_ticks; return *this; }
 
 RobotConfig conf;

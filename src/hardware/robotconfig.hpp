@@ -41,33 +41,35 @@ struct RobotConfig {
     /// @return дистанция в тиках
     int32_t mm2ticks(int32_t mm);
 
+    // CONFIG
+
     /// @brief Указать ЛЕВЫЙ датчик расстояния
     /// @param sensor ссылка на датчик
-    void distL(mosh::hardware::DistanceSensor& sensor);
+    RobotConfig& distL(mosh::hardware::DistanceSensor& sensor);
 
     /// @brief Указать ПРАВЫЙ датчик расстояния
     /// @param sensor ссылка на датчик
-    void distR(mosh::hardware::DistanceSensor& sensor);
+    RobotConfig& distR(mosh::hardware::DistanceSensor& sensor);
 
     /// @brief Указать ПЕРЕДНИЙ датчик расстояния
     /// @param sensor ссылка на датчик
-    void distF(mosh::hardware::DistanceSensor& sensor);
+    RobotConfig& distF(mosh::hardware::DistanceSensor& sensor);
 
     /// @brief Задать размер колеи
     /// @param trasksize_mm ширина колеи в мм
-    void track(uint8_t trasksize_mm);
+    RobotConfig& track(uint8_t trasksize_mm);
 
     /// @brief Задать скорость в тиках по умолчанию
     /// @param ticks d-tick
-    void speedTick(uint8_t ticks);
+    RobotConfig& speedTick(uint8_t ticks);
 
     /// @brief Задать скорость в ШИМ по умолчанию
     /// @param pwm ШИМ (0..255)
-    void speedPWM(uint8_t pwm);
+    RobotConfig& speedPWM(uint8_t pwm);
 
     /// @brief Задать кол-во пути в 1000 тиках энкодера
     /// @param mm_in_1000_ticks 
-    void mmInTicks1000(uint16_t mm_in_1000_ticks);
+    RobotConfig& mmInTicks1000(uint16_t mm_in_1000_ticks);
 };
 
 } // namespace hardware
