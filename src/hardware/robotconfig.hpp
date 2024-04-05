@@ -19,22 +19,22 @@ struct RobotConfig {
     mosh::hardware::DistanceSensor* dist_front = &__no_sensor;
 
     /// @brief скорость-тик мотора
-    uint8_t default_speed_tick = CONF_DEFAULT::SPEED_TICK;
+    uint8_t __default_speed_tick = 16;
 
     /// @brief скорость-ШИМ мотора
-    uint8_t default_speed_pwm = CONF_DEFAULT::SPEED_PWM;
+    uint8_t __default_speed_pwm = 144;
 
     /// @brief колея
-    uint8_t track_size = CONF_DEFAULT::TRACK_SIZE_MM;
+    uint8_t __track_size = 177;
 
     /// @brief мм в 1000 тиках
-    uint16_t mm_in_1000_ticks = CONF_DEFAULT::MM_IN_1000_TICKS;
+    uint16_t __mm_in_1000_ticks = 250;
 
     /// @brief время выравнивания
-    uint16_t align_duration = CONF_DEFAULT::ALIGN_DURATION;
+    uint16_t __align_duration = 400;
 
     /// @brief время удержания позиции
-    uint16_t hold_duration = CONF_DEFAULT::HOLD_DURATION;
+    uint16_t __hold_duration = 150;
 
     /// @brief Перевести мм в тики энкодера
     /// @param mm дистанция в мм
@@ -70,6 +70,14 @@ struct RobotConfig {
     /// @brief Задать кол-во пути в 1000 тиках энкодера
     /// @param mm_in_1000_ticks 
     RobotConfig& mmInTicks1000(uint16_t mm_in_1000_ticks);
+
+    /// @brief Установить длительность выравнивания по линии
+    /// @param duration длительность (мс)
+    RobotConfig& alignTime(uint16_t duration);
+
+    /// @brief Установить длительность удерживания позиции
+    /// @param duration длительность (мс)
+    RobotConfig& holdTime(uint16_t duration);
 };
 
 } // namespace hardware
