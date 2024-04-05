@@ -5,6 +5,7 @@
 #include "control/move.hpp"
 #include "hardware/robotconfig.hpp"
 #include "hardware/distancesensor.hpp"
+#include "hardware/motorencoder.hpp"
 
 // ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
 
@@ -39,7 +40,7 @@ void goTick(int32_t ticks, uint8_t speed = conf.default_speed_pwm);
 /**
  * @brief Прямолинейное синхронное движение
  * @param distance_mm расстояние (отрицательное - едет назад)
- * @param conf.default_speed_pwm скорость движения ШИМ
+ * @param speed_pwm скорость движения ШИМ
  */
 void goDist(int32_t distance_mm, int16_t speed_pwm = conf.default_speed_pwm);
 
@@ -47,7 +48,7 @@ void goDist(int32_t distance_mm, int16_t speed_pwm = conf.default_speed_pwm);
  * @brief Прямолинейное синхронное движение до перекрёстка
  * @param crosses кол-во перекрёстков
  * @param found_line искомое состояние
- * @param conf.default_speed_pwmDIR скорость (отрицательная - движение назад)
+ * @param speed_pwmDIR скорость (отрицательная - движение назад)
  */
 void goCross(uint8_t crosses = 1, bool found_line = false, int16_t speed_pwmDIR = conf.default_speed_pwm);
 
@@ -130,10 +131,6 @@ void wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed = conf.default_
 
 
 // ДВИЖЕНИЕ ПО ЛИНИИ
-
-// /// @brief движение по линии с регулятором по умолчанию
-// /// @param speed скорость
-// void lineTime(uint32_t runtime, uint8_t speed = DEFAULT_SPEED);
 
 /// @brief движение по линии по левому датчику
 /// @param speed скорость
