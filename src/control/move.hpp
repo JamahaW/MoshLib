@@ -8,9 +8,7 @@
 namespace mosh {
 namespace control {
 
-/**
- * @brief Абстрактный исполнитель движения робота
- */
+/// @brief Абстрактный исполнитель движения робота
 class Mover {
     public:
 

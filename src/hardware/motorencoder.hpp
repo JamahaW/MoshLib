@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 
-#define KP_SPEED 8
+#define MOTOR_ENCODER_SPEED_KP 8
 #define MAX_DELTA_TICKS 32
 #define SPIN_PERIOD_MS 32
 
@@ -51,7 +51,6 @@ class MotorEncoder {
     const uint8_t PIN_SPEED, PIN_DIR, PIN_ENC_B;
     const bool INVERTED;
 
-    uint8_t speed_set = 0;  // Модуль заданой скорости
     int8_t speed = 0;  // регулируемая скорость
     uint32_t timer = 0;  // таймер смены позиции
     int32_t next_pos = 0;  // следущая целевая позиция
