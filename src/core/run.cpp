@@ -1,6 +1,6 @@
 #include "run.hpp"
 #include "MoshLib.hpp"
-#include "hardware/motorencoder.hpp"
+#include "hardware/motor.hpp"
 
 
 using namespace mosh::control;

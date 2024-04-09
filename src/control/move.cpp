@@ -1,5 +1,5 @@
 #include "move.hpp"
-#include "hardware/motorencoder.hpp"
+#include "hardware/motor.hpp"
 #include "hardware/robotconfig.hpp"
 
 

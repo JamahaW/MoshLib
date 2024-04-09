@@ -46,29 +46,75 @@
 namespace mosh {
 namespace hardware {
 
-/// @brief класс DC-мотор-энкодера, управляемого H-мостом
-class MotorEncoder {
-    const uint8_t PIN_SPEED, PIN_DIR, PIN_ENC_B;
-    const bool INVERTED;
+// мотор, управляемый драйвером L298N
+class MotorL298N {
 
-    int8_t speed = 0;  // регулируемая скорость
-    uint32_t timer = 0;  // таймер смены позиции
-    int32_t next_pos = 0;  // следущая целевая позиция
+    /// @brief пин скорости
+    uint8_t SPEED;
+
+    /// @brief пин направления 
+    uint8_t DIR;
+
+    /// @brief инвертировать поведение
+    bool INVERT;
+
+    public:
+
+    /// @brief Конфигурировать пины мотора
+    /// @param speed ШИМ пин скорости
+    /// @param dir цифровой пин направления
+    /// @param invert инверсия направления
+    /// @return ссылка на себя
+    MotorL298N& pinout(uint8_t speed, uint8_t dir, bool invert);
+
+    /// @brief Задать направление
+    /// @param reserse инверсия движения
+    void setDir(bool reserse);
+
+    /// @brief Задать ШИМ
+    /// @param pwm шим 0 .. 255
+    void setPWM(uint8_t pwm);
+
+    /// @brief Задать шим и направление
+    /// @param dir_pwm значение -255 .. 255
+    void setDirPWM(int16_t dir_pwm);
+};
+
+/// @brief класс DC-мотор-энкодера, управляемого H-мостом
+class MotorEncoder : public MotorL298N {
+
+    /// @brief Обработчик прерывания
+    void (*handler) (void);
+
+    /// @brief Пин второго канала энкодера
+    uint8_t ENC_B;
+
+    /// @brief Сменить направление энкодера
+    bool ENC_INV;
+
+    /// @brief регулируемая скорость
+    int8_t d_pos = 0;
+
+    /// @brief таймер смены позиции
+    uint32_t timer = 0;
+
+    /// @brief следущая целевая позиция
+    int32_t next_pos = 0;
 
     public:
 
     volatile int32_t position = 0;  // текущее положение
 
-    /**
-     * @brief Мотор-Энкодер управляемый H-мостом
-     * @param encoder_handler обработчик энкодера в прерывании
-     * @param inverted глобальная инверсия мотора (направления и энкодер)
-     * @param pin_speed пин скорости (ШИМ)
-     * @param pin_dir пин скорости (Цифровой)
-     * @param pin_enc_a пин основного канала энкодера (Цифровой ПРЕРЫВАНИЕ)
-     * @param pin_enc_b пин второго канала энкодера (Цифровой)
-     */
-    MotorEncoder(void (*encoder_handler) (void), bool inverted, uint8_t pin_speed, uint8_t pin_dir, uint8_t pin_enc_a, uint8_t pin_enc_b);
+    /// @brief Мотор-энкодер
+    /// @param encoder_handler обработчик прерывания 
+    MotorEncoder(void (*encoder_handler) (void));
+
+    /// @brief Распиновка энкодера
+    /// @param enc_a главный канал (ПРЕРЫВАНИЕ)
+    /// @param enc_b второй канал
+    /// @param invert инвертировать поведения энкодера
+    /// @return ссылка на себя
+    MotorEncoder& pinout(uint8_t enc_a, uint8_t enc_b, bool invert);
 
     /// @brief вызывается исключительно в прерывании
     void enc();
@@ -76,19 +122,7 @@ class MotorEncoder {
     /// @brief сброс
     void reset();
 
-    /// @brief Установить направление
-    /// @param backward (true - нормально, false - реверс)
-    void setDir(bool backward);
-
-    /// @brief Установить шим
-    /// @param pwm ШИМ 0..255
-    void setPWM(uint8_t pwm);
-
-    /// @brief Установить шим-направление. Отрицательные значения соотвествуют реверсу. ШИМ берётся по модулю и ограничивается.
-    /// @param power (-255..255)
-    void setDirPWM(int16_t power);
-
-    /// @brief Установить целевую скорость вращения
+    /// @brief Установить скорость вращения
     /// @param dtick
     void setSpeed(int16_t dtick);
 

@@ -1,7 +1,8 @@
 #include "quit.hpp"
-#include "hardware/motorencoder.hpp"
+#include "hardware/motor.hpp"
 #include "hardware/robotconfig.hpp"
 #include "hardware/linesensor.hpp"
+
 
 using namespace mosh::control;
 

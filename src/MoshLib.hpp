@@ -5,7 +5,7 @@
 #include "control/move.hpp"
 #include "hardware/robotconfig.hpp"
 #include "hardware/distancesensor.hpp"
-#include "hardware/motorencoder.hpp"
+#include "hardware/motor.hpp"
 
 // ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
 
