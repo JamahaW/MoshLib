@@ -1,5 +1,6 @@
 #include "MoshLib.hpp"
 #include "core/run.hpp"
+#include "util.hpp"
 
 
 using mosh::hardware::DistanceSensor;
@@ -59,18 +60,18 @@ void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, int16_t speed) {
 void wallBack(uint8_t distance, uint8_t speed) { wallBack(*conf.dist_front, distance, speed); }
 
 void wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);
+    run::time(MoveAlongWall(distance, LEFT, speed), runtime);
 }
 
 void wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    run::time(MoveAlongWall(distance, MoveAlongWall::DIST_RIGHT, speed), runtime);
+    run::time(MoveAlongWall(distance, RIGHT, speed), runtime);
 }
 
 
 
-void lineTimeL(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay::LINE_LEFT, speed), runtime); }
+void lineTimeL(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LEFT, speed), runtime); }
 
-void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay::LINE_RIGHT, speed), runtime); }
+void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelay(RIGHT, speed), runtime); }
 
 void lineTimeLR(uint32_t runtime, uint8_t speed) { run::time(LineRelay2(speed), runtime); }
 
