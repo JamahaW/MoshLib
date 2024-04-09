@@ -20,7 +20,17 @@ uint8_t DistanceSensor::operator () () const { return read(); }
 
 // ИК ДАТЧИК РАССТОЯНИЯ
 
-IrSensorSharp::IrSensorSharp() : DistanceSensor(ENV_PARAMS::IR_DIST_MIN, ENV_PARAMS::IR_DIST_MAX, ENV_PARAMS::IR_PERIOD) {}
+/// @brief ИК-датчик расстояния: минимальное расстояние
+#define INFORED_MIN_CM 9
+
+/// @brief ИК-датчик расстояния: максимальное расстояние
+#define INFORED_MAX_CM 50
+
+/// @brief ИК-датчик расстояния: период обновления
+#define INFORED_PERIOD_MS 15
+
+
+IrSensorSharp::IrSensorSharp() : DistanceSensor(INFORED_MIN_CM, INFORED_MAX_CM, INFORED_PERIOD_MS) {}
 
 uint8_t IrSensorSharp::update() const { return 32 * pow(analogRead(pin) * (5.0 / 1024.0), -1.1); }
 
@@ -32,7 +42,17 @@ void IrSensorSharp::pinout(uint8_t pin) {
 
 // УЗ ДАТЧИК РАССТОЯНИЯ
 
-UltraSonic::UltraSonic() : DistanceSensor(ENV_PARAMS::US_DIST_MIN, ENV_PARAMS::US_DIST_MAX, ENV_PARAMS::US_PERIOD) {}
+/// @brief УЗ-датчик расстояния: минимальное расстояние
+#define ULTRA_SONIC_MIN_CM 2
+
+/// @brief УЗ-датчик расстояния: максимальное расстояние
+#define ULTRA_SONIC_MAX_CM 100
+
+/// @brief УЗ-датчик расстояния: период обновления
+#define ULTRA_SONIC_PERIOD_MS 200
+
+
+UltraSonic::UltraSonic() : DistanceSensor(ULTRA_SONIC_MIN_CM, ULTRA_SONIC_MAX_CM, ULTRA_SONIC_PERIOD_MS) {}
 
 uint8_t UltraSonic::update() const {
     digitalWrite(TRIG, LOW);

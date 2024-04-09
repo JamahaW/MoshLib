@@ -62,6 +62,7 @@ Sync::Sync(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr) :
 Sync::Sync(int16_t fact) : Sync(fact, fact, 1, 1) {}
 
 void Sync::tick() const { // TODO разобоаться как сделать не ШИМ
-    int16_t u = (KL * motorL.position - KR * motorR.position) * ENV_PARAMS::SYNC_K;
+    #define SYNC_K 5 // TODO вынести в robotConfig
+    int16_t u = (KL * motorL.position - KR * motorR.position) * SYNC_K;
     motors.setDirPWM(FACT_L - u * SIG_L, FACT_R + u * SIG_R);
 }

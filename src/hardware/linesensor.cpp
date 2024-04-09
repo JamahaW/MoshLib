@@ -1,4 +1,5 @@
 #include "linesensor.hpp"
+#include "robotconfig.hpp"
 
 
 using namespace mosh::hardware;
@@ -24,6 +25,6 @@ int8_t LineSensor::read() const {
 
 int8_t LineSensor::operator () () const { return read(); }
 
-bool LineSensor::on() const { return read() > LINE_GRAY_PERCENT; }
+bool LineSensor::on() const { return read() > conf.__line_gray_percent; }
 
 LineSensor lineL, lineR;

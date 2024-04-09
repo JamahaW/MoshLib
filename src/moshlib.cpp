@@ -30,7 +30,7 @@ void goCross(uint8_t crosses, bool found_line, int16_t speed_PWMDIR) { run::base
 
 
 void turnAngle(int16_t a, int16_t speed) {
-    int32_t dist = (int32_t) a * (TRACK_SIZE_MM * M_PI / 360.0);
+    int32_t dist = (int32_t) a * (conf.__track_size * M_PI / 360.0);
     run::base(Sync(a > 0 ? speed : -speed, a > 0 ? -speed : speed, 1, -1), DistanceMoved(dist, -dist));
 }
 
@@ -102,8 +102,8 @@ static void test_motors_speed(MotorEncoder* motor, int8_t dir) {
 
     motor->reset();
 
-    for (int16_t speed = -ENV_PARAMS::MAX_DELTA_TICKS; speed <= ENV_PARAMS::MAX_DELTA_TICKS; speed++) {
-        motor->setSpeed((ENV_PARAMS::MAX_DELTA_TICKS - abs(speed)) * dir);
+    for (int16_t speed = -MAX_DELTA_TICKS; speed <= MAX_DELTA_TICKS; speed++) {
+        motor->setSpeed((MAX_DELTA_TICKS - abs(speed)) * dir);
         while (millis() < timer) motor->spin();
         timer += 120;
     }

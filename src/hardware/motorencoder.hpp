@@ -1,8 +1,10 @@
 #pragma once
 
 #include <Arduino.h>
-#include "core/values.hpp"
 
+#define KP_SPEED 8
+#define MAX_DELTA_TICKS 32
+#define SPIN_PERIOD_MS 32
 
 /// @brief Левый мотор скорость
 #define MOTOR_L_DIR 4

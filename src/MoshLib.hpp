@@ -29,7 +29,7 @@ void goTime(uint32_t runtime, int8_t speed = conf.__default_speed_tick);
  * @brief Удерживать моторы в текущем положении на время
  * @param timeout время удержания
  */
-void goHold(uint32_t timeout = HOLD_DURATION);
+void goHold(uint32_t timeout = conf.__hold_duration);
 
 /**
  * @brief на число тиков
