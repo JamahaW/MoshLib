@@ -6,42 +6,6 @@
 #define MAX_DELTA_TICKS 32
 #define SPIN_PERIOD_MS 32
 
-/// @brief Левый мотор скорость
-#define MOTOR_L_DIR 4
-
-/// @brief Левый мотор направление
-#define MOTOR_L_SPEED 5
-
-/// @brief Правый мотор скорость
-#define MOTOR_R_SPEED 6
-
-/// @brief Правый мотор направление
-#define MOTOR_R_DIR 7 
-
-#ifndef MOTOR_L_ENC_A
-#define MOTOR_L_ENC_A 2 // Левый мотор энкодер желтый
-#endif
-
-#ifndef MOTOR_L_ENC_B
-#define MOTOR_L_ENC_B 8 // Левый мотор энкодер зелёный
-#endif
-
-#ifndef MOTOR_L_INVERT
-#define MOTOR_L_INVERT false // Левый мотор инверсия направления
-#endif
-
-#ifndef MOTOR_R_INVERT
-#define MOTOR_R_INVERT true // Правый мотор инверсия направления
-#endif
-
-#ifndef MOTOR_R_ENC_A
-#define MOTOR_R_ENC_A 3 // Правый мотор энкодер желтый
-#endif
-
-#ifndef MOTOR_R_ENC_B
-#define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
-#endif
-
 
 namespace mosh {
 namespace hardware {
@@ -114,7 +78,7 @@ class MotorEncoder : public MotorL298N {
     /// @param enc_b второй канал
     /// @param invert инвертировать поведения энкодера
     /// @return ссылка на себя
-    MotorEncoder& pinout(uint8_t enc_a, uint8_t enc_b, bool invert);
+    MotorEncoder& encoder(uint8_t enc_a, uint8_t enc_b, bool invert);
 
     /// @brief вызывается исключительно в прерывании
     void enc();
