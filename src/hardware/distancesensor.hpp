@@ -1,7 +1,6 @@
 #pragma once
 
 #include <Arduino.h>
-#include "..\core\params.hpp"
 
 
 namespace mosh {

@@ -2,7 +2,6 @@
 
 #include <Arduino.h>
 #include "hardware/distancesensor.hpp"
-#include "core/params.hpp"
 
 
 namespace mosh {
