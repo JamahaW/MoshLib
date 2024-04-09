@@ -11,12 +11,12 @@ KeepSpeed::KeepSpeed(int8_t speed_left, int8_t speed_right) { motors.setSpeed(sp
 
 KeepSpeed::KeepSpeed(int8_t speed) : KeepSpeed(speed, speed) {}
 
-void mosh::control::KeepSpeed::tick() const { motors.motorsSpin(); }
+void mosh::control::KeepSpeed::tick() const { motors.spin(); }
 
 void LineProp::tick() const {
     int8_t u = (lineL() - lineR()) * KP;
     motors.setSpeed(BASE_SPEED - u, BASE_SPEED + u);
-    motors.motorsSpin();
+    motors.spin();
 }
 
 LineProp::LineProp(int8_t speed) : BASE_SPEED(speed * 0.7) {}
@@ -31,7 +31,7 @@ LineRelay::LineRelay(Directions dir, int8_t speed) :
 void LineRelay::tick() const {
     bool on = sensor->on();
     motors.setSpeed(on ? SPEED_A : SPEED_B, on ? SPEED_B : SPEED_A);
-    motors.motorsSpin();
+    motors.spin();
 }
 
 // TODO выгесьт коэф 
@@ -40,7 +40,7 @@ LineRelay2::LineRelay2(int8_t speed) :SPEED(speed), SECOND(speed * SECOND_SPEED_
 void LineRelay2::tick() const {
     bool L = lineL.on(), R = lineR.on();
     motors.setSpeed((L > R) ? SECOND : SPEED, (L < R) ? SECOND : SPEED);
-    motors.motorsSpin();
+    motors.spin();
 }
 
 MoveAlongWall::MoveAlongWall(uint8_t distance, Directions pos, int8_t speed) :
@@ -51,7 +51,7 @@ MoveAlongWall::MoveAlongWall(uint8_t distance, Directions pos, int8_t speed) :
 void MoveAlongWall::tick() const {
     int16_t u = k * float(TARGET - sensor->read()) * SPEED / (float) TARGET;
     motors.setSpeed(SPEED - u, SPEED + u);
-    motors.motorsSpin();
+    motors.spin();
 }
 
 Sync::Sync(int16_t fact_l, int16_t fact_r, int8_t kl, int8_t kr) :

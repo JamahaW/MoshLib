@@ -113,7 +113,7 @@ struct MotorController {
     void reset();
 
     /// @brief Обновить поворот моторов по энкодеру
-    void motorsSpin();
+    void spin();
 
     /// @brief Задать целевые значения скоростей моторов
     /// @param left скорость-тик левого мотора

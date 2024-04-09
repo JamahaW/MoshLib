@@ -60,7 +60,7 @@ void MotorController::reset() {
     motorR.reset();
 }
 
-void MotorController::motorsSpin() {
+void MotorController::spin() {
     motorL.spin();
     motorR.spin();
 }
