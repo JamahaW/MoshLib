@@ -23,6 +23,7 @@ void MotorL298N::setDirPWM(int16_t dir_pwm) {
 }
 
 MotorEncoder& mosh::hardware::MotorEncoder::encoder(uint8_t enc_a, uint8_t enc_b, bool invert) {
+    ENC_INV = invert;
     pinMode(enc_a, INPUT);
     pinMode(ENC_B = enc_b, INPUT);
     attachInterrupt(digitalPinToInterrupt(enc_a), handler, FALLING);
@@ -31,7 +32,7 @@ MotorEncoder& mosh::hardware::MotorEncoder::encoder(uint8_t enc_a, uint8_t enc_b
 
 MotorEncoder::MotorEncoder(void(*encoder_handler)(void)) : handler(encoder_handler) {}
 
-void MotorEncoder::enc() { position += (digitalRead(ENC_B) ^ ENC_INV) ? (1) : (-1); }
+void MotorEncoder::__enc() { position += (digitalRead(ENC_B) ^ ENC_INV) ? (1) : (-1); }
 
 void MotorEncoder::reset() { position = next_pos = d_pos = timer = 0; }
 
@@ -46,10 +47,10 @@ void MotorEncoder::spin() {
 }
 
 /// @brief Обработчик левого мотора
-static void __l_int() { motorL.enc(); }
+static void __l_int() { motorL.__enc(); }
 
 /// @brief Обработчик правого мотора
-static void __r_int() { motorR.enc(); }
+static void __r_int() { motorR.__enc(); }
 
 MotorEncoder motorL(__l_int);
 MotorEncoder motorR(__r_int);

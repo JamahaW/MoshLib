@@ -81,7 +81,7 @@ class MotorEncoder : public MotorL298N {
     MotorEncoder& encoder(uint8_t enc_a, uint8_t enc_b, bool invert);
 
     /// @brief вызывается исключительно в прерывании
-    void enc();
+    void __enc();
 
     /// @brief сброс
     void reset();
