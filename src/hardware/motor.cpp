@@ -39,11 +39,10 @@ void MotorEncoder::reset() { position = next_pos = d_pos = timer = 0; }
 void MotorEncoder::setSpeed(int16_t dtick) { d_pos = constrain(dtick, -MAX_DELTA_TICKS, MAX_DELTA_TICKS); }
 
 void MotorEncoder::spin() {
-    setDirPWM(MOTOR_ENCODER_SPEED_KP * (next_pos - position));
     if (millis() <= timer) return;
+    setDirPWM(MOTOR_ENCODER_SPEED_KP * (next_pos - position));
     timer = millis() + SPIN_PERIOD_MS;
     next_pos += d_pos;
-    return;
 }
 
 /// @brief Обработчик левого мотора
