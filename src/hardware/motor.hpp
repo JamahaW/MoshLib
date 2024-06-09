@@ -3,6 +3,9 @@
 #include <Arduino.h>
 
 #define MOTOR_ENCODER_SPEED_KP 8
+
+
+// TODO привязать регулятор скорости к времени w(t)
 #define MAX_DELTA_TICKS 32
 #define SPIN_PERIOD_MS 32
 

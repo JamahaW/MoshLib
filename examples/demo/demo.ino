@@ -1,13 +1,3 @@
-// пины могут быть переопределены
-
-#define MOTOR_L_INVERT false // Левый мотор инверсия направления
-#define MOTOR_R_INVERT true // Правый мотор инверсия направления
-#define MOTOR_L_ENC_A 2 // Левый мотор энкодер желтый
-#define MOTOR_L_ENC_B 8 // Левый мотор энкодер зелёный
-#define MOTOR_R_ENC_A 3 // Правый мотор энкодер желтый
-#define MOTOR_R_ENC_B 9 // Правый мотор энкодер зелёный
-
-
 #include <MoshLib.hpp>
 
 void setup() {
@@ -18,7 +8,7 @@ void setup() {
     lineL.pinout(A0) // пин ЛЕВОГО датчика линии - А0
         .config(57, 837); // значения на линии, на поле
 
-    lineR.pinout(A1) // пин ЛЕВОГО датчика линии - А0
+    lineR.pinout(A1) // пин ПРАВОГО датчика линии - А1
         .config(108, 981); // значения на линии, на поле
 
     ir0.pinout(A2); // пин ИК датчика 0 - А2
@@ -27,6 +17,14 @@ void setup() {
     us.pinout(12, 13); // задаём пины УЗ-датчика (ECHO, TRIG)
 
     // motorL motorR motors
+
+    motorL
+        .encoder(2, 8, false) // Энкодер на пинах 2, 8, не инвертирован
+        .pinout(5, 4, false); // Мотор на пинах 5, 4, не инвертирован
+
+    motorR
+        .encoder(3, 9, true) // Энкодер на пинах 3, 9, инвертирован
+        .pinout(6, 7, true); // Мотор на пинах 6, 7, инвертирован
 
     // конфигурирование робота
     conf.mmInTicks1000(250) // 250 мм на 1000 тиков
@@ -61,7 +59,7 @@ void setup() {
     // goDist(1000); прямолинейное синхронное движение на расстояние
     // goDist(-100); назад на 100мм
     // goCross(); прямолинейное синхронное движение до перекрёстка
-    // goCross(3); пдо 3 перекрёстка
+    // goCross(3); до 3 перекрёстка
     // goHold(400) удерживание моторов в текущем положении в течении 400мс
 
     // алгоритмы движения по линии
@@ -89,23 +87,24 @@ void setup() {
 
 // макросы для лаконичности кода вывода
 #define P(x) Serial.print(x)
+#define PF(s) P(F(s))
 #define PL(x) Serial.println(x)
 
 void loop() {
     // ИК датчик 0
-    // P(F("IR0 (cm):\t")); PL(ir0());
+    // PF("IR0 (cm):\t"); PL(ir0());
 
     // ИК датчик 1
-    // P(F("IR1 (cm):\t")); PL(ir1());
+    // PF("IR1 (cm):\t"); PL(ir1());
 
     // УЗ-датчик
-    // P(F("US  (cm):\t")); PL(us());
+    // PF("US  (cm):\t"); PL(us());
 
     // Линия L
-    // P(F("LineL (%):\t")); P(lineL()); P(F("АЦП: \t")); P(lineL.readRaw()); P(F("on: ")); PL(lineL.on());
+    // PF("LineL (%):\t"); P(lineL()); PF("АЦП: \t"); P(lineL.readRaw()); PF("on: "); PL(lineL.on());
 
     // Линия R
-    // P(F("LineR (%):\t")); P(lineR()); P(F("АЦП: \t")); P(lineR.readRaw()); P(F("on: ")); PL(lineR.on());
+    // PF("LineR (%):\t"); P(lineR()); PF("АЦП: \t"); P(lineR.readRaw()); PF("on: "); PL(lineR.on());
 
 
     // При ПРАВИЛЬНОМ подключении значения энкодера будут увеличиваться, 
@@ -113,8 +112,8 @@ void loop() {
     // в обратном случае - уменьшаться
 
     // Энкодер L
-    // P(F("Enc L")); PL(motorL.position);
+    // PF("Enc L"); PL(motorL.position);
 
     // Энкодер R
-    // P(F("Enc R")); PL(motorR.position);
+    // PF("Enc R"); PL(motorR.position);
 }

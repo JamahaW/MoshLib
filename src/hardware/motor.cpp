@@ -22,7 +22,7 @@ void MotorL298N::setDirPWM(int16_t dir_pwm) {
     setPWM(abs(dir_pwm));
 }
 
-MotorEncoder& mosh::hardware::MotorEncoder::encoder(uint8_t enc_a, uint8_t enc_b, bool invert) {
+MotorEncoder& MotorEncoder::encoder(uint8_t enc_a, uint8_t enc_b, bool invert) {
     ENC_INV = invert;
     pinMode(enc_a, INPUT);
     pinMode(ENC_B = enc_b, INPUT);
