@@ -1,5 +1,6 @@
 #include "MoshLib.hpp"
 #include "core/run.hpp"
+#include "util.hpp"
 
 
 using mosh::hardware::DistanceSensor;
@@ -7,19 +8,6 @@ using mosh::hardware::MotorEncoder;
 
 using namespace mosh::control;
 using namespace mosh;
-
-
-void setDistL(DistanceSensor& sensor) { robot.dist_left = &sensor; }
-
-void setDistR(DistanceSensor& sensor) { robot.dist_right = &sensor; }
-
-void setDistF(DistanceSensor& sensor) { robot.dist_front = &sensor; }
-
-// // TODO доделать!!
-// void setLineReg(enum LINE_REGULATORS default_regulator) {
-//     robot.line_follow_regulator = default_regulator;
-// }
-
 
 
 void goTime(uint32_t runtime, int8_t speed_left, int8_t speed_right, bool __hold_at_end) {
@@ -42,7 +30,7 @@ void goCross(uint8_t crosses, bool found_line, int16_t speed_PWMDIR) { run::base
 
 
 void turnAngle(int16_t a, int16_t speed) {
-    int32_t dist = (int32_t) a * (TRACK_SIZE_MM * M_PI / 360.0);
+    int32_t dist = (int32_t) a * (conf.__track_size * M_PI / 360.0);
     run::base(Sync(a > 0 ? speed : -speed, a > 0 ? -speed : speed, 1, -1), DistanceMoved(dist, -dist));
 }
 
@@ -63,31 +51,27 @@ void wallFront(DistanceSensor& sensor, uint8_t wall_dist_cm, uint8_t speed) {
     run::base(Sync(speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::GREATER));
 }
 
-void wallFront(uint8_t distance, uint8_t speed) { wallFront(*robot.dist_front, distance, speed); }
+void wallFront(uint8_t distance, uint8_t speed) { wallFront(*conf.dist_front, distance, speed); }
 
 void wallBack(DistanceSensor& sensor, uint8_t wall_dist_cm, int16_t speed) {
     run::base(Sync(-speed), DistanceRead(sensor, wall_dist_cm, DistanceRead::LESS));
 }
 
-void wallBack(uint8_t distance, uint8_t speed) { wallBack(*robot.dist_front, distance, speed); }
+void wallBack(uint8_t distance, uint8_t speed) { wallBack(*conf.dist_front, distance, speed); }
 
 void wallTimeL(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    run::time(MoveAlongWall(distance, MoveAlongWall::DIST_LEFT, speed), runtime);
+    run::time(MoveAlongWall(distance, LEFT, speed), runtime);
 }
 
 void wallTimeR(uint8_t distance, uint32_t runtime, uint8_t speed) {
-    run::time(MoveAlongWall(distance, MoveAlongWall::DIST_RIGHT, speed), runtime);
+    run::time(MoveAlongWall(distance, RIGHT, speed), runtime);
 }
 
 
 
-// void lineTime(uint32_t runtime, uint8_t speed) {
-//     // lineTime(robot.line_follow_regulator, runtime, speed);
-// }
+void lineTimeL(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LEFT, speed), runtime); }
 
-void lineTimeL(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay::LINE_LEFT, speed), runtime); }
-
-void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelay(LineRelay::LINE_RIGHT, speed), runtime); }
+void lineTimeR(uint32_t runtime, uint8_t speed) { run::time(LineRelay(RIGHT, speed), runtime); }
 
 void lineTimeLR(uint32_t runtime, uint8_t speed) { run::time(LineRelay2(speed), runtime); }
 
@@ -118,8 +102,8 @@ static void test_motors_speed(MotorEncoder* motor, int8_t dir) {
 
     motor->reset();
 
-    for (int16_t speed = -PARAMS::MAX_DELTA_TICKS; speed <= PARAMS::MAX_DELTA_TICKS; speed++) {
-        motor->setSpeed((PARAMS::MAX_DELTA_TICKS - abs(speed)) * dir);
+    for (int16_t speed = -MAX_DELTA_TICKS; speed <= MAX_DELTA_TICKS; speed++) {
+        motor->setSpeed((MAX_DELTA_TICKS - abs(speed)) * dir);
         while (millis() < timer) motor->spin();
         timer += 120;
     }

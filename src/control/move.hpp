@@ -1,15 +1,15 @@
 #pragma once
 
 #include <Arduino.h>
-#include "core/enviroment.hpp"
+#include "hardware/linesensor.hpp"
+#include "hardware/distancesensor.hpp"
+#include "util.hpp"
 
 
 namespace mosh {
 namespace control {
 
-/**
- * @brief Абстрактный исполнитель движения робота
- */
+/// @brief Абстрактный исполнитель движения робота
 class Mover {
     public:
 
@@ -63,18 +63,16 @@ class LineProp : public Mover {
 
 class LineRelay : public Mover {
     const int8_t SPEED_A, SPEED_B;
-    hardware::LineSensor* sensor;
+    mosh::hardware::LineSensor* sensor;
 
     public:
-
-    enum SENSOR { LINE_LEFT, LINE_RIGHT };
 
     /**
      * @brief Релейный регулятор движения по линии по одному датчику
      * @param speed скорость перемещения
-     * @param sensor_dir положение датчика `SENSOR::LEFT` | `SENSOR::RIGHT`
+     * @param sensor_dir положение датчика
      */
-    LineRelay(SENSOR sensor_dir, int8_t speed);
+    LineRelay(Directions sensor_dir, int8_t speed);
     void tick() const override;
 };
 
@@ -91,18 +89,16 @@ class MoveAlongWall : public Mover {
     const int16_t SPEED;
     const uint8_t TARGET;
     const float k;
-    hardware::DistanceSensor* sensor;
+    mosh::hardware::DistanceSensor* sensor;
 
     public:
-
-    enum POS { DIST_LEFT = -1, DIST_RIGHT = 1 };
 
     /**
      * @brief Движение вдоль стены по датчку расстояния СЛЕВА или СПРАВА
      * @param distance целевое расстояние см
      * @param pos положение датчика `DIST_LEFT` | `DIST_RIGHT`
      */
-    MoveAlongWall(uint8_t distance, POS pos, int8_t speed);
+    MoveAlongWall(uint8_t distance, Directions pos, int8_t speed);
     void tick() const override;
 };
 

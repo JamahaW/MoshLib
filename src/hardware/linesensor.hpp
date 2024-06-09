@@ -1,7 +1,6 @@
 #pragma once
 
 #include <Arduino.h>
-#include "core/config.hpp"
 
 
 namespace mosh {
@@ -9,18 +8,26 @@ namespace hardware {
 
 /// @brief Аналоговый датчик линии
 class LineSensor {
-    const uint8_t PIN;
-    const uint16_t ON_LINE, ON_FIELD;
+
+    /// @brief Аналоговый пин датчика
+    uint8_t pin;
+
+    /// @brief значение АЦП на линии
+    uint16_t on_line = 82;
+
+    /// @brief значение АЦП на поле
+    uint16_t on_field = 909;
 
     public:
 
-    /**
-     * @brief Аналоговый датчик линии
-     * @param pin Аналоговый Пин датчика (A0-A7)
-     * @param on_line Значение АЦП с пина датчика на линии
-     * @param on_field Значение АЦП с пина датчика на поле
-     */
-    LineSensor(uint8_t pin, uint16_t on_line, uint16_t on_field);
+    /// @brief Установить пин датчика
+    /// @param pin Аналоговый Пин датчика (A0-A7)
+    LineSensor& pinout(uint8_t pin);
+
+    /// @brief
+    /// @param on_line Значение АЦП с пина датчика на линии
+    /// @param on_field Значение АЦП с пина датчика на поле
+    LineSensor& config(uint16_t on_line, uint16_t on_field);
 
     /**
      * @brief Считать значение с АЦП
@@ -40,12 +47,16 @@ class LineSensor {
      */
     int8_t operator () () const;
 
-    /**
-     * @brief Проверить логическое наличие линии
-     * @return (%) линии больше `GRAY_PERCENT`
-     */
+    /// @brief Проверить логическое наличие линии
+    /// @return значение с датчика выше порога
     bool on() const;
 };
 
 }
 } // namespace mosh
+
+/// @brief Левый датчик линии
+extern mosh::hardware::LineSensor lineL;
+
+/// @brief Правый датчик линии
+extern mosh::hardware::LineSensor lineR;

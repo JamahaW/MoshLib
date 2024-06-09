@@ -1,6 +1,7 @@
 #pragma once
 
-#include "core/enviroment.hpp"
+#include <Arduino.h>
+#include "hardware/distancesensor.hpp"
 
 
 namespace mosh {
