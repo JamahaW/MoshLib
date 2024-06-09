@@ -6,6 +6,8 @@
 #include "hardware/robotconfig.hpp"
 #include "hardware/distancesensor.hpp"
 #include "hardware/motor.hpp"
+#include "hardware/smartservo.hpp"
+
 
 // ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
 
