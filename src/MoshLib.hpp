@@ -2,12 +2,14 @@
 
 #pragma once
 
+#include "control/quit.hpp"
 #include "control/move.hpp"
 #include "hardware/robotconfig.hpp"
 #include "hardware/distancesensor.hpp"
+#include "hardware/linesensor.hpp"
 #include "hardware/motor.hpp"
 #include "hardware/smartservo.hpp"
-
+#include "util/tests.hpp"
 
 // ПРОСТОЕ ПЕРЕДВИЖЕНИЕ
 
@@ -162,23 +164,3 @@ void lineCrossP(uint8_t crosses = 1, uint8_t speed = conf.__default_speed_tick);
 /// @param distance Расстояние движения
 /// @param speed скорость ТИК
 void lineDistP(int32_t distance, uint8_t speed = conf.__default_speed_tick);
-
-
-// ТЕСТЫ
-namespace test {
-
-/**
- * @brief Измерить значения датчиков линий
- * @param ret_L возврат для левого
- * @param ret_R возврат для правого
- * @param timeout время измерения
- */
-void lines(uint16_t& ret_L, uint16_t& ret_R, uint32_t timeout = 1000);
-
-/// @brief тест функциональности моторов
-void motorsAccel();
-
-/// @brief тест функциональности моторов (ШИМ ВЕРСИЯ)
-void motorsPWM();
-
-} // namespace test
